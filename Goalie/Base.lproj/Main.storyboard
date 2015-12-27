@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Goals Table View Controller-->
@@ -38,18 +37,6 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tgR-rn-gWc" id="Vi1-Ey-6wt">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2c7-3P-dzG">
-                                            <rect key="frame" x="8" y="6" width="304" height="30"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits"/>
-                                        </textField>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="2c7-3P-dzG" firstAttribute="leading" secondItem="Vi1-Ey-6wt" secondAttribute="leadingMargin" id="Hx3-Iq-cX4"/>
-                                        <constraint firstItem="2c7-3P-dzG" firstAttribute="centerY" secondItem="Vi1-Ey-6wt" secondAttribute="centerY" id="SVa-cU-TpE"/>
-                                        <constraint firstItem="2c7-3P-dzG" firstAttribute="trailing" secondItem="Vi1-Ey-6wt" secondAttribute="trailingMargin" id="Zh1-RQ-To7"/>
-                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>

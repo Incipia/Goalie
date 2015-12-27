@@ -8,27 +8,37 @@
 
 import UIKit
 
+let _defaultHeaderHeight: CGFloat = UIScreen.mainScreen().bounds.height / 3.0
+let _minimumHeaderHeight: CGFloat = 100
+
 class GoalsTableViewController: UITableViewController
 {
    private var _goalieHeaderView: UIView!
-   private let _defaultHeaderHeight: CGFloat = UIScreen.mainScreen().bounds.height / 3.0
-   private let _maximumHeaderHeight: CGFloat = (UIScreen.mainScreen().bounds.height / 3.0) + 100
-   private let _minimumHeaderHeight: CGFloat = 100
    
+   // Mark: - Lifecycle
    override func viewDidLoad()
    {
       super.viewDidLoad()
       
+      _setupGoalieHeaderView()
+      _setupTableView()
+      _updateHeaderViewFrame()
+   }
+   
+   // Mark: - Private
+   private func _setupGoalieHeaderView()
+   {
       _goalieHeaderView = tableView.tableHeaderView
       tableView.tableHeaderView = nil
-      
-      tableView.contentInset = UIEdgeInsets(top: _defaultHeaderHeight, left: 0, bottom: 0, right: 0)
       tableView.addSubview(_goalieHeaderView)
-      
-      _updateHeaderViewFrame()
+   }
+   
+   private func _setupTableView()
+   {
+      tableView.contentInset = UIEdgeInsets(top: _defaultHeaderHeight, left: 0, bottom: 0, right: 0)
       tableView.contentOffset = CGPoint(x: 0, y: -_defaultHeaderHeight)
    }
-      
+   
    private func _updateHeaderViewFrame()
    {
       let origin = CGPoint(x: 0, y: -_defaultHeaderHeight)
@@ -40,7 +50,6 @@ class GoalsTableViewController: UITableViewController
          headerRect.size.height = -tableView.contentOffset.y
       }
       else if tableView.contentOffset.y > -_defaultHeaderHeight {
-         
          let heightSubtraction = _defaultHeaderHeight - abs(tableView.contentOffset.y)
          let newHeaderHeight = _defaultHeaderHeight - heightSubtraction
          
@@ -74,13 +83,17 @@ class GoalsTableViewController: UITableViewController
       return 20
    }
    
+   override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+      return 70
+   }
+   
    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
    {
       let cell = tableView.dequeueReusableCellWithIdentifier("GoalsTableViewCell", forIndexPath: indexPath)
       return cell
    }
    
-   // MARK: - Table view delegate
+   // MARK: - Scroll view delegate
    override func scrollViewDidScroll(scrollView: UIScrollView)
    {
       _updateHeaderViewFrame()
