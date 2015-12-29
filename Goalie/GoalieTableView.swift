@@ -9,7 +9,7 @@
 import UIKit
 
 let _defaultHeaderHeight: CGFloat = floor(UIScreen.mainScreen().bounds.height / 3.0)
-let _minimumHeaderHeight: CGFloat = 100
+let _minimumHeaderHeight: CGFloat = floor(UIScreen.mainScreen().bounds.height / 5.0)
 
 class GoalieTableView: TPKeyboardAvoidingTableView
 {
