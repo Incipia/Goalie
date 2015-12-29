@@ -14,6 +14,8 @@ protocol TasksTableViewCellDelegate: class
    func taskCellFinishedEditing(cell: TasksTableViewCell)
    func titleTextFieldShouldReturnForCell(cell: TasksTableViewCell) -> Bool
    func returnKeyTypeForCell(cell: TasksTableViewCell) -> UIReturnKeyType
+   
+   func disclosureButtonPressedForTask(task: Task)
 }
 
 class TasksTableViewCell: UITableViewCell
@@ -66,7 +68,7 @@ class TasksTableViewCell: UITableViewCell
    
    @IBAction private func _disclosureButtonPressed()
    {
-      print("disclosure button pressed")
+      delegate?.disclosureButtonPressedForTask(_task)
    }
 }
 

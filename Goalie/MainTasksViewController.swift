@@ -122,6 +122,22 @@ extension MainTasksViewController: TasksTableViewCellDelegate
       }
       return returnKeyType
    }
+   
+   func disclosureButtonPressedForTask(task: Task)
+   {
+      definesPresentationContext = true
+      
+      let controller = UIStoryboard.taskDetailsViewController()
+      controller.view.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.25)
+      controller.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
+      
+      presentViewController(controller, animated: false, completion: nil)
+   }
+   
+   @IBAction func unwindToMainViewController(sender: UIStoryboardSegue)
+   {
+      dismissViewControllerAnimated(false, completion: nil)
+   }
 }
 
 // MARK: - DataProviderDelegate

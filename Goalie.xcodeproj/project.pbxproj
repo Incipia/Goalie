@@ -38,6 +38,7 @@
 		F3DB3E0D1C3267CE0005C607 /* TPKeyboardAvoidingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = F3DB3E091C3267CE0005C607 /* TPKeyboardAvoidingTableView.m */; };
 		F3DB3E0E1C3267CE0005C607 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F3DB3E0B1C3267CE0005C607 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
 		F3DB3E101C32682A0005C607 /* ProjectEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DB3E0F1C32682A0005C607 /* ProjectEnums.swift */; };
+		F3DB3E121C3306690005C607 /* EditTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DB3E111C3306690005C607 /* EditTaskViewController.swift */; };
 		F3FB80981C320E65008C1E07 /* Task.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F3FB80961C320E65008C1E07 /* Task.xcdatamodeld */; };
 		F3FB809A1C320E86008C1E07 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FB80991C320E86008C1E07 /* Task.swift */; };
 /* End PBXBuildFile section */
@@ -80,6 +81,7 @@
 		F3DB3E0A1C3267CE0005C607 /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
 		F3DB3E0B1C3267CE0005C607 /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
 		F3DB3E0F1C32682A0005C607 /* ProjectEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProjectEnums.swift; path = Goalie/ProjectEnums.swift; sourceTree = "<group>"; };
+		F3DB3E111C3306690005C607 /* EditTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditTaskViewController.swift; path = Goalie/EditTaskViewController.swift; sourceTree = "<group>"; };
 		F3FB80971C320E65008C1E07 /* Task.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Task.xcdatamodel; sourceTree = "<group>"; };
 		F3FB80991C320E86008C1E07 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Task.swift; path = Goalie/Task.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -193,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				F3DB3E031C322DC40005C607 /* MainTasksViewController.swift */,
+				F3DB3E111C3306690005C607 /* EditTaskViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 				F383193A1C31A72D00C36ACB /* FetchedResultsDataProvider.swift in Sources */,
 				F38319301C31A72D00C36ACB /* UIImage+Extensions.swift in Sources */,
 				F383192E1C31A72D00C36ACB /* TasksDataProvider.swift in Sources */,
+				F3DB3E121C3306690005C607 /* EditTaskViewController.swift in Sources */,
 				F38319361C31A72D00C36ACB /* UIStoryboard+Extensions.swift in Sources */,
 				F3DB3E0D1C3267CE0005C607 /* TPKeyboardAvoidingTableView.m in Sources */,
 			);

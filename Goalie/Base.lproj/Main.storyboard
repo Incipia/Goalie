@@ -3,6 +3,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Main Tasks View Controller-->
@@ -37,7 +39,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="0.21960784310000001" green="0.23529411759999999" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="0.070588235294117646" green="0.64313725490196072" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstItem="bO1-3q-JIK" firstAttribute="centerY" secondItem="8fz-02-pSg" secondAttribute="centerY" id="07w-LE-ML3"/>
                                                         <constraint firstItem="bO1-3q-JIK" firstAttribute="centerX" secondItem="8fz-02-pSg" secondAttribute="centerX" id="cGk-qm-FwB"/>
@@ -146,37 +148,97 @@
             </objects>
             <point key="canvasLocation" x="537" y="138"/>
         </scene>
-        <!--View Controller-->
+        <!--Edit Task View Controller-->
         <scene sceneID="otv-96-TEA">
             <objects>
-                <viewController id="EZY-Nk-o6p" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TaskDetailsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="EZY-Nk-o6p" customClass="EditTaskViewController" customModule="Goalie" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rfU-O4-SNg"/>
                         <viewControllerLayoutGuide type="bottom" id="jzc-to-hMd"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Hp4-Py-Nfe">
-                        <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GOAL DETAILS!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="51d-kX-nMH">
-                                <rect key="frame" x="90" y="90" width="120" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oFK-D8-eOM">
+                                <rect key="frame" x="16" y="113" width="288" height="341"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="0QK-XL-YBG">
+                                    <rect key="frame" x="0.0" y="0.0" width="288" height="341"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GhU-SJ-iKm">
+                                            <rect key="frame" x="145" y="283" width="143" height="58"/>
+                                            <color key="backgroundColor" red="0.792156862745098" green="0.8666666666666667" blue="0.89411764705882346" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="58" id="GDZ-bl-t1h"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <state key="normal" title="DELETE"/>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="as6-6u-hEN">
+                                            <rect key="frame" x="228" y="15" width="60" height="60"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="as6-6u-hEN" secondAttribute="height" multiplier="1:1" id="THj-qd-jYp"/>
+                                                <constraint firstAttribute="height" constant="60" id="YXc-Hu-1DF"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                            <color key="tintColor" red="0.76262589203789044" green="0.77218981765036554" blue="0.81713620577777779" alpha="1" colorSpace="calibratedRGB"/>
+                                            <state key="normal" title="✕"/>
+                                            <connections>
+                                                <segue destination="HMw-fQ-eKr" kind="unwind" unwindAction="unwindToMainViewController:" id="Klh-HH-Mux"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KJR-xx-ki4">
+                                            <rect key="frame" x="0.0" y="283" width="143" height="58"/>
+                                            <color key="backgroundColor" red="0.792156862745098" green="0.8666666666666667" blue="0.89411764705882346" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="58" id="4qu-kd-Yqu"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <state key="normal" title="DUPLICATTE"/>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit task" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lq8-di-iwY">
+                                            <rect key="frame" x="20" y="33" width="79.5" height="24"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="KJR-xx-ki4" secondAttribute="bottom" id="2PZ-BC-8tU"/>
+                                        <constraint firstAttribute="trailing" secondItem="GhU-SJ-iKm" secondAttribute="trailing" id="391-fZ-hoW"/>
+                                        <constraint firstItem="KJR-xx-ki4" firstAttribute="leading" secondItem="0QK-XL-YBG" secondAttribute="leading" id="59o-jX-4Mw"/>
+                                        <constraint firstItem="as6-6u-hEN" firstAttribute="top" secondItem="0QK-XL-YBG" secondAttribute="top" constant="15" id="Leg-7d-hVb"/>
+                                        <constraint firstItem="GhU-SJ-iKm" firstAttribute="height" secondItem="KJR-xx-ki4" secondAttribute="height" id="O8m-pW-ili"/>
+                                        <constraint firstItem="KJR-xx-ki4" firstAttribute="width" secondItem="0QK-XL-YBG" secondAttribute="width" multiplier="0.5" constant="-1" id="UYa-In-nCT"/>
+                                        <constraint firstItem="Lq8-di-iwY" firstAttribute="centerY" secondItem="as6-6u-hEN" secondAttribute="centerY" id="aD2-Vg-YpO"/>
+                                        <constraint firstItem="GhU-SJ-iKm" firstAttribute="width" secondItem="KJR-xx-ki4" secondAttribute="width" id="b3g-cA-6kr"/>
+                                        <constraint firstAttribute="bottom" secondItem="GhU-SJ-iKm" secondAttribute="bottom" id="lJk-e2-HxV"/>
+                                        <constraint firstAttribute="trailing" secondItem="as6-6u-hEN" secondAttribute="trailing" id="qZP-jA-apT"/>
+                                        <constraint firstItem="Lq8-di-iwY" firstAttribute="leading" secondItem="0QK-XL-YBG" secondAttribute="leading" constant="20" id="xTg-aq-aca"/>
+                                    </constraints>
+                                </view>
+                                <blurEffect style="extraLight"/>
+                            </visualEffectView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.2227882179054054" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="51d-kX-nMH" firstAttribute="centerX" secondItem="Hp4-Py-Nfe" secondAttribute="centerX" id="2XB-cr-8dr"/>
-                            <constraint firstItem="51d-kX-nMH" firstAttribute="centerY" secondItem="Hp4-Py-Nfe" secondAttribute="centerY" id="MvE-h6-c1W"/>
+                            <constraint firstItem="oFK-D8-eOM" firstAttribute="height" secondItem="Hp4-Py-Nfe" secondAttribute="height" multiplier="0.6" id="BbU-tw-azU"/>
+                            <constraint firstItem="oFK-D8-eOM" firstAttribute="centerX" secondItem="Hp4-Py-Nfe" secondAttribute="centerX" id="KX6-sz-DfO"/>
+                            <constraint firstItem="oFK-D8-eOM" firstAttribute="width" secondItem="Hp4-Py-Nfe" secondAttribute="width" multiplier="0.9" id="Wn4-8h-qOj"/>
+                            <constraint firstItem="oFK-D8-eOM" firstAttribute="centerY" secondItem="Hp4-Py-Nfe" secondAttribute="centerY" id="nWD-kc-u7e"/>
                         </constraints>
                     </view>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="300" height="200"/>
+                    <connections>
+                        <outlet property="_detailsContainerView" destination="oFK-D8-eOM" id="441-ak-TUM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gyj-Is-id6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="HMw-fQ-eKr" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="905" y="138"/>
+            <point key="canvasLocation" x="940" y="138"/>
         </scene>
     </scenes>
 </document>

@@ -9,11 +9,11 @@
 import UIKit
 
 extension UIStoryboard
-{
-   static func mainTabBarController() -> UITabBarController
+{  
+   static func taskDetailsViewController() -> EditTaskViewController
    {
       let storyboard = UIStoryboard(name: "Main", bundle: nil)
-      return storyboard.instantiateViewControllerWithIdentifier("MainTabBarController") as! UITabBarController
+      return storyboard.instantiateViewControllerWithIdentifier("TaskDetailsViewController") as! EditTaskViewController
    }
    
    static func mainTasksViewController() -> MainTasksViewController
