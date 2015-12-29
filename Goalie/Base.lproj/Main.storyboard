@@ -64,15 +64,17 @@
                                                                         <constraint firstAttribute="height" constant="43" id="eOu-BQ-O7D"/>
                                                                         <constraint firstAttribute="width" constant="30" id="vpP-Nd-gbn"/>
                                                                     </constraints>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
                                                                     <color key="tintColor" red="0.66945057399999996" green="0.68421003920000001" blue="0.73390151520000002" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <state key="normal" title="+"/>
                                                                     <connections>
                                                                         <action selector="_plusButtonPressed" destination="0U4-ke-0VQ" eventType="touchUpInside" id="bmX-Oh-t3M"/>
                                                                     </connections>
                                                                 </button>
-                                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="261" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1w8-iD-MBV">
+                                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="261" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1w8-iD-MBV">
                                                                     <rect key="frame" x="115" y="26" width="172" height="17"/>
+                                                                    <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <color key="textColor" red="0.66945057399999996" green="0.68421003920000001" blue="0.73390151520000002" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <textInputTraits key="textInputTraits"/>
                                                                 </textField>
@@ -91,6 +93,7 @@
                                                             <constraint firstAttribute="trailing" secondItem="1w8-iD-MBV" secondAttribute="trailing" constant="33" id="hfc-vH-cmR"/>
                                                         </constraints>
                                                         <connections>
+                                                            <outlet property="_leftButton" destination="aNQ-9u-4An" id="XN4-jW-WfN"/>
                                                             <outlet property="_textField" destination="1w8-iD-MBV" id="XbS-aB-CWq"/>
                                                         </connections>
                                                     </tableViewCell>

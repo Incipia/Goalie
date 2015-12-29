@@ -24,6 +24,7 @@ class TasksTableViewCell: UITableViewCell
    private weak var _task: Task!
    
    @IBOutlet weak private var _textField: UITextField!
+   @IBOutlet weak private var _leftButton: UIButton!
    weak var delegate: TasksTableViewCellDelegate?
    
    var titleText: String {
@@ -66,6 +67,9 @@ extension TasksTableViewCell: UITextFieldDelegate
    {
       delegate?.taskCellBeganEditing(self)
       _textField.returnKeyType = delegate?.returnKeyTypeForCell(self) ?? .Next
+      
+      let buttonTitle = _task.title == "" ? plusButtonTitle : completedButtonTitle
+      _leftButton.setTitle(buttonTitle, forState: .Normal)
    }
    
    func textFieldDidEndEditing(textField: UITextField)
@@ -88,5 +92,8 @@ extension TasksTableViewCell: ConfigurableCell
       _task = object
       _textField.text = _task.title
       _textField.userInteractionEnabled = _task.title != ""
+      
+      let buttonTitle = _task.title == "" ? plusButtonTitle : completedButtonTitle
+      _leftButton.setTitle(buttonTitle, forState: .Normal)
    }
 }
