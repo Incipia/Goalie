@@ -7,18 +7,23 @@
 //
 
 import UIKit
+import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate
 {
    var window: UIWindow?
+   var moc: NSManagedObjectContext!
+   private var _mainTasksViewController: MainTasksViewController!
 
    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
    {
-      IQKeyboardManager.sharedManager().enable = true
-      IQKeyboardManager.sharedManager().enableAutoToolbar = false
-      IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = true
-      IQKeyboardManager.sharedManager().shouldRestoreScrollViewContentOffset = true
+      _mainTasksViewController = UIStoryboard.mainTasksViewController()
+      _mainTasksViewController.moc = createGoalieMainContext()
+      
+      window = UIWindow(frame: UIScreen.mainScreen().bounds)
+      window?.rootViewController = _mainTasksViewController
+      window?.makeKeyAndVisible()
       
       return true
    }

@@ -12,48 +12,78 @@
 		F38318D81C2F343600C36ACB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F38318D71C2F343600C36ACB /* Assets.xcassets */; };
 		F38318DB1C2F343600C36ACB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F38318D91C2F343600C36ACB /* LaunchScreen.storyboard */; };
 		F38318E31C2F4ED400C36ACB /* GoalsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38318E21C2F4ED400C36ACB /* GoalsTableViewController.swift */; };
-		F38318FB1C2F521000C36ACB /* IQNSArray+Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38318E71C2F521000C36ACB /* IQNSArray+Sort.swift */; };
-		F38318FC1C2F521000C36ACB /* IQUITextFieldView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38318E81C2F521000C36ACB /* IQUITextFieldView+Additions.swift */; };
-		F38318FD1C2F521000C36ACB /* IQUIView+Hierarchy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38318E91C2F521000C36ACB /* IQUIView+Hierarchy.swift */; };
-		F38318FE1C2F521000C36ACB /* IQUIViewController+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38318EA1C2F521000C36ACB /* IQUIViewController+Additions.swift */; };
-		F38318FF1C2F521000C36ACB /* IQUIWindow+Hierarchy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38318EB1C2F521000C36ACB /* IQUIWindow+Hierarchy.swift */; };
-		F38319001C2F521000C36ACB /* IQKeyboardManagerConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38318ED1C2F521000C36ACB /* IQKeyboardManagerConstants.swift */; };
-		F38319011C2F521000C36ACB /* IQKeyboardManagerConstantsInternal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38318EE1C2F521000C36ACB /* IQKeyboardManagerConstantsInternal.swift */; };
-		F38319021C2F521000C36ACB /* IQKeyboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38318EF1C2F521000C36ACB /* IQKeyboardManager.swift */; };
-		F38319031C2F521000C36ACB /* IQKeyboardReturnKeyHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38318F01C2F521000C36ACB /* IQKeyboardReturnKeyHandler.swift */; };
-		F38319041C2F521000C36ACB /* IQTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38318F21C2F521000C36ACB /* IQTextView.swift */; };
-		F38319051C2F521000C36ACB /* IQBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38318F41C2F521000C36ACB /* IQBarButtonItem.swift */; };
-		F38319061C2F521000C36ACB /* IQTitleBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38318F51C2F521000C36ACB /* IQTitleBarButtonItem.swift */; };
-		F38319071C2F521000C36ACB /* IQToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38318F61C2F521000C36ACB /* IQToolbar.swift */; };
-		F38319081C2F521000C36ACB /* IQUIView+IQKeyboardToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38318F71C2F521000C36ACB /* IQUIView+IQKeyboardToolbar.swift */; };
-		F38319091C2F521000C36ACB /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F38318F91C2F521000C36ACB /* Info.plist */; };
-		F383190A1C2F521000C36ACB /* IQKeyboardManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F38318FA1C2F521000C36ACB /* IQKeyboardManager.bundle */; };
+		F383190D1C319FE800C36ACB /* TasksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F383190C1C319FE800C36ACB /* TasksTableViewCell.swift */; };
+		F38319291C31A72D00C36ACB /* ManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38319111C31A72D00C36ACB /* ManagedObject.swift */; };
+		F383192A1C31A72D00C36ACB /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38319121C31A72D00C36ACB /* CoreDataStack.swift */; };
+		F383192B1C31A72D00C36ACB /* DataRelatedProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38319131C31A72D00C36ACB /* DataRelatedProtocols.swift */; };
+		F383192C1C31A72D00C36ACB /* ManagedObjectObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38319141C31A72D00C36ACB /* ManagedObjectObserver.swift */; };
+		F383192D1C31A72D00C36ACB /* DefaultTasksFetchRequestProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38319151C31A72D00C36ACB /* DefaultTasksFetchRequestProvider.swift */; };
+		F383192E1C31A72D00C36ACB /* TasksDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38319161C31A72D00C36ACB /* TasksDataProvider.swift */; };
+		F383192F1C31A72D00C36ACB /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38319171C31A72D00C36ACB /* Utilities.swift */; };
+		F38319301C31A72D00C36ACB /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38319181C31A72D00C36ACB /* UIImage+Extensions.swift */; };
+		F38319311C31A72D00C36ACB /* NSURL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38319191C31A72D00C36ACB /* NSURL+Extensions.swift */; };
+		F38319321C31A72D00C36ACB /* UINavigationBar+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F383191A1C31A72D00C36ACB /* UINavigationBar+Extensions.swift */; };
+		F38319331C31A72D00C36ACB /* NSManagedObjectContext+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F383191B1C31A72D00C36ACB /* NSManagedObjectContext+Extensions.swift */; };
+		F38319341C31A72D00C36ACB /* NSManagedObjectContext+Observers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F383191C1C31A72D00C36ACB /* NSManagedObjectContext+Observers.swift */; };
+		F38319351C31A72D00C36ACB /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F383191D1C31A72D00C36ACB /* UITableView+Extensions.swift */; };
+		F38319361C31A72D00C36ACB /* UIStoryboard+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F383191E1C31A72D00C36ACB /* UIStoryboard+Extensions.swift */; };
+		F38319371C31A72D00C36ACB /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F383191F1C31A72D00C36ACB /* UIColor+Extensions.swift */; };
+		F38319381C31A72D00C36ACB /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38319201C31A72D00C36ACB /* UIFont+Extensions.swift */; };
+		F38319391C31A72D00C36ACB /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38319211C31A72D00C36ACB /* DataProvider.swift */; };
+		F383193A1C31A72D00C36ACB /* FetchedResultsDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38319221C31A72D00C36ACB /* FetchedResultsDataProvider.swift */; };
+		F383193B1C31A72D00C36ACB /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38319231C31A72D00C36ACB /* TableViewDataSource.swift */; };
+		F383193C1C31A72D00C36ACB /* TableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38319241C31A72D00C36ACB /* TableViewDelegate.swift */; };
+		F38319441C31A9C700C36ACB /* ProjectEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38319431C31A9C700C36ACB /* ProjectEnums.swift */; };
+		F38319491C31B3CB00C36ACB /* GoalieTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38319481C31B3CB00C36ACB /* GoalieTableView.swift */; };
+		F3DB3E001C322A290005C607 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = F3DB3DFB1C322A290005C607 /* TPKeyboardAvoidingScrollView.m */; };
+		F3DB3E011C322A290005C607 /* TPKeyboardAvoidingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = F3DB3DFD1C322A290005C607 /* TPKeyboardAvoidingTableView.m */; };
+		F3DB3E021C322A290005C607 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F3DB3DFF1C322A290005C607 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
+		F3DB3E041C322DC40005C607 /* MainTasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DB3E031C322DC40005C607 /* MainTasksViewController.swift */; };
+		F3FB80981C320E65008C1E07 /* Task.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F3FB80961C320E65008C1E07 /* Task.xcdatamodeld */; };
+		F3FB809A1C320E86008C1E07 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FB80991C320E86008C1E07 /* Task.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F38318CD1C2F343600C36ACB /* Goalie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Goalie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F38318D01C2F343600C36ACB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F38318D51C2F343600C36ACB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		F38318D71C2F343600C36ACB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F38318D71C2F343600C36ACB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Goalie/Assets.xcassets; sourceTree = "<group>"; };
 		F38318DA1C2F343600C36ACB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F38318DC1C2F343600C36ACB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F38318E21C2F4ED400C36ACB /* GoalsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalsTableViewController.swift; sourceTree = "<group>"; };
-		F38318E71C2F521000C36ACB /* IQNSArray+Sort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQNSArray+Sort.swift"; sourceTree = "<group>"; };
-		F38318E81C2F521000C36ACB /* IQUITextFieldView+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQUITextFieldView+Additions.swift"; sourceTree = "<group>"; };
-		F38318E91C2F521000C36ACB /* IQUIView+Hierarchy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQUIView+Hierarchy.swift"; sourceTree = "<group>"; };
-		F38318EA1C2F521000C36ACB /* IQUIViewController+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQUIViewController+Additions.swift"; sourceTree = "<group>"; };
-		F38318EB1C2F521000C36ACB /* IQUIWindow+Hierarchy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQUIWindow+Hierarchy.swift"; sourceTree = "<group>"; };
-		F38318ED1C2F521000C36ACB /* IQKeyboardManagerConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IQKeyboardManagerConstants.swift; sourceTree = "<group>"; };
-		F38318EE1C2F521000C36ACB /* IQKeyboardManagerConstantsInternal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IQKeyboardManagerConstantsInternal.swift; sourceTree = "<group>"; };
-		F38318EF1C2F521000C36ACB /* IQKeyboardManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IQKeyboardManager.swift; sourceTree = "<group>"; };
-		F38318F01C2F521000C36ACB /* IQKeyboardReturnKeyHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IQKeyboardReturnKeyHandler.swift; sourceTree = "<group>"; };
-		F38318F21C2F521000C36ACB /* IQTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IQTextView.swift; sourceTree = "<group>"; };
-		F38318F41C2F521000C36ACB /* IQBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IQBarButtonItem.swift; sourceTree = "<group>"; };
-		F38318F51C2F521000C36ACB /* IQTitleBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IQTitleBarButtonItem.swift; sourceTree = "<group>"; };
-		F38318F61C2F521000C36ACB /* IQToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IQToolbar.swift; sourceTree = "<group>"; };
-		F38318F71C2F521000C36ACB /* IQUIView+IQKeyboardToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQUIView+IQKeyboardToolbar.swift"; sourceTree = "<group>"; };
-		F38318F91C2F521000C36ACB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F38318FA1C2F521000C36ACB /* IQKeyboardManager.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = IQKeyboardManager.bundle; sourceTree = "<group>"; };
+		F38318E21C2F4ED400C36ACB /* GoalsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoalsTableViewController.swift; path = Goalie/GoalsTableViewController.swift; sourceTree = "<group>"; };
+		F383190C1C319FE800C36ACB /* TasksTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TasksTableViewCell.swift; path = Goalie/TasksTableViewCell.swift; sourceTree = "<group>"; };
+		F38319111C31A72D00C36ACB /* ManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManagedObject.swift; path = Goalie/ManagedObject.swift; sourceTree = "<group>"; };
+		F38319121C31A72D00C36ACB /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataStack.swift; path = Goalie/CoreDataStack.swift; sourceTree = "<group>"; };
+		F38319131C31A72D00C36ACB /* DataRelatedProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataRelatedProtocols.swift; path = Goalie/DataRelatedProtocols.swift; sourceTree = "<group>"; };
+		F38319141C31A72D00C36ACB /* ManagedObjectObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManagedObjectObserver.swift; path = Goalie/ManagedObjectObserver.swift; sourceTree = "<group>"; };
+		F38319151C31A72D00C36ACB /* DefaultTasksFetchRequestProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DefaultTasksFetchRequestProvider.swift; path = Goalie/DefaultTasksFetchRequestProvider.swift; sourceTree = "<group>"; };
+		F38319161C31A72D00C36ACB /* TasksDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TasksDataProvider.swift; path = Goalie/TasksDataProvider.swift; sourceTree = "<group>"; };
+		F38319171C31A72D00C36ACB /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utilities.swift; path = Goalie/Utilities.swift; sourceTree = "<group>"; };
+		F38319181C31A72D00C36ACB /* UIImage+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImage+Extensions.swift"; path = "Goalie/UIImage+Extensions.swift"; sourceTree = "<group>"; };
+		F38319191C31A72D00C36ACB /* NSURL+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSURL+Extensions.swift"; path = "Goalie/NSURL+Extensions.swift"; sourceTree = "<group>"; };
+		F383191A1C31A72D00C36ACB /* UINavigationBar+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UINavigationBar+Extensions.swift"; path = "Goalie/UINavigationBar+Extensions.swift"; sourceTree = "<group>"; };
+		F383191B1C31A72D00C36ACB /* NSManagedObjectContext+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSManagedObjectContext+Extensions.swift"; path = "Goalie/NSManagedObjectContext+Extensions.swift"; sourceTree = "<group>"; };
+		F383191C1C31A72D00C36ACB /* NSManagedObjectContext+Observers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSManagedObjectContext+Observers.swift"; path = "Goalie/NSManagedObjectContext+Observers.swift"; sourceTree = "<group>"; };
+		F383191D1C31A72D00C36ACB /* UITableView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UITableView+Extensions.swift"; path = "Goalie/UITableView+Extensions.swift"; sourceTree = "<group>"; };
+		F383191E1C31A72D00C36ACB /* UIStoryboard+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIStoryboard+Extensions.swift"; path = "Goalie/UIStoryboard+Extensions.swift"; sourceTree = "<group>"; };
+		F383191F1C31A72D00C36ACB /* UIColor+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+Extensions.swift"; path = "Goalie/UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		F38319201C31A72D00C36ACB /* UIFont+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIFont+Extensions.swift"; path = "Goalie/UIFont+Extensions.swift"; sourceTree = "<group>"; };
+		F38319211C31A72D00C36ACB /* DataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataProvider.swift; path = Goalie/DataProvider.swift; sourceTree = "<group>"; };
+		F38319221C31A72D00C36ACB /* FetchedResultsDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FetchedResultsDataProvider.swift; path = Goalie/FetchedResultsDataProvider.swift; sourceTree = "<group>"; };
+		F38319231C31A72D00C36ACB /* TableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewDataSource.swift; path = Goalie/TableViewDataSource.swift; sourceTree = "<group>"; };
+		F38319241C31A72D00C36ACB /* TableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewDelegate.swift; path = Goalie/TableViewDelegate.swift; sourceTree = "<group>"; };
+		F38319431C31A9C700C36ACB /* ProjectEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectEnums.swift; sourceTree = "<group>"; };
+		F38319481C31B3CB00C36ACB /* GoalieTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoalieTableView.swift; path = Goalie/GoalieTableView.swift; sourceTree = "<group>"; };
+		F3DB3DCA1C3221AF0005C607 /* Goalie-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Goalie-Bridging-Header.h"; sourceTree = "<group>"; };
+		F3DB3DFA1C322A290005C607 /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
+		F3DB3DFB1C322A290005C607 /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
+		F3DB3DFC1C322A290005C607 /* TPKeyboardAvoidingTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingTableView.h; sourceTree = "<group>"; };
+		F3DB3DFD1C322A290005C607 /* TPKeyboardAvoidingTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingTableView.m; sourceTree = "<group>"; };
+		F3DB3DFE1C322A290005C607 /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
+		F3DB3DFF1C322A290005C607 /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
+		F3DB3E031C322DC40005C607 /* MainTasksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainTasksViewController.swift; path = Goalie/MainTasksViewController.swift; sourceTree = "<group>"; };
+		F3FB80971C320E65008C1E07 /* Task.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Task.xcdatamodel; sourceTree = "<group>"; };
+		F3FB80991C320E86008C1E07 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Task.swift; path = Goalie/Task.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,9 +100,16 @@
 		F38318C41C2F343600C36ACB = {
 			isa = PBXGroup;
 			children = (
-				F38318E41C2F520600C36ACB /* External Frameworks */,
-				F38318CF1C2F343600C36ACB /* Goalie */,
+				F383193F1C31A74900C36ACB /* Core Data */,
+				F38319461C31AB3300C36ACB /* Custom Cells */,
+				F38319421C31A9C000C36ACB /* Enums */,
+				F38319401C31A76400C36ACB /* Extensions */,
+				F383190E1C31A58A00C36ACB /* External Frameworks */,
+				F38319411C31A77E00C36ACB /* Generic Delegate/DataSource */,
+				F38319471C31AB4100C36ACB /* Interface */,
+				F38318CF1C2F343600C36ACB /* Other */,
 				F38318CE1C2F343600C36ACB /* Products */,
+				F38319451C31AB2700C36ACB /* View Controllers */,
 			);
 			sourceTree = "<group>";
 		};
@@ -84,88 +121,107 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F38318CF1C2F343600C36ACB /* Goalie */ = {
+		F38318CF1C2F343600C36ACB /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				F38318E21C2F4ED400C36ACB /* GoalsTableViewController.swift */,
 				F38318D01C2F343600C36ACB /* AppDelegate.swift */,
-				F38318D41C2F343600C36ACB /* Main.storyboard */,
-				F38318D71C2F343600C36ACB /* Assets.xcassets */,
-				F38318D91C2F343600C36ACB /* LaunchScreen.storyboard */,
 				F38318DC1C2F343600C36ACB /* Info.plist */,
 			);
+			name = Other;
 			path = Goalie;
 			sourceTree = "<group>";
 		};
-		F38318E41C2F520600C36ACB /* External Frameworks */ = {
+		F383190E1C31A58A00C36ACB /* External Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F38318E51C2F521000C36ACB /* IQKeyboardManagerSwift */,
+				F3DB3DFA1C322A290005C607 /* TPKeyboardAvoidingScrollView.h */,
+				F3DB3DFB1C322A290005C607 /* TPKeyboardAvoidingScrollView.m */,
+				F3DB3DFC1C322A290005C607 /* TPKeyboardAvoidingTableView.h */,
+				F3DB3DFD1C322A290005C607 /* TPKeyboardAvoidingTableView.m */,
+				F3DB3DFE1C322A290005C607 /* UIScrollView+TPKeyboardAvoidingAdditions.h */,
+				F3DB3DFF1C322A290005C607 /* UIScrollView+TPKeyboardAvoidingAdditions.m */,
+				F3DB3DCA1C3221AF0005C607 /* Goalie-Bridging-Header.h */,
 			);
 			name = "External Frameworks";
 			sourceTree = "<group>";
 		};
-		F38318E51C2F521000C36ACB /* IQKeyboardManagerSwift */ = {
+		F383193F1C31A74900C36ACB /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
-				F38318E61C2F521000C36ACB /* Categories */,
-				F38318EC1C2F521000C36ACB /* Constants */,
-				F38318EF1C2F521000C36ACB /* IQKeyboardManager.swift */,
-				F38318F01C2F521000C36ACB /* IQKeyboardReturnKeyHandler.swift */,
-				F38318F11C2F521000C36ACB /* IQTextView */,
-				F38318F31C2F521000C36ACB /* IQToolbar */,
-				F38318F81C2F521000C36ACB /* Resources */,
+				F38319111C31A72D00C36ACB /* ManagedObject.swift */,
+				F38319121C31A72D00C36ACB /* CoreDataStack.swift */,
+				F38319131C31A72D00C36ACB /* DataRelatedProtocols.swift */,
+				F38319141C31A72D00C36ACB /* ManagedObjectObserver.swift */,
+				F38319151C31A72D00C36ACB /* DefaultTasksFetchRequestProvider.swift */,
+				F38319161C31A72D00C36ACB /* TasksDataProvider.swift */,
+				F3FB80961C320E65008C1E07 /* Task.xcdatamodeld */,
+				F3FB80991C320E86008C1E07 /* Task.swift */,
 			);
-			path = IQKeyboardManagerSwift;
+			name = "Core Data";
 			sourceTree = "<group>";
 		};
-		F38318E61C2F521000C36ACB /* Categories */ = {
+		F38319401C31A76400C36ACB /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				F38318E71C2F521000C36ACB /* IQNSArray+Sort.swift */,
-				F38318E81C2F521000C36ACB /* IQUITextFieldView+Additions.swift */,
-				F38318E91C2F521000C36ACB /* IQUIView+Hierarchy.swift */,
-				F38318EA1C2F521000C36ACB /* IQUIViewController+Additions.swift */,
-				F38318EB1C2F521000C36ACB /* IQUIWindow+Hierarchy.swift */,
+				F38319171C31A72D00C36ACB /* Utilities.swift */,
+				F38319181C31A72D00C36ACB /* UIImage+Extensions.swift */,
+				F38319191C31A72D00C36ACB /* NSURL+Extensions.swift */,
+				F383191A1C31A72D00C36ACB /* UINavigationBar+Extensions.swift */,
+				F383191B1C31A72D00C36ACB /* NSManagedObjectContext+Extensions.swift */,
+				F383191C1C31A72D00C36ACB /* NSManagedObjectContext+Observers.swift */,
+				F383191D1C31A72D00C36ACB /* UITableView+Extensions.swift */,
+				F383191E1C31A72D00C36ACB /* UIStoryboard+Extensions.swift */,
+				F383191F1C31A72D00C36ACB /* UIColor+Extensions.swift */,
+				F38319201C31A72D00C36ACB /* UIFont+Extensions.swift */,
 			);
-			path = Categories;
+			name = Extensions;
 			sourceTree = "<group>";
 		};
-		F38318EC1C2F521000C36ACB /* Constants */ = {
+		F38319411C31A77E00C36ACB /* Generic Delegate/DataSource */ = {
 			isa = PBXGroup;
 			children = (
-				F38318ED1C2F521000C36ACB /* IQKeyboardManagerConstants.swift */,
-				F38318EE1C2F521000C36ACB /* IQKeyboardManagerConstantsInternal.swift */,
+				F38319211C31A72D00C36ACB /* DataProvider.swift */,
+				F38319221C31A72D00C36ACB /* FetchedResultsDataProvider.swift */,
+				F38319231C31A72D00C36ACB /* TableViewDataSource.swift */,
+				F38319241C31A72D00C36ACB /* TableViewDelegate.swift */,
 			);
-			path = Constants;
+			name = "Generic Delegate/DataSource";
 			sourceTree = "<group>";
 		};
-		F38318F11C2F521000C36ACB /* IQTextView */ = {
+		F38319421C31A9C000C36ACB /* Enums */ = {
 			isa = PBXGroup;
 			children = (
-				F38318F21C2F521000C36ACB /* IQTextView.swift */,
+				F38319431C31A9C700C36ACB /* ProjectEnums.swift */,
 			);
-			path = IQTextView;
+			name = Enums;
 			sourceTree = "<group>";
 		};
-		F38318F31C2F521000C36ACB /* IQToolbar */ = {
+		F38319451C31AB2700C36ACB /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				F38318F41C2F521000C36ACB /* IQBarButtonItem.swift */,
-				F38318F51C2F521000C36ACB /* IQTitleBarButtonItem.swift */,
-				F38318F61C2F521000C36ACB /* IQToolbar.swift */,
-				F38318F71C2F521000C36ACB /* IQUIView+IQKeyboardToolbar.swift */,
+				F38318E21C2F4ED400C36ACB /* GoalsTableViewController.swift */,
+				F3DB3E031C322DC40005C607 /* MainTasksViewController.swift */,
 			);
-			path = IQToolbar;
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
-		F38318F81C2F521000C36ACB /* Resources */ = {
+		F38319461C31AB3300C36ACB /* Custom Cells */ = {
 			isa = PBXGroup;
 			children = (
-				F38318F91C2F521000C36ACB /* Info.plist */,
-				F38318FA1C2F521000C36ACB /* IQKeyboardManager.bundle */,
+				F383190C1C319FE800C36ACB /* TasksTableViewCell.swift */,
 			);
-			path = Resources;
+			name = "Custom Cells";
+			sourceTree = "<group>";
+		};
+		F38319471C31AB4100C36ACB /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				F38318D71C2F343600C36ACB /* Assets.xcassets */,
+				F38318D91C2F343600C36ACB /* LaunchScreen.storyboard */,
+				F38318D41C2F343600C36ACB /* Main.storyboard */,
+				F38319481C31B3CB00C36ACB /* GoalieTableView.swift */,
+			);
+			name = Interface;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,8 +282,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F383190A1C2F521000C36ACB /* IQKeyboardManager.bundle in Resources */,
-				F38319091C2F521000C36ACB /* Info.plist in Resources */,
 				F38318DB1C2F343600C36ACB /* LaunchScreen.storyboard in Resources */,
 				F38318D81C2F343600C36ACB /* Assets.xcassets in Resources */,
 				F38318D61C2F343600C36ACB /* Main.storyboard in Resources */,
@@ -241,22 +295,37 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F38318FE1C2F521000C36ACB /* IQUIViewController+Additions.swift in Sources */,
+				F3FB809A1C320E86008C1E07 /* Task.swift in Sources */,
+				F3FB80981C320E65008C1E07 /* Task.xcdatamodeld in Sources */,
+				F383193C1C31A72D00C36ACB /* TableViewDelegate.swift in Sources */,
+				F383192A1C31A72D00C36ACB /* CoreDataStack.swift in Sources */,
+				F383190D1C319FE800C36ACB /* TasksTableViewCell.swift in Sources */,
+				F38319311C31A72D00C36ACB /* NSURL+Extensions.swift in Sources */,
 				F38318E31C2F4ED400C36ACB /* GoalsTableViewController.swift in Sources */,
-				F38319031C2F521000C36ACB /* IQKeyboardReturnKeyHandler.swift in Sources */,
-				F38319011C2F521000C36ACB /* IQKeyboardManagerConstantsInternal.swift in Sources */,
+				F38319291C31A72D00C36ACB /* ManagedObject.swift in Sources */,
+				F383192D1C31A72D00C36ACB /* DefaultTasksFetchRequestProvider.swift in Sources */,
 				F38318D11C2F343600C36ACB /* AppDelegate.swift in Sources */,
-				F38319041C2F521000C36ACB /* IQTextView.swift in Sources */,
-				F38318FC1C2F521000C36ACB /* IQUITextFieldView+Additions.swift in Sources */,
-				F38319001C2F521000C36ACB /* IQKeyboardManagerConstants.swift in Sources */,
-				F38319071C2F521000C36ACB /* IQToolbar.swift in Sources */,
-				F38319021C2F521000C36ACB /* IQKeyboardManager.swift in Sources */,
-				F38319051C2F521000C36ACB /* IQBarButtonItem.swift in Sources */,
-				F38318FD1C2F521000C36ACB /* IQUIView+Hierarchy.swift in Sources */,
-				F38318FB1C2F521000C36ACB /* IQNSArray+Sort.swift in Sources */,
-				F38318FF1C2F521000C36ACB /* IQUIWindow+Hierarchy.swift in Sources */,
-				F38319081C2F521000C36ACB /* IQUIView+IQKeyboardToolbar.swift in Sources */,
-				F38319061C2F521000C36ACB /* IQTitleBarButtonItem.swift in Sources */,
+				F38319331C31A72D00C36ACB /* NSManagedObjectContext+Extensions.swift in Sources */,
+				F383192F1C31A72D00C36ACB /* Utilities.swift in Sources */,
+				F38319351C31A72D00C36ACB /* UITableView+Extensions.swift in Sources */,
+				F3DB3E041C322DC40005C607 /* MainTasksViewController.swift in Sources */,
+				F383192C1C31A72D00C36ACB /* ManagedObjectObserver.swift in Sources */,
+				F38319371C31A72D00C36ACB /* UIColor+Extensions.swift in Sources */,
+				F383192B1C31A72D00C36ACB /* DataRelatedProtocols.swift in Sources */,
+				F38319381C31A72D00C36ACB /* UIFont+Extensions.swift in Sources */,
+				F38319491C31B3CB00C36ACB /* GoalieTableView.swift in Sources */,
+				F38319321C31A72D00C36ACB /* UINavigationBar+Extensions.swift in Sources */,
+				F3DB3E021C322A290005C607 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
+				F38319391C31A72D00C36ACB /* DataProvider.swift in Sources */,
+				F38319341C31A72D00C36ACB /* NSManagedObjectContext+Observers.swift in Sources */,
+				F3DB3E001C322A290005C607 /* TPKeyboardAvoidingScrollView.m in Sources */,
+				F383193B1C31A72D00C36ACB /* TableViewDataSource.swift in Sources */,
+				F383193A1C31A72D00C36ACB /* FetchedResultsDataProvider.swift in Sources */,
+				F38319441C31A9C700C36ACB /* ProjectEnums.swift in Sources */,
+				F38319301C31A72D00C36ACB /* UIImage+Extensions.swift in Sources */,
+				F383192E1C31A72D00C36ACB /* TasksDataProvider.swift in Sources */,
+				F38319361C31A72D00C36ACB /* UIStoryboard+Extensions.swift in Sources */,
+				F3DB3E011C322A290005C607 /* TPKeyboardAvoidingTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +338,7 @@
 				F38318D51C2F343600C36ACB /* Base */,
 			);
 			name = Main.storyboard;
+			path = Goalie;
 			sourceTree = "<group>";
 		};
 		F38318D91C2F343600C36ACB /* LaunchScreen.storyboard */ = {
@@ -277,6 +347,7 @@
 				F38318DA1C2F343600C36ACB /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = Goalie;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -367,10 +438,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Goalie/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.incipia.Goalie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Goalie-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -378,10 +452,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Goalie/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.incipia.Goalie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Goalie-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -404,8 +480,23 @@
 				F38318E11C2F343600C36ACB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F3FB80961C320E65008C1E07 /* Task.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F3FB80971C320E65008C1E07 /* Task.xcdatamodel */,
+			);
+			currentVersion = F3FB80971C320E65008C1E07 /* Task.xcdatamodel */;
+			name = Task.xcdatamodeld;
+			path = Goalie/Task.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = F38318C51C2F343600C36ACB /* Project object */;
 }

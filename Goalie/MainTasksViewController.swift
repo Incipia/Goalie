@@ -1,25 +1,24 @@
 //
-//  TasksTableViewController.swift
+//  MainTasksViewController.swift
 //  Goalie
 //
-//  Created by Gregory Klein on 12/26/15.
+//  Created by Gregory Klein on 12/28/15.
 //  Copyright © 2015 Incipia. All rights reserved.
 //
 
 import UIKit
 import CoreData
 
-class TasksTableViewController: UITableViewController, ManagedObjectContextSettable
+class MainTasksViewController: UIViewController, ManagedObjectContextSettable
 {
-   var moc: NSManagedObjectContext!
-   private var _goalieTableView: GoalieTableView {
-      return tableView as! GoalieTableView
-   }
    
-   private typealias DataProvider = FetchedResultsDataProvider<TasksTableViewController>
-   private var _tableViewDataSource: TableViewDataSource<TasksTableViewController, DataProvider, TasksTableViewCell>!
+   var moc: NSManagedObjectContext!
+   @IBOutlet private weak var _goalieTableView: GoalieTableView!
+   
+   private typealias DataProvider = FetchedResultsDataProvider<MainTasksViewController>
+   private var _tableViewDataSource: TableViewDataSource<MainTasksViewController, DataProvider, TasksTableViewCell>!
    private var _dataProvider: DataProvider!
-   private var _tableViewDelegate: TableViewDelegate<DataProvider, TasksTableViewController>!
+   private var _tableViewDelegate: TableViewDelegate<DataProvider, MainTasksViewController>!
    
    private var _defaultFRC: NSFetchedResultsController {
       return NSFetchedResultsController(fetchRequest: DefaultTasksFetchRequestProvider.fetchRequest, managedObjectContext: moc, sectionNameKeyPath: nil, cacheName: nil)
@@ -49,7 +48,6 @@ class TasksTableViewController: UITableViewController, ManagedObjectContextSetta
    
    override func viewWillAppear(animated: Bool)
    {
-      _goalieTableView.updateHeaderViewFrame()
       _goalieTableView.reloadData()
       
       if !_emptyTaskAtBottom {
@@ -66,14 +64,14 @@ class TasksTableViewController: UITableViewController, ManagedObjectContextSetta
    private func _setupTableViewDataSourceAndDelegate()
    {
       _dataProvider = FetchedResultsDataProvider(fetchedResultsController: _defaultFRC, delegate: self)
-      _tableViewDataSource = TableViewDataSource(tableView: tableView, dataProvider: _dataProvider, delegate: self)
+      _tableViewDataSource = TableViewDataSource(tableView: _goalieTableView, dataProvider: _dataProvider, delegate: self)
       _tableViewDataSource.allowEditingLast = false
       
-      _tableViewDelegate = TableViewDelegate(tableView: tableView, dataProvider: _dataProvider, delegate: self)
-      _tableViewDelegate.didScrollBlock = { scrollView -> Void in
+      _tableViewDelegate = TableViewDelegate(tableView: _goalieTableView, dataProvider: _dataProvider, delegate: self)
+      _tableViewDelegate.useAutomaticRowHeight = false
+      _tableViewDelegate.didScrollBlock = { (scrollView: UIScrollView) in
          self._tableViewDidScroll(scrollView)
       }
-      _tableViewDelegate.useAutomaticRowHeight = false
    }
    
    private func _tableViewDidScroll(scrollView: UIScrollView)
@@ -81,7 +79,7 @@ class TasksTableViewController: UITableViewController, ManagedObjectContextSetta
       if scrollView.contentOffset.y < -_defaultHeaderHeight {
          scrollView.contentOffset = CGPoint(x: 0, y: -_defaultHeaderHeight)
       }
-//      _goalieTableView.updateHeaderViewFrame()
+      _goalieTableView.updateHeaderViewFrame()
    }
    
    private func _taskCellForIndexPath(indexPath: NSIndexPath) -> TasksTableViewCell?
@@ -96,7 +94,7 @@ class TasksTableViewController: UITableViewController, ManagedObjectContextSetta
       }
       else {
          // Try one more time:
-         _goalieTableView.scrollByPoints(45)
+         _goalieTableView.scrollByPoints(1)
          if let nextSubgoalCell = _taskCellForIndexPath(indexPath.next) {
             nextSubgoalCell.startEditing()
          } else {
@@ -106,7 +104,7 @@ class TasksTableViewController: UITableViewController, ManagedObjectContextSetta
    }
 }
 
-extension TasksTableViewController: TasksTableViewCellDelegate
+extension MainTasksViewController: TasksTableViewCellDelegate
 {
    func taskCellBeganEditing(cell: TasksTableViewCell)
    {
@@ -152,19 +150,19 @@ extension TasksTableViewController: TasksTableViewCellDelegate
       var returnKeyType: UIReturnKeyType = .Next
       if let cellIndexPath = _goalieTableView.indexPathForCell(cell) where
          _goalieTableView.indexPathIsLast(cellIndexPath) {
-         returnKeyType = .Default
+            returnKeyType = .Default
       }
       return returnKeyType
    }
 }
 
 // MARK: - DataProviderDelegate
-extension TasksTableViewController: DataProviderDelegate
+extension MainTasksViewController: DataProviderDelegate
 {
    func dataProviderDidUpdate(updates: [DataProviderUpdate<Task>]?)
    {
       _tableViewDataSource.processUpdates(updates) {
-//         self._goalieTableView.updateHeaderViewFrameAnimated()
+         self._goalieTableView.updateHeaderViewFrameAnimated()
       }
       
       if _shouldGiveNextCreatedCellFocus {
@@ -180,7 +178,7 @@ extension TasksTableViewController: DataProviderDelegate
                }
                else {
                   // Try one more time
-                  _goalieTableView.scrollByPoints(45)
+                  _goalieTableView.scrollByPoints(1)
                   if let newSubgoalCell = _taskCellForIndexPath(indexPath) where
                      _goalieTableView.indexPathIsLast(indexPath) {
                         newSubgoalCell.startEditing()
@@ -195,14 +193,14 @@ extension TasksTableViewController: DataProviderDelegate
             }
          }
       }
-
+      
    }
 }
 
 // MARK: - DataSourceDelegate
-extension TasksTableViewController: DataSourceDelegate
+extension MainTasksViewController: DataSourceDelegate
 {
-   func cellIdentifierForObject(object: Object) -> String
+   func cellIdentifierForObject(object: Task) -> String
    {
       return "TasksTableViewCell"
    }
@@ -214,7 +212,7 @@ extension TasksTableViewController: DataSourceDelegate
 }
 
 // MARK: - TableViewDelegateProtocol
-extension TasksTableViewController: TableViewDelegateProtocol
+extension MainTasksViewController: TableViewDelegateProtocol
 {
    func objectSelected(goal: Task)
    {
