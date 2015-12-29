@@ -64,4 +64,9 @@ extension Task: ManagedObjectType
          completion?()
       })
    }
+   
+   public func save()
+   {
+      managedObjectContext?.saveOrRollback()
+   }
 }
