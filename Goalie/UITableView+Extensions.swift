@@ -75,13 +75,12 @@ extension UITableView
       }
    }
    
-   func scrollToBottomWithDuration(duration: Double, alongsideAnimation animation: (() -> ())?, completion: ((finished: Bool) -> ())?)
+   func scrollToBottomWithDuration(duration: Double, completion: ((finished: Bool) -> ())?)
    {
       UIView.animateWithDuration(duration, animations: { () -> Void in
          
          if let ip = self.lastIndexPath {
             self.scrollToRowAtIndexPath(ip, atScrollPosition: UITableViewScrollPosition.Bottom, animated: false)
-            animation?()
          }
          }, completion: completion)
    }

@@ -141,9 +141,7 @@ extension MainTasksViewController: DataProviderDelegate
          }) { () -> () in
             if self._shouldGiveNextCreatedCellFocus {
                self._shouldGiveNextCreatedCellFocus = false
-               self._goalieTableView.scrollToBottomWithDuration(0.2, alongsideAnimation: { () -> () in
-                  self._goalieTableView.updateHeaderViewFrameAnimated()
-                  }, completion: { (finished) -> () in
+               self._goalieTableView.scrollToBottomWithDuration(0.2, completion: { (finished) -> () in
                      
                      guard let updates = updates else { return }
                      for update in updates {

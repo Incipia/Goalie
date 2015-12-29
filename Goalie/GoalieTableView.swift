@@ -43,9 +43,8 @@ class GoalieTableView: TPKeyboardAvoidingTableView
       let headerHeight = _headerHeightForContentOffset(contentOffset)
       let size = CGSize(width: bounds.width, height: headerHeight)
       _goalieHeaderView.frame = CGRect(origin: CGPoint.zero, size: size)
+      _goalieHeaderView.layoutIfNeeded()
    }
-   
-   
    
    func taskCellForIndexPath(indexPath: NSIndexPath) -> TasksTableViewCell?
    {
@@ -56,7 +55,6 @@ class GoalieTableView: TPKeyboardAvoidingTableView
    {
       UIView.animateWithDuration(0.25, delay: 0, options: .CurveEaseOut, animations: { () -> Void in
          self._updateHeaderViewFrame()
-         self._goalieHeaderView.layoutIfNeeded()
          }, completion: nil)
    }
    
