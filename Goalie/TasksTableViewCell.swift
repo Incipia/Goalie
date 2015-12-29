@@ -28,6 +28,7 @@ class TasksTableViewCell: UITableViewCell
    
    @IBOutlet weak private var _textField: UITextField!
    @IBOutlet weak private var _leftButton: UIButton!
+   @IBOutlet weak private var _leftBar: UIView!
    @IBOutlet weak private var _disclosureButton: UIButton!
    
    weak var delegate: TasksTableViewCellDelegate?
@@ -133,6 +134,8 @@ extension TasksTableViewCell: ConfigurableCell
       _textField.alpha = alpha
       _leftButton.alpha = alpha
       _disclosureButton.alpha = alpha
+      
+      _leftBar.backgroundColor = UIColor(priority: _task.priority)
    }
 }
 

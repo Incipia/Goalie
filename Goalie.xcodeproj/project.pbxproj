@@ -39,6 +39,9 @@
 		F3DB3E0E1C3267CE0005C607 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F3DB3E0B1C3267CE0005C607 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
 		F3DB3E101C32682A0005C607 /* ProjectEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DB3E0F1C32682A0005C607 /* ProjectEnums.swift */; };
 		F3DB3E121C3306690005C607 /* EditTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DB3E111C3306690005C607 /* EditTaskViewController.swift */; };
+		F3DB3E231C331B690005C607 /* JVFloatLabeledTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = F3DB3E1E1C331B690005C607 /* JVFloatLabeledTextField.m */; };
+		F3DB3E241C331B690005C607 /* JVFloatLabeledTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = F3DB3E201C331B690005C607 /* JVFloatLabeledTextView.m */; };
+		F3DB3E251C331B690005C607 /* NSString+TextDirectionality.m in Sources */ = {isa = PBXBuildFile; fileRef = F3DB3E221C331B690005C607 /* NSString+TextDirectionality.m */; };
 		F3FB80981C320E65008C1E07 /* Task.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F3FB80961C320E65008C1E07 /* Task.xcdatamodeld */; };
 		F3FB809A1C320E86008C1E07 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FB80991C320E86008C1E07 /* Task.swift */; };
 /* End PBXBuildFile section */
@@ -82,6 +85,12 @@
 		F3DB3E0B1C3267CE0005C607 /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
 		F3DB3E0F1C32682A0005C607 /* ProjectEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProjectEnums.swift; path = Goalie/ProjectEnums.swift; sourceTree = "<group>"; };
 		F3DB3E111C3306690005C607 /* EditTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditTaskViewController.swift; path = Goalie/EditTaskViewController.swift; sourceTree = "<group>"; };
+		F3DB3E1D1C331B690005C607 /* JVFloatLabeledTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JVFloatLabeledTextField.h; path = JVFloatingLabel/JVFloatLabeledTextField.h; sourceTree = "<group>"; };
+		F3DB3E1E1C331B690005C607 /* JVFloatLabeledTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JVFloatLabeledTextField.m; path = JVFloatingLabel/JVFloatLabeledTextField.m; sourceTree = "<group>"; };
+		F3DB3E1F1C331B690005C607 /* JVFloatLabeledTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JVFloatLabeledTextView.h; path = JVFloatingLabel/JVFloatLabeledTextView.h; sourceTree = "<group>"; };
+		F3DB3E201C331B690005C607 /* JVFloatLabeledTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JVFloatLabeledTextView.m; path = JVFloatingLabel/JVFloatLabeledTextView.m; sourceTree = "<group>"; };
+		F3DB3E211C331B690005C607 /* NSString+TextDirectionality.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+TextDirectionality.h"; path = "JVFloatingLabel/NSString+TextDirectionality.h"; sourceTree = "<group>"; };
+		F3DB3E221C331B690005C607 /* NSString+TextDirectionality.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+TextDirectionality.m"; path = "JVFloatingLabel/NSString+TextDirectionality.m"; sourceTree = "<group>"; };
 		F3FB80971C320E65008C1E07 /* Task.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Task.xcdatamodel; sourceTree = "<group>"; };
 		F3FB80991C320E86008C1E07 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Task.swift; path = Goalie/Task.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -134,6 +143,7 @@
 		F383190E1C31A58A00C36ACB /* External Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F3DB3E1C1C331A870005C607 /* JVFloatingLabel */,
 				F3DB3E051C3267CE0005C607 /* TPKeyboardAvoiding */,
 				F3DB3DCA1C3221AF0005C607 /* Goalie-Bridging-Header.h */,
 			);
@@ -232,6 +242,19 @@
 			path = TPKeyboardAvoiding;
 			sourceTree = "<group>";
 		};
+		F3DB3E1C1C331A870005C607 /* JVFloatingLabel */ = {
+			isa = PBXGroup;
+			children = (
+				F3DB3E1D1C331B690005C607 /* JVFloatLabeledTextField.h */,
+				F3DB3E1E1C331B690005C607 /* JVFloatLabeledTextField.m */,
+				F3DB3E1F1C331B690005C607 /* JVFloatLabeledTextView.h */,
+				F3DB3E201C331B690005C607 /* JVFloatLabeledTextView.m */,
+				F3DB3E211C331B690005C607 /* NSString+TextDirectionality.h */,
+				F3DB3E221C331B690005C607 /* NSString+TextDirectionality.m */,
+			);
+			name = JVFloatingLabel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -311,10 +334,12 @@
 				F38319311C31A72D00C36ACB /* NSURL+Extensions.swift in Sources */,
 				F38319291C31A72D00C36ACB /* ManagedObject.swift in Sources */,
 				F383192D1C31A72D00C36ACB /* DefaultTasksFetchRequestProvider.swift in Sources */,
+				F3DB3E251C331B690005C607 /* NSString+TextDirectionality.m in Sources */,
 				F38318D11C2F343600C36ACB /* AppDelegate.swift in Sources */,
 				F38319331C31A72D00C36ACB /* NSManagedObjectContext+Extensions.swift in Sources */,
 				F383192F1C31A72D00C36ACB /* Utilities.swift in Sources */,
 				F38319351C31A72D00C36ACB /* UITableView+Extensions.swift in Sources */,
+				F3DB3E241C331B690005C607 /* JVFloatLabeledTextView.m in Sources */,
 				F3DB3E041C322DC40005C607 /* MainTasksViewController.swift in Sources */,
 				F383192C1C31A72D00C36ACB /* ManagedObjectObserver.swift in Sources */,
 				F38319371C31A72D00C36ACB /* UIColor+Extensions.swift in Sources */,
@@ -331,6 +356,7 @@
 				F383193A1C31A72D00C36ACB /* FetchedResultsDataProvider.swift in Sources */,
 				F38319301C31A72D00C36ACB /* UIImage+Extensions.swift in Sources */,
 				F383192E1C31A72D00C36ACB /* TasksDataProvider.swift in Sources */,
+				F3DB3E231C331B690005C607 /* JVFloatLabeledTextField.m in Sources */,
 				F3DB3E121C3306690005C607 /* EditTaskViewController.swift in Sources */,
 				F38319361C31A72D00C36ACB /* UIStoryboard+Extensions.swift in Sources */,
 				F3DB3E0D1C3267CE0005C607 /* TPKeyboardAvoidingTableView.m in Sources */,
