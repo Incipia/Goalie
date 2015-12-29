@@ -31,6 +31,11 @@ class GoalieTableView: TPKeyboardAvoidingTableView
    {
       super.layoutSubviews()
       _updateHeaderViewFrame()
+      
+      // prevent scrolling past bottom
+      if contentOffset.y < -_defaultHeaderHeight {
+         contentOffset = CGPoint(x: 0, y: -_defaultHeaderHeight)
+      }
    }
    
    private func _updateHeaderViewFrame()

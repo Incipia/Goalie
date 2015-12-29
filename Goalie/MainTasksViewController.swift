@@ -13,6 +13,7 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
 {
    var moc: NSManagedObjectContext!
    @IBOutlet private weak var _goalieTableView: GoalieTableView!
+   private var _shouldGiveNextCreatedCellFocus = false
    
    private typealias DataProvider = FetchedResultsDataProvider<MainTasksViewController>
    private var _tableViewDataSource: TableViewDataSource<MainTasksViewController, DataProvider, TasksTableViewCell>!
@@ -20,11 +21,11 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
    private var _tableViewDelegate: TableViewDelegate<DataProvider, MainTasksViewController>!
    
    private var _defaultFRC: NSFetchedResultsController {
-      return NSFetchedResultsController(fetchRequest: DefaultTasksFetchRequestProvider.fetchRequest, managedObjectContext: moc, sectionNameKeyPath: nil, cacheName: nil)
+      return NSFetchedResultsController(fetchRequest: DefaultTasksFetchRequestProvider.fetchRequest,
+         managedObjectContext: moc,
+         sectionNameKeyPath: nil,
+         cacheName: nil)
    }
-   
-   private var _shouldGiveNextCreatedCellFocus = false
-   private var _currentTaskCell: TasksTableViewCell?
    
    // Mark: - Lifecycle
    override func viewDidLoad()
@@ -65,14 +66,7 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
       _dataProvider = FetchedResultsDataProvider(fetchedResultsController: _defaultFRC, delegate: self)
       _tableViewDataSource = TableViewDataSource(tableView: _goalieTableView, dataProvider: _dataProvider, delegate: self)
       _tableViewDataSource.allowEditingLast = false
-      
       _tableViewDelegate = TableViewDelegate(tableView: _goalieTableView, dataProvider: _dataProvider, delegate: self)
-      _tableViewDelegate.didScrollBlock = { (scrollView: UIScrollView) in
-         // prevent from scrolling past bottom
-         if scrollView.contentOffset.y < -_defaultHeaderHeight {
-            scrollView.contentOffset = CGPoint(x: 0, y: -_defaultHeaderHeight)
-         }
-      }
    }
    
    private func _advanceCellFocusFromIndexPath(indexPath: NSIndexPath)
@@ -87,14 +81,12 @@ extension MainTasksViewController: TasksTableViewCellDelegate
 {
    func taskCellBeganEditing(cell: TasksTableViewCell)
    {
-      _currentTaskCell = cell
    }
    
    func taskCellFinishedEditing(cell: TasksTableViewCell)
    {
       moc.saveOrRollback()
       _createEmptyTaskIfNecessary()
-      _currentTaskCell = nil
    }
    
    // These next two methods are so fucking messy.  They produce the exact behavior that Nico wants though...
@@ -145,7 +137,7 @@ extension MainTasksViewController: DataProviderDelegate
          if self._shouldGiveNextCreatedCellFocus {
             self._goalieTableView.scrollToBottom()
          }
-         
+         // completion
          }) { () -> () in
             if self._shouldGiveNextCreatedCellFocus {
                self._shouldGiveNextCreatedCellFocus = false
