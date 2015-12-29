@@ -63,6 +63,7 @@ class TableViewDataSource<Delegate: DataSourceDelegate, Data: DataProviderProtoc
             self._tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
          }
       }
+      
       self._tableView.endUpdates()
       animationBlock?()
       

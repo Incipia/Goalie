@@ -26,18 +26,6 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
    private var _shouldGiveNextCreatedCellFocus = false
    private var _currentTaskCell: TasksTableViewCell?
    
-   private var _emptyTaskAtBottom: Bool {
-      var emptyTaskAtBottom = true
-      if let lastIndexPath = _goalieTableView.lastIndexPath {
-         let task = _dataProvider.objectAtIndexPath(lastIndexPath)
-         emptyTaskAtBottom = task.title == ""
-      }
-      else if _goalieTableView.numberOfRowsInSection(0) == 0 {
-         emptyTaskAtBottom = false
-      }
-      return emptyTaskAtBottom
-   }
-   
    // Mark: - Lifecycle
    override func viewDidLoad()
    {
@@ -48,10 +36,7 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
    override func viewWillAppear(animated: Bool)
    {
       _goalieTableView.reloadData()
-      
-      if !_emptyTaskAtBottom {
-         Task.insertIntoContext(moc, title: "")
-      }
+      _createEmptyTaskIfNecessary()
    }
    
    override func preferredStatusBarStyle() -> UIStatusBarStyle
@@ -60,6 +45,21 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
    }
    
    // Mark: - Private
+   private func _createEmptyTaskIfNecessary()
+   {
+      var emptyTaskAtBottom = true
+      if let lastIndexPath = _goalieTableView.lastIndexPath {
+         let task = _dataProvider.objectAtIndexPath(lastIndexPath)
+         emptyTaskAtBottom = task.title == ""
+      }
+      else if _goalieTableView.numberOfRowsInSection(0) == 0 {
+         emptyTaskAtBottom = false
+      }
+      if !emptyTaskAtBottom {
+         Task.insertIntoContext(moc, title: "")
+      }
+   }
+   
    private func _setupTableViewDataSourceAndDelegate()
    {
       _dataProvider = FetchedResultsDataProvider(fetchedResultsController: _defaultFRC, delegate: self)
@@ -93,10 +93,7 @@ extension MainTasksViewController: TasksTableViewCellDelegate
    func taskCellFinishedEditing(cell: TasksTableViewCell)
    {
       moc.saveOrRollback()
-      
-      if !_emptyTaskAtBottom {
-         Task.insertIntoContext(moc, title: "")
-      }
+      _createEmptyTaskIfNecessary()
       _currentTaskCell = nil
    }
    
@@ -140,14 +137,17 @@ extension MainTasksViewController: DataProviderDelegate
 {
    // This is embarrassing.  Basically, all this messy code is here to deal with the keybaord being
    // in the way when a new task is created at the bottom by pressing the return key.  This code will
-   // wait for the new cell to be created, then it'll scroll to it, and then it'll give it focus
+   // scroll to the new cell as it's created, and then it'll give it focus.  I know it looks crazy
    func dataProviderDidUpdate(updates: [DataProviderUpdate<Task>]?)
    {
       _tableViewDataSource.processUpdates(updates, animationBlock: { () -> Void in
          self._goalieTableView.updateHeaderViewFrameAnimated()
+         if self._shouldGiveNextCreatedCellFocus {
+            self._goalieTableView.scrollToBottom()
+         }
+         
          }) { () -> () in
-            if self._shouldGiveNextCreatedCellFocus
-            {
+            if self._shouldGiveNextCreatedCellFocus {
                self._shouldGiveNextCreatedCellFocus = false
                self._goalieTableView.scrollToBottomWithDuration(0.2, alongsideAnimation: { () -> () in
                   self._goalieTableView.updateHeaderViewFrameAnimated()
