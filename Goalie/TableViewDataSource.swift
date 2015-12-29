@@ -35,11 +35,14 @@ class TableViewDataSource<Delegate: DataSourceDelegate, Data: DataProviderProtoc
       tableView.reloadData()
    }
    
-   func processUpdates(updates: [DataProviderUpdate<Data.Object>]?, animationBlock: (Void -> Void)?)
+   func processUpdates(updates: [DataProviderUpdate<Data.Object>]?, animationBlock: (Void -> Void)?, completion: (() -> ())?)
    {
       guard let updates = updates else { return _tableView.reloadData() }
       
       CATransaction.begin()
+      CATransaction.setCompletionBlock { () -> Void in
+         completion?()
+      }
       
       self._tableView.beginUpdates()
       for update in updates

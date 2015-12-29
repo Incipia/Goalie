@@ -67,38 +67,18 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
       _tableViewDataSource.allowEditingLast = false
       
       _tableViewDelegate = TableViewDelegate(tableView: _goalieTableView, dataProvider: _dataProvider, delegate: self)
-      _tableViewDelegate.useAutomaticRowHeight = false
       _tableViewDelegate.didScrollBlock = { (scrollView: UIScrollView) in
-         self._tableViewDidScroll(scrollView)
+         // prevent from scrolling past bottom
+         if scrollView.contentOffset.y < -_defaultHeaderHeight {
+            scrollView.contentOffset = CGPoint(x: 0, y: -_defaultHeaderHeight)
+         }
       }
-   }
-   
-   private func _tableViewDidScroll(scrollView: UIScrollView)
-   {
-      if scrollView.contentOffset.y < -_defaultHeaderHeight {
-         scrollView.contentOffset = CGPoint(x: 0, y: -_defaultHeaderHeight)
-      }
-      _goalieTableView.updateHeaderViewFrame()
-   }
-   
-   private func _taskCellForIndexPath(indexPath: NSIndexPath) -> TasksTableViewCell?
-   {
-      return _goalieTableView.cellForRowAtIndexPath(indexPath) as? TasksTableViewCell
    }
    
    private func _advanceCellFocusFromIndexPath(indexPath: NSIndexPath)
    {
-      if let nextSubgoalCell = _taskCellForIndexPath(indexPath.next) {
+      if let nextSubgoalCell = _goalieTableView.taskCellForIndexPath(indexPath.next) {
          nextSubgoalCell.startEditing()
-      }
-      else {
-         // Try one more time:
-         _goalieTableView.scrollByPoints(1)
-         if let nextSubgoalCell = _taskCellForIndexPath(indexPath.next) {
-            nextSubgoalCell.startEditing()
-         } else {
-            _currentTaskCell?.stopEditing()
-         }
       }
    }
 }
@@ -158,41 +138,37 @@ extension MainTasksViewController: TasksTableViewCellDelegate
 // MARK: - DataProviderDelegate
 extension MainTasksViewController: DataProviderDelegate
 {
+   // This is embarrassing.  Basically, all this messy code is here to deal with the keybaord being
+   // in the way when a new task is created at the bottom by pressing the return key.  This code will
+   // wait for the new cell to be created, then it'll scroll to it, and then it'll give it focus
    func dataProviderDidUpdate(updates: [DataProviderUpdate<Task>]?)
    {
-      _tableViewDataSource.processUpdates(updates) {
+      _tableViewDataSource.processUpdates(updates, animationBlock: { () -> Void in
          self._goalieTableView.updateHeaderViewFrameAnimated()
-      }
-      
-      if _shouldGiveNextCreatedCellFocus {
-         _shouldGiveNextCreatedCellFocus = false
-         guard let updates = updates else { return }
-         for update in updates {
-            switch update {
-            case .Insert(let indexPath):
-               if let newSubgoalCell = _taskCellForIndexPath(indexPath) where
-                  _goalieTableView.indexPathIsLast(indexPath) {
-                     newSubgoalCell.startEditing()
-                     return
-               }
-               else {
-                  // Try one more time
-                  _goalieTableView.scrollByPoints(1)
-                  if let newSubgoalCell = _taskCellForIndexPath(indexPath) where
-                     _goalieTableView.indexPathIsLast(indexPath) {
-                        newSubgoalCell.startEditing()
-                        return
-                  }
-                  else {
-                     _currentTaskCell?.stopEditing()
-                  }
-               }
-            default:
-               return
+         }) { () -> () in
+            if self._shouldGiveNextCreatedCellFocus
+            {
+               self._shouldGiveNextCreatedCellFocus = false
+               self._goalieTableView.scrollToBottomWithDuration(0.2, alongsideAnimation: { () -> () in
+                  self._goalieTableView.updateHeaderViewFrameAnimated()
+                  }, completion: { (finished) -> () in
+                     
+                     guard let updates = updates else { return }
+                     for update in updates {
+                        switch update {
+                        case .Insert(let indexPath):
+                           if let newSubgoalCell = self._goalieTableView.taskCellForIndexPath(indexPath) where
+                              self._goalieTableView.indexPathIsLast(indexPath) {
+                                 newSubgoalCell.startEditing()
+                                 return
+                           }
+                        default:
+                           return
+                        }
+                     }
+               })
             }
-         }
       }
-      
    }
 }
 

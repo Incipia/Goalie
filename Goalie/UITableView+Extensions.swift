@@ -68,15 +68,21 @@ extension UITableView
       self.contentOffset = CGPoint(x: offset.x, y: offset.y + points)
    }
    
-   func scrollToBottomWithDuraiton(duration: Double, completion: ((finished: Bool) -> ())?)
+   func scrollToBottom()
    {
-      var yOffset: CGFloat = 0
-      if contentSize.height > bounds.size.height {
-         yOffset = contentSize.height - bounds.size.height
+      if let ip = lastIndexPath {
+         scrollToRowAtIndexPath(ip, atScrollPosition: .Bottom, animated: true)
       }
-      
+   }
+   
+   func scrollToBottomWithDuration(duration: Double, alongsideAnimation animation: (() -> ())?, completion: ((finished: Bool) -> ())?)
+   {
       UIView.animateWithDuration(duration, animations: { () -> Void in
-         self.contentOffset = CGPoint(x: 0, y: yOffset)
+         
+         if let ip = self.lastIndexPath {
+            self.scrollToRowAtIndexPath(ip, atScrollPosition: UITableViewScrollPosition.Bottom, animated: false)
+            animation?()
+         }
          }, completion: completion)
    }
 }

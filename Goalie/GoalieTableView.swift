@@ -11,7 +11,7 @@ import UIKit
 let _defaultHeaderHeight: CGFloat = floor(UIScreen.mainScreen().bounds.height / 3.0)
 let _minimumHeaderHeight: CGFloat = 100
 
-class GoalieTableView: UITableView
+class GoalieTableView: TPKeyboardAvoidingTableView
 {
    private var _goalieHeaderView: UIView!
    
@@ -30,20 +30,27 @@ class GoalieTableView: UITableView
    override func layoutSubviews()
    {
       super.layoutSubviews()
-      updateHeaderViewFrame()
+      _updateHeaderViewFrame()
    }
    
-   func updateHeaderViewFrame()
+   private func _updateHeaderViewFrame()
    {
       let headerHeight = _headerHeightForContentOffset(contentOffset)
       let size = CGSize(width: bounds.width, height: headerHeight)
       _goalieHeaderView.frame = CGRect(origin: CGPoint.zero, size: size)
    }
    
+   
+   
+   func taskCellForIndexPath(indexPath: NSIndexPath) -> TasksTableViewCell?
+   {
+      return cellForRowAtIndexPath(indexPath) as? TasksTableViewCell
+   }
+   
    func updateHeaderViewFrameAnimated()
    {
       UIView.animateWithDuration(0.25, delay: 0, options: .CurveEaseOut, animations: { () -> Void in
-         self.updateHeaderViewFrame()
+         self._updateHeaderViewFrame()
          self._goalieHeaderView.layoutIfNeeded()
          }, completion: nil)
    }

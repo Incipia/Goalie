@@ -17,7 +17,7 @@ class TableViewDelegate<Data: DataProviderProtocol, Delegate: TableViewDelegateP
    
    private var _deleteIndexPath: NSIndexPath?
    
-   var useAutomaticRowHeight = true
+   var useAutomaticRowHeight = false
    var editActions: [UITableViewRowAction]?
    var didScrollBlock: ((scrollView: UIScrollView) -> Void)?
    
