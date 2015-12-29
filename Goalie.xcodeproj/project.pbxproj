@@ -11,7 +11,6 @@
 		F38318D61C2F343600C36ACB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F38318D41C2F343600C36ACB /* Main.storyboard */; };
 		F38318D81C2F343600C36ACB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F38318D71C2F343600C36ACB /* Assets.xcassets */; };
 		F38318DB1C2F343600C36ACB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F38318D91C2F343600C36ACB /* LaunchScreen.storyboard */; };
-		F38318E31C2F4ED400C36ACB /* GoalsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38318E21C2F4ED400C36ACB /* GoalsTableViewController.swift */; };
 		F383190D1C319FE800C36ACB /* TasksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F383190C1C319FE800C36ACB /* TasksTableViewCell.swift */; };
 		F38319291C31A72D00C36ACB /* ManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38319111C31A72D00C36ACB /* ManagedObject.swift */; };
 		F383192A1C31A72D00C36ACB /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38319121C31A72D00C36ACB /* CoreDataStack.swift */; };
@@ -50,7 +49,6 @@
 		F38318D71C2F343600C36ACB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Goalie/Assets.xcassets; sourceTree = "<group>"; };
 		F38318DA1C2F343600C36ACB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F38318DC1C2F343600C36ACB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F38318E21C2F4ED400C36ACB /* GoalsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoalsTableViewController.swift; path = Goalie/GoalsTableViewController.swift; sourceTree = "<group>"; };
 		F383190C1C319FE800C36ACB /* TasksTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TasksTableViewCell.swift; path = Goalie/TasksTableViewCell.swift; sourceTree = "<group>"; };
 		F38319111C31A72D00C36ACB /* ManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManagedObject.swift; path = Goalie/ManagedObject.swift; sourceTree = "<group>"; };
 		F38319121C31A72D00C36ACB /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataStack.swift; path = Goalie/CoreDataStack.swift; sourceTree = "<group>"; };
@@ -199,7 +197,6 @@
 		F38319451C31AB2700C36ACB /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				F38318E21C2F4ED400C36ACB /* GoalsTableViewController.swift */,
 				F3DB3E031C322DC40005C607 /* MainTasksViewController.swift */,
 			);
 			name = "View Controllers";
@@ -301,7 +298,6 @@
 				F383192A1C31A72D00C36ACB /* CoreDataStack.swift in Sources */,
 				F383190D1C319FE800C36ACB /* TasksTableViewCell.swift in Sources */,
 				F38319311C31A72D00C36ACB /* NSURL+Extensions.swift in Sources */,
-				F38318E31C2F4ED400C36ACB /* GoalsTableViewController.swift in Sources */,
 				F38319291C31A72D00C36ACB /* ManagedObject.swift in Sources */,
 				F383192D1C31A72D00C36ACB /* DefaultTasksFetchRequestProvider.swift in Sources */,
 				F38318D11C2F343600C36ACB /* AppDelegate.swift in Sources */,

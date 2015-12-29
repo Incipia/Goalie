@@ -11,7 +11,6 @@ import CoreData
 
 class MainTasksViewController: UIViewController, ManagedObjectContextSettable
 {
-   
    var moc: NSManagedObjectContext!
    @IBOutlet private weak var _goalieTableView: GoalieTableView!
    
