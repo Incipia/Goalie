@@ -26,6 +26,7 @@ private func _rgbValuesForPriority(priority: TaskPriority) -> (r: CGFloat, g: CG
       values = (255, 80, 100)
       break
    }
+   values = (values.r/255.0, values.g/255.0, values.b/255.0)
    return values
 }
 
@@ -34,56 +35,12 @@ extension UIColor
    convenience init(priority: TaskPriority)
    {
       let values = _rgbValuesForPriority(priority)
-      self.init(r: values.r, g: values.b, b: values.b)
+      let color = UIColor(colorLiteralRed: Float(values.r), green: Float(values.g), blue: Float(values.b), alpha: 1)
+      self.init(CGColor: color.CGColor)
    }
    
    private convenience init(r: CGFloat, g: CGFloat, b: CGFloat)
    {
       self.init(red: r/255.0, green: g/255.0, blue: b/255.0, alpha: 1)
-   }
-   
-   static func mainTabBarColor() -> UIColor
-   {
-      return UIColor(r: 39, g: 44, b: 67)
-   }
-   
-   static func mainNavBarColor() -> UIColor
-   {
-      return UIColor(r: 39, g: 44, b: 67)
-   }
-   
-   static func lightBlueTextColor() -> UIColor
-   {
-      return UIColor(r: 109, g: 202, b: 203)
-   }
-   
-   static func lightPurpleTextColor() -> UIColor
-   {
-      return UIColor(r: 124, g: 124, b: 163)
-   }
-   
-   static func lightPurpleBackgroundColor() -> UIColor
-   {
-      return UIColor(r: 59, g: 63, b: 90)
-   }
-   
-   static func todayTomorrowTableBackgroundColor() -> UIColor
-   {
-      return UIColor(r: 59, g: 63, b: 90)
-   }
-   
-   static func mainBackgroundColor() -> UIColor
-   {
-      return UIColor(r: 46, g: 49, b: 79)
-   }
-   
-   static func darkCellAlternateColor() -> UIColor
-   {
-      return UIColor(r: 45, g: 49, b: 78)
-   }
-   
-   static func lightCellAlternateColor() -> UIColor
-   {
-      return UIColor(r: 55, g: 57, b: 86)
    }
 }

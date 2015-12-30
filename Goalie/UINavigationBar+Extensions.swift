@@ -17,7 +17,7 @@ extension UINavigationBar
       set {
          let barButtonItemAttrs = [
             NSFontAttributeName : UIFont.mediumGoalieFontWithSize(16),
-            NSForegroundColorAttributeName : UIColor.lightBlueTextColor()
+            NSForegroundColorAttributeName : UIColor.whiteColor()
          ]
          newValue?.setTitleTextAttributes(barButtonItemAttrs, forState: .Normal)
          self.items?.first?.leftBarButtonItem = newValue

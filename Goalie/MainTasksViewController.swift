@@ -27,6 +27,8 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
          cacheName: nil)
    }
    
+   private var _currentTaskCell: TasksTableViewCell?
+   
    // Mark: - Lifecycle
    override func viewDidLoad()
    {
@@ -75,16 +77,32 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
          nextSubgoalCell.startEditing()
       }
    }
+   
+   private func _presentDetailsForTask(task: Task)
+   {
+      definesPresentationContext = true
+      
+      let controller = UIStoryboard.taskDetailsViewController()
+      controller.moc = moc
+      controller.configureWithTask(task)
+      
+      controller.view.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.25)
+      controller.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
+      
+      presentViewController(controller, animated: false, completion: nil)
+   }
 }
 
 extension MainTasksViewController: TasksTableViewCellDelegate
 {
    func taskCellBeganEditing(cell: TasksTableViewCell)
    {
+      _currentTaskCell = cell
    }
    
    func taskCellFinishedEditing(cell: TasksTableViewCell)
    {
+      _currentTaskCell = nil
       moc.saveOrRollback()
       _createEmptyTaskIfNecessary()
    }
@@ -125,18 +143,15 @@ extension MainTasksViewController: TasksTableViewCellDelegate
    
    func disclosureButtonPressedForTask(task: Task)
    {
-      definesPresentationContext = true
-      
-      let controller = UIStoryboard.taskDetailsViewController()
-      controller.view.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.25)
-      controller.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
-      
-      presentViewController(controller, animated: false, completion: nil)
+      _currentTaskCell?.stopEditing()
+      _presentDetailsForTask(task)
    }
    
-   @IBAction func unwindToMainViewController(sender: UIStoryboardSegue)
+   func completeButtonPressedForTask(task: Task)
    {
-      dismissViewControllerAnimated(false, completion: nil)
+      task.completed = !task.completed
+      task.save()
+      _currentTaskCell?.stopEditing()
    }
 }
 

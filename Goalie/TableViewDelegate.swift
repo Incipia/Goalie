@@ -46,7 +46,7 @@ class TableViewDelegate<Data: DataProviderProtocol, Delegate: TableViewDelegateP
       }
       
       let defaultHeight = _delegate.heightForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0))
-      let patternImage = UIImage.patternImageForFrames(rowFrames, width: _tableView.bounds.width, firstColor: UIColor.lightCellAlternateColor(), secondColor: UIColor.darkCellAlternateColor(), extraRows: 10, defaultHeight: defaultHeight)
+      let patternImage = UIImage.patternImageForFrames(rowFrames, width: _tableView.bounds.width, firstColor: UIColor.redColor(), secondColor: UIColor.blueColor(), extraRows: 10, defaultHeight: defaultHeight)
       _tableView.backgroundColor = UIColor(patternImage: patternImage)
    }
    

@@ -32,6 +32,14 @@ public final class Task: ManagedObject
       return task
    }
    
+   public static func insertIntoContext(moc: NSManagedObjectContext, title: String, priority: TaskPriority) -> Task
+   {
+      let task: Task = moc.insertObject()
+      task.title = title
+      task.priority = priority
+      return task
+   }
+   
    public override func awakeFromInsert()
    {
       title = ""
@@ -47,7 +55,7 @@ extension Task: ManagedObjectType
    }
    
    public static var defaultSortDescriptors: [NSSortDescriptor] {
-      return [NSSortDescriptor(key: "creationDate", ascending: true)]
+      return [NSSortDescriptor(key: "priorityValue", ascending: true), NSSortDescriptor(key: "creationDate", ascending: true)]
    }
    
    public func delete()
@@ -68,5 +76,13 @@ extension Task: ManagedObjectType
    public func save()
    {
       managedObjectContext?.saveOrRollback()
+   }
+   
+   public func copyTaskWithContext(context: NSManagedObjectContext)
+   {
+      context.performChanges({ () -> () in
+         let newTitle = "\(self.title) copy"
+         Task.insertIntoContext(context, title: newTitle, priority: self.priority)
+      })
    }
 }

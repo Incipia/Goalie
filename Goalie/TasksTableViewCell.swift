@@ -16,6 +16,7 @@ protocol TasksTableViewCellDelegate: class
    func returnKeyTypeForCell(cell: TasksTableViewCell) -> UIReturnKeyType
    
    func disclosureButtonPressedForTask(task: Task)
+   func completeButtonPressedForTask(task: Task)
 }
 
 class TasksTableViewCell: UITableViewCell
@@ -24,6 +25,7 @@ class TasksTableViewCell: UITableViewCell
    private let _completedButtonTitle = "◉"
    private let _plusButtonTitle = "+"
    
+   private var _keyboardIsShowing = false
    private weak var _task: Task!
    
    @IBOutlet weak private var _textField: UITextField!
@@ -63,13 +65,16 @@ class TasksTableViewCell: UITableViewCell
    
    internal func _completeButtonPressed()
    {
-      _task.completed = !_task.completed
-      _task.save()
+      if !editing {
+         delegate?.completeButtonPressedForTask(_task)
+      }
    }
    
    @IBAction private func _disclosureButtonPressed()
    {
-      delegate?.disclosureButtonPressedForTask(_task)
+      if !editing {
+         delegate?.disclosureButtonPressedForTask(_task)
+      }
    }
 }
 
@@ -82,6 +87,7 @@ extension TasksTableViewCell: UITextFieldDelegate
    
    func textFieldDidBeginEditing(textField: UITextField)
    {
+      _keyboardIsShowing = true
       delegate?.taskCellBeganEditing(self)
       _textField.returnKeyType = delegate?.returnKeyTypeForCell(self) ?? .Next
       
@@ -96,6 +102,7 @@ extension TasksTableViewCell: UITextFieldDelegate
       _disclosureButton.hidden = false
       
       delegate?.taskCellFinishedEditing(self)
+      _keyboardIsShowing = false
    }
    
    func textFieldShouldReturn(textField: UITextField) -> Bool
@@ -134,6 +141,7 @@ extension TasksTableViewCell: ConfigurableCell
       _textField.alpha = alpha
       _leftButton.alpha = alpha
       _disclosureButton.alpha = alpha
+      _leftBar.alpha = alpha
       
       _leftBar.backgroundColor = UIColor(priority: _task.priority)
    }
