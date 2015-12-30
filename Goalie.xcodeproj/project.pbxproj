@@ -42,6 +42,8 @@
 		F3DB3E231C331B690005C607 /* JVFloatLabeledTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = F3DB3E1E1C331B690005C607 /* JVFloatLabeledTextField.m */; };
 		F3DB3E241C331B690005C607 /* JVFloatLabeledTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = F3DB3E201C331B690005C607 /* JVFloatLabeledTextView.m */; };
 		F3DB3E251C331B690005C607 /* NSString+TextDirectionality.m in Sources */ = {isa = PBXBuildFile; fileRef = F3DB3E221C331B690005C607 /* NSString+TextDirectionality.m */; };
+		F3DB3E291C33612A0005C607 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3DB3E271C33612A0005C607 /* Fabric.framework */; };
+		F3DB3E2A1C33612A0005C607 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3DB3E281C33612A0005C607 /* Crashlytics.framework */; };
 		F3FB80981C320E65008C1E07 /* Task.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F3FB80961C320E65008C1E07 /* Task.xcdatamodeld */; };
 		F3FB809A1C320E86008C1E07 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FB80991C320E86008C1E07 /* Task.swift */; };
 /* End PBXBuildFile section */
@@ -91,6 +93,8 @@
 		F3DB3E201C331B690005C607 /* JVFloatLabeledTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JVFloatLabeledTextView.m; path = JVFloatingLabel/JVFloatLabeledTextView.m; sourceTree = "<group>"; };
 		F3DB3E211C331B690005C607 /* NSString+TextDirectionality.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+TextDirectionality.h"; path = "JVFloatingLabel/NSString+TextDirectionality.h"; sourceTree = "<group>"; };
 		F3DB3E221C331B690005C607 /* NSString+TextDirectionality.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+TextDirectionality.m"; path = "JVFloatingLabel/NSString+TextDirectionality.m"; sourceTree = "<group>"; };
+		F3DB3E271C33612A0005C607 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		F3DB3E281C33612A0005C607 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		F3FB80971C320E65008C1E07 /* Task.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Task.xcdatamodel; sourceTree = "<group>"; };
 		F3FB80991C320E86008C1E07 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Task.swift; path = Goalie/Task.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -100,6 +104,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3DB3E2A1C33612A0005C607 /* Crashlytics.framework in Frameworks */,
+				F3DB3E291C33612A0005C607 /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,6 +149,8 @@
 		F383190E1C31A58A00C36ACB /* External Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F3DB3E271C33612A0005C607 /* Fabric.framework */,
+				F3DB3E281C33612A0005C607 /* Crashlytics.framework */,
 				F3DB3E1C1C331A870005C607 /* JVFloatingLabel */,
 				F3DB3E051C3267CE0005C607 /* TPKeyboardAvoiding */,
 				F3DB3DCA1C3221AF0005C607 /* Goalie-Bridging-Header.h */,
@@ -265,6 +273,7 @@
 				F38318C91C2F343600C36ACB /* Sources */,
 				F38318CA1C2F343600C36ACB /* Frameworks */,
 				F38318CB1C2F343600C36ACB /* Resources */,
+				F3DB3E261C3361170005C607 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -287,6 +296,7 @@
 				TargetAttributes = {
 					F38318CC1C2F343600C36ACB = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 49BYD5B64K;
 					};
 				};
 			};
@@ -320,6 +330,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F3DB3E261C3361170005C607 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run f8adb97359f3be505eb37f857a45751f47fd970d 407866616ca285468c6460521feef426e433f90b9fb69faf01009c146bb9da62";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F38318C91C2F343600C36ACB /* Sources */ = {
@@ -473,10 +499,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Goalie/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.incipia.Goalie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "9d0ccd64-9702-4ad7-a544-e285b2069cbd";
 				SWIFT_OBJC_BRIDGING_HEADER = "Goalie-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -487,10 +520,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Goalie/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.incipia.Goalie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "9d0ccd64-9702-4ad7-a544-e285b2069cbd";
 				SWIFT_OBJC_BRIDGING_HEADER = "Goalie-Bridging-Header.h";
 			};
 			name = Release;

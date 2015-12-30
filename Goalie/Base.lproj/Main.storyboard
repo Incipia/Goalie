@@ -32,17 +32,18 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="300"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Goalie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bO1-3q-JIK">
-                                                            <rect key="frame" x="135.5" y="138" width="49.5" height="24"/>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="20"/>
-                                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GregGoalie" translatesAutoresizingMaskIntoConstraints="NO" id="k25-qe-qdb">
+                                                            <rect key="frame" x="108" y="97" width="105" height="105"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="k25-qe-qdb" secondAttribute="height" id="NLI-Wq-l9h"/>
+                                                            </constraints>
+                                                        </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.070588235289999995" green="0.64313725489999995" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                                     <constraints>
-                                                        <constraint firstItem="bO1-3q-JIK" firstAttribute="centerY" secondItem="8fz-02-pSg" secondAttribute="centerY" id="07w-LE-ML3"/>
-                                                        <constraint firstItem="bO1-3q-JIK" firstAttribute="centerX" secondItem="8fz-02-pSg" secondAttribute="centerX" id="cGk-qm-FwB"/>
+                                                        <constraint firstItem="k25-qe-qdb" firstAttribute="centerY" secondItem="8fz-02-pSg" secondAttribute="centerY" id="58F-O6-fmp"/>
+                                                        <constraint firstItem="k25-qe-qdb" firstAttribute="height" secondItem="8fz-02-pSg" secondAttribute="height" multiplier="0.35" id="7LA-AM-4Oh"/>
+                                                        <constraint firstItem="k25-qe-qdb" firstAttribute="centerX" secondItem="8fz-02-pSg" secondAttribute="centerX" id="nWQ-JT-yHR"/>
                                                     </constraints>
                                                 </view>
                                                 <prototypes>
@@ -112,6 +113,9 @@
                                                         </connections>
                                                     </tableViewCell>
                                                 </prototypes>
+                                                <connections>
+                                                    <outlet property="goalieImageView" destination="k25-qe-qdb" id="huD-Aj-Afp"/>
+                                                </connections>
                                             </tableView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -443,4 +447,7 @@
             <point key="canvasLocation" x="939.5" y="137.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="GregGoalie" width="569" height="683"/>
+    </resources>
 </document>

@@ -14,6 +14,7 @@ let _minimumHeaderHeight: CGFloat = floor(UIScreen.mainScreen().bounds.height / 
 class GoalieTableView: TPKeyboardAvoidingTableView
 {
    private var _goalieHeaderView: UIView!
+   @IBOutlet private weak var goalieImageView: UIImageView!
    
    override func awakeFromNib()
    {
