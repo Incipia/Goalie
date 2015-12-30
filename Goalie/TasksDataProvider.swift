@@ -54,6 +54,53 @@ public class TasksDataProvider: NSObject, NSFetchedResultsControllerDelegate
       }
       return isFirst
    }
+   
+   func averagePriority() -> TaskPriority?
+   {
+      var priorityDict: [TaskPriority : Int] = [.Ages: 0, .Later : 0, .Soon : 0, .ASAP: 0]
+      
+      if let tasks = tasksFRC.fetchedObjects as? [Task] {
+         for task in tasks {
+            if task.title != "" {
+               switch task.priority {
+               case .Ages: priorityDict[.Ages] = priorityDict[.Ages]! + 1
+               case .Later: priorityDict[.Later] = priorityDict[.Later]! + 1
+               case .Soon: priorityDict[.Soon] = priorityDict[.Soon]! + 1
+               case .ASAP: priorityDict[.ASAP] = priorityDict[.ASAP]! + 1
+               }
+            }
+         }
+      }
+      
+      var maxPriorities: [TaskPriority] = []
+      var avgPri: TaskPriority? = nil
+      var currentMax = 0
+      
+      for pri: TaskPriority in priorityDict.keys {
+         let priCount = priorityDict[pri]!
+         if  priCount > currentMax {
+            avgPri = pri
+            currentMax = priCount
+            maxPriorities = [pri]
+         }
+         else if priCount == currentMax && priCount != 0 {
+            maxPriorities.append(pri)
+         }
+      }
+      
+      if maxPriorities.count > 0 {
+         avgPri = maxPriorities.first!
+      }
+      
+      for pri in maxPriorities {
+         // fix this -- task prioriteis are ordered backwards
+         if pri.rawValue < avgPri?.rawValue {
+            avgPri = pri
+         }
+      }
+      
+      return avgPri
+   }
 }
 
 extension TasksDataProvider
