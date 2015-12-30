@@ -28,6 +28,7 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
    }
    
    private var _currentTaskCell: TasksTableViewCell?
+   private var _shouldCreateMoreCellsOnReturnKeyPressed = false
    
    // Mark: - Lifecycle
    override func viewDidLoad()
@@ -85,8 +86,6 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
       let controller = UIStoryboard.taskDetailsViewController()
       controller.moc = moc
       controller.configureWithTask(task)
-      
-      controller.view.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.25)
       controller.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
       
       presentViewController(controller, animated: false, completion: nil)
@@ -95,9 +94,12 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
 
 extension MainTasksViewController: TasksTableViewCellDelegate
 {
-   func taskCellBeganEditing(cell: TasksTableViewCell)
+   func taskCellBeganEditing(cell: TasksTableViewCell, plusButtonPressed: Bool)
    {
       _currentTaskCell = cell
+      if _shouldCreateMoreCellsOnReturnKeyPressed == false && plusButtonPressed {
+         _shouldCreateMoreCellsOnReturnKeyPressed = plusButtonPressed
+      }
    }
    
    func taskCellFinishedEditing(cell: TasksTableViewCell)
@@ -111,21 +113,28 @@ extension MainTasksViewController: TasksTableViewCellDelegate
    func titleTextFieldShouldReturnForCell(cell: TasksTableViewCell) -> Bool
    {
       var shouldReturn = false
-      guard let cellIndexPath = _goalieTableView.indexPathForCell(cell) else { return shouldReturn }
-      if _goalieTableView.indexPathIsLast(cellIndexPath) {
-         if cell.titleText == "" {
-            shouldReturn = true
-            cell.stopEditing()
+      if _shouldCreateMoreCellsOnReturnKeyPressed {
+         guard let cellIndexPath = _goalieTableView.indexPathForCell(cell) else { return shouldReturn }
+         if _goalieTableView.indexPathIsLast(cellIndexPath) {
+            if cell.titleText == "" {
+               shouldReturn = true
+               cell.stopEditing()
+               _shouldCreateMoreCellsOnReturnKeyPressed = false
+            }
+            else {
+               shouldReturn = false
+               Task.insertIntoContext(moc, title: "")
+               _shouldGiveNextCreatedCellFocus = true
+            }
          }
          else {
             shouldReturn = false
-            Task.insertIntoContext(moc, title: "")
-            _shouldGiveNextCreatedCellFocus = true
+            _advanceCellFocusFromIndexPath(cellIndexPath)
          }
       }
       else {
-         shouldReturn = false
-         _advanceCellFocusFromIndexPath(cellIndexPath)
+         cell.stopEditing()
+         shouldReturn = true
       }
       
       return shouldReturn
@@ -137,6 +146,9 @@ extension MainTasksViewController: TasksTableViewCellDelegate
       if let cellIndexPath = _goalieTableView.indexPathForCell(cell) where
          _goalieTableView.indexPathIsLast(cellIndexPath) {
             returnKeyType = .Default
+      }
+      else if !_shouldCreateMoreCellsOnReturnKeyPressed {
+         returnKeyType = .Done
       }
       return returnKeyType
    }
@@ -216,6 +228,6 @@ extension MainTasksViewController: TableViewDelegateProtocol
    
    func heightForRowAtIndexPath(indexPath: NSIndexPath) -> CGFloat
    {
-      return 70
+      return indexPath.row == 0 ? 70 : 40
    }
 }

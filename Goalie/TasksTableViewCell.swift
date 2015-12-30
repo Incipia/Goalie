@@ -10,7 +10,7 @@ import UIKit
 
 protocol TasksTableViewCellDelegate: class
 {  
-   func taskCellBeganEditing(cell: TasksTableViewCell)
+   func taskCellBeganEditing(cell: TasksTableViewCell, plusButtonPressed: Bool)
    func taskCellFinishedEditing(cell: TasksTableViewCell)
    func titleTextFieldShouldReturnForCell(cell: TasksTableViewCell) -> Bool
    func returnKeyTypeForCell(cell: TasksTableViewCell) -> UIReturnKeyType
@@ -24,8 +24,8 @@ class TasksTableViewCell: UITableViewCell
    private let _incompletedButtonTitle = "○"
    private let _completedButtonTitle = "◉"
    private let _plusButtonTitle = "+"
+   private var _plusButtonWasPressed = false
    
-   private var _keyboardIsShowing = false
    private weak var _task: Task!
    
    @IBOutlet weak private var _textField: UITextField!
@@ -60,6 +60,7 @@ class TasksTableViewCell: UITableViewCell
    
    internal func _plusButtonPressed()
    {
+      _plusButtonWasPressed = true
       startEditing()
    }
    
@@ -87,13 +88,9 @@ extension TasksTableViewCell: UITextFieldDelegate
    
    func textFieldDidBeginEditing(textField: UITextField)
    {
-      _keyboardIsShowing = true
-      delegate?.taskCellBeganEditing(self)
+      delegate?.taskCellBeganEditing(self, plusButtonPressed: _plusButtonWasPressed)
       _textField.returnKeyType = delegate?.returnKeyTypeForCell(self) ?? .Next
-      
-      var buttonTitle = _task.completed ? _completedButtonTitle : _incompletedButtonTitle
-      buttonTitle = _task.title == "" ? _plusButtonTitle : buttonTitle
-      _leftButton.setTitle(buttonTitle, forState: .Normal)
+      _updateLeftButtonTitle()
    }
    
    func textFieldDidEndEditing(textField: UITextField)
@@ -102,15 +99,11 @@ extension TasksTableViewCell: UITextFieldDelegate
       _disclosureButton.hidden = false
       
       delegate?.taskCellFinishedEditing(self)
-      _keyboardIsShowing = false
    }
    
    func textFieldShouldReturn(textField: UITextField) -> Bool
    {
-      var buttonTitle = _task.completed ? _completedButtonTitle : _incompletedButtonTitle
-      buttonTitle = _textField.text == "" ? _plusButtonTitle : buttonTitle
-      _leftButton.setTitle(buttonTitle, forState: .Normal)
-      
+      _updateLeftButtonTitle()
       return delegate?.titleTextFieldShouldReturnForCell(self) ?? true
    }
 
@@ -144,11 +137,23 @@ extension TasksTableViewCell: ConfigurableCell
       _leftBar.alpha = alpha
       
       _leftBar.backgroundColor = UIColor(priority: _task.priority)
+      if _task.title == "" {
+         _leftBar.backgroundColor = UIColor.goalieGrayColor()
+      }
+      
+      _plusButtonWasPressed = false
    }
 }
 
 extension TasksTableViewCell
 {
+   private func _updateLeftButtonTitle()
+   {
+      var buttonTitle = _task.completed ? _completedButtonTitle : _incompletedButtonTitle
+      buttonTitle = _task.title == "" ? _plusButtonTitle : buttonTitle
+      _leftButton.setTitle(buttonTitle, forState: .Normal)
+   }
+   
    private func _updateLeftButton()
    {
       var buttonTitle = _task.completed ? _completedButtonTitle : _incompletedButtonTitle

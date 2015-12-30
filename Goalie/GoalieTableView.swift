@@ -26,6 +26,8 @@ class GoalieTableView: TPKeyboardAvoidingTableView
       
       contentInset = UIEdgeInsets(top: _defaultHeaderHeight, left: 0, bottom: 0, right: 0)
       contentOffset = CGPoint(x: 0, y: -_defaultHeaderHeight)
+      
+      tableFooterView = UIView()
    }
    
    override func layoutSubviews()

@@ -24,6 +24,8 @@ class EditTaskViewController: UIViewController, ManagedObjectContextSettable
    @IBOutlet private weak var _detailsContainerView: UIVisualEffectView!
    
    private var _keyboardIsShowing = false
+   
+   private var _currentPriority: TaskPriority!
    private weak var _task: Task!
    
    // Mark: - Lifecycle
@@ -33,6 +35,7 @@ class EditTaskViewController: UIViewController, ManagedObjectContextSettable
       _setupShadow()
       
       _updateTitleTextField()
+      _currentPriority = _task.priority
       _titleTextField.delegate = self
    }
    
@@ -51,25 +54,25 @@ class EditTaskViewController: UIViewController, ManagedObjectContextSettable
    // Mark: - IBActions
    @IBAction private func _asapButtonPressed()
    {
-      _updateTaskWithPriority(.ASAP)
+      _currentPriority = .ASAP
       _updatePriorityIndicatorViewFrameAnimated(true)
    }
    
    @IBAction private func _soonButtonPressed()
    {
-      _updateTaskWithPriority(.Soon)
+      _currentPriority = .Soon
       _updatePriorityIndicatorViewFrameAnimated(true)
    }
    
    @IBAction private func _laterButtonPressed()
    {
-      _updateTaskWithPriority(.Later)
+      _currentPriority = .Later
       _updatePriorityIndicatorViewFrameAnimated(true)
    }
    
    @IBAction private func _agesButtonPressed()
    {
-      _updateTaskWithPriority(.Ages)
+      _currentPriority = .Ages
       _updatePriorityIndicatorViewFrameAnimated(true)
    }
    
@@ -79,7 +82,12 @@ class EditTaskViewController: UIViewController, ManagedObjectContextSettable
          _titleTextField.resignFirstResponder()
       }
       else {
-         dismissViewControllerAnimated(false, completion: nil)
+         dismissViewControllerAnimated(false, completion: { () -> Void in
+            if self._task.priority != self._currentPriority {
+               self._task.priority = self._currentPriority
+               self.moc.saveOrRollback()
+            }
+         })
       }
    }
    
@@ -91,8 +99,9 @@ class EditTaskViewController: UIViewController, ManagedObjectContextSettable
    
    @IBAction private func _deleteButtonPressed()
    {
-      _task.delete()
-      dismissViewControllerAnimated(false, completion: nil)
+      dismissViewControllerAnimated(false) { () -> Void in
+         self._task.delete()
+      }
    }
    
    // MARK: - Public
@@ -109,13 +118,12 @@ class EditTaskViewController: UIViewController, ManagedObjectContextSettable
    
    private func _updateTaskWithPriority(priority: TaskPriority)
    {
-      _task.priority = priority
-      moc.saveOrRollback()
+      _currentPriority = priority
    }
    
    private func _updatePriorityIndicatorViewFrameAnimated(animated: Bool)
    {
-      let constant = _leadingSpaceConstantForPriority(_task.priority)
+      let constant = _leadingSpaceConstantForPriority(_currentPriority)
       _priorityIndicatorLeadingSpaceConstraint.constant = constant
       
       if animated {
