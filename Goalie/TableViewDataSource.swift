@@ -55,7 +55,7 @@ class TableViewDataSource<Delegate: DataSourceDelegate, Data: DataProviderProtoc
             guard let cell = self._tableView.cellForRowAtIndexPath(indexPath) as? Cell else {
                break
             }
-            cell.configureForObject(object)
+            cell.configureForObject(object, atIndexPath: indexPath)
          case .Move(let indexPath, let newIndexPath):
             self._tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
             self._tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Fade)
@@ -83,8 +83,8 @@ class TableViewDataSource<Delegate: DataSourceDelegate, Data: DataProviderProtoc
          fatalError("Unexpected cell type at \(indexPath)")
       }
       
-      _delegate.configureCell(cell)
-      cell.configureForObject(object)
+      _delegate.configureCell(cell, atIndexPath: indexPath)
+      cell.configureForObject(object, atIndexPath: indexPath)
       return cell
    }
    

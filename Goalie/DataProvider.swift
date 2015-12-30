@@ -35,13 +35,13 @@ protocol DataSourceDelegate: class
 {
    typealias Object
    func cellIdentifierForObject(object: Object) -> String
-   func configureCell(cell: UITableViewCell)
+   func configureCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath)
 }
 
 protocol ConfigurableCell
 {
    typealias DataSource
-   func configureForObject(object: DataSource)
+   func configureForObject(object: DataSource, atIndexPath indexPath: NSIndexPath)
 }
 
 protocol TableViewDelegateProtocol

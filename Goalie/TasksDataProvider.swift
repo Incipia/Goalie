@@ -9,41 +9,59 @@
 import Foundation
 import CoreData
 
-class TasksDataProvider: NSObject, NSFetchedResultsControllerDelegate
+public class TasksDataProvider: NSObject, NSFetchedResultsControllerDelegate
 {
    private var _moc: NSManagedObjectContext
-   private var _tasksFRC: NSFetchedResultsController
+   public private(set) var tasksFRC: NSFetchedResultsController
+   public var contentDidChangeBlock: (() -> Void)?
    
    init(managedObjectContext: NSManagedObjectContext)
    {
       _moc = managedObjectContext
-      _tasksFRC = NSFetchedResultsController(fetchRequest: DefaultTasksFetchRequestProvider.fetchRequest, managedObjectContext: _moc, sectionNameKeyPath: nil, cacheName: nil)
+      tasksFRC = NSFetchedResultsController(fetchRequest: DefaultTasksFetchRequestProvider.fetchRequest, managedObjectContext: _moc, sectionNameKeyPath: nil, cacheName: nil)
       
       super.init()
-      _tasksFRC.delegate = self
+      tasksFRC.delegate = self
       
-      try! _tasksFRC.performFetch()
+      try! tasksFRC.performFetch()
    }
    
-//   func parentGoalsInMonth(month: Month) -> [Goal]
-//   {
-//      var parentGoals: [Goal] = []
-//      if let fetchedGoals = _parentGoalsFRC.fetchedObjects as? [Goal] {
-//         for goal in fetchedGoals {
-//            if goal.month == month {
-//               parentGoals.append(goal)
-//            }
-//         }
-//      }
-//      return parentGoals
-//   }
+   func taskIsLast(task: Task) -> Bool
+   {
+      var isLast = false
+      if let tasks = tasksFRC.fetchedObjects as? [Task] {
+         isLast = (tasks.last == task)
+      }
+      
+      return isLast || task.title == ""
+   }
+   
+   func taskIsOnlyTask(task: Task) -> Bool
+   {
+      var isOnly = false
+      if let tasks = tasksFRC.fetchedObjects as? [Task] {
+         isOnly = tasks.count == 1
+      }
+      
+      return isOnly
+   }
+   
+   func taskIsFirst(task: Task) -> Bool
+   {
+      var isFirst = false
+      if let tasks = tasksFRC.fetchedObjects as? [Task] {
+         isFirst = (tasks.first == task)
+      }
+      return isFirst
+   }
 }
 
 extension TasksDataProvider
 {
-   func controllerDidChangeContent(controller: NSFetchedResultsController)
+   public func controllerDidChangeContent(controller: NSFetchedResultsController)
    {
-      NSFetchedResultsController.deleteCacheWithName(_tasksFRC.cacheName)
-      do { try _tasksFRC.performFetch() } catch { fatalError("fetch request failed") }
+      NSFetchedResultsController.deleteCacheWithName(tasksFRC.cacheName)
+      do { try tasksFRC.performFetch() } catch { fatalError("fetch request failed") }
+      contentDidChangeBlock?()
    }
 }

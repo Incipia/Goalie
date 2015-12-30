@@ -11,16 +11,22 @@ import CoreData
 
 class MainTasksViewController: UIViewController, ManagedObjectContextSettable
 {
-   var moc: NSManagedObjectContext!
+   // We use this to get notified when the tasks change (separately from the table view configureCell: stuff)
+   private var _tasksDataProvider: TasksDataProvider!
+   var moc: NSManagedObjectContext! {
+      didSet {
+         _tasksDataProvider = TasksDataProvider(managedObjectContext: moc)
+      }
+   }
    @IBOutlet private weak var _goalieTableView: GoalieTableView!
    private var _shouldGiveNextCreatedCellFocus = false
    
    private typealias DataProvider = FetchedResultsDataProvider<MainTasksViewController>
    private var _tableViewDataSource: TableViewDataSource<MainTasksViewController, DataProvider, TasksTableViewCell>!
-   private var _dataProvider: DataProvider!
+   private var _tableViewDataProvider: DataProvider!
    private var _tableViewDelegate: TableViewDelegate<DataProvider, MainTasksViewController>!
    
-   private var _defaultFRC: NSFetchedResultsController {
+   private var _tableViewTasksFRC: NSFetchedResultsController {
       return NSFetchedResultsController(fetchRequest: DefaultTasksFetchRequestProvider.fetchRequest,
          managedObjectContext: moc,
          sectionNameKeyPath: nil,
@@ -35,6 +41,18 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
    {
       super.viewDidLoad()
       _setupTableViewDataSourceAndDelegate()
+      
+      _tasksDataProvider.contentDidChangeBlock = {
+         dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            self._updateLeftBarForTableCells()
+         })
+      }
+   }
+   
+   override func viewDidAppear(animated: Bool)
+   {
+      super.viewDidAppear(animated)
+      _updateLeftBarForTableCells()
    }
    
    override func viewWillAppear(animated: Bool)
@@ -49,11 +67,23 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
    }
    
    // Mark: - Private
+   private func _updateLeftBarForTableCells()
+   {
+      if let indexPaths = self._goalieTableView.indexPathsForVisibleRows {
+         for ip in indexPaths {
+            if let cell = self._goalieTableView.cellForRowAtIndexPath(ip) as? TasksTableViewCell {
+               let task = self._tableViewDataProvider.objectAtIndexPath(ip)
+               cell.updateSeparatorsAndLeftBarLayerMaskWithTask(task, dataProvider: self._tasksDataProvider)
+            }
+         }
+      }
+   }
+   
    private func _createEmptyTaskIfNecessary()
    {
       var emptyTaskAtBottom = true
       if let lastIndexPath = _goalieTableView.lastIndexPath {
-         let task = _dataProvider.objectAtIndexPath(lastIndexPath)
+         let task = _tableViewDataProvider.objectAtIndexPath(lastIndexPath)
          emptyTaskAtBottom = task.title == ""
       }
       else if _goalieTableView.numberOfRowsInSection(0) == 0 {
@@ -66,10 +96,10 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
    
    private func _setupTableViewDataSourceAndDelegate()
    {
-      _dataProvider = FetchedResultsDataProvider(fetchedResultsController: _defaultFRC, delegate: self)
-      _tableViewDataSource = TableViewDataSource(tableView: _goalieTableView, dataProvider: _dataProvider, delegate: self)
+      _tableViewDataProvider = FetchedResultsDataProvider(fetchedResultsController: _tableViewTasksFRC, delegate: self)
+      _tableViewDataSource = TableViewDataSource(tableView: _goalieTableView, dataProvider: _tableViewDataProvider, delegate: self)
       _tableViewDataSource.allowEditingLast = false
-      _tableViewDelegate = TableViewDelegate(tableView: _goalieTableView, dataProvider: _dataProvider, delegate: self)
+      _tableViewDelegate = TableViewDelegate(tableView: _goalieTableView, dataProvider: _tableViewDataProvider, delegate: self)
    }
    
    private func _advanceCellFocusFromIndexPath(indexPath: NSIndexPath)
@@ -93,7 +123,7 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
 }
 
 extension MainTasksViewController: TasksTableViewCellDelegate
-{
+{  
    func taskCellBeganEditing(cell: TasksTableViewCell, plusButtonPressed: Bool)
    {
       _currentTaskCell = cell
@@ -213,9 +243,13 @@ extension MainTasksViewController: DataSourceDelegate
       return "TasksTableViewCell"
    }
    
-   func configureCell(cell: UITableViewCell)
+   func configureCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath)
    {
-      (cell as? TasksTableViewCell)?.delegate = self
+      if let goalieCell = cell as? TasksTableViewCell {
+         goalieCell.delegate = self
+         let task = _tableViewDataProvider.objectAtIndexPath(indexPath)
+         goalieCell.updateSeparatorsAndLeftBarLayerMaskWithTask(task, dataProvider: _tasksDataProvider)
+      }
    }
 }
 
@@ -228,6 +262,6 @@ extension MainTasksViewController: TableViewDelegateProtocol
    
    func heightForRowAtIndexPath(indexPath: NSIndexPath) -> CGFloat
    {
-      return indexPath.row == 0 ? 70 : 40
+      return indexPath.row == 0 ? 70 : 50
    }
 }

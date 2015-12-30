@@ -9,7 +9,7 @@
 import UIKit
 
 protocol TasksTableViewCellDelegate: class
-{  
+{
    func taskCellBeganEditing(cell: TasksTableViewCell, plusButtonPressed: Bool)
    func taskCellFinishedEditing(cell: TasksTableViewCell)
    func titleTextFieldShouldReturnForCell(cell: TasksTableViewCell) -> Bool
@@ -26,14 +26,19 @@ class TasksTableViewCell: UITableViewCell
    private let _plusButtonTitle = "+"
    private var _plusButtonWasPressed = false
    
-   private weak var _task: Task!
+   private weak var _task: Task?
    
    @IBOutlet weak private var _textField: UITextField!
    @IBOutlet weak private var _leftButton: UIButton!
    @IBOutlet weak private var _leftBar: UIView!
    @IBOutlet weak private var _disclosureButton: UIButton!
+   @IBOutlet weak private var _topSeparator: UIView!
+   @IBOutlet weak private var _bottomSeparator: UIView!
    
    weak var delegate: TasksTableViewCellDelegate?
+   var shouldShowTopSeparator = true
+   var shouldShowBottomSeparator = true
+   var leftBarRoundedCorners: UIRectCorner?
    
    var titleText: String {
       return _textField.text ?? ""
@@ -41,10 +46,10 @@ class TasksTableViewCell: UITableViewCell
    
    override func awakeFromNib()
    {
+      super.awakeFromNib()
+      
       _textField.delegate = self
       _textField.userInteractionEnabled = false
-      
-      super.awakeFromNib()
    }
    
    func startEditing()
@@ -58,6 +63,39 @@ class TasksTableViewCell: UITableViewCell
       _textField.resignFirstResponder()
    }
    
+   func updateSeparatorsAndLeftBarLayerMaskWithTask(task: Task, dataProvider: TasksDataProvider)
+   {
+      shouldShowTopSeparator = true
+      shouldShowBottomSeparator = true
+      leftBarRoundedCorners = nil
+      if dataProvider.taskIsFirst(task) {
+         shouldShowTopSeparator = false
+         leftBarRoundedCorners = UIRectCorner.TopLeft.union(.TopRight)
+      }
+      if dataProvider.taskIsLast(task) {
+         shouldShowBottomSeparator = false
+         leftBarRoundedCorners = UIRectCorner.BottomLeft.union(.BottomRight)
+      }
+      if dataProvider.taskIsOnlyTask(task) {
+         shouldShowTopSeparator = false
+         shouldShowBottomSeparator = false
+         leftBarRoundedCorners = UIRectCorner.AllCorners
+      }
+      
+      _topSeparator.hidden = !shouldShowTopSeparator
+      _bottomSeparator.hidden = !shouldShowBottomSeparator
+      
+      if let roundedCorners = leftBarRoundedCorners {
+         let radiiSize = _leftBar.bounds.width * 0.5
+         let leftMaskLayer = CAShapeLayer()
+         leftMaskLayer.path = UIBezierPath(roundedRect: _leftBar.bounds, byRoundingCorners: roundedCorners, cornerRadii: CGSizeMake(radiiSize, radiiSize)).CGPath
+         _leftBar.layer.mask = leftMaskLayer
+      }
+      else {
+         _leftBar.layer.mask = nil
+      }
+   }
+   
    internal func _plusButtonPressed()
    {
       _plusButtonWasPressed = true
@@ -66,15 +104,15 @@ class TasksTableViewCell: UITableViewCell
    
    internal func _completeButtonPressed()
    {
-      if !editing {
-         delegate?.completeButtonPressedForTask(_task)
+      if let task = _task where !editing {
+         delegate?.completeButtonPressedForTask(task)
       }
    }
    
    @IBAction private func _disclosureButtonPressed()
    {
-      if !editing {
-         delegate?.disclosureButtonPressedForTask(_task)
+      if let task = _task where !editing {
+         delegate?.disclosureButtonPressedForTask(task)
       }
    }
 }
@@ -95,7 +133,7 @@ extension TasksTableViewCell: UITextFieldDelegate
    
    func textFieldDidEndEditing(textField: UITextField)
    {
-      _task.title = _textField.text ?? "This shouldn't happen!"
+      _task?.title = _textField.text ?? "This shouldn't happen!"
       _disclosureButton.hidden = false
       
       delegate?.taskCellFinishedEditing(self)
@@ -120,53 +158,69 @@ extension TasksTableViewCell: UITextFieldDelegate
 
 extension TasksTableViewCell: ConfigurableCell
 {
-   func configureForObject(object: Task)
+   func configureForObject(task: Task, atIndexPath indexPath: NSIndexPath)
    {
-      _task = object
-      _textField.text = _task.title
-      _textField.userInteractionEnabled = _task.title != ""
+      _task = task
       
-      _updateLeftButton()
+      _updateTextFieldForTask(task)
+      _updateLeftButtonTitleAndSelector()
+      _updateCellComponentAlphaValuesForTask(task)
+      _updateLeftBarColorForTask(task)
       
-      _disclosureButton.hidden = _task.title == ""
-      
-      let alpha: CGFloat = _task.completed ? 0.4 : 1.0
-      _textField.alpha = alpha
-      _leftButton.alpha = alpha
-      _disclosureButton.alpha = alpha
-      _leftBar.alpha = alpha
-      
-      _leftBar.backgroundColor = UIColor(priority: _task.priority)
-      if _task.title == "" {
-         _leftBar.backgroundColor = UIColor.goalieGrayColor()
-      }
-      
+      _disclosureButton.hidden = task.title == ""
       _plusButtonWasPressed = false
    }
 }
 
 extension TasksTableViewCell
 {
-   private func _updateLeftButtonTitle()
+   private func _updateTextFieldForTask(task: Task)
    {
-      var buttonTitle = _task.completed ? _completedButtonTitle : _incompletedButtonTitle
-      buttonTitle = _task.title == "" ? _plusButtonTitle : buttonTitle
-      _leftButton.setTitle(buttonTitle, forState: .Normal)
+      _textField.text = task.title
+      _textField.userInteractionEnabled = task.title != ""
    }
    
-   private func _updateLeftButton()
+   private func _updateLeftBarColorForTask(task: Task)
    {
-      var buttonTitle = _task.completed ? _completedButtonTitle : _incompletedButtonTitle
-      buttonTitle = _task.title == "" ? _plusButtonTitle : buttonTitle
-      _leftButton.setTitle(buttonTitle, forState: .Normal)
-      
-      _leftButton.removeTarget(self, action: "_completeButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
-      _leftButton.removeTarget(self, action: "_plusButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
-      
-      var selector: Selector = "_completeButtonPressed"
-      if _task.title == "" {
-         selector = "_plusButtonPressed"
+      _leftBar.backgroundColor = UIColor(priority: task.priority)
+      if task.title == "" {
+         _leftBar.backgroundColor = UIColor.goalieGrayColor()
       }
-      _leftButton.addTarget(self, action: selector, forControlEvents: UIControlEvents.TouchUpInside)
+   }
+   
+   private func _updateLeftButtonTitle()
+   {
+      if let task = _task {
+         var buttonTitle = task.completed ? _completedButtonTitle : _incompletedButtonTitle
+         buttonTitle = task.title == "" ? _plusButtonTitle : buttonTitle
+         _leftButton.setTitle(buttonTitle, forState: .Normal)
+      }
+   }
+   
+   private func _updateCellComponentAlphaValuesForTask(task: Task)
+   {
+      let alpha: CGFloat = task.completed ? 0.4 : 1.0
+      _textField.alpha = alpha
+      _leftButton.alpha = alpha
+      _disclosureButton.alpha = alpha
+      _leftBar.alpha = alpha
+   }
+   
+   private func _updateLeftButtonTitleAndSelector()
+   {
+      if let task = _task {
+         var buttonTitle = task.completed ? _completedButtonTitle : _incompletedButtonTitle
+         buttonTitle = task.title == "" ? _plusButtonTitle : buttonTitle
+         _leftButton.setTitle(buttonTitle, forState: .Normal)
+         
+         _leftButton.removeTarget(self, action: "_completeButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
+         _leftButton.removeTarget(self, action: "_plusButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
+         
+         var selector: Selector = "_completeButtonPressed"
+         if task.title == "" {
+            selector = "_plusButtonPressed"
+         }
+         _leftButton.addTarget(self, action: selector, forControlEvents: UIControlEvents.TouchUpInside)
+      }
    }
 }
