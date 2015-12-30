@@ -36,9 +36,6 @@ class TasksTableViewCell: UITableViewCell
    @IBOutlet weak private var _bottomSeparator: UIView!
    
    weak var delegate: TasksTableViewCellDelegate?
-   var shouldShowTopSeparator = true
-   var shouldShowBottomSeparator = true
-   var leftBarRoundedCorners: UIRectCorner?
    
    var titleText: String {
       return _textField.text ?? ""
@@ -65,35 +62,28 @@ class TasksTableViewCell: UITableViewCell
    
    func updateSeparatorsAndLeftBarLayerMaskWithTask(task: Task, dataProvider: TasksDataProvider)
    {
-      shouldShowTopSeparator = true
-      shouldShowBottomSeparator = true
-      leftBarRoundedCorners = nil
+      var shouldShowTopSeparator = true
+      var shouldShowBottomSeparator = true
+      
+      var roundedCornerMask: CornerRoundingMask = .None
       if dataProvider.taskIsFirst(task) {
          shouldShowTopSeparator = false
-         leftBarRoundedCorners = UIRectCorner.TopLeft.union(.TopRight)
+         roundedCornerMask = .Top
       }
       if dataProvider.taskIsLast(task) {
          shouldShowBottomSeparator = false
-         leftBarRoundedCorners = UIRectCorner.BottomLeft.union(.BottomRight)
+         roundedCornerMask = .Bottom
       }
       if dataProvider.taskIsOnlyTask(task) {
          shouldShowTopSeparator = false
          shouldShowBottomSeparator = false
-         leftBarRoundedCorners = UIRectCorner.AllCorners
+         roundedCornerMask = .All
       }
       
       _topSeparator.hidden = !shouldShowTopSeparator
       _bottomSeparator.hidden = !shouldShowBottomSeparator
       
-      if let roundedCorners = leftBarRoundedCorners {
-         let radiiSize = _leftBar.bounds.width * 0.5
-         let leftMaskLayer = CAShapeLayer()
-         leftMaskLayer.path = UIBezierPath(roundedRect: _leftBar.bounds, byRoundingCorners: roundedCorners, cornerRadii: CGSizeMake(radiiSize, radiiSize)).CGPath
-         _leftBar.layer.mask = leftMaskLayer
-      }
-      else {
-         _leftBar.layer.mask = nil
-      }
+      _leftBar.roundCorners(roundedCornerMask)
    }
    
    internal func _plusButtonPressed()
@@ -135,7 +125,6 @@ extension TasksTableViewCell: UITextFieldDelegate
    {
       _task?.title = _textField.text ?? "This shouldn't happen!"
       _disclosureButton.hidden = false
-      
       delegate?.taskCellFinishedEditing(self)
    }
    
@@ -151,7 +140,6 @@ extension TasksTableViewCell: UITextFieldDelegate
       if string != "" {
          _disclosureButton.hidden = false
       }
-      
       return true
    }
 }

@@ -33,6 +33,7 @@
 		F383193B1C31A72D00C36ACB /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38319231C31A72D00C36ACB /* TableViewDataSource.swift */; };
 		F383193C1C31A72D00C36ACB /* TableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38319241C31A72D00C36ACB /* TableViewDelegate.swift */; };
 		F38319491C31B3CB00C36ACB /* GoalieTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38319481C31B3CB00C36ACB /* GoalieTableView.swift */; };
+		F38E2EA51C34863600945CA4 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38E2EA41C34863600945CA4 /* UIView+Extensions.swift */; };
 		F3DB3E041C322DC40005C607 /* MainTasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DB3E031C322DC40005C607 /* MainTasksViewController.swift */; };
 		F3DB3E0C1C3267CE0005C607 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = F3DB3E071C3267CE0005C607 /* TPKeyboardAvoidingScrollView.m */; };
 		F3DB3E0D1C3267CE0005C607 /* TPKeyboardAvoidingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = F3DB3E091C3267CE0005C607 /* TPKeyboardAvoidingTableView.m */; };
@@ -77,6 +78,7 @@
 		F38319231C31A72D00C36ACB /* TableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewDataSource.swift; path = Goalie/TableViewDataSource.swift; sourceTree = "<group>"; };
 		F38319241C31A72D00C36ACB /* TableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewDelegate.swift; path = Goalie/TableViewDelegate.swift; sourceTree = "<group>"; };
 		F38319481C31B3CB00C36ACB /* GoalieTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoalieTableView.swift; path = Goalie/GoalieTableView.swift; sourceTree = "<group>"; };
+		F38E2EA41C34863600945CA4 /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+Extensions.swift"; path = "Goalie/UIView+Extensions.swift"; sourceTree = "<group>"; };
 		F3DB3DCA1C3221AF0005C607 /* Goalie-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Goalie-Bridging-Header.h"; sourceTree = "<group>"; };
 		F3DB3E031C322DC40005C607 /* MainTasksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainTasksViewController.swift; path = Goalie/MainTasksViewController.swift; sourceTree = "<group>"; };
 		F3DB3E061C3267CE0005C607 /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
@@ -119,8 +121,8 @@
 				F38319461C31AB3300C36ACB /* Custom Cells */,
 				F38319421C31A9C000C36ACB /* Enums */,
 				F38319401C31A76400C36ACB /* Extensions */,
-				F383190E1C31A58A00C36ACB /* External Frameworks */,
 				F38319411C31A77E00C36ACB /* Generic Delegate/DataSource */,
+				F383190E1C31A58A00C36ACB /* External Frameworks */,
 				F38319471C31AB4100C36ACB /* Interface */,
 				F38318CF1C2F343600C36ACB /* Other */,
 				F38318CE1C2F343600C36ACB /* Products */,
@@ -186,6 +188,7 @@
 				F383191E1C31A72D00C36ACB /* UIStoryboard+Extensions.swift */,
 				F383191F1C31A72D00C36ACB /* UIColor+Extensions.swift */,
 				F38319201C31A72D00C36ACB /* UIFont+Extensions.swift */,
+				F38E2EA41C34863600945CA4 /* UIView+Extensions.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -359,6 +362,7 @@
 				F383190D1C319FE800C36ACB /* TasksTableViewCell.swift in Sources */,
 				F38319311C31A72D00C36ACB /* NSURL+Extensions.swift in Sources */,
 				F38319291C31A72D00C36ACB /* ManagedObject.swift in Sources */,
+				F38E2EA51C34863600945CA4 /* UIView+Extensions.swift in Sources */,
 				F383192D1C31A72D00C36ACB /* DefaultTasksFetchRequestProvider.swift in Sources */,
 				F3DB3E251C331B690005C607 /* NSString+TextDirectionality.m in Sources */,
 				F38318D11C2F343600C36ACB /* AppDelegate.swift in Sources */,

@@ -145,15 +145,9 @@ extension EditTaskViewController
    }
    
    private func _updatePriorityViewsLayerMasks()
-   {
-      let radiiSize = _asapPriorityBlock.bounds.height * 0.5
-      let leftMaskLayer = CAShapeLayer()
-      leftMaskLayer.path = UIBezierPath(roundedRect: _asapPriorityBlock.bounds, byRoundingCorners: UIRectCorner.TopLeft.union(.BottomLeft), cornerRadii: CGSizeMake(radiiSize, radiiSize)).CGPath
-      _asapPriorityBlock.layer.mask = leftMaskLayer
-      
-      let rightMaskLayer = CAShapeLayer()
-      rightMaskLayer.path = UIBezierPath(roundedRect: _agesPriorityBlock.bounds, byRoundingCorners: UIRectCorner.TopRight.union(.BottomRight), cornerRadii: CGSizeMake(radiiSize, radiiSize)).CGPath
-      _agesPriorityBlock.layer.mask = rightMaskLayer
+   {  
+      _asapPriorityBlock.roundCorners(.Left)
+      _agesPriorityBlock.roundCorners(.Right)
    }
    
    private func _leadingSpaceConstantForPriority(priority: TaskPriority) -> CGFloat
@@ -194,7 +188,7 @@ extension EditTaskViewController: UITextFieldDelegate
    func textFieldDidEndEditing(textField: UITextField)
    {
       var newTitle = textField.text ?? ""
-      newTitle = newTitle == "" ? "Untitled" : newTitle
+      newTitle = newTitle == "" ? "untitled" : newTitle
       
       _task.title = newTitle
       moc.saveOrRollback()
