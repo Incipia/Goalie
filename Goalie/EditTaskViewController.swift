@@ -20,11 +20,9 @@ class EditTaskViewController: UIViewController, ManagedObjectContextSettable
    @IBOutlet private weak var _agesPriorityBlock: UIView!
    
    @IBOutlet private weak var _priorityIndicatorLeadingSpaceConstraint: NSLayoutConstraint!
-   
    @IBOutlet private weak var _detailsContainerView: UIVisualEffectView!
    
    private var _keyboardIsShowing = false
-   
    private var _currentPriority: TaskPriority!
    private weak var _task: Task!
    
@@ -42,7 +40,9 @@ class EditTaskViewController: UIViewController, ManagedObjectContextSettable
    override func viewDidLayoutSubviews()
    {
       super.viewDidLayoutSubviews()
-      _updatePriorityViewsLayerMasks()
+      
+      _asapPriorityBlock.roundCorners(.Left)
+      _agesPriorityBlock.roundCorners(.Right)
       _updatePriorityIndicatorViewFrameAnimated(false)
    }
    
@@ -142,12 +142,6 @@ extension EditTaskViewController
       _detailsContainerView.layer.shadowOpacity = 0.2
       _detailsContainerView.layer.shadowOffset = CGSize(width: 0, height: 4)
       _detailsContainerView.layer.shadowRadius = 4
-   }
-   
-   private func _updatePriorityViewsLayerMasks()
-   {  
-      _asapPriorityBlock.roundCorners(.Left)
-      _agesPriorityBlock.roundCorners(.Right)
    }
    
    private func _leadingSpaceConstantForPriority(priority: TaskPriority) -> CGFloat
