@@ -44,8 +44,11 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
       _setupTableViewDataSourceAndDelegate()
       
       _tasksDataProvider.contentDidChangeBlock = {
+         
+         // There is probably a better way to do this.  We need this because when tasks are moved around/created in the table,
+         // we may need to update the left bar on the table cells (rounded corners depending on the cells position)
          dispatch_async(dispatch_get_main_queue(), { () -> Void in
-            self._updateLeftBarForTableCells()
+            self._updateTaskCellsLeftBar()
          })
       }
       
@@ -55,7 +58,7 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
    override func viewDidAppear(animated: Bool)
    {
       super.viewDidAppear(animated)
-      _updateLeftBarForTableCells()
+      _updateTaskCellsLeftBar()
    }
    
    override func viewWillAppear(animated: Bool)
@@ -84,7 +87,7 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
       }
    }
    
-   private func _updateLeftBarForTableCells()
+   private func _updateTaskCellsLeftBar()
    {
       if let indexPaths = self._goalieTableView.indexPathsForVisibleRows {
          for ip in indexPaths {
@@ -130,11 +133,7 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
    {
       definesPresentationContext = true
       
-      let controller = UIStoryboard.taskDetailsViewController()
-      controller.moc = moc
-      controller.configureWithTask(task)
-      controller.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
-      
+      let controller = UIStoryboard.taskDetailsViewControllerForTask(task, managedObjectContext: moc)
       presentViewController(controller, animated: false, completion: nil)
    }
 }

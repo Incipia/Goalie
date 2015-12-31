@@ -7,13 +7,19 @@
 //
 
 import UIKit
+import CoreData
 
 extension UIStoryboard
 {  
-   static func taskDetailsViewController() -> EditTaskViewController
+   static func taskDetailsViewControllerForTask(task: Task, managedObjectContext: NSManagedObjectContext) -> EditTaskViewController
    {
       let storyboard = UIStoryboard(name: "Main", bundle: nil)
-      return storyboard.instantiateViewControllerWithIdentifier("TaskDetailsViewController") as! EditTaskViewController
+      let editTaskController = storyboard.instantiateViewControllerWithIdentifier("TaskDetailsViewController") as! EditTaskViewController
+      editTaskController.moc = managedObjectContext
+      editTaskController.configureWithTask(task)
+      editTaskController.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
+      
+      return editTaskController
    }
    
    static func mainTasksViewController() -> MainTasksViewController

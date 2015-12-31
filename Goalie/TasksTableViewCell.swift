@@ -35,6 +35,7 @@ class TasksTableViewCell: UITableViewCell
    @IBOutlet weak private var _topSeparator: UIView!
    @IBOutlet weak private var _bottomSeparator: UIView!
    
+   private var _appearanceUpdater: TaskCellAppearanceUpdater!
    weak var delegate: TasksTableViewCellDelegate?
    
    var titleText: String {
@@ -45,6 +46,7 @@ class TasksTableViewCell: UITableViewCell
    {
       super.awakeFromNib()
       
+      _appearanceUpdater = TaskCellAppearanceUpdater(delegate: self)
       _textField.delegate = self
       _textField.userInteractionEnabled = false
    }
@@ -152,10 +154,12 @@ extension TasksTableViewCell: ConfigurableCell
       
       _updateTextFieldForTask(task)
       _updateLeftButtonTitleAndSelector()
-      _updateCellComponentAlphaValuesForTask(task)
-      _updateLeftBarColorForTask(task)
       
-      _disclosureButton.hidden = task.title == ""
+      _appearanceUpdater.updateTask(task)
+      _appearanceUpdater.updateProperty(.Alpha, forComponents: [.LeftBar, .LeftButton, .TextField, .DisclosureButton])
+      _appearanceUpdater.updateProperty(.Color, forComponents: [.LeftBar])
+      _appearanceUpdater.updateProperty(.Hidden, forComponents: [.DisclosureButton])
+      
       _plusButtonWasPressed = false
    }
 }
@@ -168,14 +172,6 @@ extension TasksTableViewCell
       _textField.userInteractionEnabled = task.title != ""
    }
    
-   private func _updateLeftBarColorForTask(task: Task)
-   {
-      _leftBar.backgroundColor = UIColor(priority: task.priority)
-      if task.title == "" {
-         _leftBar.backgroundColor = UIColor.goalieGrayColor()
-      }
-   }
-   
    private func _updateLeftButtonTitle()
    {
       if let task = _task {
@@ -185,15 +181,6 @@ extension TasksTableViewCell
       }
    }
    
-   private func _updateCellComponentAlphaValuesForTask(task: Task)
-   {
-      let alpha: CGFloat = task.completed ? 0.4 : 1.0
-      _textField.alpha = alpha
-      _leftButton.alpha = alpha
-      _disclosureButton.alpha = alpha
-      _leftBar.alpha = alpha
-   }
-   
    private func _updateLeftButtonTitleAndSelector()
    {
       if let task = _task {
@@ -201,14 +188,32 @@ extension TasksTableViewCell
          buttonTitle = task.title == "" ? _plusButtonTitle : buttonTitle
          _leftButton.setTitle(buttonTitle, forState: .Normal)
          
-         _leftButton.removeTarget(self, action: "_completeButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
-         _leftButton.removeTarget(self, action: "_plusButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
-         
-         var selector: Selector = "_completeButtonPressed"
-         if task.title == "" {
-            selector = "_plusButtonPressed"
-         }
-         _leftButton.addTarget(self, action: selector, forControlEvents: UIControlEvents.TouchUpInside)
+         let selector = task.title == "" ? "_plusButtonPressed" : "_completeButtonPressed"
+         _leftButton.updateTarget(self, selectorName: selector)
       }
+   }
+}
+
+extension TasksTableViewCell: TaskCellAppearanceDelegate
+{
+   func viewForComponent(component: TaskCellComponent) -> UIView?
+   {
+      var control: UIView?
+      switch component
+      {
+      case .LeftBar:
+         control = _leftBar
+         break
+      case .LeftButton:
+         control = _leftButton as UIView
+         break
+      case .TextField:
+         control = _textField as UIView
+         break
+      case .DisclosureButton:
+         control = _disclosureButton as UIView
+         break
+      }
+      return control
    }
 }
