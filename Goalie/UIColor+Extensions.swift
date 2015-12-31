@@ -51,6 +51,6 @@ extension UIColor
    
    static func goalieGrayColor() -> UIColor
    {
-      return UIColor(colorLiteralRed: 171/255.0, green: 184/255.0, blue: 187/255.0, alpha: 1)
+      return UIColor(colorLiteralRed: 228/255.0, green: 229/255.0, blue: 231/255.0, alpha: 1)
    }
 }
