@@ -26,6 +26,19 @@ public class TasksDataProvider: NSObject, NSFetchedResultsControllerDelegate
       try! tasksFRC.performFetch()
    }
    
+   func updateFetchRequest()
+   {
+      NSFetchedResultsController.deleteCacheWithName(tasksFRC.cacheName)
+      
+      var predicate: NSPredicate? = nil
+      if !GoalieSettingsManager.showCompletedTasks {
+         predicate = NSPredicate(format: "completed == false")
+      }
+      
+      tasksFRC.fetchRequest.predicate = predicate
+      try! tasksFRC.performFetch()
+   }
+   
    func taskIsLast(task: Task) -> Bool
    {
       var isLast = false

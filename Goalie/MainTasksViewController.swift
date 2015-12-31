@@ -41,10 +41,10 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
    override func viewDidLoad()
    {
       super.viewDidLoad()
-      _setupTableViewDataSourceAndDelegate()
+      definesPresentationContext = true
       
+      _setupTableViewDataSourceAndDelegate()
       _tasksDataProvider.contentDidChangeBlock = {
-         
          // There is probably a better way to do this.  We need this because when tasks are moved around/created in the table,
          // we may need to update the left bar on the table cells (rounded corners depending on the cells position)
          dispatch_async(dispatch_get_main_queue(), { () -> Void in
@@ -131,8 +131,6 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
    
    private func _presentDetailsForTask(task: Task)
    {
-      definesPresentationContext = true
-      
       let controller = UIStoryboard.taskDetailsViewControllerForTask(task, managedObjectContext: moc)
       presentViewController(controller, animated: false, completion: nil)
    }
@@ -140,12 +138,14 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
    // Mark: - IBActions
    @IBAction private func _settingsButtonPressed()
    {
-      definesPresentationContext = true
-      
-      let controller = UIStoryboard.settingsViewController(moc)
-      controller.delegate = self
-
-      presentViewController(controller, animated: false, completion: nil)
+      if _currentTaskCell != nil {
+         _currentTaskCell?.stopEditing()
+      }
+      else {
+         let controller = UIStoryboard.settingsViewController(moc)
+         controller.delegate = self
+         presentViewController(controller, animated: false, completion: nil)
+      }
    }
 }
 
@@ -301,11 +301,7 @@ extension MainTasksViewController: SettingsViewControllerDelegate
    func settingsDidClose()
    {
       _tableViewDataProvider.updateFetchRequest()
-      
-      UIView.animateWithDuration(0.25, animations: { () -> Void in
-         self._goalieTableView.reloadData()
-         }) { (finished) -> Void in
-            self._updateTaskCellsLeftBar()
-      }
+      _tasksDataProvider.updateFetchRequest()
+      _goalieTableView.reloadData()
    }
 }
