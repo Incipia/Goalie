@@ -41,17 +41,16 @@ class GoalieTableView: TPKeyboardAvoidingTableView
       }
    }
    
-   private func _updateHeaderViewFrame()
-   {
-      let headerHeight = _headerHeightForContentOffset(contentOffset)
-      let size = CGSize(width: bounds.width, height: headerHeight)
-      _goalieHeaderView.frame = CGRect(origin: CGPoint.zero, size: size)
-      _goalieHeaderView.layoutIfNeeded()
-   }
-   
    func taskCellForIndexPath(indexPath: NSIndexPath) -> TasksTableViewCell?
    {
       return cellForRowAtIndexPath(indexPath) as? TasksTableViewCell
+   }
+   
+   func updateHeaderViewColor(color: UIColor, animationDuration: Double)
+   {
+      UIView.animateWithDuration(animationDuration) { () -> Void in
+         self._goalieHeaderView.backgroundColor = color
+      }
    }
    
    func updateHeaderViewFrameAnimated()
@@ -59,6 +58,14 @@ class GoalieTableView: TPKeyboardAvoidingTableView
       UIView.animateWithDuration(0.25, delay: 0, options: .CurveEaseOut, animations: { () -> Void in
          self._updateHeaderViewFrame()
          }, completion: nil)
+   }
+   
+   private func _updateHeaderViewFrame()
+   {
+      let headerHeight = _headerHeightForContentOffset(contentOffset)
+      let size = CGSize(width: bounds.width, height: headerHeight)
+      _goalieHeaderView.frame = CGRect(origin: CGPoint.zero, size: size)
+      _goalieHeaderView.layoutIfNeeded()
    }
    
    private func _headerHeightForContentOffset(offset: CGPoint) -> CGFloat
