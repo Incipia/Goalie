@@ -153,7 +153,8 @@ extension TasksTableViewCell: ConfigurableCell
       _task = task
       
       _updateTextFieldForTask(task)
-      _updateLeftButtonTitleAndSelector()
+      _updateLeftButtonTitle()
+      _updateLeftButtonSelector()
       
       _appearanceUpdater.updateTask(task)
       _appearanceUpdater.updateProperty(.Alpha, forComponents: [.LeftBar, .LeftButton, .TextField, .DisclosureButton])
@@ -177,17 +178,17 @@ extension TasksTableViewCell
       if let task = _task {
          var buttonTitle = task.completed ? _completedButtonTitle : _incompletedButtonTitle
          buttonTitle = task.title == "" ? _plusButtonTitle : buttonTitle
+         
+         UIView.setAnimationsEnabled(false)
          _leftButton.setTitle(buttonTitle, forState: .Normal)
+         _leftButton.layoutIfNeeded()
+         UIView.setAnimationsEnabled(true);
       }
    }
    
-   private func _updateLeftButtonTitleAndSelector()
+   private func _updateLeftButtonSelector()
    {
       if let task = _task {
-         var buttonTitle = task.completed ? _completedButtonTitle : _incompletedButtonTitle
-         buttonTitle = task.title == "" ? _plusButtonTitle : buttonTitle
-         _leftButton.setTitle(buttonTitle, forState: .Normal)
-         
          let selector = task.title == "" ? "_plusButtonPressed" : "_completeButtonPressed"
          _leftButton.updateTarget(self, selectorName: selector)
       }

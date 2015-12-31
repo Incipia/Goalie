@@ -35,6 +35,8 @@
 		F383193B1C31A72D00C36ACB /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38319231C31A72D00C36ACB /* TableViewDataSource.swift */; };
 		F383193C1C31A72D00C36ACB /* TableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38319241C31A72D00C36ACB /* TableViewDelegate.swift */; };
 		F38319491C31B3CB00C36ACB /* GoalieTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38319481C31B3CB00C36ACB /* GoalieTableView.swift */; };
+		F38B55101C34DD810022453F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38B550F1C34DD810022453F /* SettingsViewController.swift */; };
+		F38B55121C34E0EA0022453F /* GoalieSettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38B55111C34E0EA0022453F /* GoalieSettingsManager.swift */; };
 		F38E2EA51C34863600945CA4 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38E2EA41C34863600945CA4 /* UIView+Extensions.swift */; };
 		F3DB3E041C322DC40005C607 /* MainTasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DB3E031C322DC40005C607 /* MainTasksViewController.swift */; };
 		F3DB3E0C1C3267CE0005C607 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = F3DB3E071C3267CE0005C607 /* TPKeyboardAvoidingScrollView.m */; };
@@ -82,6 +84,8 @@
 		F38319231C31A72D00C36ACB /* TableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewDataSource.swift; path = Goalie/TableViewDataSource.swift; sourceTree = "<group>"; };
 		F38319241C31A72D00C36ACB /* TableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewDelegate.swift; path = Goalie/TableViewDelegate.swift; sourceTree = "<group>"; };
 		F38319481C31B3CB00C36ACB /* GoalieTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoalieTableView.swift; path = Goalie/GoalieTableView.swift; sourceTree = "<group>"; };
+		F38B550F1C34DD810022453F /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = Goalie/SettingsViewController.swift; sourceTree = "<group>"; };
+		F38B55111C34E0EA0022453F /* GoalieSettingsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalieSettingsManager.swift; sourceTree = "<group>"; };
 		F38E2EA41C34863600945CA4 /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+Extensions.swift"; path = "Goalie/UIView+Extensions.swift"; sourceTree = "<group>"; };
 		F3DB3DCA1C3221AF0005C607 /* Goalie-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Goalie-Bridging-Header.h"; sourceTree = "<group>"; };
 		F3DB3E031C322DC40005C607 /* MainTasksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainTasksViewController.swift; path = Goalie/MainTasksViewController.swift; sourceTree = "<group>"; };
@@ -147,6 +151,7 @@
 			children = (
 				F38318D01C2F343600C36ACB /* AppDelegate.swift */,
 				F38318DC1C2F343600C36ACB /* Info.plist */,
+				F38B55111C34E0EA0022453F /* GoalieSettingsManager.swift */,
 			);
 			name = Other;
 			path = Goalie;
@@ -222,6 +227,7 @@
 			children = (
 				F3DB3E031C322DC40005C607 /* MainTasksViewController.swift */,
 				F3DB3E111C3306690005C607 /* EditTaskViewController.swift */,
+				F38B550F1C34DD810022453F /* SettingsViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -363,9 +369,11 @@
 			files = (
 				F3FB809A1C320E86008C1E07 /* Task.swift in Sources */,
 				F3FB80981C320E65008C1E07 /* Task.xcdatamodeld in Sources */,
+				F38B55121C34E0EA0022453F /* GoalieSettingsManager.swift in Sources */,
 				F383193C1C31A72D00C36ACB /* TableViewDelegate.swift in Sources */,
 				F383192A1C31A72D00C36ACB /* CoreDataStack.swift in Sources */,
 				F383190D1C319FE800C36ACB /* TasksTableViewCell.swift in Sources */,
+				F38B55101C34DD810022453F /* SettingsViewController.swift in Sources */,
 				F38319311C31A72D00C36ACB /* NSURL+Extensions.swift in Sources */,
 				F38319291C31A72D00C36ACB /* ManagedObject.swift in Sources */,
 				F38E2EA51C34863600945CA4 /* UIView+Extensions.swift in Sources */,

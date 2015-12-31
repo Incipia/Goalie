@@ -17,6 +17,7 @@ class DefaultTasksFetchRequestProvider
       let request = Task.sortedFetchRequest
       request.returnsObjectsAsFaults = false
       request.fetchBatchSize = 20
+      
       return request
    }()
    

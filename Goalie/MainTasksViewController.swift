@@ -136,6 +136,17 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
       let controller = UIStoryboard.taskDetailsViewControllerForTask(task, managedObjectContext: moc)
       presentViewController(controller, animated: false, completion: nil)
    }
+   
+   // Mark: - IBActions
+   @IBAction private func _settingsButtonPressed()
+   {
+      definesPresentationContext = true
+      
+      let controller = UIStoryboard.settingsViewController(moc)
+      controller.delegate = self
+
+      presentViewController(controller, animated: false, completion: nil)
+   }
 }
 
 extension MainTasksViewController: TasksTableViewCellDelegate
@@ -282,5 +293,19 @@ extension MainTasksViewController: TableViewDelegateProtocol
    func heightForRowAtIndexPath(indexPath: NSIndexPath) -> CGFloat
    {
       return indexPath.row == 0 ? 70 : 50
+   }
+}
+
+extension MainTasksViewController: SettingsViewControllerDelegate
+{
+   func settingsDidClose()
+   {
+      _tableViewDataProvider.updateFetchRequest()
+      
+      UIView.animateWithDuration(0.25, animations: { () -> Void in
+         self._goalieTableView.reloadData()
+         }) { (finished) -> Void in
+            self._updateTaskCellsLeftBar()
+      }
    }
 }

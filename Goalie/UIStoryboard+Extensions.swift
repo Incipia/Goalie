@@ -22,6 +22,16 @@ extension UIStoryboard
       return editTaskController
    }
    
+   static func settingsViewController(managedObjectContext: NSManagedObjectContext) -> SettingsViewController
+   {
+      let storyboard = UIStoryboard(name: "Main", bundle: nil)
+      let settingsController = storyboard.instantiateViewControllerWithIdentifier("SettingsViewController") as! SettingsViewController
+      settingsController.moc = managedObjectContext
+      settingsController.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
+      
+      return settingsController
+   }
+   
    static func mainTasksViewController() -> MainTasksViewController
    {
       let storyboard = UIStoryboard(name: "Main", bundle: nil)

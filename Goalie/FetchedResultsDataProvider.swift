@@ -26,6 +26,19 @@ class FetchedResultsDataProvider<Delegate: DataProviderDelegate>: NSObject, NSFe
       try! _fetchedResultsController.performFetch()
    }
    
+   func updateFetchRequest()
+   {
+      NSFetchedResultsController.deleteCacheWithName(_fetchedResultsController.cacheName)
+
+      var predicate: NSPredicate? = nil
+      if !GoalieSettingsManager.showCompletedTasks {
+         predicate = NSPredicate(format: "completed == false")
+      }
+      
+      _fetchedResultsController.fetchRequest.predicate = predicate
+      try! _fetchedResultsController.performFetch()
+   }
+   
    func objectAtIndexPath(indexPath: NSIndexPath) -> Object
    {
       guard let result = _fetchedResultsController.objectAtIndexPath(indexPath) as? Object else { fatalError("Unexpected object at \(indexPath)") }
