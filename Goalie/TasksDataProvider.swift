@@ -61,7 +61,7 @@ public class TasksDataProvider: NSObject, NSFetchedResultsControllerDelegate
       
       if let tasks = tasksFRC.fetchedObjects as? [Task] {
          for task in tasks {
-            if task.title != "" {
+            if task.title != "" && !task.completed {
                switch task.priority {
                case .Ages: priorityDict[.Ages] = priorityDict[.Ages]! + 1
                case .Later: priorityDict[.Later] = priorityDict[.Later]! + 1
