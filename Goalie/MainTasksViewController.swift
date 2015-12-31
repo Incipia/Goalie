@@ -33,6 +33,7 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
          cacheName: nil)
    }
    
+   private var _currentAveragePriority: TaskPriority? = .Later
    private var _currentTaskCell: TasksTableViewCell?
    private var _shouldCreateMoreCellsOnReturnKeyPressed = false
    
@@ -47,6 +48,8 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
             self._updateLeftBarForTableCells()
          })
       }
+      
+      _updateTableViewHeaderColor()
    }
    
    override func viewDidAppear(animated: Bool)
@@ -67,6 +70,20 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
    }
    
    // Mark: - Private
+   private func _updateTableViewHeaderColor()
+   {
+      if let priority = _tasksDataProvider.averagePriority() {
+         if  priority != _currentAveragePriority {
+            _goalieTableView.updateHeaderViewColor(UIColor(priority: priority), animationDuration: 0.3)
+            _currentAveragePriority = priority
+         }
+      }
+      else if _currentAveragePriority != nil {
+         _currentAveragePriority = nil
+         _goalieTableView.updateHeaderViewColor(UIColor.goalieEmptyTasksColor(), animationDuration: 0.3)
+      }
+   }
+   
    private func _updateLeftBarForTableCells()
    {
       if let indexPaths = self._goalieTableView.indexPathsForVisibleRows {
@@ -230,6 +247,9 @@ extension MainTasksViewController: DataProviderDelegate
                         }
                      }
                })
+            }
+            else {
+               self._updateTableViewHeaderColor()
             }
       }
    }
