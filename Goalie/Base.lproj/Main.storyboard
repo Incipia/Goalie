@@ -70,15 +70,15 @@
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CYa-Pq-pB0">
-                                                                    <rect key="frame" x="22" y="0.0" width="12" height="49"/>
+                                                                    <rect key="frame" x="22" y="1" width="12" height="48"/>
                                                                     <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="deviceRGB"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="height" constant="49" id="DdX-qD-maM"/>
+                                                                        <constraint firstAttribute="height" constant="48" id="DdX-qD-maM"/>
                                                                         <constraint firstAttribute="width" constant="12" id="heP-wt-HSv"/>
                                                                     </constraints>
                                                                 </view>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aNQ-9u-4An">
-                                                                    <rect key="frame" x="74" y="3" width="30" height="43"/>
+                                                                    <rect key="frame" x="74" y="4" width="30" height="43"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="43" id="eOu-BQ-O7D"/>
                                                                         <constraint firstAttribute="width" constant="30" id="vpP-Nd-gbn"/>
@@ -88,14 +88,14 @@
                                                                     <state key="normal" title="+"/>
                                                                 </button>
                                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="261" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1w8-iD-MBV">
-                                                                    <rect key="frame" x="112" y="16" width="165" height="17"/>
+                                                                    <rect key="frame" x="112" y="17" width="165" height="17"/>
                                                                     <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <color key="textColor" red="0.24700414417379299" green="0.25129465517053251" blue="0.27128708964646464" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <textInputTraits key="textInputTraits"/>
                                                                 </textField>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MD8-uu-bom">
-                                                                    <rect key="frame" x="285" y="1" width="35" height="49"/>
+                                                                    <rect key="frame" x="285" y="2" width="35" height="48"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="35" id="PXA-ot-Pvs"/>
                                                                     </constraints>

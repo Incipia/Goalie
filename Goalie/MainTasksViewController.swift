@@ -27,7 +27,14 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
    private var _tableViewDelegate: TableViewDelegate<DataProvider, MainTasksViewController>!
    
    private var _tableViewTasksFRC: NSFetchedResultsController {
-      return NSFetchedResultsController(fetchRequest: DefaultTasksFetchRequestProvider.fetchRequest,
+      
+      let fr = DefaultTasksFetchRequestProvider.fetchRequest
+      var predicate: NSPredicate? = nil
+      if !GoalieSettingsManager.showCompletedTasks {
+         predicate = NSPredicate(format: "completed == false")
+      }
+      fr.predicate = predicate
+      return NSFetchedResultsController(fetchRequest: fr,
          managedObjectContext: moc,
          sectionNameKeyPath: nil,
          cacheName: nil)
@@ -52,6 +59,7 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
          })
       }
       
+      _tasksDataProvider.updateFetchRequest()
       _updateTableViewHeaderColor()
    }
    
@@ -190,6 +198,7 @@ extension MainTasksViewController: TasksTableViewCellDelegate
          }
       }
       else {
+         cell.titleText = cell.titleText == "" ? "untitled" : cell.titleText
          cell.stopEditing()
          shouldReturn = true
       }

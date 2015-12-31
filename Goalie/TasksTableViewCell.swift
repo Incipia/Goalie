@@ -39,7 +39,12 @@ class TasksTableViewCell: UITableViewCell
    weak var delegate: TasksTableViewCellDelegate?
    
    var titleText: String {
-      return _textField.text ?? ""
+      get {
+         return _textField.text ?? ""
+      }
+      set {
+         _textField.text = newValue
+      }
    }
    
    override func awakeFromNib()
