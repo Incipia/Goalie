@@ -56,6 +56,7 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
          // we may need to update the left bar on the table cells (rounded corners depending on the cells position)
          dispatch_async(dispatch_get_main_queue(), { () -> Void in
             self._updateTaskCellsLeftBar()
+            self._updateTableViewFooter()
          })
       }
       
@@ -67,6 +68,7 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
    {
       super.viewDidAppear(animated)
       _updateTaskCellsLeftBar()
+      _updateTableViewFooter()
    }
    
    override func viewWillAppear(animated: Bool)
@@ -81,6 +83,16 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
    }
    
    // Mark: - Private
+   private func _updateTableViewFooter()
+   {
+      if _tasksDataProvider.incompletedTasks().count > 1 {
+         _goalieTableView.hideFooterView()
+      }
+      else {
+         _goalieTableView.showFooterView()
+      }
+   }
+   
    private func _updateTableViewHeaderColor()
    {
       if let priority = _tasksDataProvider.averagePriority() {

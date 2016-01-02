@@ -68,6 +68,32 @@ public class TasksDataProvider: NSObject, NSFetchedResultsControllerDelegate
       return isFirst
    }
    
+   func completedTasks() -> [Task]
+   {
+      var tasks: [Task] = []
+      if let taskArray = tasksFRC.fetchedObjects as? [Task] {
+         for task in taskArray {
+            if task.completed {
+               tasks.append(task)
+            }
+         }
+      }
+      return tasks
+   }
+   
+   func incompletedTasks() -> [Task]
+   {
+      var tasks: [Task] = []
+      if let taskArray = tasksFRC.fetchedObjects as? [Task] {
+         for task in taskArray {
+            if !task.completed {
+               tasks.append(task)
+            }
+         }
+      }
+      return tasks
+   }
+   
    func averagePriority() -> TaskPriority?
    {
       var priorityDict: [TaskPriority : Int] = [.Ages: 0, .Later : 0, .Soon : 0, .ASAP: 0]

@@ -14,20 +14,19 @@ let _minimumHeaderHeight: CGFloat = floor(UIScreen.mainScreen().bounds.height / 
 class GoalieTableView: TPKeyboardAvoidingTableView
 {
    private var _goalieHeaderView: UIView!
-   @IBOutlet private weak var goalieImageView: UIImageView!
+   private var _goalieFooterView: UIView!
    
    override func awakeFromNib()
    {
       super.awakeFromNib()
       
+      _goalieFooterView = tableFooterView
       _goalieHeaderView = tableHeaderView
       tableHeaderView = nil
       superview?.addSubview(_goalieHeaderView)
       
       contentInset = UIEdgeInsets(top: _defaultHeaderHeight, left: 0, bottom: 20, right: 0)
       contentOffset = CGPoint(x: 0, y: -_defaultHeaderHeight)
-      
-      tableFooterView = UIView()
    }
    
    override func layoutSubviews()
@@ -39,6 +38,16 @@ class GoalieTableView: TPKeyboardAvoidingTableView
       if contentOffset.y < -_defaultHeaderHeight {
          contentOffset = CGPoint(x: 0, y: -_defaultHeaderHeight)
       }
+   }
+   
+   func showFooterView()
+   {
+      tableFooterView = _goalieFooterView
+   }
+   
+   func hideFooterView()
+   {
+      tableFooterView = UIView()
    }
    
    func taskCellForIndexPath(indexPath: NSIndexPath) -> TasksTableViewCell?
