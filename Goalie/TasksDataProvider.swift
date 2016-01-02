@@ -86,33 +86,33 @@ public class TasksDataProvider: NSObject, NSFetchedResultsControllerDelegate
       }
       
       var maxPriorities: [TaskPriority] = []
-      var avgPri: TaskPriority? = nil
+      var avgPriority: TaskPriority? = nil
       var currentMax = 0
       
       for pri: TaskPriority in priorityDict.keys {
-         let priCount = priorityDict[pri]!
-         if  priCount > currentMax {
-            avgPri = pri
-            currentMax = priCount
+         let priorityCount = priorityDict[pri]!
+         if  priorityCount > currentMax {
+            avgPriority = pri
+            currentMax = priorityCount
             maxPriorities = [pri]
          }
-         else if priCount == currentMax && priCount != 0 {
+         else if priorityCount == currentMax && priorityCount != 0 {
             maxPriorities.append(pri)
          }
       }
       
       if maxPriorities.count > 0 {
-         avgPri = maxPriorities.first!
+         avgPriority = maxPriorities.first!
       }
       
       for pri in maxPriorities {
          // fix this -- task prioriteis are ordered backwards
-         if pri.rawValue < avgPri?.rawValue {
-            avgPri = pri
+         if pri.rawValue < avgPriority?.rawValue {
+            avgPriority = pri
          }
       }
       
-      return avgPri
+      return avgPriority
    }
 }
 
@@ -120,8 +120,6 @@ extension TasksDataProvider
 {
    public func controllerDidChangeContent(controller: NSFetchedResultsController)
    {
-      NSFetchedResultsController.deleteCacheWithName(tasksFRC.cacheName)
-      do { try tasksFRC.performFetch() } catch { fatalError("fetch request failed") }
       contentDidChangeBlock?()
    }
 }
