@@ -6,6 +6,28 @@
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="NotoSans-Bold.ttf">
+            <string>NotoSans-Bold</string>
+            <string>NotoSans-Bold</string>
+            <string>NotoSans-Bold</string>
+            <string>NotoSans-Bold</string>
+            <string>NotoSans-Bold</string>
+            <string>NotoSans-Bold</string>
+            <string>NotoSans-Bold</string>
+            <string>NotoSans-Bold</string>
+            <string>NotoSans-Bold</string>
+            <string>NotoSans-Bold</string>
+            <string>NotoSans-Bold</string>
+            <string>NotoSans-Bold</string>
+            <string>NotoSans-Bold</string>
+        </mutableArray>
+        <mutableArray key="NotoSans-Regular.ttf">
+            <string>NotoSans</string>
+            <string>NotoSans</string>
+            <string>NotoSans</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Main Tasks View Controller-->
         <scene sceneID="5WZ-rz-fQ6">
@@ -66,14 +88,14 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add some new tasks to wake Goalie back up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Th9-mE-cIz">
-                                                            <rect key="frame" x="35" y="64" width="251" height="15"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <rect key="frame" x="36" y="67" width="249" height="17"/>
+                                                            <fontDescription key="fontDescription" name="NotoSans" family="Noto Sans" pointSize="12"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nailed it." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PTI-pk-8go">
-                                                            <rect key="frame" x="124" y="26" width="73" height="21"/>
-                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                            <rect key="frame" x="121" y="26" width="78" height="24"/>
+                                                            <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="17"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -113,10 +135,13 @@
                                                                     <state key="normal" title="+"/>
                                                                 </button>
                                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="261" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1w8-iD-MBV">
-                                                                    <rect key="frame" x="112" y="17" width="165" height="17"/>
+                                                                    <rect key="frame" x="112" y="11" width="165" height="30"/>
                                                                     <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="30" id="sV9-Yd-OlO"/>
+                                                                    </constraints>
                                                                     <color key="textColor" red="0.24700414417379299" green="0.25129465517053251" blue="0.27128708964646464" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <fontDescription key="fontDescription" name="NotoSans" family="Noto Sans" pointSize="14"/>
                                                                     <textInputTraits key="textInputTraits"/>
                                                                 </textField>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MD8-uu-bom">
@@ -243,37 +268,31 @@
                                                 <action selector="_closeButtonPressed" destination="EZY-Nk-o6p" eventType="touchUpInside" id="WxC-hA-D0c"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GhU-SJ-iKm">
-                                            <rect key="frame" x="170" y="336" width="168" height="64"/>
-                                            <color key="backgroundColor" red="0.76470588235294112" green="0.84705882352941175" blue="0.88235294117647056" alpha="1" colorSpace="deviceRGB"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="64" id="GDZ-bl-t1h"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
-                                            <color key="tintColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
-                                            <state key="normal" title="DONE"/>
-                                            <connections>
-                                                <action selector="_closeButtonPressed" destination="EZY-Nk-o6p" eventType="touchUpInside" id="Ow9-vl-RmG"/>
-                                            </connections>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KJR-xx-ki4">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KJR-xx-ki4" customClass="GoalieKerningButton" customModule="Goalie" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="336" width="168" height="64"/>
                                             <color key="backgroundColor" red="0.76470588235294112" green="0.84705882352941175" blue="0.88235294117647056" alpha="1" colorSpace="deviceRGB"/>
-                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                            <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="17"/>
                                             <color key="tintColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
-                                            <state key="normal" title="DELETE"/>
+                                            <state key="normal" title="DELETE">
+                                                <color key="titleColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="kerningValue">
+                                                    <real key="value" value="3"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
                                             <connections>
                                                 <action selector="_deleteButtonPressed" destination="EZY-Nk-o6p" eventType="touchUpInside" id="TUh-Mt-tHU"/>
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit task" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lq8-di-iwY">
-                                            <rect key="frame" x="20" y="33" width="80" height="24"/>
-                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                            <rect key="frame" x="20" y="30" width="96" height="30"/>
+                                            <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="22"/>
                                             <color key="textColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xeH-au-Ics">
-                                            <rect key="frame" x="0.0" y="71" width="338" height="265"/>
+                                            <rect key="frame" x="0.0" y="74" width="338" height="262"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="TITLE" adjustsFontSizeToFit="NO" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="lPJ-ET-lfq" customClass="JVFloatLabeledTextField">
                                                     <rect key="frame" x="20" y="30" width="308" height="50"/>
@@ -282,14 +301,14 @@
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="dEf-hI-FdV"/>
                                                         <constraint firstAttribute="height" constant="50" id="vCO-Z6-lBB"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <fontDescription key="fontDescription" name="NotoSans" family="Noto Sans" pointSize="18"/>
                                                     <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="color" keyPath="floatingLabelActiveTextColor">
-                                                            <color key="value" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="value" red="0.3411764706" green="0.4823529412" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
                                                         </userDefinedRuntimeAttribute>
                                                         <userDefinedRuntimeAttribute type="color" keyPath="floatingLabelTextColor">
-                                                            <color key="value" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="value" red="0.3411764706" green="0.4823529412" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
                                                         </userDefinedRuntimeAttribute>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="floatingLabelYPadding">
                                                             <real key="value" value="0.0"/>
@@ -304,10 +323,10 @@
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ype-g1-Uyi" userLabel="Priority Selector Container">
-                                                    <rect key="frame" x="0.0" y="86" width="338" height="179"/>
+                                                    <rect key="frame" x="0.0" y="86" width="338" height="176"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qvn-x0-2DS">
-                                                            <rect key="frame" x="20" y="51" width="298" height="16"/>
+                                                            <rect key="frame" x="20" y="50" width="298" height="16"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cLY-LI-7Cl" userLabel="ASAP">
                                                                     <rect key="frame" x="0.0" y="0.0" width="73" height="16"/>
@@ -347,59 +366,67 @@
                                                                 <constraint firstItem="ixo-In-mII" firstAttribute="leading" secondItem="cLY-LI-7Cl" secondAttribute="trailing" constant="2" id="xLK-Jf-XHa"/>
                                                             </constraints>
                                                         </view>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XVU-Ul-3zk">
-                                                            <rect key="frame" x="20" y="51" width="73" height="59"/>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0er-6a-GVP" customClass="GoalieKerningButton" customModule="Goalie" customModuleProvider="target">
+                                                            <rect key="frame" x="245" y="50" width="73" height="59"/>
+                                                            <color key="backgroundColor" red="1" green="0.39581620065789475" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                                                            <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="12"/>
+                                                            <color key="tintColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <inset key="contentEdgeInsets" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
+                                                            <state key="normal" title="AGES">
+                                                                <color key="titleColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="_agesButtonPressed" destination="EZY-Nk-o6p" eventType="touchDown" id="DVU-62-VTg"/>
+                                                            </connections>
+                                                        </button>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PRIORITY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Zq-7d-cZ0" customClass="GoalieKerningLabel" customModule="Goalie" customModuleProvider="target">
+                                                            <rect key="frame" x="20" y="24" width="62" height="18"/>
+                                                            <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="13"/>
+                                                            <color key="textColor" red="0.3411764706" green="0.4823529412" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XVU-Ul-3zk" customClass="GoalieKerningButton" customModule="Goalie" customModuleProvider="target">
+                                                            <rect key="frame" x="20" y="50" width="73" height="59"/>
                                                             <color key="backgroundColor" red="1" green="0.39581620065789475" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="XVU-Ul-3zk" secondAttribute="height" multiplier="1:0.8" id="nef-ue-Dbq"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                                            <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="12"/>
                                                             <color key="tintColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <inset key="contentEdgeInsets" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
-                                                            <state key="normal" title="ASAP"/>
+                                                            <state key="normal" title="ASAP">
+                                                                <color key="titleColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
+                                                            </state>
                                                             <connections>
-                                                                <action selector="_asapButtonPressed" destination="EZY-Nk-o6p" eventType="touchUpInside" id="qaS-N4-wUK"/>
+                                                                <action selector="_asapButtonPressed" destination="EZY-Nk-o6p" eventType="touchDown" id="ECN-v6-ohw"/>
                                                             </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bsh-dq-nQb">
-                                                            <rect key="frame" x="95" y="51" width="73" height="59"/>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bsh-dq-nQb" customClass="GoalieKerningButton" customModule="Goalie" customModuleProvider="target">
+                                                            <rect key="frame" x="95" y="50" width="73" height="59"/>
                                                             <color key="backgroundColor" red="1" green="0.39581620065789475" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                                            <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="12"/>
                                                             <color key="tintColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <inset key="contentEdgeInsets" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
-                                                            <state key="normal" title="SOON"/>
+                                                            <state key="normal" title="SOON">
+                                                                <color key="titleColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
+                                                            </state>
                                                             <connections>
-                                                                <action selector="_soonButtonPressed" destination="EZY-Nk-o6p" eventType="touchUpInside" id="Ixn-4q-DNN"/>
+                                                                <action selector="_soonButtonPressed" destination="EZY-Nk-o6p" eventType="touchDown" id="PUm-za-q0K"/>
                                                             </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FtY-4A-yur">
-                                                            <rect key="frame" x="170" y="51" width="73" height="59"/>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FtY-4A-yur" customClass="GoalieKerningButton" customModule="Goalie" customModuleProvider="target">
+                                                            <rect key="frame" x="170" y="50" width="73" height="59"/>
                                                             <color key="backgroundColor" red="1" green="0.39581620065789475" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                                            <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="12"/>
                                                             <color key="tintColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <inset key="contentEdgeInsets" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
-                                                            <state key="normal" title="LATER"/>
+                                                            <state key="normal" title="LATER">
+                                                                <color key="titleColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
+                                                            </state>
                                                             <connections>
-                                                                <action selector="_laterButtonPressed" destination="EZY-Nk-o6p" eventType="touchUpInside" id="6C8-PP-B2r"/>
+                                                                <action selector="_laterButtonPressed" destination="EZY-Nk-o6p" eventType="touchDown" id="sbz-Xj-ABV"/>
                                                             </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0er-6a-GVP">
-                                                            <rect key="frame" x="245" y="51" width="73" height="59"/>
-                                                            <color key="backgroundColor" red="1" green="0.39581620065789475" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
-                                                            <color key="tintColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <inset key="contentEdgeInsets" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
-                                                            <state key="normal" title="AGES"/>
-                                                            <connections>
-                                                                <action selector="_agesButtonPressed" destination="EZY-Nk-o6p" eventType="touchUpInside" id="EuI-e1-eHs"/>
-                                                            </connections>
-                                                        </button>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PRIORITY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Zq-7d-cZ0">
-                                                            <rect key="frame" x="20" y="27" width="59" height="16"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                            <color key="textColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
@@ -424,15 +451,15 @@
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cF0-TP-VJp" userLabel="PriorityIndicator">
-                                                    <rect key="frame" x="20" y="194" width="73" height="4"/>
-                                                    <color key="backgroundColor" red="0.89411764709999997" green="0.8980392157" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <rect key="frame" x="20" y="193" width="73" height="4"/>
+                                                    <color key="backgroundColor" red="0.76470588240000004" green="0.84705882349999995" blue="0.88235294119999996" alpha="1" colorSpace="deviceRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="4" id="gos-Vn-KjD"/>
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fyg-rT-Xik" userLabel="Separator">
-                                                    <rect key="frame" x="20" y="198" width="318" height="2"/>
-                                                    <color key="backgroundColor" red="0.89411764709999997" green="0.8980392157" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <rect key="frame" x="20" y="197" width="298" height="2"/>
+                                                    <color key="backgroundColor" red="0.76470588240000004" green="0.84705882349999995" blue="0.88235294119999996" alpha="1" colorSpace="deviceRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="2" id="may-Oe-tXT"/>
                                                     </constraints>
@@ -444,7 +471,6 @@
                                                 <constraint firstAttribute="bottom" secondItem="Ype-g1-Uyi" secondAttribute="bottom" id="Aub-K0-su9"/>
                                                 <constraint firstItem="lPJ-ET-lfq" firstAttribute="top" secondItem="xeH-au-Ics" secondAttribute="top" constant="30" id="C7d-Og-ZSe"/>
                                                 <constraint firstItem="cF0-TP-VJp" firstAttribute="width" secondItem="XVU-Ul-3zk" secondAttribute="width" id="IP9-dI-xEt"/>
-                                                <constraint firstItem="fyg-rT-Xik" firstAttribute="trailing" secondItem="Ska-ou-SBC" secondAttribute="trailing" id="RBi-Wm-SFp"/>
                                                 <constraint firstItem="Ska-ou-SBC" firstAttribute="leading" secondItem="lPJ-ET-lfq" secondAttribute="leading" id="SQB-ot-83h"/>
                                                 <constraint firstItem="fyg-rT-Xik" firstAttribute="top" secondItem="cF0-TP-VJp" secondAttribute="bottom" id="Vsc-Zi-Zm0"/>
                                                 <constraint firstItem="fyg-rT-Xik" firstAttribute="leading" secondItem="Ska-ou-SBC" secondAttribute="leading" id="YCv-6t-H7p"/>
@@ -453,6 +479,7 @@
                                                 <constraint firstItem="Ype-g1-Uyi" firstAttribute="top" secondItem="Ska-ou-SBC" secondAttribute="bottom" id="aMD-8P-S9N"/>
                                                 <constraint firstItem="9Zq-7d-cZ0" firstAttribute="leading" secondItem="Ska-ou-SBC" secondAttribute="leading" id="gIH-zi-Ge3"/>
                                                 <constraint firstItem="cF0-TP-VJp" firstAttribute="leading" secondItem="fyg-rT-Xik" secondAttribute="leading" id="j3x-Po-d8U"/>
+                                                <constraint firstItem="fyg-rT-Xik" firstAttribute="trailing" secondItem="0er-6a-GVP" secondAttribute="trailing" id="lOf-kq-Oac"/>
                                                 <constraint firstItem="fyg-rT-Xik" firstAttribute="top" secondItem="XVU-Ul-3zk" secondAttribute="bottom" constant="2" id="met-y0-sZ7"/>
                                                 <constraint firstItem="lPJ-ET-lfq" firstAttribute="leading" secondItem="xeH-au-Ics" secondAttribute="leading" constant="20" id="ojw-hu-LGH"/>
                                                 <constraint firstItem="Ska-ou-SBC" firstAttribute="top" secondItem="lPJ-ET-lfq" secondAttribute="bottom" constant="4" id="pLe-57-FDP"/>
@@ -460,6 +487,26 @@
                                                 <constraint firstAttribute="trailing" secondItem="lPJ-ET-lfq" secondAttribute="trailing" constant="10" id="wiV-2N-DBj"/>
                                             </constraints>
                                         </view>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GhU-SJ-iKm" customClass="GoalieKerningButton" customModule="Goalie" customModuleProvider="target">
+                                            <rect key="frame" x="170" y="336" width="168" height="64"/>
+                                            <color key="backgroundColor" red="0.76470588235294112" green="0.84705882352941175" blue="0.88235294117647056" alpha="1" colorSpace="deviceRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="64" id="GDZ-bl-t1h"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="17"/>
+                                            <color key="tintColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
+                                            <state key="normal" title="DONE">
+                                                <color key="titleColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="kerningValue">
+                                                    <real key="value" value="3"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="_closeButtonPressed" destination="EZY-Nk-o6p" eventType="touchUpInside" id="Ow9-vl-RmG"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="KJR-xx-ki4" secondAttribute="bottom" id="2PZ-BC-8tU"/>
@@ -494,7 +541,9 @@
                     <connections>
                         <outlet property="_agesPriorityBlock" destination="Pru-Tn-6Md" id="Lht-sY-bhR"/>
                         <outlet property="_asapPriorityBlock" destination="cLY-LI-7Cl" id="GYE-Co-9zS"/>
+                        <outlet property="_deleteButton" destination="KJR-xx-ki4" id="JNV-UJ-AeP"/>
                         <outlet property="_detailsContainerView" destination="oFK-D8-eOM" id="441-ak-TUM"/>
+                        <outlet property="_doneButton" destination="GhU-SJ-iKm" id="I5Z-Nh-Icn"/>
                         <outlet property="_laterPriorityBlock" destination="eWW-3T-u4E" id="yUM-zH-VQa"/>
                         <outlet property="_priorityIndicatorLeadingSpaceConstraint" destination="j3x-Po-d8U" id="rgn-rj-DQc"/>
                         <outlet property="_soonPriorityBlock" destination="ixo-In-mII" id="3lG-US-7tZ"/>
@@ -518,13 +567,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mzx-uK-MIU">
-                                <rect key="frame" x="18" y="167" width="338" height="334"/>
+                                <rect key="frame" x="19" y="174" width="337" height="320"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="KBr-Zv-qva">
-                                    <rect key="frame" x="0.0" y="0.0" width="338" height="334"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="337" height="320"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IJK-co-R7s">
-                                            <rect key="frame" x="278" y="15" width="60" height="60"/>
+                                            <rect key="frame" x="277" y="15" width="60" height="60"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="IJK-co-R7s" secondAttribute="height" multiplier="1:1" id="QgO-hH-j4n"/>
                                                 <constraint firstAttribute="height" constant="60" id="fFC-Td-qgE"/>
@@ -537,37 +586,37 @@
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ug8-L9-t1w">
-                                            <rect key="frame" x="20" y="33" width="77" height="24"/>
-                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                            <rect key="frame" x="20" y="30" width="91" height="30"/>
+                                            <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="22"/>
                                             <color key="textColor" red="0.21568627450980393" green="0.29803921568627451" blue="0.33725490196078434" alpha="1" colorSpace="deviceRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show completed tasks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CeK-wk-LkK">
-                                            <rect key="frame" x="20" y="97" width="155" height="18"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                            <color key="textColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Manually switch priority" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2LN-x7-CSb">
-                                            <rect key="frame" x="20" y="187" width="162" height="18"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                            <color key="textColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Tasks will always stay at the same priority as you set them as)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e3k-GH-Iqu">
-                                            <rect key="frame" x="20" y="213" width="271" height="36"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                            <color key="textColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="0.60311972128378377" colorSpace="deviceRGB"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SHOW COMPLETED TASKS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CeK-wk-LkK" customClass="GoalieKerningLabel" customModule="Goalie" customModuleProvider="target">
+                                            <rect key="frame" x="20" y="110" width="152" height="17"/>
+                                            <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="12"/>
+                                            <color key="textColor" red="0.3411764705882353" green="0.4823529411764706" blue="0.53725490196078429" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Elq-nd-LiQ">
-                                            <rect key="frame" x="20" y="123" width="51" height="31"/>
+                                            <rect key="frame" x="20" y="135" width="51" height="31"/>
                                             <color key="onTintColor" red="0.070588235289999995" green="0.64313725489999995" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                         </switch>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MANUALLY SWITCH PRIORITY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2LN-x7-CSb" customClass="GoalieKerningLabel" customModule="Goalie" customModuleProvider="target">
+                                            <rect key="frame" x="20" y="199" width="177" height="17"/>
+                                            <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="12"/>
+                                            <color key="textColor" red="0.3411764705882353" green="0.4823529411764706" blue="0.53725490196078429" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Yr-sT-wBA">
-                                            <rect key="frame" x="20" y="257" width="51" height="31"/>
+                                            <rect key="frame" x="20" y="265" width="51" height="31"/>
                                             <color key="onTintColor" red="0.070588235289999995" green="0.64313725489999995" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                         </switch>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(TASKS WILL ALWAYS STAY AT THE PRIORITY YOU SET THEM AS)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e3k-GH-Iqu" customClass="GoalieKerningLabel" customModule="Goalie" customModuleProvider="target">
+                                            <rect key="frame" x="20" y="224" width="270" height="33"/>
+                                            <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="12"/>
+                                            <color key="textColor" red="0.3411764706" green="0.4823529412" blue="0.53725490200000003" alpha="0.6035948057432432" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="e3k-GH-Iqu" secondAttribute="trailing" constant="47" id="71U-L9-IYD"/>
@@ -575,7 +624,7 @@
                                         <constraint firstItem="0Yr-sT-wBA" firstAttribute="leading" secondItem="e3k-GH-Iqu" secondAttribute="leading" id="B5k-W4-e8i"/>
                                         <constraint firstItem="IJK-co-R7s" firstAttribute="top" secondItem="KBr-Zv-qva" secondAttribute="top" constant="15" id="D3b-6E-yGH"/>
                                         <constraint firstItem="e3k-GH-Iqu" firstAttribute="leading" secondItem="2LN-x7-CSb" secondAttribute="leading" id="Ehg-1V-Faz"/>
-                                        <constraint firstItem="CeK-wk-LkK" firstAttribute="top" secondItem="ug8-L9-t1w" secondAttribute="bottom" constant="40" id="FmO-hO-AYD"/>
+                                        <constraint firstItem="CeK-wk-LkK" firstAttribute="top" secondItem="ug8-L9-t1w" secondAttribute="bottom" constant="50" id="FmO-hO-AYD"/>
                                         <constraint firstItem="0Yr-sT-wBA" firstAttribute="top" secondItem="e3k-GH-Iqu" secondAttribute="bottom" constant="8" id="NcN-V6-tOz"/>
                                         <constraint firstItem="e3k-GH-Iqu" firstAttribute="top" secondItem="2LN-x7-CSb" secondAttribute="bottom" constant="8" id="PVB-YK-6QH"/>
                                         <constraint firstItem="2LN-x7-CSb" firstAttribute="top" secondItem="Elq-nd-LiQ" secondAttribute="bottom" constant="33" id="QvF-a4-p8h"/>
@@ -587,6 +636,9 @@
                                         <constraint firstItem="ug8-L9-t1w" firstAttribute="leading" secondItem="KBr-Zv-qva" secondAttribute="leading" constant="20" id="zlZ-h4-PZO"/>
                                     </constraints>
                                 </view>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="320" id="yVb-WQ-ceu"/>
+                                </constraints>
                                 <blurEffect style="extraLight"/>
                             </visualEffectView>
                         </subviews>
@@ -594,7 +646,6 @@
                         <constraints>
                             <constraint firstItem="Mzx-uK-MIU" firstAttribute="width" secondItem="IdI-Hb-G9P" secondAttribute="width" multiplier="0.9" id="6o0-51-iw5"/>
                             <constraint firstItem="Mzx-uK-MIU" firstAttribute="centerY" secondItem="IdI-Hb-G9P" secondAttribute="centerY" id="GeR-0B-K0A"/>
-                            <constraint firstItem="Mzx-uK-MIU" firstAttribute="height" secondItem="IdI-Hb-G9P" secondAttribute="height" multiplier="0.5" id="N6M-Ao-ZXC"/>
                             <constraint firstItem="Mzx-uK-MIU" firstAttribute="centerX" secondItem="IdI-Hb-G9P" secondAttribute="centerX" id="Rp2-dN-w6G"/>
                         </constraints>
                     </view>

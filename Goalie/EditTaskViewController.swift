@@ -19,6 +19,9 @@ class EditTaskViewController: UIViewController, ManagedObjectContextSettable
    @IBOutlet private weak var _laterPriorityBlock: UIView!
    @IBOutlet private weak var _agesPriorityBlock: UIView!
    
+   @IBOutlet private weak var _deleteButton: GoalieKerningButton!
+   @IBOutlet private weak var _doneButton: GoalieKerningButton!
+   
    @IBOutlet private weak var _priorityIndicatorLeadingSpaceConstraint: NSLayoutConstraint!
    @IBOutlet private weak var _detailsContainerView: UIVisualEffectView!
    
@@ -30,11 +33,11 @@ class EditTaskViewController: UIViewController, ManagedObjectContextSettable
    override func viewDidLoad()
    {
       super.viewDidLoad()
-      _setupShadow()
       
+      _setupShadow()
+      _setupTitleTextField()
       _updateTitleTextField()
       _currentPriority = _task.priority
-      _titleTextField.delegate = self
    }
    
    override func viewDidLayoutSubviews()
@@ -49,6 +52,22 @@ class EditTaskViewController: UIViewController, ManagedObjectContextSettable
    override func preferredStatusBarStyle() -> UIStatusBarStyle
    {
       return .LightContent
+   }
+   
+   // MARK: - Setup
+   private func _setupTitleTextField()
+   {
+      let font = UIFont(name: "NotoSans-Bold", size: 13)!
+      let fontColor = _titleTextField.floatingLabelTextColor
+      
+      let attributes = [
+         NSFontAttributeName : font,
+         NSForegroundColorAttributeName : fontColor,
+         NSKernAttributeName : 1.5
+      ]
+      
+      _titleTextField.floatingLabel.attributedText = NSAttributedString(string: "TITLE", attributes: attributes)
+      _titleTextField.delegate = self
    }
    
    // Mark: - IBActions
@@ -114,11 +133,6 @@ class EditTaskViewController: UIViewController, ManagedObjectContextSettable
    private func _updateTitleTextField()
    {
       _titleTextField.text = _task.title
-   }
-   
-   private func _updateTaskWithPriority(priority: TaskPriority)
-   {
-      _currentPriority = priority
    }
    
    private func _updatePriorityIndicatorViewFrameAnimated(animated: Bool)

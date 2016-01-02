@@ -55,6 +55,7 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
          // There is probably a better way to do this.  We need this because when tasks are moved around/created in the table,
          // we may need to update the left bar on the table cells (rounded corners depending on the cells position)
          dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            self._updateTableViewHeaderColor()
             self._updateTaskCellsLeftBar()
             self._updateTableViewFooter()
          })
@@ -158,14 +159,13 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
    // Mark: - IBActions
    @IBAction private func _settingsButtonPressed()
    {
-      if _currentTaskCell != nil {
+      guard _currentTaskCell == nil else {
          _currentTaskCell?.stopEditing()
+         return
       }
-      else {
-         let controller = UIStoryboard.settingsViewController(moc)
-         controller.delegate = self
-         presentViewController(controller, animated: false, completion: nil)
-      }
+      
+      let controller = UIStoryboard.settingsViewController(moc, delegate: self)
+      presentViewController(controller, animated: false, completion: nil)
    }
 }
 
@@ -278,9 +278,6 @@ extension MainTasksViewController: DataProviderDelegate
                         }
                      }
                })
-            }
-            else {
-               self._updateTableViewHeaderColor()
             }
       }
    }
