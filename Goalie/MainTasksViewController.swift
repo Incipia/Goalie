@@ -86,7 +86,7 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
    // Mark: - Private
    private func _updateTableViewFooter()
    {
-      if _tasksDataProvider.incompletedTasks().count > 1 {
+      if _tasksDataProvider.incompletedTasks().count > 0 {
          _goalieTableView.hideFooterView()
       }
       else {
