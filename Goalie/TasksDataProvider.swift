@@ -73,7 +73,7 @@ public class TasksDataProvider: NSObject, NSFetchedResultsControllerDelegate
       var tasks: [Task] = []
       if let taskArray = tasksFRC.fetchedObjects as? [Task] {
          for task in taskArray {
-            if task.completed {
+            if task.completed && task.title != "" {
                tasks.append(task)
             }
          }
@@ -86,7 +86,7 @@ public class TasksDataProvider: NSObject, NSFetchedResultsControllerDelegate
       var tasks: [Task] = []
       if let taskArray = tasksFRC.fetchedObjects as? [Task] {
          for task in taskArray {
-            if !task.completed {
+            if !task.completed && task.title != "" {
                tasks.append(task)
             }
          }
