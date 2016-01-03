@@ -13,8 +13,6 @@ import UIKit
  ***/
 class GoalieKerningButton: UIButton
 {
-   @IBInspectable var kerningValue: CGFloat?
-   
    required init?(coder aDecoder: NSCoder)
    {
       super.init(coder: aDecoder)
@@ -23,13 +21,13 @@ class GoalieKerningButton: UIButton
       let attributes = [
          NSFontAttributeName : label.font,
          NSForegroundColorAttributeName : label.textColor,
-         NSKernAttributeName : kerningValue ?? 2
+         NSKernAttributeName : 2
       ]
       
       let highlightedAttributes = [
          NSFontAttributeName : label.font,
          NSForegroundColorAttributeName : label.textColor.colorWithAlphaComponent(0.5),
-         NSKernAttributeName : kerningValue ?? 2
+         NSKernAttributeName : 2
       ]
       
       let attributedString = NSAttributedString(string: label.text ?? "", attributes: attributes)
