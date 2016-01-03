@@ -11,8 +11,10 @@ import CoreData
 
 public final class Task: ManagedObject
 {
+   @NSManaged public private(set) var uuid: String
    @NSManaged public var title: String
    @NSManaged public private(set) var creationDate: NSDate
+   @NSManaged public private(set) var lastPriorityChangeDate: NSDate
    @NSManaged public private(set) var priorityValue: Int16
    @NSManaged public var completed: Bool
    
@@ -21,7 +23,11 @@ public final class Task: ManagedObject
          return TaskPriority(rawValue: Int(priorityValue))!
       }
       set {
-         priorityValue = Int16(newValue.rawValue)
+         let newPriorityValue = Int16(newValue.rawValue)
+         if priorityValue != newPriorityValue {
+            priorityValue = newPriorityValue
+            lastPriorityChangeDate = NSDate()
+         }
       }
    }
    
@@ -45,6 +51,8 @@ public final class Task: ManagedObject
       title = ""
       priority = .Ages
       creationDate = NSDate()
+      uuid = NSUUID().UUIDString
+      lastPriorityChangeDate = NSDate()
    }
 }
 

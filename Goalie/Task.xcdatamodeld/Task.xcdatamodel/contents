@@ -4,10 +4,12 @@
         <attribute name="completed" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="creationDate" attributeType="Date" indexed="YES" syncable="YES"/>
         <attribute name="justForFun" attributeType="Integer 16" defaultValueString="0" indexed="YES" syncable="YES"/>
+        <attribute name="lastPriorityChangeDate" attributeType="Date" syncable="YES"/>
         <attribute name="priorityValue" attributeType="Integer 16" defaultValueString="0" indexed="YES" syncable="YES"/>
         <attribute name="title" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="uuid" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Task" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="Task" positionX="-63" positionY="-18" width="128" height="150"/>
     </elements>
 </model>
