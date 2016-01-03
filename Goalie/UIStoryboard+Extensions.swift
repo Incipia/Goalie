@@ -33,9 +33,11 @@ extension UIStoryboard
       return settingsController
    }
    
-   static func mainTasksViewController() -> MainTasksViewController
+   static func mainTasksViewController(moc: NSManagedObjectContext) -> MainTasksViewController
    {
       let storyboard = UIStoryboard(name: "Main", bundle: nil)
-      return storyboard.instantiateViewControllerWithIdentifier("MainTasksViewController") as! MainTasksViewController
+      let controller = storyboard.instantiateViewControllerWithIdentifier("MainTasksViewController") as! MainTasksViewController
+      controller.moc = moc
+      return controller
    }
 }
