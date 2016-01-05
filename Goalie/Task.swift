@@ -31,18 +31,9 @@ public final class Task: ManagedObject
       }
    }
    
-   public static func insertIntoContext(moc: NSManagedObjectContext, title: String) -> Task
+   public static func insertEmptyTaskIntoContext(moc: NSManagedObjectContext) -> Task
    {
       let task: Task = moc.insertObject()
-      task.title = title
-      return task
-   }
-   
-   public static func insertIntoContext(moc: NSManagedObjectContext, title: String, priority: TaskPriority) -> Task
-   {
-      let task: Task = moc.insertObject()
-      task.title = title
-      task.priority = priority
       return task
    }
    
@@ -51,8 +42,8 @@ public final class Task: ManagedObject
       title = ""
       priority = .Unknown
       creationDate = NSDate()
-      uuid = NSUUID().UUIDString
       lastPriorityChangeDate = NSDate()
+      uuid = NSUUID().UUIDString
    }
 }
 
@@ -84,13 +75,5 @@ extension Task: ManagedObjectType
    public func save()
    {
       managedObjectContext?.saveOrRollback()
-   }
-   
-   public func copyTaskWithContext(context: NSManagedObjectContext)
-   {
-      context.performChanges({ () -> () in
-         let newTitle = "\(self.title) copy"
-         Task.insertIntoContext(context, title: newTitle, priority: self.priority)
-      })
    }
 }

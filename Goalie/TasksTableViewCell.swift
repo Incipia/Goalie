@@ -11,7 +11,7 @@ import UIKit
 protocol TasksTableViewCellDelegate: class
 {
    func taskCellBeganEditing(cell: TasksTableViewCell, plusButtonPressed: Bool)
-   func taskCellFinishedEditing(cell: TasksTableViewCell)
+   func taskCellFinishedEditing(cell: TasksTableViewCell, forTask task: Task?)
    func titleTextFieldShouldReturnForCell(cell: TasksTableViewCell) -> Bool
    func returnKeyTypeForCell(cell: TasksTableViewCell) -> UIReturnKeyType
    
@@ -132,12 +132,14 @@ extension TasksTableViewCell: UITextFieldDelegate
    {
       _task?.title = _textField.text ?? "This shouldn't happen!"
       _disclosureButton.hidden = false
-      delegate?.taskCellFinishedEditing(self)
+      delegate?.taskCellFinishedEditing(self, forTask: _task)
    }
    
    func textFieldShouldReturn(textField: UITextField) -> Bool
    {
       _updateLeftButtonTitle()
+      
+      titleText = titleText.trimmedString
       return delegate?.titleTextFieldShouldReturnForCell(self) ?? true
    }
 

@@ -120,8 +120,9 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
       }
    }
    
-   private func _createEmptyTaskIfNecessary()
+   private func _createEmptyTaskIfNecessary() -> Task?
    {
+      var createdTask: Task?
       var emptyTaskAtBottom = true
       if let lastIndexPath = _goalieTableView.lastIndexPath {
          let task = _tableViewDataProvider.objectAtIndexPath(lastIndexPath)
@@ -130,9 +131,11 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
       else if _goalieTableView.numberOfRowsInSection(0) == 0 {
          emptyTaskAtBottom = false
       }
+      
       if !emptyTaskAtBottom {
-         Task.insertIntoContext(moc, title: "")
+         createdTask = Task.insertEmptyTaskIntoContext(moc)
       }
+      return createdTask
    }
    
    private func _setupTableViewDataSourceAndDelegate()
@@ -179,10 +182,14 @@ extension MainTasksViewController: TasksTableViewCellDelegate
       }
    }
    
-   func taskCellFinishedEditing(cell: TasksTableViewCell)
+   func taskCellFinishedEditing(cell: TasksTableViewCell, forTask task: Task?)
    {
+      moc.performChanges { () -> () in
+         if task?.priority == .Unknown && cell.titleText != "" {
+            task?.priority = .Ages
+         }
+      }
       _currentTaskCell = nil
-      moc.saveOrRollback()
       _createEmptyTaskIfNecessary()
    }
    
@@ -199,14 +206,9 @@ extension MainTasksViewController: TasksTableViewCellDelegate
                _shouldCreateMoreCellsOnReturnKeyPressed = false
             }
             else {
-               shouldReturn = false
-               Task.insertIntoContext(moc, title: "")
+               Task.insertEmptyTaskIntoContext(moc)
                _shouldGiveNextCreatedCellFocus = true
             }
-         }
-         else {
-            shouldReturn = false
-            _advanceCellFocusFromIndexPath(cellIndexPath)
          }
       }
       else {
