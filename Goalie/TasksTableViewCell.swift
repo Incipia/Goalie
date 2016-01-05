@@ -21,6 +21,7 @@ protocol TasksTableViewCellDelegate: class
 
 class TasksTableViewCell: UITableViewCell
 {
+   private let _disclosureButtonTitle = "〉"
    private let _incompletedButtonTitle = "○"
    private let _completedButtonTitle = "◉"
    private let _plusButtonTitle = "+"
@@ -54,6 +55,7 @@ class TasksTableViewCell: UITableViewCell
       _appearanceUpdater = TaskCellAppearanceUpdater(delegate: self)
       _textField.delegate = self
       _textField.userInteractionEnabled = false
+      _disclosureButton.setTitle(" ", forState: .Normal)
    }
    
    func startEditing()
@@ -109,7 +111,13 @@ class TasksTableViewCell: UITableViewCell
    @IBAction private func _disclosureButtonPressed()
    {
       if let task = _task where !editing {
-         delegate?.disclosureButtonPressedForTask(task)
+         if task.priority != .Unknown {
+            delegate?.disclosureButtonPressedForTask(task)
+         }
+         else if _textField.editing {
+            task.priority = .Ages
+            delegate?.disclosureButtonPressedForTask(task)
+         }
       }
    }
 }
@@ -123,6 +131,7 @@ extension TasksTableViewCell: UITextFieldDelegate
    
    func textFieldDidBeginEditing(textField: UITextField)
    {
+      _updateDisclosureButtonTitle()
       delegate?.taskCellBeganEditing(self, plusButtonPressed: _plusButtonWasPressed)
       _textField.returnKeyType = delegate?.returnKeyTypeForCell(self) ?? .Next
       _updateLeftButtonTitle()
@@ -130,6 +139,7 @@ extension TasksTableViewCell: UITextFieldDelegate
    
    func textFieldDidEndEditing(textField: UITextField)
    {
+      _updateDisclosureButtonTitle()
       _task?.title = _textField.text ?? "This shouldn't happen!"
       _disclosureButton.hidden = false
       delegate?.taskCellFinishedEditing(self, forTask: _task)
@@ -191,6 +201,14 @@ extension TasksTableViewCell
          _leftButton.layoutIfNeeded()
          UIView.setAnimationsEnabled(true);
       }
+   }
+   
+   private func _updateDisclosureButtonTitle()
+   {
+      let disclosureButtonTitle = _textField.editing ? _disclosureButtonTitle : " "
+      UIView.setAnimationsEnabled(false)
+      _disclosureButton.setTitle(disclosureButtonTitle, forState: .Normal)
+      UIView.setAnimationsEnabled(true);
    }
    
    private func _updateLeftButtonSelector()
