@@ -63,7 +63,7 @@
                                                                 <constraint firstAttribute="width" constant="40" id="wG2-wP-MiH"/>
                                                             </constraints>
                                                             <color key="tintColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="deviceRGB"/>
-                                                            <state key="normal" image="icn-bar-settings"/>
+                                                            <state key="normal" image="settings-gear"/>
                                                             <connections>
                                                                 <action selector="_settingsButtonPressed" destination="8kc-U2-rbB" eventType="touchUpInside" id="8u6-SS-P1t"/>
                                                             </connections>
@@ -144,14 +144,14 @@
                                                                     <fontDescription key="fontDescription" name="NotoSans" family="Noto Sans" pointSize="14"/>
                                                                     <textInputTraits key="textInputTraits"/>
                                                                 </textField>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MD8-uu-bom">
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MD8-uu-bom">
                                                                     <rect key="frame" x="285" y="2" width="35" height="48"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="35" id="PXA-ot-Pvs"/>
                                                                     </constraints>
-                                                                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
                                                                     <color key="tintColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="deviceRGB"/>
-                                                                    <state key="normal" title="〉"/>
+                                                                    <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="8" maxY="0.0"/>
+                                                                    <state key="normal" image="arrow"/>
                                                                     <connections>
                                                                         <action selector="_disclosureButtonPressed" destination="0U4-ke-0VQ" eventType="touchUpInside" id="jkE-D0-eRo"/>
                                                                     </connections>
@@ -163,8 +163,8 @@
                                                                         <constraint firstAttribute="height" constant="1" id="7gb-pd-qL3"/>
                                                                     </constraints>
                                                                 </view>
-                                                                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mot-yK-vev" userLabel="Bottom Separator">
-                                                                    <rect key="frame" x="42" y="49" width="278" height="1"/>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mot-yK-vev" userLabel="Bottom Separator">
+                                                                    <rect key="frame" x="54" y="49" width="266" height="1"/>
                                                                     <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="0.69964632601351351" colorSpace="deviceRGB"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="1" id="Onu-bI-yLZ"/>
@@ -178,6 +178,7 @@
                                                                 <constraint firstItem="gAh-as-43A" firstAttribute="top" secondItem="EMJ-Nu-7yC" secondAttribute="top" id="F7f-Wc-EGG"/>
                                                                 <constraint firstItem="CYa-Pq-pB0" firstAttribute="leading" secondItem="EMJ-Nu-7yC" secondAttribute="leading" constant="22" id="IlR-M9-hVd"/>
                                                                 <constraint firstItem="1w8-iD-MBV" firstAttribute="centerY" secondItem="aNQ-9u-4An" secondAttribute="centerY" id="MeF-Jo-5YF"/>
+                                                                <constraint firstItem="mot-yK-vev" firstAttribute="leading" secondItem="gAh-as-43A" secondAttribute="leading" id="NtT-2Q-3KT"/>
                                                                 <constraint firstAttribute="bottom" secondItem="MD8-uu-bom" secondAttribute="bottom" id="Ocp-DB-AHt"/>
                                                                 <constraint firstAttribute="bottom" secondItem="CYa-Pq-pB0" secondAttribute="bottom" constant="1" id="Q1z-ra-DvB"/>
                                                                 <constraint firstAttribute="trailing" secondItem="MD8-uu-bom" secondAttribute="trailing" id="SSd-qx-af3"/>
@@ -254,15 +255,14 @@
                                     <rect key="frame" x="0.0" y="0.0" width="338" height="400"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="as6-6u-hEN">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="as6-6u-hEN">
                                             <rect key="frame" x="278" y="15" width="60" height="60"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="as6-6u-hEN" secondAttribute="height" multiplier="1:1" id="THj-qd-jYp"/>
                                                 <constraint firstAttribute="height" constant="60" id="YXc-Hu-1DF"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                             <color key="tintColor" red="0.76262589203789044" green="0.77218981765036554" blue="0.81713620577777779" alpha="1" colorSpace="calibratedRGB"/>
-                                            <state key="normal" title="✕"/>
+                                            <state key="normal" image="cancel"/>
                                             <connections>
                                                 <action selector="_closeButtonPressed" destination="EZY-Nk-o6p" eventType="touchUpInside" id="WxC-hA-D0c"/>
                                             </connections>
@@ -561,15 +561,14 @@
                                     <rect key="frame" x="0.0" y="0.0" width="337" height="320"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IJK-co-R7s">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IJK-co-R7s">
                                             <rect key="frame" x="277" y="15" width="60" height="60"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="IJK-co-R7s" secondAttribute="height" multiplier="1:1" id="QgO-hH-j4n"/>
                                                 <constraint firstAttribute="height" constant="60" id="fFC-Td-qgE"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                             <color key="tintColor" red="0.76262589199999997" green="0.77218981769999995" blue="0.81713620580000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <state key="normal" title="✕"/>
+                                            <state key="normal" image="cancel"/>
                                             <connections>
                                                 <action selector="_closeButtonPressed" destination="ga5-Uq-fC8" eventType="touchUpInside" id="KBH-pH-j9o"/>
                                             </connections>
@@ -651,6 +650,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icn-bar-settings" width="24" height="24"/>
+        <image name="arrow" width="6" height="10"/>
+        <image name="cancel" width="16" height="16"/>
+        <image name="settings-gear" width="22" height="22"/>
     </resources>
 </document>
