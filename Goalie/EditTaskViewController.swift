@@ -110,12 +110,6 @@ class EditTaskViewController: UIViewController, ManagedObjectContextSettable
       }
    }
    
-   @IBAction private func _duplicateButtonPressed()
-   {
-      _task.copyTaskWithContext(moc)
-      dismissViewControllerAnimated(false, completion: nil)
-   }
-   
    @IBAction private func _deleteButtonPressed()
    {
       dismissViewControllerAnimated(false) { () -> Void in
@@ -174,6 +168,8 @@ extension EditTaskViewController
          break
       case .ASAP:
          constant = _asapPriorityBlock.frame.minX
+         break
+      case .Unknown:
          break
       }
       return constant

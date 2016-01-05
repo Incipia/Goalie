@@ -106,6 +106,7 @@ public class TasksDataProvider: NSObject, NSFetchedResultsControllerDelegate
                case .Later: priorityDict[.Later] = priorityDict[.Later]! + 1
                case .Soon: priorityDict[.Soon] = priorityDict[.Soon]! + 1
                case .ASAP: priorityDict[.ASAP] = priorityDict[.ASAP]! + 1
+               default: continue
                }
             }
          }

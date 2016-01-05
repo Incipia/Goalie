@@ -25,6 +25,9 @@ private func _rgbValuesForPriority(priority: TaskPriority) -> (r: CGFloat, g: CG
    case .ASAP:
       values = (255, 80, 100)
       break
+   case .Unknown:
+      values = (228, 229, 231)
+      break
    }
    values = (values.r/255.0, values.g/255.0, values.b/255.0)
    return values

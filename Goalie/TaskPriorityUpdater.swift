@@ -36,6 +36,7 @@ private extension TaskPriority
       case .Soon: return (60 * 60 * 24 * 1)
       case .Later: return (60 * 60 * 24 * 3)
       case .Ages: return (60 * 60 * 24 * 7)
+      case .Unknown: return 0
       }
    }
    
@@ -45,6 +46,7 @@ private extension TaskPriority
       case .Soon: return 5
       case .Later: return 10
       case .Ages: return 15
+      case .Unknown: return 0
       }
    }
    
@@ -54,6 +56,7 @@ private extension TaskPriority
       case .Soon: return .ASAP
       case .Later: return .Soon
       case .Ages: return .Later
+      case .Unknown: return nil
       }
    }
    
@@ -87,9 +90,11 @@ struct TaskPriorityUpdater
          {
             let taskPriorityAdvancingDate = task.lastPriorityChangeDate.dateByAddingTimeInterval(currentPriorityDuration)
             
+            print("---------- TASK: \(task.title) --------------")
             print("task LCD: \(task.lastPriorityChangeDate.prettyDateString())")
             print("should advance on: \(taskPriorityAdvancingDate.prettyDateString())")
             print("current date: \(currentDate.prettyDateString())")
+            print("")
             if currentDate >= taskPriorityAdvancingDate
             {
                task.priority = nextPriority

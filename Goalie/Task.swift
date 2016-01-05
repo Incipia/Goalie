@@ -49,7 +49,7 @@ public final class Task: ManagedObject
    public override func awakeFromInsert()
    {
       title = ""
-      priority = .Ages
+      priority = .Unknown
       creationDate = NSDate()
       uuid = NSUUID().UUIDString
       lastPriorityChangeDate = NSDate()

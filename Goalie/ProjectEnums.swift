@@ -10,5 +10,5 @@ import Foundation
 
 public enum TaskPriority: Int
 {
-   case ASAP, Soon, Later, Ages
+   case ASAP, Soon, Later, Ages, Unknown
 }
