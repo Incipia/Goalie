@@ -47,7 +47,7 @@ extension NSDate
    
    func prettyDateString() -> String
    {
-      let formatter = NSDateFormatter()
+      let formatter = DateFormatter.formatter
       formatter.dateStyle = NSDateFormatterStyle.LongStyle
       formatter.timeStyle = .MediumStyle
       
