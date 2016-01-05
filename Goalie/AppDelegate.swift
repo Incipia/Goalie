@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
    }
    
    func applicationDidBecomeActive(application: UIApplication) {
-//      _startTimerForMinuteChangedNotification()
+      _startTimerForMinuteChangedNotification()
    }
    
    func applicationWillResignActive(application: UIApplication)
@@ -63,13 +63,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate
    {
       if _minuteChangedNotificationTimer == nil
       {
-//         let calendar = NSCalendar.autoupdatingCurrentCalendar()
-//         let components = calendar.components(.Second, fromDate: NSDate())
-//         let currentSecond = components.second
+         let calendar = NSCalendar.autoupdatingCurrentCalendar()
+         let components = calendar.components(.Second, fromDate: NSDate())
+         let currentSecond = components.second
          
-//         let fireDate = NSDate().dateByAddingTimeInterval(NSTimeInterval(60 - currentSecond + 1))
-         let fireDate = NSDate().dateByAddingTimeInterval(NSTimeInterval(1))
-         _minuteChangedNotificationTimer = NSTimer(fireDate: fireDate, interval: 1, target: self, selector: Selector("_minuteChanged:"), userInfo: nil, repeats: true)
+         let fireDate = NSDate().dateByAddingTimeInterval(NSTimeInterval(60 - currentSecond + 1))
+         _minuteChangedNotificationTimer = NSTimer(fireDate: fireDate, interval: 60, target: self, selector: Selector("_minuteChanged:"), userInfo: nil, repeats: true)
          
          NSRunLoop.mainRunLoop().addTimer(_minuteChangedNotificationTimer!, forMode: NSDefaultRunLoopMode)
       }
