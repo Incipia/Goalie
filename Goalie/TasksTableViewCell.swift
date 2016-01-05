@@ -21,7 +21,6 @@ protocol TasksTableViewCellDelegate: class
 
 class TasksTableViewCell: UITableViewCell
 {
-   private let _disclosureButtonTitle = "〉"
    private let _incompletedButtonTitle = "○"
    private let _completedButtonTitle = "◉"
    private let _plusButtonTitle = "+"
@@ -55,7 +54,7 @@ class TasksTableViewCell: UITableViewCell
       _appearanceUpdater = TaskCellAppearanceUpdater(delegate: self)
       _textField.delegate = self
       _textField.userInteractionEnabled = false
-      _disclosureButton.setTitle(" ", forState: .Normal)
+      _disclosureButton.setImage(nil, forState: .Normal)
    }
    
    func startEditing()
@@ -205,9 +204,9 @@ extension TasksTableViewCell
    
    private func _updateDisclosureButtonTitle()
    {
-      let disclosureButtonTitle = _textField.editing ? _disclosureButtonTitle : " "
+      let disclosureButtonImage: UIImage? = _textField.editing ? UIImage(named: "arrow")! : nil
       UIView.setAnimationsEnabled(false)
-      _disclosureButton.setTitle(disclosureButtonTitle, forState: .Normal)
+      _disclosureButton.setImage(disclosureButtonImage, forState: .Normal)
       UIView.setAnimationsEnabled(true);
    }
    
