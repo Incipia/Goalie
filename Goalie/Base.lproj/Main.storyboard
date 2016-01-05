@@ -157,13 +157,13 @@
                                                                     </connections>
                                                                 </button>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gAh-as-43A" userLabel="Top Separator">
-                                                                    <rect key="frame" x="42" y="0.0" width="278" height="1"/>
+                                                                    <rect key="frame" x="54" y="0.0" width="266" height="1"/>
                                                                     <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="0.69964632601351351" colorSpace="deviceRGB"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="1" id="7gb-pd-qL3"/>
                                                                     </constraints>
                                                                 </view>
-                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mot-yK-vev" userLabel="Bottom Separator">
+                                                                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mot-yK-vev" userLabel="Bottom Separator">
                                                                     <rect key="frame" x="42" y="49" width="278" height="1"/>
                                                                     <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="0.69964632601351351" colorSpace="deviceRGB"/>
                                                                     <constraints>
@@ -173,8 +173,7 @@
                                                             </subviews>
                                                             <constraints>
                                                                 <constraint firstAttribute="trailing" secondItem="mot-yK-vev" secondAttribute="trailing" id="0N0-gR-w8I"/>
-                                                                <constraint firstItem="gAh-as-43A" firstAttribute="leading" secondItem="CYa-Pq-pB0" secondAttribute="trailing" constant="8" id="Aoz-yL-bwh"/>
-                                                                <constraint firstItem="mot-yK-vev" firstAttribute="leading" secondItem="gAh-as-43A" secondAttribute="leading" id="CWs-Xj-bmg"/>
+                                                                <constraint firstItem="gAh-as-43A" firstAttribute="leading" secondItem="CYa-Pq-pB0" secondAttribute="trailing" constant="20" id="Aoz-yL-bwh"/>
                                                                 <constraint firstItem="MD8-uu-bom" firstAttribute="leading" secondItem="1w8-iD-MBV" secondAttribute="trailing" constant="8" id="F6C-Ah-oUV"/>
                                                                 <constraint firstItem="gAh-as-43A" firstAttribute="top" secondItem="EMJ-Nu-7yC" secondAttribute="top" id="F7f-Wc-EGG"/>
                                                                 <constraint firstItem="CYa-Pq-pB0" firstAttribute="leading" secondItem="EMJ-Nu-7yC" secondAttribute="leading" constant="22" id="IlR-M9-hVd"/>

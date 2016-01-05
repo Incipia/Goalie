@@ -65,7 +65,7 @@
 		F38318CD1C2F343600C36ACB /* Goalie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Goalie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F38318D01C2F343600C36ACB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F38318D51C2F343600C36ACB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		F38318D71C2F343600C36ACB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Goalie/Assets.xcassets; sourceTree = "<group>"; };
+		F38318D71C2F343600C36ACB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F38318DA1C2F343600C36ACB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F38318DC1C2F343600C36ACB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F383190C1C319FE800C36ACB /* TasksTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TasksTableViewCell.swift; path = Goalie/TasksTableViewCell.swift; sourceTree = "<group>"; };
@@ -91,12 +91,12 @@
 		F38319241C31A72D00C36ACB /* TableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewDelegate.swift; path = Goalie/TableViewDelegate.swift; sourceTree = "<group>"; };
 		F38319481C31B3CB00C36ACB /* GoalieTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoalieTableView.swift; path = Goalie/GoalieTableView.swift; sourceTree = "<group>"; };
 		F38B550F1C34DD810022453F /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = Goalie/SettingsViewController.swift; sourceTree = "<group>"; };
-		F38B55111C34E0EA0022453F /* GoalieSettingsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalieSettingsManager.swift; sourceTree = "<group>"; };
-		F38B55131C3851190022453F /* NotoSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSans-Bold.ttf"; path = "Goalie/NotoSans-Bold.ttf"; sourceTree = "<group>"; };
-		F38B55141C3851190022453F /* NotoSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSans-Regular.ttf"; path = "Goalie/NotoSans-Regular.ttf"; sourceTree = "<group>"; };
+		F38B55111C34E0EA0022453F /* GoalieSettingsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoalieSettingsManager.swift; path = Goalie/GoalieSettingsManager.swift; sourceTree = "<group>"; };
+		F38B55131C3851190022453F /* NotoSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Bold.ttf"; sourceTree = "<group>"; };
+		F38B55141C3851190022453F /* NotoSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Regular.ttf"; sourceTree = "<group>"; };
 		F38B55171C3854A10022453F /* GoalieKerningLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoalieKerningLabel.swift; path = Goalie/GoalieKerningLabel.swift; sourceTree = "<group>"; };
 		F38B55191C3859050022453F /* GoalieKerningButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoalieKerningButton.swift; path = Goalie/GoalieKerningButton.swift; sourceTree = "<group>"; };
-		F38B551B1C3863000022453F /* TaskPriorityUpdater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskPriorityUpdater.swift; sourceTree = "<group>"; };
+		F38B551B1C3863000022453F /* TaskPriorityUpdater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TaskPriorityUpdater.swift; path = Goalie/TaskPriorityUpdater.swift; sourceTree = "<group>"; };
 		F38B551D1C388F510022453F /* NSDate+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSDate+Extensions.swift"; path = "Goalie/NSDate+Extensions.swift"; sourceTree = "<group>"; };
 		F38E2EA41C34863600945CA4 /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+Extensions.swift"; path = "Goalie/UIView+Extensions.swift"; sourceTree = "<group>"; };
 		F3DB3DCA1C3221AF0005C607 /* Goalie-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Goalie-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -134,18 +134,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F32C2A531C3B9E8C002ACA53 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				F38318D91C2F343600C36ACB /* LaunchScreen.storyboard */,
+				F38318D41C2F343600C36ACB /* Main.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		F32C2A541C3B9EA1002ACA53 /* Managers and Updaters */ = {
+			isa = PBXGroup;
+			children = (
+				F322EB101C34C371001B8C44 /* TaskCellAppearanceUpdater.swift */,
+				F38B55111C34E0EA0022453F /* GoalieSettingsManager.swift */,
+				F38B551B1C3863000022453F /* TaskPriorityUpdater.swift */,
+			);
+			name = "Managers and Updaters";
+			sourceTree = "<group>";
+		};
 		F38318C41C2F343600C36ACB = {
 			isa = PBXGroup;
 			children = (
 				F383193F1C31A74900C36ACB /* Core Data */,
-				F38319461C31AB3300C36ACB /* Custom Cells */,
 				F38319421C31A9C000C36ACB /* Enums */,
 				F38319401C31A76400C36ACB /* Extensions */,
-				F38319411C31A77E00C36ACB /* Generic Delegate/DataSource */,
 				F383190E1C31A58A00C36ACB /* External Frameworks */,
-				F38319471C31AB4100C36ACB /* Interface */,
+				F38319411C31A77E00C36ACB /* Generic Delegate/DataSource */,
+				F38319471C31AB4100C36ACB /* Custom UI */,
+				F32C2A541C3B9EA1002ACA53 /* Managers and Updaters */,
 				F38318CF1C2F343600C36ACB /* Other */,
 				F38318CE1C2F343600C36ACB /* Products */,
+				F32C2A531C3B9E8C002ACA53 /* Storyboards */,
 				F38319451C31AB2700C36ACB /* View Controllers */,
 			);
 			sourceTree = "<group>";
@@ -161,10 +181,11 @@
 		F38318CF1C2F343600C36ACB /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				F38318D01C2F343600C36ACB /* AppDelegate.swift */,
+				F38318D71C2F343600C36ACB /* Assets.xcassets */,
+				F38B55131C3851190022453F /* NotoSans-Bold.ttf */,
+				F38B55141C3851190022453F /* NotoSans-Regular.ttf */,
 				F38318DC1C2F343600C36ACB /* Info.plist */,
-				F38B55111C34E0EA0022453F /* GoalieSettingsManager.swift */,
-				F38B551B1C3863000022453F /* TaskPriorityUpdater.swift */,
+				F38318D01C2F343600C36ACB /* AppDelegate.swift */,
 			);
 			name = Other;
 			path = Goalie;
@@ -246,28 +267,15 @@
 			name = "View Controllers";
 			sourceTree = "<group>";
 		};
-		F38319461C31AB3300C36ACB /* Custom Cells */ = {
+		F38319471C31AB4100C36ACB /* Custom UI */ = {
 			isa = PBXGroup;
 			children = (
-				F383190C1C319FE800C36ACB /* TasksTableViewCell.swift */,
-				F322EB101C34C371001B8C44 /* TaskCellAppearanceUpdater.swift */,
-			);
-			name = "Custom Cells";
-			sourceTree = "<group>";
-		};
-		F38319471C31AB4100C36ACB /* Interface */ = {
-			isa = PBXGroup;
-			children = (
-				F38318D71C2F343600C36ACB /* Assets.xcassets */,
-				F38B55131C3851190022453F /* NotoSans-Bold.ttf */,
-				F38B55141C3851190022453F /* NotoSans-Regular.ttf */,
-				F38318D91C2F343600C36ACB /* LaunchScreen.storyboard */,
-				F38318D41C2F343600C36ACB /* Main.storyboard */,
-				F38319481C31B3CB00C36ACB /* GoalieTableView.swift */,
-				F38B55171C3854A10022453F /* GoalieKerningLabel.swift */,
 				F38B55191C3859050022453F /* GoalieKerningButton.swift */,
+				F38B55171C3854A10022453F /* GoalieKerningLabel.swift */,
+				F38319481C31B3CB00C36ACB /* GoalieTableView.swift */,
+				F383190C1C319FE800C36ACB /* TasksTableViewCell.swift */,
 			);
-			name = Interface;
+			name = "Custom UI";
 			sourceTree = "<group>";
 		};
 		F3DB3E051C3267CE0005C607 /* TPKeyboardAvoiding */ = {
