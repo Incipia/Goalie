@@ -70,7 +70,14 @@ extension Array
    }
 }
 
-extension String {
+extension String
+{
+   var trimmedString: String {
+      get {
+         let whitespaceCharacters = NSCharacterSet.whitespaceAndNewlineCharacterSet()
+         return self.stringByTrimmingCharactersInSet(whitespaceCharacters)
+      }
+   }
    
    subscript (i: Int) -> Character {
       return self[self.startIndex.advancedBy(i)]
