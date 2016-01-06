@@ -180,7 +180,7 @@ extension MainTasksViewController: TasksTableViewCellDelegate
    {
       moc.performChanges { () -> () in
          if task?.priority == .Unknown && cell.titleText != "" {
-            task?.priority = .Ages
+            task?.priority = .Later
          }
       }
       _currentTaskCell = nil
