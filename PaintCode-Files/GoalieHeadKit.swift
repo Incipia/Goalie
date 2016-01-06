@@ -12,7 +12,7 @@
 
 import UIKit
 
-public class GoalieStyleKit : NSObject {
+public class GoalieHeadKit : NSObject {
 
     //// Drawing Methods
 

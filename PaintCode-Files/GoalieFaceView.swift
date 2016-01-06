@@ -31,7 +31,7 @@ class GoalieFaceView: UIView
    override func drawRect(rect: CGRect)
    {
       // Drawing code
-      GoalieStyleKit.drawGoalieHead(backgroundColor: _headBackgroundColor, cheekColor: _cheeksColor, chinColor: _chinColor)
+      GoalieHeadKit.drawGoalieHead(backgroundColor: _headBackgroundColor, cheekColor: _cheeksColor, chinColor: _chinColor)
       
       switch _currentPriority
       {
