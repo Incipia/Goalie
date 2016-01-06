@@ -8,14 +8,29 @@
 
 import UIKit
 
-class GoalieFaceView: UIView {
-
-    /*
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
-        // Drawing code
-    }
-    */
-
+class GoalieFaceView: UIView
+{
+   private var _currentPriority: TaskPriority = .Unknown
+   
+   private var _headBackgroundColor: UIColor {
+      return UIColor(priority: _currentPriority, headComponent: .Background)
+   }
+   private var _cheeksColor: UIColor {
+      return UIColor(priority: _currentPriority, headComponent: .Cheeks)
+   }
+   private var _chinColor: UIColor {
+      return UIColor(priority: _currentPriority, headComponent: .Chin)
+   }
+   
+   func updateColorsForPriority(priority: TaskPriority)
+   {
+      _currentPriority = priority
+      setNeedsDisplay()
+   }
+   
+   override func drawRect(rect: CGRect)
+   {
+      // Drawing code
+      GoalieStyleKit.drawGoalieHead(backgroundColor: _headBackgroundColor, cheekColor: _cheeksColor, chinColor: _chinColor)
+   }
 }

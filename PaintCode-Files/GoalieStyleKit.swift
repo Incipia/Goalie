@@ -14,220 +14,95 @@ import UIKit
 
 public class GoalieStyleKit : NSObject {
 
-    //// Cache
-
-    private struct Cache {
-        static var imageOfGoalieSleeping: UIImage?
-        static var goalieSleepingTargets: [AnyObject]?
-    }
-
     //// Drawing Methods
 
-    public class func drawGoalieSleeping() {
+   public class func drawGoalieHead(backgroundColor backgroundColor: UIColor, cheekColor: UIColor, chinColor: UIColor) {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()
 
-        //// Color Declarations
-        let fillColor = UIColor(red: 0.340, green: 0.318, blue: 0.650, alpha: 1.000)
-        let fillColor2 = UIColor(red: 0.225, green: 0.211, blue: 0.504, alpha: 1.000)
-        let fillColor3 = UIColor(red: 0.191, green: 0.180, blue: 0.422, alpha: 1.000)
-        let fillColor4 = UIColor(red: 0.965, green: 0.752, blue: 0.845, alpha: 0.200)
-        let fillColor5 = UIColor(red: 0.099, green: 0.298, blue: 0.314, alpha: 0.200)
+        //// Shadow Declarations
+        let shadow = NSShadow()
+        shadow.shadowColor = UIColor.blackColor().colorWithAlphaComponent(0.2)
+        shadow.shadowOffset = CGSizeMake(0.1, 10.1)
+        shadow.shadowBlurRadius = 15
 
-        //// Image Declarations
-        let image = UIImage(named: "image.png")!
-
-        //// Group 2
         //// Group 3
-        //// Group 4
-        //// Group 5
-        //// _Image1 Drawing
-        let _Image1Path = UIBezierPath(rect: CGRectMake(0, 0, 150, 195))
+        //// Head Outline
+        //// Bezier Drawing
+        let bezierPath = UIBezierPath()
+        bezierPath.moveToPoint(CGPointMake(61.9, 66.5))
+        bezierPath.addCurveToPoint(CGPointMake(68.38, 48.95), controlPoint1: CGPointMake(65.96, 61.69), controlPoint2: CGPointMake(68.38, 55.58))
+        bezierPath.addCurveToPoint(CGPointMake(68.38, 48.77), controlPoint1: CGPointMake(68.38, 48.91), controlPoint2: CGPointMake(68.38, 48.81))
+        bezierPath.addCurveToPoint(CGPointMake(66.75, 39.34), controlPoint1: CGPointMake(68.38, 45.59), controlPoint2: CGPointMake(67.87, 42.37))
+        bezierPath.addCurveToPoint(CGPointMake(49.9, 2.1), controlPoint1: CGPointMake(61.99, 26.46), controlPoint2: CGPointMake(50.23, 16.52))
+        bezierPath.addCurveToPoint(CGPointMake(46.64, 0.33), controlPoint1: CGPointMake(49.86, 0.47), controlPoint2: CGPointMake(48.04, -0.56))
+        bezierPath.addCurveToPoint(CGPointMake(13.64, 51.33), controlPoint1: CGPointMake(30.26, 10.17), controlPoint2: CGPointMake(9.02, 30.15))
+        bezierPath.addCurveToPoint(CGPointMake(40.94, 76.35), controlPoint1: CGPointMake(14.86, 65.33), controlPoint2: CGPointMake(26.62, 76.35))
+        bezierPath.addCurveToPoint(CGPointMake(61.9, 66.5), controlPoint1: CGPointMake(49.3, 76.35), controlPoint2: CGPointMake(56.81, 72.47))
+        bezierPath.closePath()
+        bezierPath.miterLimit = 4;
+
         CGContextSaveGState(context)
-        _Image1Path.addClip()
-        CGContextScaleCTM(context, 1, -1)
-        CGContextDrawTiledImage(context, CGRectMake(0, 0, image.size.width, image.size.height), image.CGImage)
+        CGContextSetShadowWithColor(context, shadow.shadowOffset, shadow.shadowBlurRadius, (shadow.shadowColor as! UIColor).CGColor)
+        backgroundColor.setFill()
+        bezierPath.fill()
         CGContextRestoreGState(context)
 
 
 
 
-        //// Group 6
-        //// Bezier Drawing
-        let bezierPath = UIBezierPath()
-        bezierPath.moveToPoint(CGPointMake(120.4, 143.04))
-        bezierPath.addCurveToPoint(CGPointMake(134.3, 105.44), controlPoint1: CGPointMake(129.1, 132.74), controlPoint2: CGPointMake(134.3, 119.64))
-        bezierPath.addCurveToPoint(CGPointMake(134.3, 105.04), controlPoint1: CGPointMake(134.3, 105.34), controlPoint2: CGPointMake(134.3, 105.14))
-        bezierPath.addCurveToPoint(CGPointMake(130.8, 84.84), controlPoint1: CGPointMake(134.3, 98.24), controlPoint2: CGPointMake(133.2, 91.34))
-        bezierPath.addCurveToPoint(CGPointMake(94.7, 5.04), controlPoint1: CGPointMake(120.6, 57.24), controlPoint2: CGPointMake(95.4, 35.94))
-        bezierPath.addCurveToPoint(CGPointMake(87.7, 1.24), controlPoint1: CGPointMake(94.6, 1.54), controlPoint2: CGPointMake(90.7, -0.66))
-        bezierPath.addCurveToPoint(CGPointMake(17, 110.54), controlPoint1: CGPointMake(52.6, 22.34), controlPoint2: CGPointMake(7.1, 65.14))
-        bezierPath.addCurveToPoint(CGPointMake(75.5, 164.14), controlPoint1: CGPointMake(19.6, 140.54), controlPoint2: CGPointMake(44.8, 164.14))
-        bezierPath.addCurveToPoint(CGPointMake(120.4, 143.04), controlPoint1: CGPointMake(93.4, 164.14), controlPoint2: CGPointMake(109.5, 155.84))
-        bezierPath.closePath()
-        bezierPath.miterLimit = 4;
 
-        fillColor.setFill()
-        bezierPath.fill()
-
-
-
-
-        //// Group 7
-        //// Bezier 2 Drawing
-        let bezier2Path = UIBezierPath()
-        bezier2Path.moveToPoint(CGPointMake(55.9, 97.74))
-        bezier2Path.addCurveToPoint(CGPointMake(47, 88.84), controlPoint1: CGPointMake(51, 97.74), controlPoint2: CGPointMake(47, 93.74))
-        bezier2Path.addCurveToPoint(CGPointMake(49.1, 86.74), controlPoint1: CGPointMake(47, 87.74), controlPoint2: CGPointMake(47.9, 86.74))
-        bezier2Path.addCurveToPoint(CGPointMake(51.2, 88.84), controlPoint1: CGPointMake(50.3, 86.74), controlPoint2: CGPointMake(51.2, 87.64))
-        bezier2Path.addCurveToPoint(CGPointMake(56, 93.64), controlPoint1: CGPointMake(51.2, 91.44), controlPoint2: CGPointMake(53.3, 93.64))
-        bezier2Path.addCurveToPoint(CGPointMake(60.8, 88.84), controlPoint1: CGPointMake(58.6, 93.64), controlPoint2: CGPointMake(60.8, 91.54))
-        bezier2Path.addCurveToPoint(CGPointMake(62.9, 86.74), controlPoint1: CGPointMake(60.8, 87.74), controlPoint2: CGPointMake(61.7, 86.74))
-        bezier2Path.addCurveToPoint(CGPointMake(65, 88.84), controlPoint1: CGPointMake(64.1, 86.74), controlPoint2: CGPointMake(65, 87.64))
-        bezier2Path.addCurveToPoint(CGPointMake(55.9, 97.74), controlPoint1: CGPointMake(64.9, 93.64), controlPoint2: CGPointMake(60.9, 97.74))
-        bezier2Path.closePath()
-        bezier2Path.miterLimit = 4;
-
-        fillColor2.setFill()
-        bezier2Path.fill()
-
-
-
-
-        //// Group 8
-        //// Bezier 3 Drawing
-        let bezier3Path = UIBezierPath()
-        bezier3Path.moveToPoint(CGPointMake(94.3, 97.74))
-        bezier3Path.addCurveToPoint(CGPointMake(85.4, 88.84), controlPoint1: CGPointMake(89.4, 97.74), controlPoint2: CGPointMake(85.4, 93.74))
-        bezier3Path.addCurveToPoint(CGPointMake(87.5, 86.74), controlPoint1: CGPointMake(85.4, 87.74), controlPoint2: CGPointMake(86.3, 86.74))
-        bezier3Path.addCurveToPoint(CGPointMake(89.6, 88.84), controlPoint1: CGPointMake(88.7, 86.74), controlPoint2: CGPointMake(89.6, 87.64))
-        bezier3Path.addCurveToPoint(CGPointMake(94.4, 93.64), controlPoint1: CGPointMake(89.6, 91.44), controlPoint2: CGPointMake(91.7, 93.64))
-        bezier3Path.addCurveToPoint(CGPointMake(99.2, 88.84), controlPoint1: CGPointMake(97, 93.64), controlPoint2: CGPointMake(99.2, 91.54))
-        bezier3Path.addCurveToPoint(CGPointMake(101.3, 86.74), controlPoint1: CGPointMake(99.2, 87.74), controlPoint2: CGPointMake(100.1, 86.74))
-        bezier3Path.addCurveToPoint(CGPointMake(103.4, 88.84), controlPoint1: CGPointMake(102.5, 86.74), controlPoint2: CGPointMake(103.4, 87.64))
-        bezier3Path.addCurveToPoint(CGPointMake(94.3, 97.74), controlPoint1: CGPointMake(103.3, 93.64), controlPoint2: CGPointMake(99.3, 97.74))
-        bezier3Path.closePath()
-        bezier3Path.miterLimit = 4;
-
-        fillColor2.setFill()
-        bezier3Path.fill()
-
-
-
-
-        //// Group 9
-        //// Oval Drawing
-        let ovalPath = UIBezierPath(ovalInRect: CGRectMake(67.9, 112.44, 14, 14))
-        fillColor2.setFill()
-        ovalPath.fill()
-
-
-
-
-        //// Group 10
-        //// Bezier 4 Drawing
-        let bezier4Path = UIBezierPath()
-        bezier4Path.moveToPoint(CGPointMake(74.9, 114.54))
-        bezier4Path.addCurveToPoint(CGPointMake(81.8, 120.54), controlPoint1: CGPointMake(78.4, 114.54), controlPoint2: CGPointMake(81.3, 117.14))
-        bezier4Path.addCurveToPoint(CGPointMake(81.9, 119.54), controlPoint1: CGPointMake(81.9, 120.24), controlPoint2: CGPointMake(81.9, 119.84))
-        bezier4Path.addCurveToPoint(CGPointMake(74.9, 112.54), controlPoint1: CGPointMake(81.9, 115.64), controlPoint2: CGPointMake(78.8, 112.54))
-        bezier4Path.addCurveToPoint(CGPointMake(67.9, 119.54), controlPoint1: CGPointMake(71, 112.54), controlPoint2: CGPointMake(67.9, 115.64))
-        bezier4Path.addCurveToPoint(CGPointMake(68, 120.54), controlPoint1: CGPointMake(67.9, 119.94), controlPoint2: CGPointMake(67.9, 120.24))
-        bezier4Path.addCurveToPoint(CGPointMake(74.9, 114.54), controlPoint1: CGPointMake(68.4, 117.14), controlPoint2: CGPointMake(71.3, 114.54))
-        bezier4Path.closePath()
-        bezier4Path.miterLimit = 4;
-
-        fillColor3.setFill()
-        bezier4Path.fill()
-
-
-
-
-        //// Group 11
+        //// Cheek Dots
         //// Oval 2 Drawing
-        let oval2Path = UIBezierPath(ovalInRect: CGRectMake(36.3, 101.84, 11, 11))
-        fillColor4.setFill()
+        let oval2Path = UIBezierPath(ovalInRect: CGRectMake(22.65, 47.27, 5.13, 5.13))
+        cheekColor.setFill()
         oval2Path.fill()
 
 
-
-
-        //// Group 12
         //// Oval 3 Drawing
-        let oval3Path = UIBezierPath(ovalInRect: CGRectMake(102.7, 101.84, 11, 11))
-        fillColor4.setFill()
+        let oval3Path = UIBezierPath(ovalInRect: CGRectMake(53.64, 47.27, 5.13, 5.13))
+        cheekColor.setFill()
         oval3Path.fill()
 
 
 
 
-        //// Group 13
+        //// Chin Lines
         //// Bezier 5 Drawing
         let bezier5Path = UIBezierPath()
-        bezier5Path.moveToPoint(CGPointMake(115.7, 137.24))
-        bezier5Path.addCurveToPoint(CGPointMake(113.2, 136.44), controlPoint1: CGPointMake(114.8, 137.24), controlPoint2: CGPointMake(114, 136.94))
-        bezier5Path.addCurveToPoint(CGPointMake(112.5, 130.84), controlPoint1: CGPointMake(111.5, 135.04), controlPoint2: CGPointMake(111.1, 132.54))
-        bezier5Path.addCurveToPoint(CGPointMake(118.1, 121.74), controlPoint1: CGPointMake(114.7, 128.04), controlPoint2: CGPointMake(116.6, 124.94))
-        bezier5Path.addCurveToPoint(CGPointMake(123.4, 119.84), controlPoint1: CGPointMake(119, 119.74), controlPoint2: CGPointMake(121.4, 118.84))
-        bezier5Path.addCurveToPoint(CGPointMake(125.3, 125.14), controlPoint1: CGPointMake(125.4, 120.74), controlPoint2: CGPointMake(126.3, 123.14))
-        bezier5Path.addCurveToPoint(CGPointMake(118.8, 135.84), controlPoint1: CGPointMake(123.5, 128.94), controlPoint2: CGPointMake(121.4, 132.54))
-        bezier5Path.addCurveToPoint(CGPointMake(115.7, 137.24), controlPoint1: CGPointMake(118.1, 136.74), controlPoint2: CGPointMake(116.9, 137.24))
+        bezier5Path.moveToPoint(CGPointMake(59.7, 63.79))
+        bezier5Path.addCurveToPoint(CGPointMake(58.54, 63.42), controlPoint1: CGPointMake(59.28, 63.79), controlPoint2: CGPointMake(58.91, 63.65))
+        bezier5Path.addCurveToPoint(CGPointMake(58.21, 60.81), controlPoint1: CGPointMake(57.74, 62.77), controlPoint2: CGPointMake(57.56, 61.6))
+        bezier5Path.addCurveToPoint(CGPointMake(60.82, 56.56), controlPoint1: CGPointMake(59.24, 59.5), controlPoint2: CGPointMake(60.12, 58.05))
+        bezier5Path.addCurveToPoint(CGPointMake(63.3, 55.67), controlPoint1: CGPointMake(61.24, 55.63), controlPoint2: CGPointMake(62.36, 55.21))
+        bezier5Path.addCurveToPoint(CGPointMake(64.18, 58.15), controlPoint1: CGPointMake(64.23, 56.09), controlPoint2: CGPointMake(64.65, 57.21))
+        bezier5Path.addCurveToPoint(CGPointMake(61.15, 63.14), controlPoint1: CGPointMake(63.34, 59.92), controlPoint2: CGPointMake(62.36, 61.6))
+        bezier5Path.addCurveToPoint(CGPointMake(59.7, 63.79), controlPoint1: CGPointMake(60.82, 63.56), controlPoint2: CGPointMake(60.26, 63.79))
         bezier5Path.closePath()
         bezier5Path.miterLimit = 4;
 
-        fillColor5.setFill()
+        chinColor.setFill()
         bezier5Path.fill()
 
 
-
-
-        //// Group 14
         //// Bezier 6 Drawing
         let bezier6Path = UIBezierPath()
-        bezier6Path.moveToPoint(CGPointMake(75.5, 157.24))
-        bezier6Path.addCurveToPoint(CGPointMake(45.2, 148.14), controlPoint1: CGPointMake(64.7, 157.24), controlPoint2: CGPointMake(54.2, 154.04))
-        bezier6Path.addCurveToPoint(CGPointMake(44.1, 142.64), controlPoint1: CGPointMake(43.4, 146.94), controlPoint2: CGPointMake(42.9, 144.44))
-        bezier6Path.addCurveToPoint(CGPointMake(49.6, 141.54), controlPoint1: CGPointMake(45.3, 140.84), controlPoint2: CGPointMake(47.8, 140.34))
-        bezier6Path.addCurveToPoint(CGPointMake(75.5, 149.34), controlPoint1: CGPointMake(57.3, 146.64), controlPoint2: CGPointMake(66.2, 149.34))
-        bezier6Path.addCurveToPoint(CGPointMake(94.6, 145.14), controlPoint1: CGPointMake(82.1, 149.34), controlPoint2: CGPointMake(88.5, 147.94))
-        bezier6Path.addCurveToPoint(CGPointMake(103.2, 140.04), controlPoint1: CGPointMake(97.6, 143.74), controlPoint2: CGPointMake(100.5, 142.04))
-        bezier6Path.addCurveToPoint(CGPointMake(108.8, 140.84), controlPoint1: CGPointMake(105, 138.74), controlPoint2: CGPointMake(107.5, 139.14))
-        bezier6Path.addCurveToPoint(CGPointMake(108, 146.44), controlPoint1: CGPointMake(110.1, 142.64), controlPoint2: CGPointMake(109.7, 145.14))
-        bezier6Path.addCurveToPoint(CGPointMake(98, 152.34), controlPoint1: CGPointMake(104.9, 148.74), controlPoint2: CGPointMake(101.5, 150.74))
-        bezier6Path.addCurveToPoint(CGPointMake(75.5, 157.24), controlPoint1: CGPointMake(90.8, 155.64), controlPoint2: CGPointMake(83.3, 157.24))
+        bezier6Path.moveToPoint(CGPointMake(40.94, 73.13))
+        bezier6Path.addCurveToPoint(CGPointMake(26.8, 68.88), controlPoint1: CGPointMake(35.9, 73.13), controlPoint2: CGPointMake(31, 71.63))
+        bezier6Path.addCurveToPoint(CGPointMake(26.29, 66.31), controlPoint1: CGPointMake(25.96, 68.32), controlPoint2: CGPointMake(25.73, 67.15))
+        bezier6Path.addCurveToPoint(CGPointMake(28.86, 65.8), controlPoint1: CGPointMake(26.85, 65.47), controlPoint2: CGPointMake(28.02, 65.24))
+        bezier6Path.addCurveToPoint(CGPointMake(40.94, 69.44), controlPoint1: CGPointMake(32.45, 68.18), controlPoint2: CGPointMake(36.6, 69.44))
+        bezier6Path.addCurveToPoint(CGPointMake(49.86, 67.48), controlPoint1: CGPointMake(44.02, 69.44), controlPoint2: CGPointMake(47.01, 68.79))
+        bezier6Path.addCurveToPoint(CGPointMake(53.87, 65.1), controlPoint1: CGPointMake(51.26, 66.83), controlPoint2: CGPointMake(52.61, 66.03))
+        bezier6Path.addCurveToPoint(CGPointMake(56.48, 65.47), controlPoint1: CGPointMake(54.71, 64.49), controlPoint2: CGPointMake(55.88, 64.68))
+        bezier6Path.addCurveToPoint(CGPointMake(56.11, 68.09), controlPoint1: CGPointMake(57.09, 66.31), controlPoint2: CGPointMake(56.9, 67.48))
+        bezier6Path.addCurveToPoint(CGPointMake(51.44, 70.84), controlPoint1: CGPointMake(54.66, 69.16), controlPoint2: CGPointMake(53.08, 70.09))
+        bezier6Path.addCurveToPoint(CGPointMake(40.94, 73.13), controlPoint1: CGPointMake(48.08, 72.38), controlPoint2: CGPointMake(44.58, 73.13))
         bezier6Path.closePath()
         bezier6Path.miterLimit = 4;
 
-        fillColor5.setFill()
+        chinColor.setFill()
         bezier6Path.fill()
-    }
-
-    //// Generated Images
-
-    public class var imageOfGoalieSleeping: UIImage {
-        if Cache.imageOfGoalieSleeping != nil {
-            return Cache.imageOfGoalieSleeping!
-        }
-
-        UIGraphicsBeginImageContextWithOptions(CGSizeMake(150, 195), false, 0)
-            GoalieStyleKit.drawGoalieSleeping()
-
-        Cache.imageOfGoalieSleeping = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-
-        return Cache.imageOfGoalieSleeping!
-    }
-
-    //// Customization Infrastructure
-
-    @IBOutlet var goalieSleepingTargets: [AnyObject]! {
-        get { return Cache.goalieSleepingTargets }
-        set {
-            Cache.goalieSleepingTargets = newValue
-            for target: AnyObject in newValue {
-                target.performSelector("setImage:", withObject: GoalieStyleKit.imageOfGoalieSleeping)
-            }
-        }
     }
 
 }
