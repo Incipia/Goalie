@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		F322EB111C34C371001B8C44 /* TaskCellAppearanceUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = F322EB101C34C371001B8C44 /* TaskCellAppearanceUpdater.swift */; };
 		F322EB131C34C9D4001B8C44 /* UIButton+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F322EB121C34C9D4001B8C44 /* UIButton+Extensions.swift */; };
+		F32C2A5B1C3C905F002ACA53 /* GoalieStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32C2A5A1C3C905F002ACA53 /* GoalieStyleKit.swift */; };
+		F32C2A5F1C3CB3C5002ACA53 /* GoalieFaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32C2A5E1C3CB3C5002ACA53 /* GoalieFaceView.swift */; };
 		F38318D11C2F343600C36ACB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38318D01C2F343600C36ACB /* AppDelegate.swift */; };
 		F38318D61C2F343600C36ACB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F38318D41C2F343600C36ACB /* Main.storyboard */; };
 		F38318D81C2F343600C36ACB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F38318D71C2F343600C36ACB /* Assets.xcassets */; };
@@ -62,6 +64,8 @@
 /* Begin PBXFileReference section */
 		F322EB101C34C371001B8C44 /* TaskCellAppearanceUpdater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TaskCellAppearanceUpdater.swift; path = Goalie/TaskCellAppearanceUpdater.swift; sourceTree = "<group>"; };
 		F322EB121C34C9D4001B8C44 /* UIButton+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIButton+Extensions.swift"; path = "Goalie/UIButton+Extensions.swift"; sourceTree = "<group>"; };
+		F32C2A5A1C3C905F002ACA53 /* GoalieStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoalieStyleKit.swift; path = "PaintCode-Files/GoalieStyleKit.swift"; sourceTree = "<group>"; };
+		F32C2A5E1C3CB3C5002ACA53 /* GoalieFaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoalieFaceView.swift; path = "PaintCode-Files/GoalieFaceView.swift"; sourceTree = "<group>"; };
 		F38318CD1C2F343600C36ACB /* Goalie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Goalie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F38318D01C2F343600C36ACB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F38318D51C2F343600C36ACB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -153,9 +157,19 @@
 			name = "Managers and Updaters";
 			sourceTree = "<group>";
 		};
+		F32C2A571C3C8D55002ACA53 /* Goalie Face */ = {
+			isa = PBXGroup;
+			children = (
+				F32C2A5A1C3C905F002ACA53 /* GoalieStyleKit.swift */,
+				F32C2A5E1C3CB3C5002ACA53 /* GoalieFaceView.swift */,
+			);
+			name = "Goalie Face";
+			sourceTree = "<group>";
+		};
 		F38318C41C2F343600C36ACB = {
 			isa = PBXGroup;
 			children = (
+				F32C2A571C3C8D55002ACA53 /* Goalie Face */,
 				F383193F1C31A74900C36ACB /* Core Data */,
 				F38319421C31A9C000C36ACB /* Enums */,
 				F38319401C31A76400C36ACB /* Extensions */,
@@ -408,6 +422,7 @@
 				F383192D1C31A72D00C36ACB /* DefaultTasksFetchRequestProvider.swift in Sources */,
 				F3DB3E251C331B690005C607 /* NSString+TextDirectionality.m in Sources */,
 				F38318D11C2F343600C36ACB /* AppDelegate.swift in Sources */,
+				F32C2A5B1C3C905F002ACA53 /* GoalieStyleKit.swift in Sources */,
 				F38319331C31A72D00C36ACB /* NSManagedObjectContext+Extensions.swift in Sources */,
 				F383192F1C31A72D00C36ACB /* Utilities.swift in Sources */,
 				F38319351C31A72D00C36ACB /* UITableView+Extensions.swift in Sources */,
@@ -438,6 +453,7 @@
 				F3DB3E121C3306690005C607 /* EditTaskViewController.swift in Sources */,
 				F38319361C31A72D00C36ACB /* UIStoryboard+Extensions.swift in Sources */,
 				F3DB3E0D1C3267CE0005C607 /* TPKeyboardAvoidingTableView.m in Sources */,
+				F32C2A5F1C3CB3C5002ACA53 /* GoalieFaceView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
