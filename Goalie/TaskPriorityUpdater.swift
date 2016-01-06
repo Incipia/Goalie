@@ -35,7 +35,7 @@ private extension TaskPriority
       case .ASAP: return nil
       case .Soon: return (60 * 60 * 24 * 1)
       case .Later: return (60 * 60 * 24 * 3)
-      case .Ages: return (60 * 60 * 24 * 7)
+      case .Ages: return (60 * 60 * 24 * 5)
       case .Unknown: return nil
       }
    }
