@@ -13,7 +13,7 @@ import CoreData
  
  The task priority updating logic is as follows:
  
- Ages -> Later: 1 week
+ Ages -> Later: 5 days
  Later -> Soon: 3 days
  Soon -> ASAP: 1 day
  
