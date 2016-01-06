@@ -32,5 +32,19 @@ class GoalieFaceView: UIView
    {
       // Drawing code
       GoalieStyleKit.drawGoalieHead(backgroundColor: _headBackgroundColor, cheekColor: _cheeksColor, chinColor: _chinColor)
+      
+      switch _currentPriority
+      {
+      case .Unknown:
+         GoalieFaceKit.drawSleepingFace()
+      case .Ages:
+         GoalieFaceKit.drawAgesFace()
+      case .Later:
+         GoalieFaceKit.drawLaterFace()
+      case .Soon:
+         GoalieFaceKit.drawSoonFace()
+      case .ASAP:
+         GoalieFaceKit.drawASAPFace()
+      }
    }
 }

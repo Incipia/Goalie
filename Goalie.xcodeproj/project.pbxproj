@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		F322EB111C34C371001B8C44 /* TaskCellAppearanceUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = F322EB101C34C371001B8C44 /* TaskCellAppearanceUpdater.swift */; };
 		F322EB131C34C9D4001B8C44 /* UIButton+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F322EB121C34C9D4001B8C44 /* UIButton+Extensions.swift */; };
+		F32489471C3CD3AE00E3DABD /* GoalieFaceKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32489461C3CD3AE00E3DABD /* GoalieFaceKit.swift */; };
 		F32C2A5B1C3C905F002ACA53 /* GoalieStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32C2A5A1C3C905F002ACA53 /* GoalieStyleKit.swift */; };
 		F32C2A5F1C3CB3C5002ACA53 /* GoalieFaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32C2A5E1C3CB3C5002ACA53 /* GoalieFaceView.swift */; };
 		F38318D11C2F343600C36ACB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38318D01C2F343600C36ACB /* AppDelegate.swift */; };
@@ -64,6 +65,7 @@
 /* Begin PBXFileReference section */
 		F322EB101C34C371001B8C44 /* TaskCellAppearanceUpdater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TaskCellAppearanceUpdater.swift; path = Goalie/TaskCellAppearanceUpdater.swift; sourceTree = "<group>"; };
 		F322EB121C34C9D4001B8C44 /* UIButton+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIButton+Extensions.swift"; path = "Goalie/UIButton+Extensions.swift"; sourceTree = "<group>"; };
+		F32489461C3CD3AE00E3DABD /* GoalieFaceKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoalieFaceKit.swift; path = "PaintCode-Files/GoalieFaceKit.swift"; sourceTree = "<group>"; };
 		F32C2A5A1C3C905F002ACA53 /* GoalieStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoalieStyleKit.swift; path = "PaintCode-Files/GoalieStyleKit.swift"; sourceTree = "<group>"; };
 		F32C2A5E1C3CB3C5002ACA53 /* GoalieFaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoalieFaceView.swift; path = "PaintCode-Files/GoalieFaceView.swift"; sourceTree = "<group>"; };
 		F38318CD1C2F343600C36ACB /* Goalie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Goalie.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -160,6 +162,7 @@
 		F32C2A571C3C8D55002ACA53 /* Goalie Face */ = {
 			isa = PBXGroup;
 			children = (
+				F32489461C3CD3AE00E3DABD /* GoalieFaceKit.swift */,
 				F32C2A5A1C3C905F002ACA53 /* GoalieStyleKit.swift */,
 				F32C2A5E1C3CB3C5002ACA53 /* GoalieFaceView.swift */,
 			);
@@ -443,6 +446,7 @@
 				F322EB111C34C371001B8C44 /* TaskCellAppearanceUpdater.swift in Sources */,
 				F3DB3E0C1C3267CE0005C607 /* TPKeyboardAvoidingScrollView.m in Sources */,
 				F383193B1C31A72D00C36ACB /* TableViewDataSource.swift in Sources */,
+				F32489471C3CD3AE00E3DABD /* GoalieFaceKit.swift in Sources */,
 				F383193A1C31A72D00C36ACB /* FetchedResultsDataProvider.swift in Sources */,
 				F38319301C31A72D00C36ACB /* UIImage+Extensions.swift in Sources */,
 				F38B55181C3854A10022453F /* GoalieKerningLabel.swift in Sources */,
