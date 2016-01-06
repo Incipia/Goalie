@@ -15,8 +15,8 @@ class GoalieFaceView: UIView
    private var _headBackgroundColor: UIColor {
       return UIColor(priority: _currentPriority, headComponent: .Background)
    }
-   private var _cheeksColor: UIColor {
-      return UIColor(priority: _currentPriority, headComponent: .Cheeks)
+   private var _cheekColor: UIColor {
+      return UIColor(priority: _currentPriority, headComponent: .Cheek)
    }
    private var _chinColor: UIColor {
       return UIColor(priority: _currentPriority, headComponent: .Chin)
@@ -31,7 +31,7 @@ class GoalieFaceView: UIView
    override func drawRect(rect: CGRect)
    {
       // Drawing code
-      GoalieHeadKit.drawGoalieHead(backgroundColor: _headBackgroundColor, cheekColor: _cheeksColor, chinColor: _chinColor)
+      GoalieHeadKit.drawGoalieHead(backgroundColor: _headBackgroundColor, cheekColor: _cheekColor, chinColor: _chinColor)
       
       switch _currentPriority
       {

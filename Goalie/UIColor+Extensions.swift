@@ -9,7 +9,7 @@
 import UIKit
 
 enum GoalieHeadComponent {
-   case Background, Cheeks, Chin
+   case Background, Cheek, Chin
 }
 
 /*
@@ -46,7 +46,7 @@ private func _rgb(priority: TaskPriority, component: GoalieHeadComponent) -> (r:
    {
    case .Background:
       values = _headBackgroundRGBA(priority)
-   case .Cheeks:
+   case .Cheek:
       values = _headCheeksRGBA(priority)
    case .Chin:
       values = _headChinRGBA(priority)
