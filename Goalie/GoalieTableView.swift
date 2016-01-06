@@ -17,6 +17,7 @@ class GoalieTableView: TPKeyboardAvoidingTableView
    private var _goalieFooterView: UIView!
    @IBOutlet private weak var _goalieFaceView: GoalieFaceView!
    
+   // MARK: - Lifecycle
    override func awakeFromNib()
    {
       super.awakeFromNib()
@@ -41,6 +42,7 @@ class GoalieTableView: TPKeyboardAvoidingTableView
       }
    }
    
+   // MARK: - Public
    func showFooterView()
    {
       tableFooterView = _goalieFooterView
@@ -56,16 +58,20 @@ class GoalieTableView: TPKeyboardAvoidingTableView
       return cellForRowAtIndexPath(indexPath) as? TasksTableViewCell
    }
    
-   func updateHeaderViewColor(color: UIColor, animationDuration: Double)
+   func updateWithPriority(priority: TaskPriority)
+   {
+      _goalieFaceView.updateWithPriority(priority)
+      
+      let color = UIColor.goalieHeaderBackgroundColor(priority)
+      _updateHeaderViewColor(color, animationDuration: 0.3)
+   }
+   
+   // MARK: - Private
+   private func _updateHeaderViewColor(color: UIColor, animationDuration: Double)
    {
       UIView.animateWithDuration(animationDuration) { () -> Void in
          self._goalieHeaderView.backgroundColor = color
       }
-   }
-   
-   func updateFaceViewForPriority(priority: TaskPriority)
-   {
-      self._goalieFaceView.updateColorsForPriority(priority)
    }
    
    func updateHeaderViewFrameAnimated()

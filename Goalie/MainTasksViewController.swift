@@ -96,10 +96,7 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
    private func _updateTableViewHeaderDisplay()
    {
       let priority = _tasksDataProvider.averagePriority()
-      let color = UIColor.goalieHeaderBackgroundColor(priority)
-      
-      _goalieTableView.updateHeaderViewColor(color, animationDuration: 0.3)
-      _goalieTableView.updateFaceViewForPriority(priority)
+      _goalieTableView.updateWithPriority(priority)
    }
    
    private func _updateTaskCellsLeftBar()

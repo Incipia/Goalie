@@ -11,7 +11,6 @@ import UIKit
 class GoalieFaceView: UIView
 {
    private var _currentPriority: TaskPriority = .Unknown
-   
    private var _headBackgroundColor: UIColor {
       return UIColor(priority: _currentPriority, headComponent: .Background)
    }
@@ -22,17 +21,21 @@ class GoalieFaceView: UIView
       return UIColor(priority: _currentPriority, headComponent: .Chin)
    }
    
-   func updateColorsForPriority(priority: TaskPriority)
+   // MARK: - Public
+   func updateWithPriority(priority: TaskPriority)
    {
       _currentPriority = priority
       setNeedsDisplay()
    }
    
-   override func drawRect(rect: CGRect)
+   // MARK: - Private
+   private func _drawHead()
    {
-      // Drawing code
       GoalieHeadKit.drawGoalieHead(backgroundColor: _headBackgroundColor, cheekColor: _cheekColor, chinColor: _chinColor)
-      
+   }
+   
+   private func _drawFace()
+   {
       switch _currentPriority
       {
       case .Unknown:
@@ -46,5 +49,11 @@ class GoalieFaceView: UIView
       case .ASAP:
          GoalieFaceKit.drawASAPFace()
       }
+   }
+   
+   override func drawRect(rect: CGRect)
+   {
+      _drawHead()
+      _drawFace()
    }
 }
