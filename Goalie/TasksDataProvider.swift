@@ -94,7 +94,7 @@ public class TasksDataProvider: NSObject, NSFetchedResultsControllerDelegate
       return tasks
    }
    
-   func averagePriority() -> TaskPriority?
+   func averagePriority() -> TaskPriority
    {
       var priorityDict: [TaskPriority : Int] = [.Ages: 0, .Later : 0, .Soon : 0, .ASAP: 0]
       
@@ -139,7 +139,7 @@ public class TasksDataProvider: NSObject, NSFetchedResultsControllerDelegate
          }
       }
       
-      return avgPriority
+      return avgPriority ?? .Unknown
    }
 }
 

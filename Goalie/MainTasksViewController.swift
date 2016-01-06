@@ -40,7 +40,6 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
          cacheName: nil)
    }
    
-   private var _currentAveragePriority: TaskPriority? = .Later
    private var _currentTaskCell: TasksTableViewCell?
    private var _shouldCreateMoreCellsOnReturnKeyPressed = false
    
@@ -55,14 +54,14 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
          // There is probably a better way to do this.  We need this because when tasks are moved around/created in the table,
          // we may need to update the left bar on the table cells (rounded corners depending on the cells position)
          dispatch_async(dispatch_get_main_queue(), { () -> Void in
-            self._updateTableViewHeaderColor()
+            self._updateTableViewHeaderDisplay()
             self._updateTaskCellsLeftBar()
             self._updateTableViewFooter()
          })
       }
       
       _tasksDataProvider.updateFetchRequest()
-      _updateTableViewHeaderColor()
+      _updateTableViewHeaderDisplay()
    }
    
    override func viewDidAppear(animated: Bool)
@@ -94,18 +93,13 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
       }
    }
    
-   private func _updateTableViewHeaderColor()
+   private func _updateTableViewHeaderDisplay()
    {
-      if let priority = _tasksDataProvider.averagePriority() {
-         if  priority != _currentAveragePriority {
-            _goalieTableView.updateHeaderViewColor(UIColor(priority: priority), animationDuration: 0.3)
-            _currentAveragePriority = priority
-         }
-      }
-      else if _currentAveragePriority != nil {
-         _currentAveragePriority = nil
-         _goalieTableView.updateHeaderViewColor(UIColor.goalieEmptyTasksColor(), animationDuration: 0.3)
-      }
+      let priority = _tasksDataProvider.averagePriority()
+      let color = UIColor.goalieHeaderBackgroundColor(priority)
+      
+      _goalieTableView.updateHeaderViewColor(color, animationDuration: 0.3)
+      _goalieTableView.updateFaceViewForPriority(priority)
    }
    
    private func _updateTaskCellsLeftBar()
