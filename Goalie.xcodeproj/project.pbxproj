@@ -159,20 +159,20 @@
 			name = "Managers and Updaters";
 			sourceTree = "<group>";
 		};
-		F32C2A571C3C8D55002ACA53 /* Goalie Face */ = {
+		F32C2A571C3C8D55002ACA53 /* Goalie Drawing */ = {
 			isa = PBXGroup;
 			children = (
 				F32489461C3CD3AE00E3DABD /* GoalieFaceKit.swift */,
 				F32C2A5A1C3C905F002ACA53 /* GoalieHeadKit.swift */,
 				F32C2A5E1C3CB3C5002ACA53 /* GoalieFaceView.swift */,
 			);
-			name = "Goalie Face";
+			name = "Goalie Drawing";
 			sourceTree = "<group>";
 		};
 		F38318C41C2F343600C36ACB = {
 			isa = PBXGroup;
 			children = (
-				F32C2A571C3C8D55002ACA53 /* Goalie Face */,
+				F32C2A571C3C8D55002ACA53 /* Goalie Drawing */,
 				F383193F1C31A74900C36ACB /* Core Data */,
 				F38319421C31A9C000C36ACB /* Enums */,
 				F38319401C31A76400C36ACB /* Extensions */,
