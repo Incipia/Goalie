@@ -68,19 +68,21 @@
                                                                 <action selector="_settingsButtonPressed" destination="8kc-U2-rbB" eventType="touchUpInside" id="8u6-SS-P1t"/>
                                                             </connections>
                                                         </button>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="👾" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p6a-Kb-M9i">
-                                                            <rect key="frame" x="129" y="112" width="63" height="76"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="63"/>
-                                                            <color key="textColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="deviceRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SEI-SD-L9z" customClass="GoalieFaceView" customModule="Goalie" customModuleProvider="target">
+                                                            <rect key="frame" x="120" y="120" width="80" height="100"/>
+                                                            <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="80" id="MYM-JI-3wX"/>
+                                                                <constraint firstAttribute="height" constant="100" id="men-8C-Rz3"/>
+                                                            </constraints>
+                                                        </view>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.070588235289999995" green="0.64313725489999995" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="451-cQ-ISH" secondAttribute="trailing" constant="20" id="2VE-DG-Zcn"/>
-                                                        <constraint firstItem="p6a-Kb-M9i" firstAttribute="centerX" secondItem="8fz-02-pSg" secondAttribute="centerX" id="4hK-Il-KqY"/>
                                                         <constraint firstItem="451-cQ-ISH" firstAttribute="top" secondItem="8fz-02-pSg" secondAttribute="top" constant="30" id="5zw-RN-3zH"/>
-                                                        <constraint firstItem="p6a-Kb-M9i" firstAttribute="centerY" secondItem="8fz-02-pSg" secondAttribute="centerY" id="Tg9-OV-mqi"/>
+                                                        <constraint firstItem="SEI-SD-L9z" firstAttribute="centerX" secondItem="8fz-02-pSg" secondAttribute="centerX" id="IEc-dt-i6k"/>
+                                                        <constraint firstItem="SEI-SD-L9z" firstAttribute="centerY" secondItem="8fz-02-pSg" secondAttribute="centerY" constant="20" id="q4P-GY-u0N"/>
                                                     </constraints>
                                                 </view>
                                                 <view key="tableFooterView" contentMode="scaleToFill" id="ZpZ-fK-L3y">
@@ -200,6 +202,9 @@
                                                         </connections>
                                                     </tableViewCell>
                                                 </prototypes>
+                                                <connections>
+                                                    <outlet property="_goalieFaceView" destination="SEI-SD-L9z" id="8Wb-O4-Swp"/>
+                                                </connections>
                                             </tableView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -235,7 +240,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Ld-vh-x0i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="415" y="138"/>
+            <point key="canvasLocation" x="175" y="121"/>
         </scene>
         <!--Edit Task View Controller-->
         <scene sceneID="otv-96-TEA">

@@ -15,6 +15,7 @@ class GoalieTableView: TPKeyboardAvoidingTableView
 {
    private var _goalieHeaderView: UIView!
    private var _goalieFooterView: UIView!
+   @IBOutlet private weak var _goalieFaceView: GoalieFaceView!
    
    override func awakeFromNib()
    {
@@ -60,6 +61,11 @@ class GoalieTableView: TPKeyboardAvoidingTableView
       UIView.animateWithDuration(animationDuration) { () -> Void in
          self._goalieHeaderView.backgroundColor = color
       }
+   }
+   
+   func updateFaceViewForPriority(priority: TaskPriority)
+   {
+      self._goalieFaceView.updateColorsForPriority(priority)
    }
    
    func updateHeaderViewFrameAnimated()
