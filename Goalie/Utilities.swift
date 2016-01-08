@@ -68,6 +68,20 @@ extension Array
       }
       return result
    }
+   
+   func randomItem() -> Element {
+      let index = Int(arc4random_uniform(UInt32(self.count)))
+      return self[index]
+   }
+}
+
+extension Int
+{
+   static func randRange(lower : Int , upper : Int) -> Int
+   {
+      let difference = upper - lower
+      return Int(Float(rand())/Float(RAND_MAX) * Float(difference + 1)) + lower
+   }
 }
 
 extension String
