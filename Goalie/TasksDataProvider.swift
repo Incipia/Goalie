@@ -9,6 +9,32 @@
 import Foundation
 import CoreData
 
+private extension TaskPriority
+{
+   static func priorityForWeight(weight: Float) -> TaskPriority
+   {
+      let roundedWeight = round(weight)
+      switch roundedWeight
+      {
+      case 1: return .Ages
+      case 2: return .Later
+      case 3: return .Soon
+      case 4: return .ASAP
+      default: return .Unknown
+      }
+   }
+   
+   var weight: Float {
+      switch self {
+      case .Unknown: return 0
+      case .Ages: return 1
+      case .Later: return 2
+      case .Soon: return 3
+      case .ASAP: return 4
+      }
+   }
+}
+
 public class TasksDataProvider: NSObject, NSFetchedResultsControllerDelegate
 {
    private var _moc: NSManagedObjectContext
@@ -94,7 +120,7 @@ public class TasksDataProvider: NSObject, NSFetchedResultsControllerDelegate
       return tasks
    }
    
-   func averagePriority() -> TaskPriority
+   func averagePriorityOLD() -> TaskPriority
    {
       var priorityDict: [TaskPriority : Int] = [.Ages: 0, .Later : 0, .Soon : 0, .ASAP: 0]
       
@@ -140,6 +166,27 @@ public class TasksDataProvider: NSObject, NSFetchedResultsControllerDelegate
       }
       
       return avgPriority ?? .Unknown
+   }
+   
+   func averagePriority() -> TaskPriority
+   {
+      var avgPriority: TaskPriority = .Unknown
+      if let tasks = tasksFRC.fetchedObjects as? [Task] {
+         var count: Float = 0
+         var avgPriorityWeight: Float = 0
+         for task in tasks {
+            if task.priority != .Unknown && !task.completed {
+               avgPriorityWeight += task.priority.weight
+               ++count
+            }
+         }
+         
+         if count > 0 {
+            avgPriorityWeight /= count
+            avgPriority = TaskPriority.priorityForWeight(avgPriorityWeight)
+         }
+      }
+      return avgPriority
    }
 }
 
