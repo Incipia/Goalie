@@ -42,6 +42,7 @@ class GoalieTableView: TPKeyboardAvoidingTableView
       let text = SpeechBubbleTextProvider.textForPriority(priority)
       _leftSpeechBubble.updateWithText(text, priority: priority)
       _rightSpeechBubble.updateWithText(text, priority: priority)
+      _hideRandomSpeechBubble()
       
       let color = UIColor.goalieHeaderBackgroundColor(priority)
       _goalieHeaderView.backgroundColor = color
