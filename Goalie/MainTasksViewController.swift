@@ -234,8 +234,9 @@ extension MainTasksViewController: TasksTableViewCellDelegate
    
    func completeButtonPressedForTask(task: Task)
    {
-      task.completed = !task.completed
-      task.save()
+      moc.performChanges { () -> () in
+         task.completed = !task.completed
+      }
       _currentTaskCell?.stopEditing()
    }
 }
