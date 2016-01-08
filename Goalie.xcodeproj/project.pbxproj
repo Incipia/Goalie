@@ -129,7 +129,7 @@
 		F3CEAC5F1C4061C70047DD78 /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
 		F3CEAC631C4061F20047DD78 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = Frameworks/Crashlytics.framework; sourceTree = "<group>"; };
 		F3CEAC641C4061F20047DD78 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fabric.framework; path = Frameworks/Fabric.framework; sourceTree = "<group>"; };
-		F3DB3DCA1C3221AF0005C607 /* Goalie-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Goalie-Bridging-Header.h"; sourceTree = "<group>"; };
+		F3CEAC671C40631B0047DD78 /* Goalie-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Goalie-Bridging-Header.h"; sourceTree = "<group>"; };
 		F3DB3E031C322DC40005C607 /* MainTasksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainTasksViewController.swift; path = Goalie/MainTasksViewController.swift; sourceTree = "<group>"; };
 		F3DB3E0F1C32682A0005C607 /* ProjectEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProjectEnums.swift; path = Goalie/ProjectEnums.swift; sourceTree = "<group>"; };
 		F3DB3E111C3306690005C607 /* EditTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditTaskViewController.swift; path = Goalie/EditTaskViewController.swift; sourceTree = "<group>"; };
@@ -211,11 +211,12 @@
 		F38318CF1C2F343600C36ACB /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				F38318D01C2F343600C36ACB /* AppDelegate.swift */,
 				F38318D71C2F343600C36ACB /* Assets.xcassets */,
+				F3CEAC671C40631B0047DD78 /* Goalie-Bridging-Header.h */,
+				F38318DC1C2F343600C36ACB /* Info.plist */,
 				F38B55131C3851190022453F /* NotoSans-Bold.ttf */,
 				F38B55141C3851190022453F /* NotoSans-Regular.ttf */,
-				F38318DC1C2F343600C36ACB /* Info.plist */,
-				F38318D01C2F343600C36ACB /* AppDelegate.swift */,
 			);
 			name = Other;
 			path = Goalie;
@@ -228,7 +229,6 @@
 				F3CEAC641C4061F20047DD78 /* Fabric.framework */,
 				F3CEAC591C4061C70047DD78 /* TPKeyboardAvoiding */,
 				F3CEAC4F1C4061B10047DD78 /* JVFloatingLabel */,
-				F3DB3DCA1C3221AF0005C607 /* Goalie-Bridging-Header.h */,
 			);
 			name = "External Frameworks";
 			sourceTree = "<group>";
@@ -605,7 +605,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.incipia.Goalie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "9d0ccd64-9702-4ad7-a544-e285b2069cbd";
-				SWIFT_OBJC_BRIDGING_HEADER = "Goalie-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Goalie/Goalie-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -627,7 +627,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.incipia.Goalie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "9d0ccd64-9702-4ad7-a544-e285b2069cbd";
-				SWIFT_OBJC_BRIDGING_HEADER = "Goalie-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Goalie/Goalie-Bridging-Header.h";
 			};
 			name = Release;
 		};
