@@ -43,6 +43,8 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
    private var _currentTaskCell: TasksTableViewCell?
    private var _shouldCreateMoreCellsOnReturnKeyPressed = false
    
+   private var _viewTransformer: ViewTransformer?
+   
    // Mark: - Lifecycle
    override func viewDidLoad()
    {

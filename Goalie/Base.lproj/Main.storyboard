@@ -52,7 +52,7 @@
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <color key="separatorColor" red="0.86506504023840902" green="0.87334130994485826" blue="0.92240767044646466" alpha="1" colorSpace="calibratedRGB"/>
                                                 <inset key="separatorInset" minX="40" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                <view key="tableHeaderView" contentMode="scaleToFill" id="8fz-02-pSg">
+                                                <view key="tableHeaderView" contentMode="scaleToFill" id="8fz-02-pSg" customClass="GoalieHeaderView" customModule="Goalie" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="300"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
@@ -242,6 +242,7 @@
                                                 </prototypes>
                                                 <connections>
                                                     <outlet property="_goalieFaceView" destination="SEI-SD-L9z" id="8Wb-O4-Swp"/>
+                                                    <outlet property="_goalieHeaderView" destination="8fz-02-pSg" id="wt1-OM-fD8"/>
                                                     <outlet property="_leftSpeechBubble" destination="Cmf-hr-XMs" id="Nny-Bp-7Dy"/>
                                                     <outlet property="_rightSpeechBubble" destination="f7d-lu-WBo" id="qR3-WA-RVu"/>
                                                     <outlet property="_settingsButton" destination="451-cQ-ISH" id="f9l-G5-mTM"/>
@@ -281,7 +282,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Ld-vh-x0i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="175" y="121"/>
+            <point key="canvasLocation" x="182" y="96"/>
         </scene>
         <!--Edit Task View Controller-->
         <scene sceneID="otv-96-TEA">
@@ -564,7 +565,7 @@
                                 <blurEffect style="extraLight"/>
                             </visualEffectView>
                         </subviews>
-                        <color key="backgroundColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="0.25" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="oFK-D8-eOM" firstAttribute="height" secondItem="Hp4-Py-Nfe" secondAttribute="height" multiplier="0.6" id="BbU-tw-azU"/>
                             <constraint firstItem="oFK-D8-eOM" firstAttribute="centerX" secondItem="Hp4-Py-Nfe" secondAttribute="centerX" id="KX6-sz-DfO"/>
@@ -676,7 +677,7 @@
                                 <blurEffect style="extraLight"/>
                             </visualEffectView>
                         </subviews>
-                        <color key="backgroundColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="0.25" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Mzx-uK-MIU" firstAttribute="width" secondItem="IdI-Hb-G9P" secondAttribute="width" multiplier="0.9" id="6o0-51-iw5"/>
                             <constraint firstItem="Mzx-uK-MIU" firstAttribute="centerY" secondItem="IdI-Hb-G9P" secondAttribute="centerY" id="GeR-0B-K0A"/>
