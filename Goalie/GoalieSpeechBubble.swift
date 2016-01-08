@@ -15,7 +15,7 @@ enum BubbleTailDirection
 
 private extension UIColor
 {
-   static func backgroundColorForPriority(priority: TaskPriority) -> UIColor
+   static func speechBubbleBackgroundColorForPriority(priority: TaskPriority) -> UIColor
    {
       switch priority
       {
@@ -40,6 +40,8 @@ private extension UIColor
 
 class GoalieSpeechBubble: UIView
 {
+   @IBOutlet private weak var widthConstraint: NSLayoutConstraint?
+   
    var tailDirection: BubbleTailDirection = BubbleTailDirection.Left {
       didSet {
          setNeedsDisplay()
@@ -49,40 +51,54 @@ class GoalieSpeechBubble: UIView
    private let _textLabel = UILabel()
    private var _currentPriority: TaskPriority = .Unknown
    
+   private var _labelWidth: CGFloat {
+      return _textLabel.bounds.width
+   }
+   
    // MARK: - Lifecycle
    override func awakeFromNib()
    {
       super.awakeFromNib()
+      
+      layer.masksToBounds = true
       backgroundColor = UIColor.clearColor()
       
-      let text = "BOOORING"
-      let font = UIFont(name: "NotoSans-Bold", size: 10)!
-      let attributes = [
-         NSForegroundColorAttributeName : UIColor.goalieEmptyTasksColor(),
-         NSFontAttributeName : font,
-         NSKernAttributeName : 2
-      ]
-      
-      let attributedString = NSAttributedString(string: text, attributes: attributes)
-      _textLabel.attributedText = attributedString
-      _textLabel.sizeToFit()
-      
       addSubview(_textLabel)
-      _textLabel.center = CGPoint(x: bounds.midX, y: bounds.midY - 5)
    }
    
    // MARK: - Public
-   func updateWithPriority(priority: TaskPriority)
+   func updateWithText(text: String, priority: TaskPriority)
    {
       _currentPriority = priority
-      _textLabel.textColor = UIColor.textColorForPriority(priority)
+      _updateTextLabelWithText(text, priority: priority)
       setNeedsDisplay()
+   }
+   
+   // MARK: - Private
+   private func _updateTextLabelWithText(text: String, priority: TaskPriority)
+   {
+      _textLabel.attributedText = NSAttributedString.speechBubbleString(text)
+      _textLabel.textColor = UIColor.textColorForPriority(priority)
+      _textLabel.sizeToFit()
+      
+      self.widthConstraint?.constant = self._labelWidth + 25
+   }
+   
+   private func _updateTextLabelPosition()
+   {
+      _textLabel.center = CGPoint(x: bounds.midX, y: bounds.midY - 5)
+   }
+   
+   override func layoutSubviews()
+   {
+      super.layoutSubviews()
+      _updateTextLabelPosition()
    }
    
    // MARK: - Drawing
    override func drawRect(rect: CGRect)
    {
-      let color = UIColor.backgroundColorForPriority(_currentPriority)
+      let color = UIColor.speechBubbleBackgroundColorForPriority(_currentPriority)
       GoalieSpeechBubbleKit.drawBubbleWithColor(color, tailDirection: tailDirection, inFrame: rect)
    }
 }
