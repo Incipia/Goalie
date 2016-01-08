@@ -15,9 +15,12 @@ class GoalieTableView: TPKeyboardAvoidingTableView
 {
    private var _goalieHeaderView: UIView!
    private var _goalieFooterView: UIView!
+   
    @IBOutlet private weak var _goalieFaceView: GoalieFaceView!
    @IBOutlet private weak var _leftSpeechBubble: GoalieSpeechBubble!
    @IBOutlet private weak var _rightSpeechBubble: GoalieSpeechBubble!
+   
+   private var _currentPriority = TaskPriority.Unknown
    
    // MARK: - Lifecycle
    override func awakeFromNib()
@@ -25,7 +28,6 @@ class GoalieTableView: TPKeyboardAvoidingTableView
       super.awakeFromNib()
       
       _leftSpeechBubble.tailDirection = .Right
-      _leftSpeechBubble.hidden = true
       
       _goalieFooterView = tableFooterView
       _goalieHeaderView = tableHeaderView
@@ -34,6 +36,15 @@ class GoalieTableView: TPKeyboardAvoidingTableView
       
       contentInset = UIEdgeInsets(top: _defaultHeaderHeight, left: 0, bottom: 20, right: 0)
       contentOffset = CGPoint(x: 0, y: -_defaultHeaderHeight)
+      
+      let priority = TaskPriority.Unknown
+      
+      let text = SpeechBubbleTextProvider.textForPriority(priority)
+      _leftSpeechBubble.updateWithText(text, priority: priority)
+      _rightSpeechBubble.updateWithText(text, priority: priority)
+      
+      let color = UIColor.goalieHeaderBackgroundColor(priority)
+      _goalieHeaderView.backgroundColor = color
    }
    
    override func layoutSubviews()
@@ -65,15 +76,36 @@ class GoalieTableView: TPKeyboardAvoidingTableView
    
    func updateWithPriority(priority: TaskPriority)
    {
-      _goalieFaceView.updateWithPriority(priority)
-      _leftSpeechBubble.updateWithPriority(priority)
-      _rightSpeechBubble.updateWithPriority(priority)
-      
-      let color = UIColor.goalieHeaderBackgroundColor(priority)
-      _updateHeaderViewColor(color, animationDuration: 0.3)
+      if _currentPriority != priority
+      {
+         _currentPriority = priority
+         _goalieFaceView.updateWithPriority(priority)
+         
+         let text = SpeechBubbleTextProvider.textForPriority(priority)
+         _leftSpeechBubble.updateWithText(text, priority: priority)
+         _rightSpeechBubble.updateWithText(text, priority: priority)
+         
+         let color = UIColor.goalieHeaderBackgroundColor(priority)
+         _updateHeaderViewColor(color, animationDuration: 0.3)
+         
+         _hideRandomSpeechBubble()
+      }
    }
    
    // MARK: - Private
+   private func _hideRandomSpeechBubble()
+   {
+      let leftOrRight = Int.randRange(0, upper: 1)
+      if leftOrRight == 0 {
+         _leftSpeechBubble.hidden = true
+         _rightSpeechBubble.hidden = false
+      }
+      else {
+         _leftSpeechBubble.hidden = false
+         _rightSpeechBubble.hidden = true
+      }
+   }
+   
    private func _updateHeaderViewColor(color: UIColor, animationDuration: Double)
    {
       UIView.animateWithDuration(animationDuration) { () -> Void in
