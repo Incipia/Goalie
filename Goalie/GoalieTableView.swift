@@ -19,6 +19,7 @@ class GoalieTableView: TPKeyboardAvoidingTableView
    @IBOutlet private weak var _goalieFaceView: GoalieFaceView!
    @IBOutlet private weak var _leftSpeechBubble: GoalieSpeechBubble!
    @IBOutlet private weak var _rightSpeechBubble: GoalieSpeechBubble!
+   @IBOutlet private weak var _settingsButton: UIButton!
    
    private var _currentPriority = TaskPriority.Unknown
    
@@ -42,7 +43,7 @@ class GoalieTableView: TPKeyboardAvoidingTableView
       let text = SpeechBubbleTextProvider.textForPriority(priority)
       _leftSpeechBubble.updateWithText(text, priority: priority)
       _rightSpeechBubble.updateWithText(text, priority: priority)
-      _hideRandomSpeechBubble()
+      _hideLeftOrRightSpeechBubble()
       
       let color = UIColor.goalieHeaderBackgroundColor(priority)
       _goalieHeaderView.backgroundColor = color
@@ -89,21 +90,25 @@ class GoalieTableView: TPKeyboardAvoidingTableView
          let color = UIColor.goalieHeaderBackgroundColor(priority)
          _updateHeaderViewColor(color, animationDuration: 0.3)
          
-         _hideRandomSpeechBubble()
+         _hideLeftOrRightSpeechBubble()
       }
    }
    
    // MARK: - Private
-   private func _hideRandomSpeechBubble()
+   private func _hideLeftOrRightSpeechBubble()
    {
-      let leftOrRight = Int.randRange(0, upper: 1)
-      if leftOrRight == 0 {
-         _leftSpeechBubble.hidden = true
-         _rightSpeechBubble.hidden = false
-      }
-      else {
+      // The magic '12' is to account for the padding on the sides of the speech bubble
+      let rightSpeechBubbleMaxX = _rightSpeechBubble.frame.origin.x + _rightSpeechBubble.actualWidth - 12
+      let shouldShowLeft = _settingsButton.frame.minX < rightSpeechBubbleMaxX
+      let oneOrZero = Int.randRange(0, upper: 1)
+      
+      if oneOrZero == 0 || shouldShowLeft {
          _leftSpeechBubble.hidden = false
          _rightSpeechBubble.hidden = true
+      }
+      else {
+         _leftSpeechBubble.hidden = true
+         _rightSpeechBubble.hidden = false
       }
    }
    

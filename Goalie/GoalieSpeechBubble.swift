@@ -51,8 +51,12 @@ class GoalieSpeechBubble: UIView
    private let _textLabel = UILabel()
    private var _currentPriority: TaskPriority = .Unknown
    
-   private var _labelWidth: CGFloat {
+   var labelWidth: CGFloat {
       return _textLabel.bounds.width
+   }
+   
+   var actualWidth: CGFloat {
+      return widthConstraint?.constant ?? bounds.width
    }
    
    // MARK: - Lifecycle
@@ -81,12 +85,12 @@ class GoalieSpeechBubble: UIView
       _textLabel.textColor = UIColor.textColorForPriority(priority)
       _textLabel.sizeToFit()
       
-      self.widthConstraint?.constant = self._labelWidth + 25
+      self.widthConstraint?.constant = self.labelWidth + 45
    }
    
    private func _updateTextLabelPosition()
    {
-      _textLabel.center = CGPoint(x: bounds.midX, y: bounds.midY - 5)
+      _textLabel.center = CGPoint(x: bounds.midX, y: bounds.midY - 10)
    }
    
    override func layoutSubviews()

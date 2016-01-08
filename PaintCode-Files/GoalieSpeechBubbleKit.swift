@@ -31,18 +31,18 @@ struct GoalieSpeechBubbleKit
       
       //// Bezier Drawing
       let bezierPath = UIBezierPath()
-      bezierPath.moveToPoint(CGPointMake(frame.minX + 6.65, frame.maxY - 12.55))
-      bezierPath.addLineToPoint(CGPointMake(frame.minX + 13.15, frame.maxY - 12.55))
-      bezierPath.addLineToPoint(CGPointMake(frame.minX + 13.2, frame.maxY - 2))
-      bezierPath.addLineToPoint(CGPointMake(frame.minX + 27.05, frame.maxY - 12.55))
-      bezierPath.addLineToPoint(CGPointMake(frame.maxX - 6.95, frame.maxY - 12.55))
-      bezierPath.addCurveToPoint(CGPointMake(frame.maxX - 3.45, frame.maxY - 16.05), controlPoint1: CGPointMake(frame.maxX - 5.05, frame.maxY - 12.55), controlPoint2: CGPointMake(frame.maxX - 3.45, frame.maxY - 14.1))
-      bezierPath.addLineToPoint(CGPointMake(frame.maxX - 2.3, frame.minY + 5.5))
-      bezierPath.addCurveToPoint(CGPointMake(frame.maxX - 5.8, frame.minY + 2), controlPoint1: CGPointMake(frame.maxX - 2.3, frame.minY + 3.6), controlPoint2: CGPointMake(frame.maxX - 3.85, frame.minY + 2))
-      bezierPath.addLineToPoint(CGPointMake(frame.minX + 5.5, frame.minY + 2))
-      bezierPath.addCurveToPoint(CGPointMake(frame.minX + 2, frame.minY + 5.5), controlPoint1: CGPointMake(frame.minX + 3.6, frame.minY + 2), controlPoint2: CGPointMake(frame.minX + 2, frame.minY + 3.55))
-      bezierPath.addLineToPoint(CGPointMake(frame.minX + 3.15, frame.maxY - 16.05))
-      bezierPath.addCurveToPoint(CGPointMake(frame.minX + 6.65, frame.maxY - 12.55), controlPoint1: CGPointMake(frame.minX + 3.2, frame.maxY - 14.15), controlPoint2: CGPointMake(frame.minX + 4.75, frame.maxY - 12.55))
+      bezierPath.moveToPoint(CGPointMake(frame.minX + 17.65, frame.maxY - 22.55))
+      bezierPath.addLineToPoint(CGPointMake(frame.minX + 24.15, frame.maxY - 22.55))
+      bezierPath.addLineToPoint(CGPointMake(frame.minX + 24.15, frame.maxY - 12))
+      bezierPath.addLineToPoint(CGPointMake(frame.minX + 38.05, frame.maxY - 22.55))
+      bezierPath.addLineToPoint(CGPointMake(frame.maxX - 18.95, frame.maxY - 22.55))
+      bezierPath.addCurveToPoint(CGPointMake(frame.maxX - 15.45, frame.maxY - 26.05), controlPoint1: CGPointMake(frame.maxX - 17.05, frame.maxY - 22.55), controlPoint2: CGPointMake(frame.maxX - 15.45, frame.maxY - 24.1))
+      bezierPath.addLineToPoint(CGPointMake(frame.maxX - 14.3, frame.minY + 8.5))
+      bezierPath.addCurveToPoint(CGPointMake(frame.maxX - 17.8, frame.minY + 5), controlPoint1: CGPointMake(frame.maxX - 14.3, frame.minY + 6.6), controlPoint2: CGPointMake(frame.maxX - 15.85, frame.minY + 5))
+      bezierPath.addLineToPoint(CGPointMake(frame.minX + 16.5, frame.minY + 5))
+      bezierPath.addCurveToPoint(CGPointMake(frame.minX + 13, frame.minY + 8.5), controlPoint1: CGPointMake(frame.minX + 14.6, frame.minY + 5), controlPoint2: CGPointMake(frame.minX + 13, frame.minY + 6.55))
+      bezierPath.addLineToPoint(CGPointMake(frame.minX + 14.15, frame.maxY - 26.05))
+      bezierPath.addCurveToPoint(CGPointMake(frame.minX + 17.65, frame.maxY - 22.55), controlPoint1: CGPointMake(frame.minX + 14.2, frame.maxY - 24.15), controlPoint2: CGPointMake(frame.minX + 15.75, frame.maxY - 22.55))
       bezierPath.closePath()
       bezierPath.miterLimit = 4;
       
@@ -55,6 +55,7 @@ struct GoalieSpeechBubbleKit
    
    private static func _drawBubblePointingRight(frame frame: CGRect = CGRectMake(0, 0, 180, 87), withColor color: UIColor) {
       //// General Declarations
+      //// General Declarations
       let context = UIGraphicsGetCurrentContext()
       
       //// Shadow Declarations
@@ -65,18 +66,18 @@ struct GoalieSpeechBubbleKit
       
       //// Bezier Drawing
       let bezierPath = UIBezierPath()
-      bezierPath.moveToPoint(CGPointMake(frame.minX + 6.65, frame.maxY - 12.55))
-      bezierPath.addLineToPoint(CGPointMake(frame.maxX - 27.35, frame.maxY - 12.55))
-      bezierPath.addLineToPoint(CGPointMake(frame.maxX - 13.45, frame.maxY - 2))
-      bezierPath.addLineToPoint(CGPointMake(frame.maxX - 13.45, frame.maxY - 12.55))
-      bezierPath.addLineToPoint(CGPointMake(frame.maxX - 6.95, frame.maxY - 12.55))
-      bezierPath.addCurveToPoint(CGPointMake(frame.maxX - 3.45, frame.maxY - 16.05), controlPoint1: CGPointMake(frame.maxX - 5.05, frame.maxY - 12.55), controlPoint2: CGPointMake(frame.maxX - 3.45, frame.maxY - 14.1))
-      bezierPath.addLineToPoint(CGPointMake(frame.maxX - 2.3, frame.minY + 5.5))
-      bezierPath.addCurveToPoint(CGPointMake(frame.maxX - 5.8, frame.minY + 2), controlPoint1: CGPointMake(frame.maxX - 2.3, frame.minY + 3.6), controlPoint2: CGPointMake(frame.maxX - 3.85, frame.minY + 2))
-      bezierPath.addLineToPoint(CGPointMake(frame.minX + 5.5, frame.minY + 2))
-      bezierPath.addCurveToPoint(CGPointMake(frame.minX + 2, frame.minY + 5.5), controlPoint1: CGPointMake(frame.minX + 3.6, frame.minY + 2), controlPoint2: CGPointMake(frame.minX + 2, frame.minY + 3.55))
-      bezierPath.addLineToPoint(CGPointMake(frame.minX + 3.15, frame.maxY - 16.05))
-      bezierPath.addCurveToPoint(CGPointMake(frame.minX + 6.65, frame.maxY - 12.55), controlPoint1: CGPointMake(frame.minX + 3.2, frame.maxY - 14.15), controlPoint2: CGPointMake(frame.minX + 4.75, frame.maxY - 12.55))
+      bezierPath.moveToPoint(CGPointMake(frame.minX + 17.65, frame.maxY - 22.55))
+      bezierPath.addLineToPoint(CGPointMake(frame.maxX - 39.35, frame.maxY - 22.55))
+      bezierPath.addLineToPoint(CGPointMake(frame.maxX - 25.45, frame.maxY - 12))
+      bezierPath.addLineToPoint(CGPointMake(frame.maxX - 25.45, frame.maxY - 22.55))
+      bezierPath.addLineToPoint(CGPointMake(frame.maxX - 18.95, frame.maxY - 22.55))
+      bezierPath.addCurveToPoint(CGPointMake(frame.maxX - 15.45, frame.maxY - 26.05), controlPoint1: CGPointMake(frame.maxX - 17.05, frame.maxY - 22.55), controlPoint2: CGPointMake(frame.maxX - 15.45, frame.maxY - 24.1))
+      bezierPath.addLineToPoint(CGPointMake(frame.maxX - 14.3, frame.minY + 8.5))
+      bezierPath.addCurveToPoint(CGPointMake(frame.maxX - 17.8, frame.minY + 5), controlPoint1: CGPointMake(frame.maxX - 14.3, frame.minY + 6.6), controlPoint2: CGPointMake(frame.maxX - 15.85, frame.minY + 5))
+      bezierPath.addLineToPoint(CGPointMake(frame.minX + 16.5, frame.minY + 5))
+      bezierPath.addCurveToPoint(CGPointMake(frame.minX + 13, frame.minY + 8.5), controlPoint1: CGPointMake(frame.minX + 14.6, frame.minY + 5), controlPoint2: CGPointMake(frame.minX + 13, frame.minY + 6.55))
+      bezierPath.addLineToPoint(CGPointMake(frame.minX + 14.15, frame.maxY - 26.05))
+      bezierPath.addCurveToPoint(CGPointMake(frame.minX + 17.65, frame.maxY - 22.55), controlPoint1: CGPointMake(frame.minX + 14.2, frame.maxY - 24.15), controlPoint2: CGPointMake(frame.minX + 15.75, frame.maxY - 22.55))
       bezierPath.closePath()
       bezierPath.miterLimit = 4;
       
