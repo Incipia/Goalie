@@ -83,14 +83,20 @@
                                                                 <constraint firstAttribute="width" constant="90" id="VEj-fB-9PJ"/>
                                                                 <constraint firstAttribute="height" constant="50" id="hKq-xJ-ucU"/>
                                                             </constraints>
+                                                            <connections>
+                                                                <outlet property="widthConstraint" destination="VEj-fB-9PJ" id="gJb-Ct-kHp"/>
+                                                            </connections>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cmf-hr-XMs" customClass="GoalieSpeechBubble" customModule="Goalie" customModuleProvider="target">
-                                                            <rect key="frame" x="50" y="100" width="90" height="50"/>
+                                                            <rect key="frame" x="-20" y="100" width="160" height="50"/>
                                                             <color key="backgroundColor" white="1" alpha="0.61380912160000001" colorSpace="calibratedWhite"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="90" id="8aW-CL-ZBs"/>
+                                                                <constraint firstAttribute="width" constant="160" id="8aW-CL-ZBs"/>
                                                                 <constraint firstAttribute="height" constant="50" id="wIO-yu-x6O"/>
                                                             </constraints>
+                                                            <connections>
+                                                                <outlet property="widthConstraint" destination="8aW-CL-ZBs" id="ojC-Wj-371"/>
+                                                            </connections>
                                                         </view>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.070588235289999995" green="0.64313725489999995" blue="1" alpha="1" colorSpace="deviceRGB"/>
@@ -163,7 +169,7 @@
                                                                         <constraint firstAttribute="height" constant="30" id="sV9-Yd-OlO"/>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.24700414417379299" green="0.25129465517053251" blue="0.27128708964646464" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    <fontDescription key="fontDescription" name="NotoSans" family="Noto Sans" pointSize="14"/>
+                                                                    <fontDescription key="fontDescription" name="NotoSans" family="Noto Sans" pointSize="13"/>
                                                                     <textInputTraits key="textInputTraits"/>
                                                                 </textField>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MD8-uu-bom">
@@ -622,7 +628,7 @@
                                             <color key="textColor" red="0.3411764705882353" green="0.4823529411764706" blue="0.53725490196078429" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Yr-sT-wBA">
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Yr-sT-wBA">
                                             <rect key="frame" x="20" y="265" width="51" height="31"/>
                                             <color key="onTintColor" red="0.070588235289999995" green="0.64313725489999995" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                         </switch>
