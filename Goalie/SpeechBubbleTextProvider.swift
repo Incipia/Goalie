@@ -17,8 +17,10 @@ class SpeechBubbleTextProvider
    private let _laterTextArray = ["ALRIGHT!", "LET'S DO THIS"]
    private let _soonTextArray = ["ANYONE ELSE HOT?", "DO I LOOK FLUSHED?", "WORKIN' UP A SWEAT", "KEEP COOL MAN"]
    private let _asapTextArray = ["EVERYONE STAY CALM!", "BURNIN' UP", "TURN THE AC ON!", "WOAH BUDDY"]
+   private let _productiveActivityArray = ["KILLING IT TODAY", "LOOK AT YOU GO", "BRAVO", "GETTIN' IT", "CRUSHED IT"]
    
    private var _lastTextDictionary: [TaskPriority : String] = [.Unknown: "", .Ages : "", .Later : "", .Soon : "", .ASAP : ""]
+   private var _lastProductiveActivityText = ""
    
    static func textForPriority(priority: TaskPriority) -> String
    {
@@ -47,6 +49,17 @@ class SpeechBubbleTextProvider
       }
       
       _lastTextDictionary[priority] = newText
+      return newText
+   }
+   
+   private func _newTextForBeingProductive() -> String
+   {
+      var newText = _productiveActivityArray.randomItem()
+      while newText == _lastProductiveActivityText {
+         newText = _productiveActivityArray.randomItem()
+      }
+      
+      _lastProductiveActivityText = newText
       return newText
    }
 }
