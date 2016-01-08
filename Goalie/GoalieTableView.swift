@@ -16,11 +16,16 @@ class GoalieTableView: TPKeyboardAvoidingTableView
    private var _goalieHeaderView: UIView!
    private var _goalieFooterView: UIView!
    @IBOutlet private weak var _goalieFaceView: GoalieFaceView!
+   @IBOutlet private weak var _leftSpeechBubble: GoalieSpeechBubble!
+   @IBOutlet private weak var _rightSpeechBubble: GoalieSpeechBubble!
    
    // MARK: - Lifecycle
    override func awakeFromNib()
    {
       super.awakeFromNib()
+      
+      _leftSpeechBubble.tailDirection = .Right
+      _leftSpeechBubble.hidden = true
       
       _goalieFooterView = tableFooterView
       _goalieHeaderView = tableHeaderView
@@ -61,6 +66,8 @@ class GoalieTableView: TPKeyboardAvoidingTableView
    func updateWithPriority(priority: TaskPriority)
    {
       _goalieFaceView.updateWithPriority(priority)
+      _leftSpeechBubble.updateWithPriority(priority)
+      _rightSpeechBubble.updateWithPriority(priority)
       
       let color = UIColor.goalieHeaderBackgroundColor(priority)
       _updateHeaderViewColor(color, animationDuration: 0.3)

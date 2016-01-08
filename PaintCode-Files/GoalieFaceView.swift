@@ -21,6 +21,12 @@ class GoalieFaceView: UIView
       return UIColor(priority: _currentPriority, headComponent: .Chin)
    }
    
+   override func awakeFromNib()
+   {
+      super.awakeFromNib()
+      backgroundColor = UIColor.clearColor()
+   }
+   
    // MARK: - Public
    func updateWithPriority(priority: TaskPriority)
    {

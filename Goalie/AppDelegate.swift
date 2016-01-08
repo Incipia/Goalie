@@ -15,29 +15,29 @@ import Crashlytics
 class AppDelegate: UIResponder, UIApplicationDelegate
 {
    var window: UIWindow?
-   var moc: NSManagedObjectContext! {
+   private var _moc: NSManagedObjectContext! {
       didSet {
-         _taskPriorityUpdater = TaskPriorityUpdater(managedObjectContext: moc)
+         _taskPriorityUpdater = TaskPriorityUpdater(managedObjectContext: _moc)
       }
    }
    
    private var _taskPriorityUpdater: TaskPriorityUpdater!
    private var _minuteChangedNotificationTimer: NSTimer?
-   
    private var _mainTasksViewController: MainTasksViewController!
 
    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
    {
       Fabric.with([Crashlytics.self])
       
-      moc = createGoalieMainContext()
-      _setupMainTasksViewControllerWithMOC(moc)
+      _moc = createGoalieMainContext()
+      _setupMainTasksViewControllerWithMOC(_moc)
       _setupMainWindowWithViewController(_mainTasksViewController)
       
       return true
    }
    
-   func applicationDidBecomeActive(application: UIApplication) {
+   func applicationDidBecomeActive(application: UIApplication)
+   {
       _startTimerForMinuteChangedNotification()
    }
    
