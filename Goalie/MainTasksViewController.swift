@@ -247,6 +247,9 @@ extension MainTasksViewController: TasksTableViewCellDelegate
    {
       moc.performChanges { () -> () in
          task.completed = !task.completed
+         if !task.completed {
+            task.resetLastPriorityChangeDate()
+         }
       }
       _currentTaskCell?.stopEditing()
    }

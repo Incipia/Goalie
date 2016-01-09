@@ -31,6 +31,11 @@ public final class Task: ManagedObject
       }
    }
    
+   func resetLastPriorityChangeDate()
+   {
+      lastPriorityChangeDate = NSDate()
+   }
+   
    public static func insertEmptyTaskIntoContext(moc: NSManagedObjectContext) -> Task
    {
       let task: Task = moc.insertObject()
