@@ -25,6 +25,7 @@ class GoalieTableView: TPKeyboardAvoidingTableView
    @IBOutlet private weak var _rightSpeechBubble: GoalieSpeechBubble!
    @IBOutlet private weak var _settingsButton: UIButton!
    
+   private var _startedShowingInitialSpeechBubble = false
    private var _currentPriority = TaskPriority.Unknown
    
    // MARK: - Lifecycle
@@ -35,8 +36,9 @@ class GoalieTableView: TPKeyboardAvoidingTableView
       _setupHeaderView()
       _setupContentOffsetAndInset()
       _setupUIForFirstTime()
-      _hideLeftOrRightSpeechBubble()
       
+      _leftSpeechBubble.hidden = true
+      _rightSpeechBubble.hidden = true
       _goalieFooterView = tableFooterView
    }
    
@@ -107,12 +109,29 @@ class GoalieTableView: TPKeyboardAvoidingTableView
          let color = UIColor.goalieHeaderBackgroundColor(priority)
          _updateHeaderViewColor(color, animationDuration: 0.3)
          
-         _hideLeftOrRightSpeechBubble()
+         if _startedShowingInitialSpeechBubble {// && currently showing INITAL speech bubble
+            _leftSpeechBubble.hidden = true
+            _rightSpeechBubble.hidden = true
+            
+            // Since we were interrupted, start five second timer and then start observing for "productive activity"
+         }
       }
    }
    
+   func showSpeechBubble()
+   {
+      _startedShowingInitialSpeechBubble = true
+      _showOnlyLeftOrRightSpeechBubble()
+   }
+   
+   func hideSpeechBubble()
+   {
+      _leftSpeechBubble.hidden = true
+      _rightSpeechBubble.hidden = true
+   }
+   
    // MARK: - Private
-   private func _hideLeftOrRightSpeechBubble()
+   private func _showOnlyLeftOrRightSpeechBubble()
    {
       // The magic '12' is to account for the padding on the sides of the speech bubble
       let rightSpeechBubbleMaxX = _rightSpeechBubble.frame.origin.x + _rightSpeechBubble.actualWidth - 12

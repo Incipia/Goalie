@@ -22,7 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate
    }
    
    private var _taskPriorityUpdater: TaskPriorityUpdater!
-   private var _minuteChangedNotificationTimer: NSTimer?
+   private var _updateTaskPrioritiesTimer: NSTimer?
+   private var _speechBubbleTimer: NSTimer?
    private var _mainTasksViewController: MainTasksViewController!
 
    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
@@ -39,12 +40,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate
    func applicationDidBecomeActive(application: UIApplication)
    {
       _startTimerForMinuteChangedNotification()
+      _startTimerForSpeechBubble()
+      _mainTasksViewController.showSpeechBubble()
    }
    
    func applicationWillResignActive(application: UIApplication)
    {
-      _minuteChangedNotificationTimer?.invalidate()
-      _minuteChangedNotificationTimer = nil
+      _killUpdateTaskPrioritiesTimer()
+      _killSpeechBubbleTimer()
+      _mainTasksViewController.hideSpeechBubble()
+   }
+   
+   private func _killUpdateTaskPrioritiesTimer()
+   {
+      _updateTaskPrioritiesTimer?.invalidate()
+      _updateTaskPrioritiesTimer = nil
+   }
+   
+   private func _killSpeechBubbleTimer()
+   {
+      _speechBubbleTimer?.invalidate()
+      _speechBubbleTimer = nil
    }
    
    private func _setupMainTasksViewControllerWithMOC(moc: NSManagedObjectContext)
@@ -61,20 +77,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 
    private func _startTimerForMinuteChangedNotification()
    {
-      if _minuteChangedNotificationTimer == nil
-      {
-         let calendar = NSCalendar.autoupdatingCurrentCalendar()
-         let components = calendar.components(.Second, fromDate: NSDate())
-         let currentSecond = components.second
-         
-         let fireDate = NSDate().dateByAddingTimeInterval(NSTimeInterval(60 - currentSecond + 1))
-         _minuteChangedNotificationTimer = NSTimer(fireDate: fireDate, interval: 60, target: self, selector: Selector("_minuteChanged:"), userInfo: nil, repeats: true)
-         
-         NSRunLoop.mainRunLoop().addTimer(_minuteChangedNotificationTimer!, forMode: NSDefaultRunLoopMode)
-      }
+      guard _updateTaskPrioritiesTimer == nil else {return}
+      
+      let calendar = NSCalendar.autoupdatingCurrentCalendar()
+      let components = calendar.components(.Second, fromDate: NSDate())
+      let currentSecond = components.second
+      
+      let fireDate = NSDate().dateByAddingTimeInterval(NSTimeInterval(60 - currentSecond + 1))
+      _updateTaskPrioritiesTimer = NSTimer(fireDate: fireDate, interval: 60, target: self, selector: Selector("_updateTaskPriorities:"), userInfo: nil, repeats: true)
+      
+      NSRunLoop.mainRunLoop().addTimer(_updateTaskPrioritiesTimer!, forMode: NSDefaultRunLoopMode)
    }
    
-   internal func _minuteChanged(timer: NSTimer)
+   private func _startTimerForSpeechBubble()
+   {
+      guard _speechBubbleTimer == nil else {return}
+      
+      _speechBubbleTimer = NSTimer(fireDate: NSDate().dateByAddingTimeInterval(10), interval: 0, target: self, selector: "_hideSpeechBubble:", userInfo: nil, repeats: false)
+      NSRunLoop.mainRunLoop().addTimer(_speechBubbleTimer!, forMode: NSDefaultRunLoopMode)
+   }
+   
+   internal func _hideSpeechBubble(timer: NSTimer)
+   {
+      _killSpeechBubbleTimer()
+      _mainTasksViewController.hideSpeechBubble()
+   }
+   
+   internal func _updateTaskPriorities(timer: NSTimer)
    {
       _taskPriorityUpdater.updateTaskPriorities()
    }

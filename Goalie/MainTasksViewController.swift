@@ -84,6 +84,17 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
       return .LightContent
    }
    
+   // MARK: - Public
+   func showSpeechBubble()
+   {
+      _goalieTableView.showSpeechBubble()
+   }
+   
+   func hideSpeechBubble()
+   {
+      _goalieTableView.hideSpeechBubble()
+   }
+   
    // Mark: - Private
    private func _updateTableViewFooter()
    {
