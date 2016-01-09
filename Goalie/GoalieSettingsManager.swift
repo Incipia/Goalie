@@ -43,6 +43,15 @@ struct GoalieSettingsManager
    {
       if manuallySwitch != manuallySwitchPriority {
          NSUserDefaults.standardUserDefaults().setBool(manuallySwitch, forKey: ManuallySwitchPriorityKey)
+         
+         if !manuallySwitch
+         {
+            print("snapshot tasks RIGHT NOW")
+         }
+         else
+         {
+            print("apply previous state")
+         }
       }
    }
 }
