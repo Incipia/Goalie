@@ -17,6 +17,7 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
       didSet {
          _tasksDataProvider = TasksDataProvider(managedObjectContext: moc)
          _settingsController = UIStoryboard.settingsViewController(moc, delegate: self)
+         _settingsController.transitioningDelegate = _transitionManager
       }
    }
    @IBOutlet private weak var _goalieTableView: GoalieTableView!
@@ -41,6 +42,7 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
          cacheName: nil)
    }
    
+   private let _transitionManager = MenuTransitionManager()
    private var _settingsController: SettingsViewController!
    private var _currentTaskCell: TasksTableViewCell?
    private var _shouldCreateMoreCellsOnReturnKeyPressed = false
@@ -160,7 +162,12 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
    private func _presentDetailsForTask(task: Task)
    {
       let controller = UIStoryboard.taskDetailsViewControllerForTask(task, managedObjectContext: moc)
-      presentViewController(controller, animated: false, completion: nil)
+      controller.transitioningDelegate = _transitionManager
+      
+      _transitionManager.presenting = true
+      presentViewController(controller, animated: true) { () -> Void in
+         self._transitionManager.presenting = false
+      }
    }
    
    // Mark: - IBActions
@@ -171,7 +178,10 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
          return
       }
       
-      presentViewController(_settingsController, animated: false, completion: nil)
+      _transitionManager.presenting = true
+      presentViewController(_settingsController, animated: true) { () -> Void in
+         self._transitionManager.presenting = false
+      }
    }
 }
 

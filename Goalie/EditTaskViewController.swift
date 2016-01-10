@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class EditTaskViewController: UIViewController, ManagedObjectContextSettable
+class EditTaskViewController: UIViewController, ManagedObjectContextSettable, MenuController
 {
    var moc: NSManagedObjectContext!
    
@@ -28,6 +28,10 @@ class EditTaskViewController: UIViewController, ManagedObjectContextSettable
    private var _keyboardIsShowing = false
    private var _currentPriority: TaskPriority!
    private weak var _task: Task!
+   
+   var dialogContainer: UIView {
+      return _detailsContainerView
+   }
    
    // Mark: - Lifecycle
    override func viewDidLoad()
@@ -101,7 +105,7 @@ class EditTaskViewController: UIViewController, ManagedObjectContextSettable
          _titleTextField.resignFirstResponder()
       }
       else {
-         dismissViewControllerAnimated(false, completion: { () -> Void in
+         dismissViewControllerAnimated(true, completion: { () -> Void in
             if self._task.priority != self._currentPriority {
                self._task.priority = self._currentPriority
                self.moc.saveOrRollback()

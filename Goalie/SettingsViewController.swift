@@ -9,12 +9,18 @@
 import UIKit
 import CoreData
 
+protocol MenuController: class
+{
+   var view: UIView! {get set}
+   var dialogContainer: UIView {get}
+}
+
 protocol SettingsViewControllerDelegate: class
 {
    func settingsDidClose()
 }
 
-class SettingsViewController: UIViewController, ManagedObjectContextSettable
+class SettingsViewController: UIViewController, ManagedObjectContextSettable, MenuController
 {
    var moc: NSManagedObjectContext! {
       didSet {
@@ -28,6 +34,10 @@ class SettingsViewController: UIViewController, ManagedObjectContextSettable
    @IBOutlet private weak var _containerView: UIVisualEffectView!
    @IBOutlet private weak var _showCompletedTasksSwitch: UISwitch!
    @IBOutlet private weak var _manuallySwitchPrioritySwitch: UISwitch!
+   
+   var dialogContainer: UIView {
+      return _containerView
+   }
    
    // Mark: - Lifecycle
    override func viewDidLoad()
@@ -60,7 +70,7 @@ class SettingsViewController: UIViewController, ManagedObjectContextSettable
    // Mark: - IBActions
    @IBAction private func _closeButtonPressed()
    {
-      dismissViewControllerAnimated(false) { () -> Void in
+      dismissViewControllerAnimated(true) { () -> Void in
          
          GoalieSettingsManager.setShowCompletedTasks(self._showCompletedTasksSwitch.on)
          
