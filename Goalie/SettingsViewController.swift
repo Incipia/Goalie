@@ -16,8 +16,14 @@ protocol SettingsViewControllerDelegate: class
 
 class SettingsViewController: UIViewController, ManagedObjectContextSettable
 {
-   var moc: NSManagedObjectContext!
+   var moc: NSManagedObjectContext! {
+      didSet {
+         _taskPriorityStateSnapshotter = TaskPriorityStateSnapshotter(moc: moc)
+      }
+   }
+   private var _taskPriorityStateSnapshotter: TaskPriorityStateSnapshotter!
    weak var delegate: SettingsViewControllerDelegate?
+   
    
    @IBOutlet private weak var _containerView: UIVisualEffectView!
    @IBOutlet private weak var _showCompletedTasksSwitch: UISwitch!
@@ -55,8 +61,19 @@ class SettingsViewController: UIViewController, ManagedObjectContextSettable
    @IBAction private func _closeButtonPressed()
    {
       dismissViewControllerAnimated(false) { () -> Void in
+         
          GoalieSettingsManager.setShowCompletedTasks(self._showCompletedTasksSwitch.on)
-         GoalieSettingsManager.setManuallySwitchPriority(self._manuallySwitchPrioritySwitch.on)
+         
+         let autoSwitchPriorityChanged = GoalieSettingsManager.setManuallySwitchPriority(self._manuallySwitchPrioritySwitch.on)
+         if autoSwitchPriorityChanged {
+            if GoalieSettingsManager.manuallySwitchPriority {
+               self._taskPriorityStateSnapshotter.snapshotCurrentState()
+            }
+            else {
+               self._taskPriorityStateSnapshotter.applyPreviousSnapshot()
+            }
+         }
+         
          self.delegate?.settingsDidClose()
       }
    }

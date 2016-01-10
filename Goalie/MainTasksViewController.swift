@@ -16,6 +16,7 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
    var moc: NSManagedObjectContext! {
       didSet {
          _tasksDataProvider = TasksDataProvider(managedObjectContext: moc)
+         _settingsController = UIStoryboard.settingsViewController(moc, delegate: self)
       }
    }
    @IBOutlet private weak var _goalieTableView: GoalieTableView!
@@ -40,10 +41,9 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
          cacheName: nil)
    }
    
+   private var _settingsController: SettingsViewController!
    private var _currentTaskCell: TasksTableViewCell?
    private var _shouldCreateMoreCellsOnReturnKeyPressed = false
-   
-   private var _viewTransformer: ViewTransformer?
    
    // Mark: - Lifecycle
    override func viewDidLoad()
@@ -171,8 +171,7 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
          return
       }
       
-      let controller = UIStoryboard.settingsViewController(moc, delegate: self)
-      presentViewController(controller, animated: false, completion: nil)
+      presentViewController(_settingsController, animated: false, completion: nil)
    }
 }
 

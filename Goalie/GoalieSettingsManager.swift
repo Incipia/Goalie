@@ -32,26 +32,23 @@ struct GoalieSettingsManager
       return manuallySwitch
    }
    
-   static func setShowCompletedTasks(show: Bool)
+   static func setShowCompletedTasks(show: Bool) -> Bool
    {
+      var didSet = false
       if show != showCompletedTasks {
          NSUserDefaults.standardUserDefaults().setBool(show, forKey: ShowCompletedTasksKey)
+         didSet = true
       }
+      return didSet
    }
    
-   static func setManuallySwitchPriority(manuallySwitch: Bool)
+   static func setManuallySwitchPriority(manuallySwitch: Bool) -> Bool
    {
+      var didSet = false
       if manuallySwitch != manuallySwitchPriority {
          NSUserDefaults.standardUserDefaults().setBool(manuallySwitch, forKey: ManuallySwitchPriorityKey)
-         
-         if !manuallySwitch
-         {
-            print("snapshot tasks RIGHT NOW")
-         }
-         else
-         {
-            print("apply previous state")
-         }
+         didSet = true
       }
+      return didSet
    }
 }
