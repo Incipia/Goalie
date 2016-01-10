@@ -20,11 +20,9 @@ class TaskPriorityStateSnapshotter
    
    func snapshotCurrentState()
    {
-      print("snapshot!")
    }
    
    func applyPreviousSnapshot()
    {
-      print("apply previous snapshot!")
    }
 }
