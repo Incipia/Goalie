@@ -19,11 +19,11 @@ private extension UIColor
    {
       switch priority
       {
-      case .Unknown: return UIColor(red: 0.225, green: 0.211, blue: 0.504, alpha: 1.000)
-      case .Ages: return UIColor(red: 0.098, green: 0.361, blue: 0.160, alpha: 1.000)
-      case .Later: return UIColor(red: 0.090, green: 0.233, blue: 0.352, alpha: 1.000)
-      case .Soon: return UIColor(red: 0.611, green: 0.356, blue: 0.044, alpha: 1.000)
-      case .ASAP: return UIColor(red: 0.522, green: 0.053, blue: 0.177, alpha: 1.000)
+      case .Unknown: return UIColor(rgbValues: (74, 74, 147))
+      case .Ages: return UIColor(rgbValues: (29, 100, 79))
+      case .Later: return UIColor(rgbValues: (28, 77, 109))
+      case .Soon: return UIColor(rgbValues: (173, 110, 9))
+      case .ASAP: return UIColor(rgbValues: (153, 29, 59))
       }
    }
    

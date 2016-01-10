@@ -207,6 +207,11 @@ extension UIColor
       self.init(red: r/255.0, green: g/255.0, blue: b/255.0, alpha: 1)
    }
    
+   convenience init(rgbValues: (r: Float, g: Float, b: Float))
+   {
+      self.init(colorLiteralRed: rgbValues.r/255.0, green: rgbValues.g/255.0, blue: rgbValues.b/255.0, alpha: 1)
+   }
+   
    static func goalieEmptyTasksColor() -> UIColor
    {
       return UIColor(colorLiteralRed: 130/255.0, green: 122/255.0, blue: 209/255.0, alpha: 1)
