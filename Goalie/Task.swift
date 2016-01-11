@@ -68,7 +68,11 @@ extension Task: ManagedObjectType
    }
    
    public static var defaultSortDescriptors: [NSSortDescriptor] {
-      return [NSSortDescriptor(key: "priorityValue", ascending: true), NSSortDescriptor(key: "creationDate", ascending: true)]
+      return [
+         NSSortDescriptor(key: "priorityValue", ascending: true),
+         NSSortDescriptor(key: "completed", ascending: true), // this may be causing issues
+         NSSortDescriptor(key: "creationDate", ascending: true)
+      ]
    }
    
    public func delete()
