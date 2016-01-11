@@ -23,7 +23,11 @@ class EditTaskViewController: UIViewController, ManagedObjectContextSettable, Me
    @IBOutlet private weak var _doneButton: GoalieKerningButton!
    
    @IBOutlet private weak var _priorityIndicatorLeadingSpaceConstraint: NSLayoutConstraint!
-   @IBOutlet private weak var _detailsContainerView: UIVisualEffectView!
+   @IBOutlet private weak var _detailsContainerView: UIVisualEffectView! {
+      didSet {
+         _setupShadow()
+      }
+   }
    
    private var _keyboardIsShowing = false
    private var _currentPriority: TaskPriority!
@@ -34,11 +38,9 @@ class EditTaskViewController: UIViewController, ManagedObjectContextSettable, Me
    }
    
    // Mark: - Lifecycle
-   override func viewDidLoad()
+   override func viewWillAppear(animated: Bool)
    {
-      super.viewDidLoad()
-      
-      _setupShadow()
+      super.viewWillAppear(animated)
       _setupTitleTextField()
       _updateTitleTextField()
       _currentPriority = _task.priority
