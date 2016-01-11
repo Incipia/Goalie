@@ -27,7 +27,7 @@ import CoreData
  
  ***/
 
-private extension TaskPriority
+extension TaskPriority
 {
    // The number of seconds that the priority is supposed to last for
    var duration: NSTimeInterval? {
@@ -103,6 +103,12 @@ struct TaskPriorityUpdater
                aggregatedDuration += priorityDuration
                let taskPriorityAdvanceDate = task.lastPriorityChangeDate.dateByAddingTimeInterval(aggregatedDuration)
                
+//               print("---------- TASK: \(task.title) --------------")
+//               print("LCD: \(task.lastPriorityChangeDate.prettyDateString())")
+//               print("should advance on: \(taskPriorityAdvanceDate.prettyDateString())")
+//               print("current date: \(currentDate.prettyDateString())")
+//               print("")
+               
                if currentDate >= taskPriorityAdvanceDate {
                   newPriority = priority.nextPriority
                }
@@ -123,11 +129,3 @@ struct TaskPriorityUpdater
       }
    }
 }
-
-/*
-print("---------- TASK: \(task.title) --------------")
-print("task LCD: \(task.lastPriorityChangeDate.prettyDateString())")
-print("should advance on: \(taskPriorityAdvanceDate.prettyDateString())")
-print("current date: \(currentDate.prettyDateString())")
-print("")
-*/
