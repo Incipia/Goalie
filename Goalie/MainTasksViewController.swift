@@ -18,6 +18,11 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
          _tasksDataProvider = TasksDataProvider(managedObjectContext: moc)
          _settingsController = UIStoryboard.settingsViewController(moc, delegate: self)
          _settingsController.transitioningDelegate = _transitionManager
+         let _ = _settingsController.view
+         
+         _editTaskViewController = UIStoryboard.editTaskViewController(moc)
+         _editTaskViewController.transitioningDelegate = _transitionManager
+         let _ = _editTaskViewController.view
       }
    }
    @IBOutlet private weak var _goalieTableView: GoalieTableView!
@@ -44,6 +49,7 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
    
    private let _transitionManager = MenuTransitionManager()
    private var _settingsController: SettingsViewController!
+   private var _editTaskViewController: EditTaskViewController!
    private var _currentTaskCell: TasksTableViewCell?
    private var _shouldCreateMoreCellsOnReturnKeyPressed = false
    
@@ -77,6 +83,7 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
    
    override func viewWillAppear(animated: Bool)
    {
+      super.viewWillAppear(animated)
       _goalieTableView.reloadData()
       _createEmptyTaskIfNecessary()
    }
@@ -161,11 +168,9 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
    
    private func _presentDetailsForTask(task: Task)
    {
-      let controller = UIStoryboard.taskDetailsViewControllerForTask(task, managedObjectContext: moc)
-      controller.transitioningDelegate = _transitionManager
-      
       _transitionManager.presenting = true
-      presentViewController(controller, animated: true) { () -> Void in
+      _editTaskViewController.configureWithTask(task)
+      presentViewController(_editTaskViewController, animated: true) { () -> Void in
          self._transitionManager.presenting = false
       }
    }
