@@ -18,7 +18,6 @@ class GoalieHeaderView: UIView
    var goalieFaceView: GoalieFaceView! {
       didSet {
          _viewTransformer = ViewTransformer(view: goalieFaceView)
-         _viewTransformer?.takeItEasy = true
       }
    }
    

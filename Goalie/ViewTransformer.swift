@@ -12,7 +12,7 @@ extension CATransform3D
 {
    static var perspectiveTransform: CATransform3D {
       var transform = CATransform3DIdentity
-      transform.m34 = 1 / -400.0
+      transform.m34 = 1 / -900.0
       return transform
    }
 }
