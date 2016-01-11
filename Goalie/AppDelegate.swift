@@ -105,7 +105,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate
    
    internal func _updateTaskPriorities(timer: NSTimer)
    {
-      _taskPriorityUpdater.updateTaskPriorities()
+      if GoalieSettingsManager.manuallySwitchPriority == false {
+         _taskPriorityUpdater.updateTaskPriorities()
+      }
    }
 }
 
