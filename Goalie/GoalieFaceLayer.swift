@@ -17,6 +17,7 @@ class GoalieFaceLayer: CALayer
    
    private let _pathProvider = GoalieFacePathProvider()
    private var _currentPriority: TaskPriority = .Unknown
+   private var _currentlyAnimating = false
    
    // MARK: - Init
    private func _commonInit()
@@ -61,10 +62,17 @@ class GoalieFaceLayer: CALayer
       _currentPriority = priority
       
       _performBlockWithoutAnimations { () -> Void in
-         self._leftEyeLayer.hidden = false
-         self._rightEyeLayer.hidden = false
+         self._leftEyeLayer.hidden = priority == .Ages
+         self._rightEyeLayer.hidden = priority == .Ages
          self._mouthLayer.hidden = false
          self._teethLayer.hidden = true
+      }
+      
+      _performBlockWithoutAnimations { () -> Void in
+         self._leftEyeLayer.removeAllAnimations()
+         self._rightEyeLayer.removeAllAnimations()
+         self._mouthLayer.removeAllAnimations()
+         self._currentlyAnimating = false
       }
       
       _updateLayersForPriority(priority)
@@ -73,24 +81,27 @@ class GoalieFaceLayer: CALayer
    
    func animateForPriority(priority: TaskPriority)
    {
-      switch priority
-      {
-      case .Ages:
-         _animateHappyMouthGrow()
-      case .Later:
-         if Int.randRange(0, upper: 1) == 0 {
-            _happyWinkEye()
+      if _currentlyAnimating == false {
+         _currentlyAnimating = true
+         switch priority
+         {
+         case .Ages:
+            _animateHappyMouthGrow()
+         case .Later:
+            if Int.randRange(0, upper: 1) == 0 {
+               _happyWinkEye()
+            }
+            else {
+               _happySquint()
+            }
+         case .Soon:
+            _surprise()
+            _animateWorriedMouthShrink()
+         case .ASAP:
+            _angryBlink()
+         case .Unknown:
+            _currentlyAnimating = false
          }
-         else {
-            _happySquint()
-         }
-      case .Soon:
-         _surprise()
-         _animateWorriedMouthShrink()
-      case .ASAP:
-         _angryBlink()
-      default:
-         break
       }
    }
    
@@ -178,6 +189,8 @@ class GoalieFaceLayer: CALayer
       openEyeAnimation.toValue = _pathProvider.normalLeftEyePath
       
       animationGroup.animations = [closeEyeAnimation, openEyeAnimation]
+      
+      animationGroup.delegate = self
       _leftEyeLayer.addAnimation(animationGroup, forKey: "blinkLeftEye")
    }
    
@@ -200,6 +213,7 @@ class GoalieFaceLayer: CALayer
       openEyeAnimation.toValue = _pathProvider.normalRightEyePath
       
       animationGroup.animations = [closeEyeAnimation, openEyeAnimation]
+      animationGroup.delegate = self
       _rightEyeLayer.addAnimation(animationGroup, forKey: "blinkRightEye")
    }
    
@@ -223,6 +237,7 @@ class GoalieFaceLayer: CALayer
       openEyeAnimation.toValue = _pathProvider.happyMouthPath
       
       animationGroup.animations = [closeEyeAnimation, openEyeAnimation]
+      animationGroup.delegate = self
       _mouthLayer.addAnimation(animationGroup, forKey: "shrinkMouth")
    }
    
@@ -245,6 +260,7 @@ class GoalieFaceLayer: CALayer
       openEyeAnimation.toValue = _pathProvider.happyMouthPath
       
       animationGroup.animations = [closeEyeAnimation, openEyeAnimation]
+      animationGroup.delegate = self
       _mouthLayer.addAnimation(animationGroup, forKey: "growMouth")
    }
    
@@ -267,6 +283,7 @@ class GoalieFaceLayer: CALayer
       openEyeAnimation.toValue = _pathProvider.scaredMouthPath
       
       animationGroup.animations = [closeEyeAnimation, openEyeAnimation]
+      animationGroup.delegate = self
       _mouthLayer.addAnimation(animationGroup, forKey: "scaredMouthShrink")
    }
    
@@ -276,5 +293,10 @@ class GoalieFaceLayer: CALayer
       CATransaction.setValue(kCFBooleanTrue, forKey: kCATransactionDisableActions)
       block()
       CATransaction.commit()
+   }
+   
+   internal override func animationDidStop(anim: CAAnimation, finished flag: Bool)
+   {
+      self._currentlyAnimating = false
    }
 }
