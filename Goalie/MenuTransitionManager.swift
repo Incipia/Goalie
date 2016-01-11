@@ -24,7 +24,7 @@ class MenuTransitionManager: NSObject, UIViewControllerAnimatedTransitioning, UI
    }
    
    func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
-      return 0.3
+      return 0.25
    }
    
    // MARK: - UIViewControllerTransitioningDelegate protocol methods
@@ -44,14 +44,16 @@ class MenuTransitionManager: NSObject, UIViewControllerAnimatedTransitioning, UI
       
       let toController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey) as! MenuController
       
-      let scaledDown = CGAffineTransformMakeScale(0, 0)
-      toController.dialogContainer.transform = scaledDown
+      let scaledTransform = CGAffineTransformMakeScale(0.4, 0.4)
+      toController.dialogContainer.transform = scaledTransform
+      
+      toController.view.alpha = 1
       toController.view.backgroundColor = UIColor.clearColor()
       
       container.addSubview(toController.view)
       
       let duration = transitionDuration(transitionContext)
-      UIView.animateWithDuration(duration, animations: {
+      UIView.animateWithDuration(duration, delay: 0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
          
          toController.dialogContainer.transform = CGAffineTransformIdentity
          toController.view.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.5)
@@ -67,14 +69,13 @@ class MenuTransitionManager: NSObject, UIViewControllerAnimatedTransitioning, UI
       let container = transitionContext.containerView()!
       
       let fromController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey) as! MenuController
-      
       container.addSubview(fromController.view)
       
       let duration = transitionDuration(transitionContext)
-      UIView.animateWithDuration(duration, animations: {
+      UIView.animateWithDuration(duration, delay: 0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
          
-         fromController.dialogContainer.transform = CGAffineTransformMakeScale(0.01, 0.01)
-         fromController.view.backgroundColor = UIColor.clearColor()
+         fromController.view.alpha = 0
+         fromController.dialogContainer.transform = CGAffineTransformMakeScale(0.4, 0.4)
          
          }, completion: { finished in
             transitionContext.completeTransition(true)
