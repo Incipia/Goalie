@@ -21,9 +21,16 @@ class GoalieFaceView: UIView
       return UIColor(priority: _currentPriority, headComponent: .Chin)
    }
    
+   private var _faceLayer = CAShapeLayer()
+   
    override func awakeFromNib()
    {
       super.awakeFromNib()
+      
+//      _faceLayer.frame = CGRect(origin: CGPoint.zero, size: bounds.size)
+//      _faceLayer.backgroundColor = UIColor.redColor().colorWithAlphaComponent(0.5).CGColor
+//      layer.addSublayer(_faceLayer)
+      
       backgroundColor = UIColor.clearColor()
    }
    
