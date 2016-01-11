@@ -221,4 +221,16 @@ extension UIColor
    {
       return UIColor(colorLiteralRed: 228/255.0, green: 229/255.0, blue: 231/255.0, alpha: 1)
    }
+   
+   static func eyeColorForPriority(priority: TaskPriority) -> UIColor
+   {
+      switch priority
+      {
+      case .Ages: return UIColor(red: 0.098, green: 0.324, blue: 0.243, alpha: 1.000)
+      case .Later: return UIColor(red: 0.090, green: 0.233, blue: 0.352, alpha: 1.000)
+      case .Soon: return UIColor(red: 0.611, green: 0.356, blue: 0.044, alpha: 1.000)
+      case .ASAP: return UIColor(red: 0.522, green: 0.053, blue: 0.177, alpha: 1.000)
+      case .Unknown: return UIColor(red: 0.225, green: 0.211, blue: 0.504, alpha: 1.000)
+      }
+   }
 }

@@ -24,6 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
    private var _taskPriorityUpdater: TaskPriorityUpdater!
    private var _updateTaskPrioritiesTimer: NSTimer?
    private var _speechBubbleTimer: NSTimer?
+   private var _goalieAnimationTimer: NSTimer?
    private var _mainTasksViewController: MainTasksViewController!
 
    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
@@ -41,6 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
    {
       _startTimerForMinuteChangedNotification()
       _startTimerForSpeechBubble()
+      _startTimerForGoalieAnimations()
       _mainTasksViewController.showSpeechBubble()
    }
    
@@ -48,6 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
    {
       _killUpdateTaskPrioritiesTimer()
       _killSpeechBubbleTimer()
+      _killGoalieAnimationTimer()
       _mainTasksViewController.hideSpeechBubble()
    }
    
@@ -61,6 +64,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate
    {
       _speechBubbleTimer?.invalidate()
       _speechBubbleTimer = nil
+   }
+   
+   private func _killGoalieAnimationTimer()
+   {
+      _goalieAnimationTimer?.invalidate()
+      _goalieAnimationTimer = nil
    }
    
    private func _setupMainTasksViewControllerWithMOC(moc: NSManagedObjectContext)
@@ -97,6 +106,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate
       NSRunLoop.mainRunLoop().addTimer(_speechBubbleTimer!, forMode: NSDefaultRunLoopMode)
    }
    
+   private func _startTimerForGoalieAnimations()
+   {
+      guard _goalieAnimationTimer == nil else {return}
+      
+      _goalieAnimationTimer = NSTimer(fireDate: NSDate().dateByAddingTimeInterval(10), interval: 5, target: self, selector: "_animateGoalie:", userInfo: nil, repeats: true)
+      NSRunLoop.mainRunLoop().addTimer(_goalieAnimationTimer!, forMode: NSDefaultRunLoopMode)
+   }
+   
    internal func _hideSpeechBubble(timer: NSTimer)
    {
       _killSpeechBubbleTimer()
@@ -108,6 +125,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate
       if GoalieSettingsManager.manuallySwitchPriority == false {
          _taskPriorityUpdater.updateTaskPriorities()
       }
+   }
+   
+   internal func _animateGoalie(timer: NSTimer)
+   {
+      _mainTasksViewController.animateGoalie()
    }
 }
 

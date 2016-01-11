@@ -21,15 +21,14 @@ class GoalieFaceView: UIView
       return UIColor(priority: _currentPriority, headComponent: .Chin)
    }
    
-   private var _faceLayer = CAShapeLayer()
+   private var _faceLayer = GoalieFaceLayer()
    
    override func awakeFromNib()
    {
       super.awakeFromNib()
       
-//      _faceLayer.frame = CGRect(origin: CGPoint.zero, size: bounds.size)
-//      _faceLayer.backgroundColor = UIColor.redColor().colorWithAlphaComponent(0.5).CGColor
-//      layer.addSublayer(_faceLayer)
+      _faceLayer.frame = CGRect(origin: CGPoint.zero, size: bounds.size)
+      layer.addSublayer(_faceLayer)
       
       backgroundColor = UIColor.clearColor()
    }
@@ -38,15 +37,17 @@ class GoalieFaceView: UIView
    func updateWithPriority(priority: TaskPriority)
    {
       _currentPriority = priority
+      
+      _faceLayer.updateWithPriority(priority)
       setNeedsDisplay()
    }
    
-   // MARK: - Private
-   private func _drawHead()
+   func animateFace()
    {
-      GoalieHeadKit.drawGoalieHead(backgroundColor: _headBackgroundColor, cheekColor: _cheekColor, chinColor: _chinColor)
+      _faceLayer.updateWithPriority(_currentPriority)
    }
    
+   // MARK: - Private
    private func _drawFace()
    {
       switch _currentPriority
@@ -64,9 +65,15 @@ class GoalieFaceView: UIView
       }
    }
    
+   override func layoutSubviews()
+   {
+      super.layoutSubviews()
+      _faceLayer.frame = bounds
+   }
+   
    override func drawRect(rect: CGRect)
    {
-      _drawHead()
-      _drawFace()
+      GoalieHeadKit.drawGoalieHead(backgroundColor: _headBackgroundColor, cheekColor: _cheekColor, chinColor: _chinColor)
+      GoalieHeadKit.drawAccessoriesForPriority(_currentPriority)
    }
 }

@@ -49,6 +49,9 @@
 		F38B551C1C3863000022453F /* TaskPriorityUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38B551B1C3863000022453F /* TaskPriorityUpdater.swift */; };
 		F38B551E1C388F510022453F /* NSDate+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38B551D1C388F510022453F /* NSDate+Extensions.swift */; };
 		F38E2EA51C34863600945CA4 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38E2EA41C34863600945CA4 /* UIView+Extensions.swift */; };
+		F3A81FFA1C4403120048237F /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A81FF91C4403120048237F /* OnboardingViewController.swift */; };
+		F3A81FFF1C440B520048237F /* GoalieFaceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A81FFE1C440B520048237F /* GoalieFaceLayer.swift */; };
+		F3A820011C441B490048237F /* GoalieFacePathProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A820001C441B490048237F /* GoalieFacePathProvider.swift */; };
 		F3CEAC441C4061820047DD78 /* ViewTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CEAC431C4061820047DD78 /* ViewTransformer.swift */; };
 		F3CEAC561C4061B10047DD78 /* JVFloatLabeledTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = F3CEAC511C4061B10047DD78 /* JVFloatLabeledTextField.m */; };
 		F3CEAC571C4061B10047DD78 /* JVFloatLabeledTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = F3CEAC531C4061B10047DD78 /* JVFloatLabeledTextView.m */; };
@@ -115,6 +118,9 @@
 		F38B551B1C3863000022453F /* TaskPriorityUpdater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TaskPriorityUpdater.swift; path = Goalie/TaskPriorityUpdater.swift; sourceTree = "<group>"; };
 		F38B551D1C388F510022453F /* NSDate+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSDate+Extensions.swift"; path = "Goalie/NSDate+Extensions.swift"; sourceTree = "<group>"; };
 		F38E2EA41C34863600945CA4 /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+Extensions.swift"; path = "Goalie/UIView+Extensions.swift"; sourceTree = "<group>"; };
+		F3A81FF91C4403120048237F /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OnboardingViewController.swift; path = Goalie/OnboardingViewController.swift; sourceTree = "<group>"; };
+		F3A81FFE1C440B520048237F /* GoalieFaceLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoalieFaceLayer.swift; path = Goalie/GoalieFaceLayer.swift; sourceTree = "<group>"; };
+		F3A820001C441B490048237F /* GoalieFacePathProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoalieFacePathProvider.swift; path = Goalie/GoalieFacePathProvider.swift; sourceTree = "<group>"; };
 		F3CEAC431C4061820047DD78 /* ViewTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewTransformer.swift; path = Goalie/ViewTransformer.swift; sourceTree = "<group>"; };
 		F3CEAC501C4061B10047DD78 /* JVFloatLabeledTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JVFloatLabeledTextField.h; sourceTree = "<group>"; };
 		F3CEAC511C4061B10047DD78 /* JVFloatLabeledTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JVFloatLabeledTextField.m; sourceTree = "<group>"; };
@@ -186,6 +192,8 @@
 				F3CEAC6B1C4063810047DD78 /* GoalieSpeechBubbleKit.swift */,
 				F32489481C3F174300E3DABD /* GoalieSpeechBubble.swift */,
 				F324894C1C3F50EE00E3DABD /* SpeechBubbleTextProvider.swift */,
+				F3A81FFE1C440B520048237F /* GoalieFaceLayer.swift */,
+				F3A820001C441B490048237F /* GoalieFacePathProvider.swift */,
 			);
 			name = "Goalie Drawing";
 			sourceTree = "<group>";
@@ -302,6 +310,7 @@
 				F3DB3E031C322DC40005C607 /* MainTasksViewController.swift */,
 				F3DB3E111C3306690005C607 /* EditTaskViewController.swift */,
 				F38B550F1C34DD810022453F /* SettingsViewController.swift */,
+				F3A81FF91C4403120048237F /* OnboardingViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -449,6 +458,7 @@
 				F38B55101C34DD810022453F /* SettingsViewController.swift in Sources */,
 				F38319311C31A72D00C36ACB /* NSURL+Extensions.swift in Sources */,
 				F3CEAC6C1C4063810047DD78 /* GoalieFaceKit.swift in Sources */,
+				F3A820011C441B490048237F /* GoalieFacePathProvider.swift in Sources */,
 				F38319291C31A72D00C36ACB /* ManagedObject.swift in Sources */,
 				F38E2EA51C34863600945CA4 /* UIView+Extensions.swift in Sources */,
 				F383192D1C31A72D00C36ACB /* DefaultTasksFetchRequestProvider.swift in Sources */,
@@ -475,11 +485,13 @@
 				F3DB3E101C32682A0005C607 /* ProjectEnums.swift in Sources */,
 				F38319391C31A72D00C36ACB /* DataProvider.swift in Sources */,
 				F38319341C31A72D00C36ACB /* NSManagedObjectContext+Observers.swift in Sources */,
+				F3A81FFF1C440B520048237F /* GoalieFaceLayer.swift in Sources */,
 				F3CEAC6D1C4063810047DD78 /* GoalieFaceView.swift in Sources */,
 				F38B551E1C388F510022453F /* NSDate+Extensions.swift in Sources */,
 				F3CEAC601C4061C70047DD78 /* TPKeyboardAvoidingScrollView.m in Sources */,
 				F3CEAC621C4061C70047DD78 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				F322EB111C34C371001B8C44 /* TaskCellAppearanceUpdater.swift in Sources */,
+				F3A81FFA1C4403120048237F /* OnboardingViewController.swift in Sources */,
 				F383193B1C31A72D00C36ACB /* TableViewDataSource.swift in Sources */,
 				F38A0F5A1C42010A0034DCE4 /* TaskPriorityStateSnapshotter.swift in Sources */,
 				F383193A1C31A72D00C36ACB /* FetchedResultsDataProvider.swift in Sources */,

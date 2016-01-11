@@ -94,6 +94,11 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
    }
    
    // MARK: - Public
+   func animateGoalie()
+   {
+      _goalieTableView.animateGoalie()
+   }
+   
    func showSpeechBubble()
    {
       _goalieTableView.showSpeechBubble()

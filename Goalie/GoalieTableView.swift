@@ -130,6 +130,11 @@ class GoalieTableView: TPKeyboardAvoidingTableView
       _rightSpeechBubble.hidden = true
    }
    
+   func animateGoalie()
+   {
+      _goalieFaceView.animateFace()
+   }
+   
    // MARK: - Private
    private func _showOnlyLeftOrRightSpeechBubble()
    {
