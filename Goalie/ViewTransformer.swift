@@ -17,18 +17,28 @@ extension CATransform3D
    }
 }
 
+protocol ViewTransformerDelegate
+{
+   var centerY: CGFloat {get}
+}
+
 protocol ViewTransformerProtocol
 {
    func touchesBegan(touches: Set<NSObject>)
    func touchesMoved(touches: Set<NSObject>)
-   func resetViewWithDuration(duraiton: NSTimeInterval)
+   func resetViewWithDuration(duraiton: NSTimeInterval, completion: ((finished: Bool) -> ())?)
 }
 
 class ViewTransformer: ViewTransformerProtocol
 {
    var view: UIView
+   var delegate: ViewTransformerDelegate?
+   
+   private var _initialDistanceFromCenterY: CGFloat = 0
    private var initialViewCenter = CGPoint.zero
    private var firstTouchLocation = CGPoint.zero
+   
+   private var _lastTransformationPoints: [CGPoint] = []
    
    var maxY: CGFloat?
    
@@ -43,8 +53,7 @@ class ViewTransformer: ViewTransformerProtocol
    {
       if let touch = touches.first as? UITouch where self.firstTouchLocation == CGPoint.zero
       {
-         self.initialViewCenter = self.view.center
-         self.firstTouchLocation = touch.locationInView(nil)
+         _beginTransformationWithPoint(touch.locationInView(nil))
       }
    }
    
@@ -52,31 +61,60 @@ class ViewTransformer: ViewTransformerProtocol
    {
       if let touch = touches.first as? UITouch
       {
-         var currentTouchLocation = touch.locationInView(nil)
-         let dx = self.firstTouchLocation.x - currentTouchLocation.x
-         
-         let currentTouchY = currentTouchLocation.y
-         if let maxY = maxY {
-            currentTouchLocation.y = min(maxY, currentTouchY)
-         }
-         
-         let dy = self.firstTouchLocation.y - currentTouchLocation.y
-         
-         let deltaVector = CGVector(dx: dx, dy: dy)
-         
-         var updatedTransform = CATransform3D.perspectiveTransform
-         self.rotateTransform(&updatedTransform, withDeltaVector: deltaVector)
-         self.scaleTransform(&updatedTransform, withDeltaVector: deltaVector)
-         
-         self.view.layer.transform = updatedTransform
-         
-         let newCenterX = self.initialViewCenter.x - deltaVector.dx / 5
-         let newCenterY = self.initialViewCenter.y - deltaVector.dy / 5
-         self.view.center = CGPoint(x: newCenterX, y: newCenterY)
+         let currentTouchLocation = touch.locationInView(nil)
+         _adjustTransformationWithPoint(currentTouchLocation)
       }
    }
    
-   func resetViewWithDuration(duration: NSTimeInterval)
+   func startWithPoint(point: CGPoint)
+   {
+      _beginTransformationWithPoint(point)
+   }
+   
+   func advanceWithPoint(point: CGPoint)
+   {
+      _adjustTransformationWithPoint(point)
+   }
+   
+   private func _beginTransformationWithPoint(point: CGPoint)
+   {
+      self.initialViewCenter = self.view.center
+      self.firstTouchLocation = point
+      _initialDistanceFromCenterY = delegate!.centerY - initialViewCenter.y
+      
+//      _lastTransformationPoints = []
+//      _lastTransformationPoints.append(point)
+   }
+   
+   private func _adjustTransformationWithPoint(point: CGPoint)
+   {
+      var point = point
+      let dx = self.firstTouchLocation.x - point.x
+      
+      let currentTouchY = point.y
+      if let maxY = maxY {
+         point.y = min(maxY, currentTouchY)
+      }
+      
+//      _lastTransformationPoints.append(point)
+      let dy = self.firstTouchLocation.y - point.y
+      
+      let deltaVector = CGVector(dx: dx, dy: dy)
+      
+      var updatedTransform = CATransform3D.perspectiveTransform
+      self.rotateTransform(&updatedTransform, withDeltaVector: deltaVector)
+      self.scaleTransform(&updatedTransform, withDeltaVector: deltaVector)
+      
+      self.view.layer.transform = updatedTransform
+      
+      let newCenterX = self.initialViewCenter.x - deltaVector.dx / 5
+      
+      var newCenterY = self.view.superview!.center.y - _initialDistanceFromCenterY
+      newCenterY = newCenterY - deltaVector.dy / 5
+      self.view.center = CGPoint(x: newCenterX, y: newCenterY)
+   }
+   
+   func resetViewWithDuration(duration: NSTimeInterval, completion: ((finished: Bool) -> ())?)
    {
       UIView.animateWithDuration(duration / 1.5, animations: { () -> Void in
          self.view.center = self.initialViewCenter
@@ -84,9 +122,21 @@ class ViewTransformer: ViewTransformerProtocol
       
       UIView.animateWithDuration(duration / 1.5, delay: duration / 3, options: [], animations: { () -> Void in
          self.view.layer.transform = CATransform3DIdentity
-         }, completion: nil)
+         }, completion: completion)
       
       self.firstTouchLocation = CGPoint.zero
+      
+//      var pointString = "["
+//      for point in _lastTransformationPoints
+//      {
+//         pointString += "CGPoint(x: \(point.x), y: \(point.y)),"
+//      }
+//      pointString += "]"
+//      print("")
+//      print("")
+//      print(pointString)
+//      print("")
+//      print("")
    }
    
    // MARK: - Private
