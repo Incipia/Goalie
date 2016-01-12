@@ -19,25 +19,21 @@ class GoalieTableView: TPKeyboardAvoidingTableView
    private var _goalieMovementAnimator: GoalieMovementAnimator!
    @IBOutlet private weak var _goalieFaceView: GoalieFaceView! {
       didSet {
+         _goalieFaceView.layer.anchorPoint = CGPoint(x: 0.5, y: 1)
          _goalieMovementAnimator = GoalieMovementAnimator(view: _goalieFaceView)
       }
    }
    
-   @IBOutlet private weak var _rightSpeechBubble: GoalieSpeechBubble! {
-      didSet {
-         _rightSpeechBubble.layer.anchorPoint = CGPoint(x: 0.5, y: 1)
-      }
-   }
+   @IBOutlet private weak var _rightSpeechBubble: GoalieSpeechBubble!
    @IBOutlet private weak var _leftSpeechBubble: GoalieSpeechBubble! {
       didSet {
          _leftSpeechBubble.tailDirection = .Right
-         _leftSpeechBubble.layer.anchorPoint = CGPoint(x: 0.5, y: 1)
       }
    }
    
    @IBOutlet private weak var _settingsButton: UIButton!
    
-   private var _startedShowingInitialSpeechBubble = false
+   private var _shouldShowSpeechBubble = false
    private var _currentPriority = TaskPriority.Unknown
    
    // MARK: - Lifecycle
@@ -105,37 +101,40 @@ class GoalieTableView: TPKeyboardAvoidingTableView
    
    func updateWithPriority(priority: TaskPriority)
    {
-      if _currentPriority != priority
-      {
-         _currentPriority = priority
-         _goalieFaceView.updateWithPriority(priority)
+      guard _currentPriority != priority else {return}
+      
+      _currentPriority = priority
+      _goalieFaceView.updateWithPriority(priority)
+      
+      let text = SpeechBubbleTextProvider.textForPriority(priority)
+      _leftSpeechBubble.updateWithText(text, priority: priority)
+      _rightSpeechBubble.updateWithText(text, priority: priority)
+      
+      let color = UIColor.goalieHeaderBackgroundColor(priority)
+      _updateHeaderViewColor(color, animationDuration: 0.3)
+      
+      if _shouldShowSpeechBubble {
          
-         let text = SpeechBubbleTextProvider.textForPriority(priority)
-         _leftSpeechBubble.updateWithText(text, priority: priority)
-         _rightSpeechBubble.updateWithText(text, priority: priority)
+//         _animateViewOut(_leftSpeechBubble)
+//         _animateViewOut(_rightSpeechBubble)
          
-         let color = UIColor.goalieHeaderBackgroundColor(priority)
-         _updateHeaderViewColor(color, animationDuration: 0.3)
-         
-         if _startedShowingInitialSpeechBubble {// && currently showing INITAL speech bubble
-            _leftSpeechBubble.hidden = true
-            _rightSpeechBubble.hidden = true
-            
-            // Since we were interrupted, start five second timer and then start observing for "productive activity"
-         }
+         _showOnlyLeftOrRightSpeechBubble()
+
+         // Since we were interrupted, start five second timer and then start observing for "productive activity"
       }
    }
    
    func showSpeechBubble()
    {
-      _startedShowingInitialSpeechBubble = true
+      _shouldShowSpeechBubble = true
       _showOnlyLeftOrRightSpeechBubble()
    }
    
    func hideSpeechBubble()
    {
-      _leftSpeechBubble.hidden = true
-      _rightSpeechBubble.hidden = true
+      _shouldShowSpeechBubble = false
+      _animateViewOut(_leftSpeechBubble)
+      _animateViewOut(_rightSpeechBubble)
    }
    
    func animateGoalie()
@@ -165,12 +164,36 @@ extension GoalieTableView
       let oneOrZero = Int.randRange(0, upper: 1)
       
       if oneOrZero == 0 || shouldShowLeft {
-         _leftSpeechBubble.hidden = false
-         _rightSpeechBubble.hidden = true
+         if _leftSpeechBubble.hidden == true {
+            _animateViewIn(_leftSpeechBubble, completion: nil)
+            _rightSpeechBubble.hidden = true
+         }
       }
       else {
-         _leftSpeechBubble.hidden = true
-         _rightSpeechBubble.hidden = false
+         if _rightSpeechBubble.hidden == true {
+            _animateViewIn(_rightSpeechBubble, completion: nil)
+            _leftSpeechBubble.hidden = true
+         }
+      }
+   }
+   
+   private func _animateViewIn(viewToAnimate: UIView, completion: (() -> Void)?)
+   {
+      viewToAnimate.hidden = false
+      viewToAnimate.transform = CGAffineTransformMakeScale(0, 0)
+      UIView.animateWithDuration(0.5, delay: 0.25, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.8, options: [], animations: { () -> Void in
+         viewToAnimate.transform = CGAffineTransformMakeScale(1, 1)
+         }) { (finished) -> Void in
+            completion?()
+      }
+   }
+   
+   private func _animateViewOut(viewToAnimate: UIView)
+   {
+      UIView.animateWithDuration(0.3, animations: { () -> Void in
+         viewToAnimate.transform = CGAffineTransformMakeScale(0.01, 0.01)
+         }) { (finished) -> Void in
+            viewToAnimate.hidden = true
       }
    }
    
