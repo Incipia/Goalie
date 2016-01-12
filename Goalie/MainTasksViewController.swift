@@ -78,7 +78,6 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
    {
       super.viewDidAppear(animated)
       _updateTaskCellsLeftBar()
-      _updateTableViewFooter()
    }
    
    override func viewWillAppear(animated: Bool)
@@ -86,6 +85,7 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
       super.viewWillAppear(animated)
       _goalieTableView.reloadData()
       _createEmptyTaskIfNecessary()
+      _updateTableViewFooter()
    }
    
    override func preferredStatusBarStyle() -> UIStatusBarStyle
