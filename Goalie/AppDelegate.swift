@@ -26,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
    private var _speechBubbleTimer: NSTimer?
    private var _goalieAnimationTimer: NSTimer?
    private var _mainTasksViewController: MainTasksViewController!
+   private var _onboardingViewController: OnboardingViewController!
 
    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
    {
@@ -33,25 +34,56 @@ class AppDelegate: UIResponder, UIApplicationDelegate
       
       _moc = createGoalieMainContext()
       _setupMainTasksViewControllerWithMOC(_moc)
-      _setupMainWindowWithViewController(_mainTasksViewController)
+      
+      // FOR TESTING!
+      GoalieSettingsManager.setUserHasOnboarded(false)
+      
+      if GoalieSettingsManager.userHasOnboarded {
+         _setupMainWindowWithViewController(_mainTasksViewController)
+      }
+      else {
+         _onboardingViewController = UIStoryboard.onboardingViewController()
+         _onboardingViewController.onboardingCompletionBlock = {
+            self._onboardingViewController.presentViewController(self._mainTasksViewController, animated: false, completion: { () -> Void in
+               
+               self._startTimers()
+               self._mainTasksViewController.showSpeechBubble()
+               GoalieSettingsManager.setUserHasOnboarded(true)
+            })
+            
+         }
+         _setupMainWindowWithViewController(_onboardingViewController)
+      }
       
       return true
    }
    
    func applicationDidBecomeActive(application: UIApplication)
    {
-      _startTimerForMinuteChangedNotification()
-      _startTimerForSpeechBubble()
-      _startTimerForGoalieAnimations()
-      _mainTasksViewController.showSpeechBubble()
+      if GoalieSettingsManager.userHasOnboarded {
+         _startTimers()
+         _mainTasksViewController.showSpeechBubble()
+      }
    }
    
    func applicationWillResignActive(application: UIApplication)
    {
+      _killTimers()
+      _mainTasksViewController.hideSpeechBubble()
+   }
+   
+   private func _startTimers()
+   {
+      _startTimerForMinuteChangedNotification()
+      _startTimerForSpeechBubble()
+      _startTimerForGoalieAnimations()
+   }
+   
+   private func _killTimers()
+   {
       _killUpdateTaskPrioritiesTimer()
       _killSpeechBubbleTimer()
       _killGoalieAnimationTimer()
-      _mainTasksViewController.hideSpeechBubble()
    }
    
    private func _killUpdateTaskPrioritiesTimer()
@@ -80,7 +112,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
    private func _setupMainWindowWithViewController(controller: UIViewController)
    {
       window = UIWindow(frame: UIScreen.mainScreen().bounds)
-      window?.rootViewController = _mainTasksViewController
+      window?.rootViewController = controller
       window?.makeKeyAndVisible()
    }
 

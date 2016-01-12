@@ -38,4 +38,28 @@ class GoalieKerningButton: UIButton
       setAttributedTitle(highlightedAttributedString, forState: .Highlighted)
       UIView.setAnimationsEnabled(true)
    }
+   
+   func updateText(text: String, color: UIColor)
+   {
+      guard let label = titleLabel else { return }
+      let attributes = [
+         NSFontAttributeName : label.font,
+         NSForegroundColorAttributeName : color,
+         NSKernAttributeName : 2
+      ]
+      
+      let highlightedAttributes = [
+         NSFontAttributeName : label.font,
+         NSForegroundColorAttributeName : label.textColor.colorWithAlphaComponent(0.5),
+         NSKernAttributeName : 2
+      ]
+      
+      let attributedString = NSAttributedString(string: text, attributes: attributes)
+      let highlightedAttributedString = NSAttributedString(string: text, attributes: highlightedAttributes)
+      
+      UIView.setAnimationsEnabled(false)
+      setAttributedTitle(attributedString, forState: .Normal)
+      setAttributedTitle(highlightedAttributedString, forState: .Highlighted)
+      UIView.setAnimationsEnabled(true)
+   }
 }

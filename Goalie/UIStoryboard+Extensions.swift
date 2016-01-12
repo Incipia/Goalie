@@ -10,16 +10,12 @@ import UIKit
 import CoreData
 
 extension UIStoryboard
-{  
-   static func taskDetailsViewControllerForTask(task: Task, managedObjectContext: NSManagedObjectContext) -> EditTaskViewController
+{
+   static func onboardingViewController() -> OnboardingViewController
    {
       let storyboard = UIStoryboard(name: "Main", bundle: nil)
-      let editTaskController = storyboard.instantiateViewControllerWithIdentifier("TaskDetailsViewController") as! EditTaskViewController
-      editTaskController.moc = managedObjectContext
-      editTaskController.configureWithTask(task)
-      editTaskController.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
-      
-      return editTaskController
+      let controller = storyboard.instantiateViewControllerWithIdentifier("OnboardingViewController") as! OnboardingViewController
+      return controller
    }
    
    static func editTaskViewController(managedObjectContext: NSManagedObjectContext) -> EditTaskViewController

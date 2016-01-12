@@ -14,7 +14,6 @@
 		F324894F1C3F5DCF00E3DABD /* NSAttributedString+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F324894E1C3F5DCF00E3DABD /* NSAttributedString+Extensions.swift */; };
 		F38318D11C2F343600C36ACB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38318D01C2F343600C36ACB /* AppDelegate.swift */; };
 		F38318D61C2F343600C36ACB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F38318D41C2F343600C36ACB /* Main.storyboard */; };
-		F38318D81C2F343600C36ACB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F38318D71C2F343600C36ACB /* Assets.xcassets */; };
 		F38318DB1C2F343600C36ACB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F38318D91C2F343600C36ACB /* LaunchScreen.storyboard */; };
 		F383190D1C319FE800C36ACB /* TasksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F383190C1C319FE800C36ACB /* TasksTableViewCell.swift */; };
 		F38319291C31A72D00C36ACB /* ManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38319111C31A72D00C36ACB /* ManagedObject.swift */; };
@@ -52,6 +51,7 @@
 		F3A81FFA1C4403120048237F /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A81FF91C4403120048237F /* OnboardingViewController.swift */; };
 		F3A81FFF1C440B520048237F /* GoalieFaceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A81FFE1C440B520048237F /* GoalieFaceLayer.swift */; };
 		F3A820011C441B490048237F /* GoalieFacePathProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A820001C441B490048237F /* GoalieFacePathProvider.swift */; };
+		F3B7F7301C44A26B00C364F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3B7F72F1C44A26B00C364F0 /* Assets.xcassets */; };
 		F3CEAC441C4061820047DD78 /* ViewTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CEAC431C4061820047DD78 /* ViewTransformer.swift */; };
 		F3CEAC561C4061B10047DD78 /* JVFloatLabeledTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = F3CEAC511C4061B10047DD78 /* JVFloatLabeledTextField.m */; };
 		F3CEAC571C4061B10047DD78 /* JVFloatLabeledTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = F3CEAC531C4061B10047DD78 /* JVFloatLabeledTextView.m */; };
@@ -82,7 +82,6 @@
 		F38318CD1C2F343600C36ACB /* Goalie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Goalie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F38318D01C2F343600C36ACB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F38318D51C2F343600C36ACB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		F38318D71C2F343600C36ACB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F38318DA1C2F343600C36ACB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F38318DC1C2F343600C36ACB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F383190C1C319FE800C36ACB /* TasksTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TasksTableViewCell.swift; path = Goalie/TasksTableViewCell.swift; sourceTree = "<group>"; };
@@ -121,6 +120,7 @@
 		F3A81FF91C4403120048237F /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OnboardingViewController.swift; path = Goalie/OnboardingViewController.swift; sourceTree = "<group>"; };
 		F3A81FFE1C440B520048237F /* GoalieFaceLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoalieFaceLayer.swift; path = Goalie/GoalieFaceLayer.swift; sourceTree = "<group>"; };
 		F3A820001C441B490048237F /* GoalieFacePathProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoalieFacePathProvider.swift; path = Goalie/GoalieFacePathProvider.swift; sourceTree = "<group>"; };
+		F3B7F72F1C44A26B00C364F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F3CEAC431C4061820047DD78 /* ViewTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewTransformer.swift; path = Goalie/ViewTransformer.swift; sourceTree = "<group>"; };
 		F3CEAC501C4061B10047DD78 /* JVFloatLabeledTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JVFloatLabeledTextField.h; sourceTree = "<group>"; };
 		F3CEAC511C4061B10047DD78 /* JVFloatLabeledTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JVFloatLabeledTextField.m; sourceTree = "<group>"; };
@@ -227,8 +227,8 @@
 		F38318CF1C2F343600C36ACB /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				F3B7F72F1C44A26B00C364F0 /* Assets.xcassets */,
 				F38318D01C2F343600C36ACB /* AppDelegate.swift */,
-				F38318D71C2F343600C36ACB /* Assets.xcassets */,
 				F3CEAC671C40631B0047DD78 /* Goalie-Bridging-Header.h */,
 				F38318DC1C2F343600C36ACB /* Info.plist */,
 				F38B55131C3851190022453F /* NotoSans-Bold.ttf */,
@@ -419,8 +419,8 @@
 				F38B55151C3851190022453F /* NotoSans-Bold.ttf in Resources */,
 				F38318DB1C2F343600C36ACB /* LaunchScreen.storyboard in Resources */,
 				F38B55161C3851190022453F /* NotoSans-Regular.ttf in Resources */,
-				F38318D81C2F343600C36ACB /* Assets.xcassets in Resources */,
 				F38318D61C2F343600C36ACB /* Main.storyboard in Resources */,
+				F3B7F7301C44A26B00C364F0 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
