@@ -99,6 +99,16 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
       _goalieTableView.animateGoalie()
    }
    
+   func startGoalieMovement()
+   {
+      _goalieTableView.startGoalieMovement()
+   }
+   
+   func stopGoalieMovement()
+   {
+      _goalieTableView.stopGoalieMovement()
+   }
+   
    func showSpeechBubble()
    {
       _goalieTableView.showSpeechBubble()

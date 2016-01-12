@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
       _setupMainTasksViewControllerWithMOC(_moc)
       
       // FOR TESTING!
-      GoalieSettingsManager.setUserHasOnboarded(false)
+      GoalieSettingsManager.setUserHasOnboarded(true)
       
       if GoalieSettingsManager.userHasOnboarded {
          _setupMainWindowWithViewController(_mainTasksViewController)
@@ -54,7 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
          }
          _setupMainWindowWithViewController(_onboardingViewController)
       }
-      
+   
       return true
    }
    
@@ -63,6 +63,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
       if GoalieSettingsManager.userHasOnboarded {
          _startTimers()
          _mainTasksViewController.showSpeechBubble()
+         _mainTasksViewController.startGoalieMovement()
       }
    }
    
@@ -70,6 +71,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
    {
       _killTimers()
       _mainTasksViewController.hideSpeechBubble()
+      _mainTasksViewController.stopGoalieMovement()
    }
    
    private func _startTimers()

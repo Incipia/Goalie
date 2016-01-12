@@ -52,6 +52,7 @@
 		F3A81FFF1C440B520048237F /* GoalieFaceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A81FFE1C440B520048237F /* GoalieFaceLayer.swift */; };
 		F3A820011C441B490048237F /* GoalieFacePathProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A820001C441B490048237F /* GoalieFacePathProvider.swift */; };
 		F3B7F7301C44A26B00C364F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3B7F72F1C44A26B00C364F0 /* Assets.xcassets */; };
+		F3B7F7321C4583D900C364F0 /* GoalieMovementAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B7F7311C4583D900C364F0 /* GoalieMovementAnimator.swift */; };
 		F3CEAC441C4061820047DD78 /* ViewTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CEAC431C4061820047DD78 /* ViewTransformer.swift */; };
 		F3CEAC561C4061B10047DD78 /* JVFloatLabeledTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = F3CEAC511C4061B10047DD78 /* JVFloatLabeledTextField.m */; };
 		F3CEAC571C4061B10047DD78 /* JVFloatLabeledTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = F3CEAC531C4061B10047DD78 /* JVFloatLabeledTextView.m */; };
@@ -65,7 +66,6 @@
 		F3CEAC6D1C4063810047DD78 /* GoalieFaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CEAC691C4063810047DD78 /* GoalieFaceView.swift */; };
 		F3CEAC6E1C4063810047DD78 /* GoalieHeadKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CEAC6A1C4063810047DD78 /* GoalieHeadKit.swift */; };
 		F3CEAC6F1C4063810047DD78 /* GoalieSpeechBubbleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CEAC6B1C4063810047DD78 /* GoalieSpeechBubbleKit.swift */; };
-		F3CEAC711C4066D90047DD78 /* GoalieHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CEAC701C4066D90047DD78 /* GoalieHeaderView.swift */; };
 		F3DB3E041C322DC40005C607 /* MainTasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DB3E031C322DC40005C607 /* MainTasksViewController.swift */; };
 		F3DB3E101C32682A0005C607 /* ProjectEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DB3E0F1C32682A0005C607 /* ProjectEnums.swift */; };
 		F3DB3E121C3306690005C607 /* EditTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DB3E111C3306690005C607 /* EditTaskViewController.swift */; };
@@ -121,6 +121,7 @@
 		F3A81FFE1C440B520048237F /* GoalieFaceLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoalieFaceLayer.swift; path = Goalie/GoalieFaceLayer.swift; sourceTree = "<group>"; };
 		F3A820001C441B490048237F /* GoalieFacePathProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoalieFacePathProvider.swift; path = Goalie/GoalieFacePathProvider.swift; sourceTree = "<group>"; };
 		F3B7F72F1C44A26B00C364F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F3B7F7311C4583D900C364F0 /* GoalieMovementAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalieMovementAnimator.swift; sourceTree = "<group>"; };
 		F3CEAC431C4061820047DD78 /* ViewTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewTransformer.swift; path = Goalie/ViewTransformer.swift; sourceTree = "<group>"; };
 		F3CEAC501C4061B10047DD78 /* JVFloatLabeledTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JVFloatLabeledTextField.h; sourceTree = "<group>"; };
 		F3CEAC511C4061B10047DD78 /* JVFloatLabeledTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JVFloatLabeledTextField.m; sourceTree = "<group>"; };
@@ -141,7 +142,6 @@
 		F3CEAC691C4063810047DD78 /* GoalieFaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoalieFaceView.swift; path = PaintCode/GoalieFaceView.swift; sourceTree = "<group>"; };
 		F3CEAC6A1C4063810047DD78 /* GoalieHeadKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoalieHeadKit.swift; path = PaintCode/GoalieHeadKit.swift; sourceTree = "<group>"; };
 		F3CEAC6B1C4063810047DD78 /* GoalieSpeechBubbleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoalieSpeechBubbleKit.swift; path = PaintCode/GoalieSpeechBubbleKit.swift; sourceTree = "<group>"; };
-		F3CEAC701C4066D90047DD78 /* GoalieHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoalieHeaderView.swift; path = Goalie/GoalieHeaderView.swift; sourceTree = "<group>"; };
 		F3DB3E031C322DC40005C607 /* MainTasksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainTasksViewController.swift; path = Goalie/MainTasksViewController.swift; sourceTree = "<group>"; };
 		F3DB3E0F1C32682A0005C607 /* ProjectEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProjectEnums.swift; path = Goalie/ProjectEnums.swift; sourceTree = "<group>"; };
 		F3DB3E111C3306690005C607 /* EditTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditTaskViewController.swift; path = Goalie/EditTaskViewController.swift; sourceTree = "<group>"; };
@@ -233,6 +233,7 @@
 				F38318DC1C2F343600C36ACB /* Info.plist */,
 				F38B55131C3851190022453F /* NotoSans-Bold.ttf */,
 				F38B55141C3851190022453F /* NotoSans-Regular.ttf */,
+				F3B7F7311C4583D900C364F0 /* GoalieMovementAnimator.swift */,
 			);
 			name = Other;
 			path = Goalie;
@@ -323,7 +324,6 @@
 				F38B55171C3854A10022453F /* GoalieKerningLabel.swift */,
 				F38319481C31B3CB00C36ACB /* GoalieTableView.swift */,
 				F383190C1C319FE800C36ACB /* TasksTableViewCell.swift */,
-				F3CEAC701C4066D90047DD78 /* GoalieHeaderView.swift */,
 			);
 			name = "Custom UI";
 			sourceTree = "<group>";
@@ -475,7 +475,6 @@
 				F38A0F5C1C42EBA40034DCE4 /* MenuTransitionManager.swift in Sources */,
 				F383192C1C31A72D00C36ACB /* ManagedObjectObserver.swift in Sources */,
 				F38319371C31A72D00C36ACB /* UIColor+Extensions.swift in Sources */,
-				F3CEAC711C4066D90047DD78 /* GoalieHeaderView.swift in Sources */,
 				F383192B1C31A72D00C36ACB /* DataRelatedProtocols.swift in Sources */,
 				F38319381C31A72D00C36ACB /* UIFont+Extensions.swift in Sources */,
 				F324894D1C3F50EE00E3DABD /* SpeechBubbleTextProvider.swift in Sources */,
@@ -492,6 +491,7 @@
 				F3CEAC621C4061C70047DD78 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				F322EB111C34C371001B8C44 /* TaskCellAppearanceUpdater.swift in Sources */,
 				F3A81FFA1C4403120048237F /* OnboardingViewController.swift in Sources */,
+				F3B7F7321C4583D900C364F0 /* GoalieMovementAnimator.swift in Sources */,
 				F383193B1C31A72D00C36ACB /* TableViewDataSource.swift in Sources */,
 				F38A0F5A1C42010A0034DCE4 /* TaskPriorityStateSnapshotter.swift in Sources */,
 				F383193A1C31A72D00C36ACB /* FetchedResultsDataProvider.swift in Sources */,

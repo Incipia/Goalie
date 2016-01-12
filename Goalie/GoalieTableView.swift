@@ -13,16 +13,28 @@ let _minimumHeaderHeight: CGFloat = floor(UIScreen.mainScreen().bounds.height / 
 
 class GoalieTableView: TPKeyboardAvoidingTableView
 {
-   @IBOutlet private var _goalieHeaderView: GoalieHeaderView!
+   @IBOutlet private var _goalieHeaderView: UIView!
    private var _goalieFooterView: UIView!
    
-   @IBOutlet private weak var _goalieFaceView: GoalieFaceView!
+   private var _goalieMovementAnimator: GoalieMovementAnimator!
+   @IBOutlet private weak var _goalieFaceView: GoalieFaceView! {
+      didSet {
+         _goalieMovementAnimator = GoalieMovementAnimator(view: _goalieFaceView)
+      }
+   }
+   
+   @IBOutlet private weak var _rightSpeechBubble: GoalieSpeechBubble! {
+      didSet {
+         _rightSpeechBubble.layer.anchorPoint = CGPoint(x: 0.5, y: 1)
+      }
+   }
    @IBOutlet private weak var _leftSpeechBubble: GoalieSpeechBubble! {
       didSet {
          _leftSpeechBubble.tailDirection = .Right
+         _leftSpeechBubble.layer.anchorPoint = CGPoint(x: 0.5, y: 1)
       }
    }
-   @IBOutlet private weak var _rightSpeechBubble: GoalieSpeechBubble!
+   
    @IBOutlet private weak var _settingsButton: UIButton!
    
    private var _startedShowingInitialSpeechBubble = false
@@ -58,10 +70,6 @@ class GoalieTableView: TPKeyboardAvoidingTableView
    {
       tableHeaderView = nil
       superview?.addSubview(_goalieHeaderView)
-      
-      _goalieHeaderView.goalieFaceView = _goalieFaceView
-      _goalieHeaderView.leftSpeechBubble = _leftSpeechBubble
-      _goalieHeaderView.rightSpeechBubble = _rightSpeechBubble
    }
    
    private func _setupContentOffsetAndInset()
@@ -135,6 +143,19 @@ class GoalieTableView: TPKeyboardAvoidingTableView
       _goalieFaceView.animateFace()
    }
    
+   func startGoalieMovement()
+   {
+      _goalieMovementAnimator.startAnimating()
+   }
+   
+   func stopGoalieMovement()
+   {
+      _goalieMovementAnimator.stopAnimating()
+   }
+}
+
+extension GoalieTableView
+{
    // MARK: - Private
    private func _showOnlyLeftOrRightSpeechBubble()
    {
