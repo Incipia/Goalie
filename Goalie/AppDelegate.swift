@@ -48,6 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
                
                self._startTimers()
                self._mainTasksViewController.showSpeechBubble()
+               self._mainTasksViewController.startGoalieMovement()
                GoalieSettingsManager.setUserHasOnboarded(true)
             })
             
@@ -70,8 +71,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate
    func applicationWillResignActive(application: UIApplication)
    {
       _killTimers()
-      _mainTasksViewController.hideSpeechBubble()
-      _mainTasksViewController.stopGoalieMovement()
+      
+      if GoalieSettingsManager.userHasOnboarded {
+         _mainTasksViewController.hideSpeechBubble()
+         _mainTasksViewController.stopGoalieMovement()
+      }
    }
    
    private func _startTimers()
