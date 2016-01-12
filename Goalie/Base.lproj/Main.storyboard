@@ -601,25 +601,23 @@
                         <viewControllerLayoutGuide type="bottom" id="m0P-1V-1ps"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="bhf-ub-OlU">
-                        <rect key="frame" x="0.0" y="0.0" width="800" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding-phone" translatesAutoresizingMaskIntoConstraints="NO" id="Bux-Tt-g3m">
-                                <rect key="frame" x="270" y="212" width="260" height="296"/>
+                                <rect key="frame" x="32" y="216" width="256" height="292"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="296" id="Ezn-Yn-3WA"/>
-                                    <constraint firstAttribute="width" constant="260" id="hli-Cg-U3C"/>
+                                    <constraint firstAttribute="width" secondItem="Bux-Tt-g3m" secondAttribute="height" multiplier="65:74" id="Ckm-ki-qIv"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding-1" translatesAutoresizingMaskIntoConstraints="NO" id="aRS-AB-up1">
-                                <rect key="frame" x="287" y="292" width="227" height="216"/>
+                                <rect key="frame" x="48" y="294" width="224" height="214"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="216" id="Abj-XU-BDm"/>
-                                    <constraint firstAttribute="width" constant="227" id="SgN-wI-B8X"/>
+                                    <constraint firstAttribute="width" secondItem="aRS-AB-up1" secondAttribute="height" multiplier="227:216" id="FR4-aT-Klp"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LdQ-he-PWO">
-                                <rect key="frame" x="289" y="114" width="222" height="55"/>
+                                <rect key="frame" x="49" y="118" width="222" height="55"/>
                                 <color key="tintColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="deviceRGB"/>
                                 <string key="text">Meet Goalie.
 He really likes tasks....</string>
@@ -628,7 +626,7 @@ He really likes tasks....</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wfC-QU-hO3">
-                                <rect key="frame" x="740" y="15" width="60" height="60"/>
+                                <rect key="frame" x="260" y="15" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="1li-BO-2PN"/>
                                     <constraint firstAttribute="width" secondItem="wfC-QU-hO3" secondAttribute="height" multiplier="1:1" id="FfV-Tt-PAX"/>
@@ -640,8 +638,8 @@ He really likes tasks....</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tf9-Iw-fHf" customClass="GoalieKerningButton" customModule="Goalie" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="508" width="800" height="60"/>
-                                <color key="backgroundColor" red="0.10980392156862745" green="0.30196078431372547" blue="0.42745098039215684" alpha="1" colorSpace="deviceRGB"/>
+                                <rect key="frame" x="0.0" y="508" width="320" height="60"/>
+                                <color key="backgroundColor" red="0.12156862745098039" green="0.30588235294117649" blue="0.42352941176470588" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="FF8-FK-pUp"/>
                                 </constraints>
@@ -655,14 +653,15 @@ He really likes tasks....</string>
                                 </connections>
                             </button>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="UoL-U7-vTN">
-                                <rect key="frame" x="373" y="28" width="55" height="37"/>
+                                <rect key="frame" x="133" y="28" width="55" height="37"/>
                             </pageControl>
                         </subviews>
-                        <color key="backgroundColor" red="0.070588235289999995" green="0.64313725489999995" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="backgroundColor" red="0.14117647058823529" green="0.65098039215686276" blue="0.9882352941176471" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Bux-Tt-g3m" firstAttribute="top" secondItem="LdQ-he-PWO" secondAttribute="bottom" constant="43" id="2xv-cs-Nkt"/>
                             <constraint firstItem="Bux-Tt-g3m" firstAttribute="centerX" secondItem="bhf-ub-OlU" secondAttribute="centerX" id="8Nc-B0-gr3"/>
                             <constraint firstItem="aRS-AB-up1" firstAttribute="bottom" secondItem="Bux-Tt-g3m" secondAttribute="bottom" id="8On-7c-ahy"/>
+                            <constraint firstItem="Bux-Tt-g3m" firstAttribute="width" secondItem="bhf-ub-OlU" secondAttribute="width" multiplier="0.8" id="ANS-wv-ZlT"/>
                             <constraint firstAttribute="trailing" secondItem="Tf9-Iw-fHf" secondAttribute="trailing" id="DKx-iu-4ju"/>
                             <constraint firstItem="Tf9-Iw-fHf" firstAttribute="top" secondItem="Bux-Tt-g3m" secondAttribute="bottom" id="DcX-UI-JZP"/>
                             <constraint firstItem="UoL-U7-vTN" firstAttribute="top" secondItem="MHs-oF-zm0" secondAttribute="bottom" constant="8" id="Fd6-sd-OpC"/>
@@ -670,6 +669,7 @@ He really likes tasks....</string>
                             <constraint firstItem="aRS-AB-up1" firstAttribute="centerX" secondItem="Bux-Tt-g3m" secondAttribute="centerX" id="KUd-xE-pU8"/>
                             <constraint firstItem="LdQ-he-PWO" firstAttribute="centerX" secondItem="Bux-Tt-g3m" secondAttribute="centerX" id="N7N-v6-zPF"/>
                             <constraint firstItem="Tf9-Iw-fHf" firstAttribute="leading" secondItem="bhf-ub-OlU" secondAttribute="leading" id="TFd-P6-Do9"/>
+                            <constraint firstItem="aRS-AB-up1" firstAttribute="width" secondItem="Bux-Tt-g3m" secondAttribute="width" multiplier="0.873" id="eNh-dD-jBd"/>
                             <constraint firstAttribute="trailing" secondItem="wfC-QU-hO3" secondAttribute="trailing" id="hOD-i2-rPQ"/>
                             <constraint firstItem="wfC-QU-hO3" firstAttribute="top" secondItem="bhf-ub-OlU" secondAttribute="top" constant="15" id="j0s-tf-vfr"/>
                             <constraint firstItem="wfC-QU-hO3" firstAttribute="width" secondItem="wfC-QU-hO3" secondAttribute="height" multiplier="1:1" id="nk5-om-Ncf"/>
@@ -677,8 +677,6 @@ He really likes tasks....</string>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="NH5-lx-Rss"/>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="800" height="568"/>
                     <connections>
                         <outlet property="_bottomSpacePhoneConstraint" destination="DcX-UI-JZP" id="dPN-q2-9p4"/>
                         <outlet property="_happyGoalieImageView" destination="XwH-6r-Y4k" id="Zl7-aa-OQJ"/>

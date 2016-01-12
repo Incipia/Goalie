@@ -8,6 +8,9 @@
 
 import UIKit
 
+let phoneFrameAspectRatio: CGFloat = 65.0/74.0
+let phoneScreenWidthPercentage: CGFloat = 0.8
+
 class OnboardingViewController: UIViewController
 {
    @IBOutlet private weak var _bottomSpacePhoneConstraint: NSLayoutConstraint!
@@ -23,7 +26,14 @@ class OnboardingViewController: UIViewController
    override func viewDidLoad()
    {
       super.viewDidLoad()
-      _bottomSpacePhoneConstraint.constant = -_phoneFrameImageView.bounds.height
+      
+      // calculate phone height
+      let phoneWidth = UIScreen.mainScreen().bounds.width * phoneScreenWidthPercentage
+      let phoneHeight = phoneWidth / phoneFrameAspectRatio
+      
+      _textLabel.alpha = 0
+      _textLabel.attributedText = NSAttributedString.attributedOnboardingStringForPageNumber(0)
+      _bottomSpacePhoneConstraint.constant = -phoneHeight
    }
    
    override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -34,9 +44,14 @@ class OnboardingViewController: UIViewController
    {
       super.viewDidAppear(animated)
       _bottomSpacePhoneConstraint.constant = 0
-      UIView.animateWithDuration(0.5, delay: 0.25, options: [], animations: { () -> Void in
+      UIView.animateWithDuration(0.5, delay: 0.2, options: [], animations: { () -> Void in
          self.view.layoutIfNeeded()
-         }, completion: nil)
+         }, completion: { finished in
+            
+            UIView.animateWithDuration(0.2, animations: { () -> Void in
+               self._textLabel.alpha = 1
+            })
+      })
    }
    
    @IBAction private func _nextButtonPressed()
@@ -51,16 +66,11 @@ class OnboardingViewController: UIViewController
    
    private func _updateUIForCurrentPage(pageNumber: Int)
    {
-      if let text = _mainTextForPageNumber(pageNumber) {
-         UIView.transitionWithView(_textLabel, duration: 0.3, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: { () -> Void in
-            self._textLabel.text = text
-            }, completion: nil)
-      }
-      else {
-         UIView.animateWithDuration(0.3, animations: { () -> Void in
-            self._textLabel.alpha = 0
-         })
-      }
+      UIView.transitionWithView(_textLabel, duration: 0.3, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: { () -> Void in
+         
+         let attrText = NSAttributedString.attributedOnboardingStringForPageNumber(pageNumber)
+         self._textLabel.attributedText = attrText
+         }, completion: nil)
       
       if let image = _screenImageForPageNumber(pageNumber) {
          UIView.transitionWithView(_phoneScreenImageView, duration: 0.3, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: { () -> Void in
@@ -69,7 +79,7 @@ class OnboardingViewController: UIViewController
       }
       else {
          _happyGoalieImageView.alpha = 0
-         _happyGoalieImageView.center = CGPoint(x: view.center.x, y: view.center.y - 30)
+         _happyGoalieImageView.center = CGPoint(x: view.center.x, y: view.center.y - 50)
          view.addSubview(_happyGoalieImageView)
          
          _bottomSpacePhoneConstraint.constant = -_phoneFrameImageView.bounds.height
