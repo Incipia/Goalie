@@ -79,7 +79,7 @@
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f7d-lu-WBo" customClass="GoalieSpeechBubble" customModule="Goalie" customModuleProvider="target">
-                                                            <rect key="frame" x="180" y="145" width="120" height="62"/>
+                                                            <rect key="frame" x="180" y="108" width="120" height="62"/>
                                                             <color key="backgroundColor" white="1" alpha="0.6138091216216216" colorSpace="calibratedWhite"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="120" id="VEj-fB-9PJ"/>
@@ -90,7 +90,7 @@
                                                             </connections>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cmf-hr-XMs" customClass="GoalieSpeechBubble" customModule="Goalie" customModuleProvider="target">
-                                                            <rect key="frame" x="20" y="145" width="120" height="62"/>
+                                                            <rect key="frame" x="20" y="108" width="120" height="62"/>
                                                             <color key="backgroundColor" white="1" alpha="0.61380912160000001" colorSpace="calibratedWhite"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="120" id="8aW-CL-ZBs"/>
@@ -106,8 +106,8 @@
                                                         <constraint firstItem="Cmf-hr-XMs" firstAttribute="top" secondItem="f7d-lu-WBo" secondAttribute="top" id="26g-0U-DqA"/>
                                                         <constraint firstAttribute="trailing" secondItem="451-cQ-ISH" secondAttribute="trailing" constant="10" id="2VE-DG-Zcn"/>
                                                         <constraint firstItem="451-cQ-ISH" firstAttribute="top" secondItem="8fz-02-pSg" secondAttribute="top" constant="20" id="5zw-RN-3zH"/>
-                                                        <constraint firstItem="f7d-lu-WBo" firstAttribute="top" secondItem="SEI-SD-L9z" secondAttribute="top" constant="-25" id="Her-Yk-EHF"/>
                                                         <constraint firstItem="SEI-SD-L9z" firstAttribute="centerX" secondItem="8fz-02-pSg" secondAttribute="centerX" id="IEc-dt-i6k"/>
+                                                        <constraint firstItem="SEI-SD-L9z" firstAttribute="top" secondItem="f7d-lu-WBo" secondAttribute="bottom" id="Nf3-u5-owY"/>
                                                         <constraint firstItem="f7d-lu-WBo" firstAttribute="leading" secondItem="SEI-SD-L9z" secondAttribute="trailing" constant="-20" id="cmd-Hu-q1n"/>
                                                         <constraint firstItem="SEI-SD-L9z" firstAttribute="centerY" secondItem="8fz-02-pSg" secondAttribute="centerY" constant="70" id="q4P-GY-u0N"/>
                                                         <constraint firstItem="SEI-SD-L9z" firstAttribute="leading" secondItem="Cmf-hr-XMs" secondAttribute="trailing" constant="-20" id="qjl-QB-ova"/>
