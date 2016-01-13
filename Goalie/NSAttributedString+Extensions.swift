@@ -24,7 +24,7 @@ extension NSAttributedString
    
    static func attributedOnboardingStringForPageNumber(number: Int) -> NSAttributedString
    {
-      let font = UIFont(name: "NotoSans-Bold", size: 20)!
+      let font = UIFont(name: "NotoSans-Bold", size: 18)!
       let paragraphStyle: NSMutableParagraphStyle = NSParagraphStyle.defaultParagraphStyle().mutableCopy() as! NSMutableParagraphStyle
       paragraphStyle.alignment = NSTextAlignment.Center
       paragraphStyle.lineHeightMultiple = 1.5
@@ -59,6 +59,23 @@ extension NSAttributedString
          attrString.appendAttributedString(endAttrString)
          return attrString
       }
+   }
+   
+   static func congratulationsAttributedString() -> NSAttributedString
+   {
+      let font = UIFont(name: "NotoSans", size: 15)!
+      let paragraphStyle: NSMutableParagraphStyle = NSParagraphStyle.defaultParagraphStyle().mutableCopy() as! NSMutableParagraphStyle
+      paragraphStyle.alignment = NSTextAlignment.Center
+      paragraphStyle.lineHeightMultiple = 1.5
+      
+      let attributes = [
+         NSForegroundColorAttributeName : UIColor.blackColor(),
+         NSFontAttributeName : font,
+         NSParagraphStyleAttributeName : paragraphStyle
+      ]
+      
+      let text = "Tasks you add will be given the blue priority by default, and will heat up over time. Complete tasks before they get hot to keep Goalie cool, calm, and collected."
+      return NSAttributedString(string: text, attributes: attributes)
    }
    
    private static func _mainTextForPageNumber(number: Int) -> String?

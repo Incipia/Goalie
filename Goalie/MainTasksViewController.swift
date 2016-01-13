@@ -52,6 +52,7 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
    private var _editTaskViewController: EditTaskViewController!
    private var _currentTaskCell: TasksTableViewCell?
    private var _shouldCreateMoreCellsOnReturnKeyPressed = false
+   private var _shouldShowCongratulationsDialogWhenKeyboardIsDismissed = false
    
    // Mark: - Lifecycle
    override func viewDidLoad()
@@ -72,6 +73,17 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
       
       _tasksDataProvider.updateFetchRequest()
       _updateTableViewHeaderDisplay()
+      
+      NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardDidHide"), name: UIKeyboardDidHideNotification, object: nil)
+   }
+   
+   func keyboardDidHide()
+   {
+      if _shouldShowCongratulationsDialogWhenKeyboardIsDismissed {
+         _shouldShowCongratulationsDialogWhenKeyboardIsDismissed = false
+         GoalieSettingsManager.setUserCompletedFirstTask(true)
+         _showCongratulationsDialog()
+      }
    }
    
    override func viewDidAppear(animated: Bool)
@@ -226,13 +238,26 @@ extension MainTasksViewController: TasksTableViewCellDelegate
    func taskCellFinishedEditing(cell: TasksTableViewCell, forTask task: Task?)
    {
       moc.performChanges { () -> () in
-         if task?.priority == .Unknown && cell.titleText != "" {
+         if task?.priority == .Unknown && cell.titleText != ""
+         {
             task?.priority = .Later
-            GoalieSettingsManager.setUserCompletedFirstTask(true)
+            if !GoalieSettingsManager.userCompletedFirstTask {
+               self._shouldShowCongratulationsDialogWhenKeyboardIsDismissed = true
+            }
          }
       }
       _currentTaskCell = nil
       _createEmptyTaskIfNecessary()
+   }
+   
+   private func _showCongratulationsDialog()
+   {
+      let congratsController = UIStoryboard.congratulationsViewController()
+      congratsController.transitioningDelegate = _transitionManager
+      _transitionManager.presenting = true
+      presentViewController(congratsController, animated: true, completion: { finished in
+         self._transitionManager.presenting = false
+      })
    }
    
    // These next two methods are so fucking messy.  They produce the exact behavior that Nico wants though...

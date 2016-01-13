@@ -18,6 +18,14 @@ extension UIStoryboard
       return controller
    }
    
+   static func congratulationsViewController() -> CongratulationsViewController
+   {
+      let storyboard = UIStoryboard(name: "Main", bundle: nil)
+      let controller = storyboard.instantiateViewControllerWithIdentifier("CongratulationsViewController") as! CongratulationsViewController
+      controller.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
+      return controller
+   }
+   
    static func editTaskViewController(managedObjectContext: NSManagedObjectContext) -> EditTaskViewController
    {
       let storyboard = UIStoryboard(name: "Main", bundle: nil)
