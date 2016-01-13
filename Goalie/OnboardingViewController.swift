@@ -66,6 +66,11 @@ class OnboardingViewController: UIViewController
       }
    }
    
+   @IBAction private func _closeButtonPressed()
+   {
+      self.onboardingCompletionBlock?()
+   }
+   
    private func _updateUIForCurrentPage(pageNumber: Int)
    {
       UIView.transitionWithView(_textLabel, duration: 0.3, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: { () -> Void in

@@ -29,8 +29,11 @@
             <string>NotoSans-Bold</string>
             <string>NotoSans-Bold</string>
             <string>NotoSans-Bold</string>
+            <string>NotoSans-Bold</string>
+            <string>NotoSans-Bold</string>
         </mutableArray>
         <mutableArray key="NotoSans-Regular.ttf">
+            <string>NotoSans</string>
             <string>NotoSans</string>
             <string>NotoSans</string>
             <string>NotoSans</string>
@@ -712,10 +715,12 @@ He really likes tasks....</string>
                                     <constraint firstAttribute="height" constant="60" id="1li-BO-2PN"/>
                                     <constraint firstAttribute="width" secondItem="wfC-QU-hO3" secondAttribute="height" multiplier="1:1" id="FfV-Tt-PAX"/>
                                 </constraints>
-                                <color key="tintColor" red="0.76262589199999997" green="0.77218981769999995" blue="0.81713620580000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" image="cancel"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="✕"/>
                                 <connections>
                                     <action selector="_closeButtonPressed" destination="EZY-Nk-o6p" eventType="touchUpInside" id="FIV-vO-Tcs"/>
+                                    <action selector="_closeButtonPressed" destination="MHe-2g-aey" eventType="touchUpInside" id="esn-k1-zYF"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tf9-Iw-fHf" customClass="GoalieKerningButton" customModule="Goalie" customModuleProvider="target">
@@ -734,7 +739,7 @@ He really likes tasks....</string>
                                 </connections>
                             </button>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="UoL-U7-vTN">
-                                <rect key="frame" x="133" y="28" width="55" height="37"/>
+                                <rect key="frame" x="133" y="38" width="55" height="37"/>
                             </pageControl>
                         </subviews>
                         <color key="backgroundColor" red="0.14117647058823529" green="0.65098039215686276" blue="0.9882352941176471" alpha="1" colorSpace="calibratedRGB"/>
@@ -745,12 +750,12 @@ He really likes tasks....</string>
                             <constraint firstItem="Bux-Tt-g3m" firstAttribute="width" secondItem="bhf-ub-OlU" secondAttribute="width" multiplier="0.8" id="ANS-wv-ZlT"/>
                             <constraint firstAttribute="trailing" secondItem="Tf9-Iw-fHf" secondAttribute="trailing" id="DKx-iu-4ju"/>
                             <constraint firstItem="Tf9-Iw-fHf" firstAttribute="top" secondItem="Bux-Tt-g3m" secondAttribute="bottom" id="DcX-UI-JZP"/>
-                            <constraint firstItem="UoL-U7-vTN" firstAttribute="top" secondItem="MHs-oF-zm0" secondAttribute="bottom" constant="8" id="Fd6-sd-OpC"/>
                             <constraint firstItem="m0P-1V-1ps" firstAttribute="top" secondItem="Tf9-Iw-fHf" secondAttribute="bottom" id="HbK-t5-POm"/>
                             <constraint firstItem="aRS-AB-up1" firstAttribute="centerX" secondItem="Bux-Tt-g3m" secondAttribute="centerX" id="KUd-xE-pU8"/>
                             <constraint firstItem="LdQ-he-PWO" firstAttribute="centerX" secondItem="Bux-Tt-g3m" secondAttribute="centerX" id="N7N-v6-zPF"/>
                             <constraint firstItem="Tf9-Iw-fHf" firstAttribute="leading" secondItem="bhf-ub-OlU" secondAttribute="leading" id="TFd-P6-Do9"/>
                             <constraint firstItem="aRS-AB-up1" firstAttribute="width" secondItem="Bux-Tt-g3m" secondAttribute="width" multiplier="0.873" id="eNh-dD-jBd"/>
+                            <constraint firstItem="UoL-U7-vTN" firstAttribute="bottom" secondItem="wfC-QU-hO3" secondAttribute="bottom" id="faS-eh-4HV"/>
                             <constraint firstAttribute="trailing" secondItem="wfC-QU-hO3" secondAttribute="trailing" id="hOD-i2-rPQ"/>
                             <constraint firstItem="wfC-QU-hO3" firstAttribute="top" secondItem="bhf-ub-OlU" secondAttribute="top" constant="15" id="j0s-tf-vfr"/>
                             <constraint firstItem="wfC-QU-hO3" firstAttribute="width" secondItem="wfC-QU-hO3" secondAttribute="height" multiplier="1:1" id="nk5-om-Ncf"/>
@@ -907,10 +912,97 @@ Goalie's happy.</string>
             </objects>
             <point key="canvasLocation" x="1256.5" y="137.5"/>
         </scene>
+        <!--Congratulations View Controller-->
+        <scene sceneID="cON-8b-n76">
+            <objects>
+                <viewController storyboardIdentifier="CongratulationsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="sZ8-jO-yZe" customClass="CongratulationsViewController" customModule="Goalie" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lPp-X4-pa7"/>
+                        <viewControllerLayoutGuide type="bottom" id="N4a-VR-pMH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rwC-hJ-9nT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8b6-MW-4s1">
+                                <rect key="frame" x="29" y="154" width="318" height="360"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Tzx-1w-9xE">
+                                    <rect key="frame" x="0.0" y="0.0" width="318" height="360"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congrats on your first task!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6oZ-rU-niv">
+                                            <rect key="frame" x="20" y="30" width="278" height="25"/>
+                                            <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="18"/>
+                                            <color key="textColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="first-task-graphic" translatesAutoresizingMaskIntoConstraints="NO" id="cBg-Aj-kvT">
+                                            <rect key="frame" x="151" y="80" width="16" height="88"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="16" id="McQ-a5-5J8"/>
+                                                <constraint firstAttribute="height" constant="88" id="XeR-Nn-7Lk"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IXd-B5-TkF">
+                                            <rect key="frame" x="15" y="188" width="288" height="82"/>
+                                            <string key="text">Tasks you add will be given the "Later" priority by default, and will heat up over time. Complete tasks before they get hot to keep Goalie cool, calm, and collected.</string>
+                                            <fontDescription key="fontDescription" name="NotoSans" family="Noto Sans" pointSize="15"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="05x-ay-3Sx" customClass="GoalieKerningButton" customModule="Goalie" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="300" width="318" height="60"/>
+                                            <color key="backgroundColor" red="0.14117647059999999" green="0.65098039220000004" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="60" id="7d8-zR-0Ud"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="16"/>
+                                            <state key="normal" title="GOT IT"/>
+                                            <connections>
+                                                <action selector="_gotItButtonPressed" destination="sZ8-jO-yZe" eventType="touchUpInside" id="WyQ-uF-EUH"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="6oZ-rU-niv" secondAttribute="trailing" constant="20" id="2Ob-Z4-hZJ"/>
+                                        <constraint firstItem="IXd-B5-TkF" firstAttribute="leading" secondItem="Tzx-1w-9xE" secondAttribute="leading" constant="15" id="PGv-l3-xDE"/>
+                                        <constraint firstItem="cBg-Aj-kvT" firstAttribute="top" secondItem="6oZ-rU-niv" secondAttribute="bottom" constant="25" id="U7e-RL-2hA"/>
+                                        <constraint firstAttribute="trailing" secondItem="05x-ay-3Sx" secondAttribute="trailing" id="bV0-c3-ena"/>
+                                        <constraint firstItem="6oZ-rU-niv" firstAttribute="leading" secondItem="Tzx-1w-9xE" secondAttribute="leading" constant="20" id="boI-3Q-K3a"/>
+                                        <constraint firstItem="05x-ay-3Sx" firstAttribute="top" secondItem="IXd-B5-TkF" secondAttribute="bottom" constant="30" id="ehe-oO-MT5"/>
+                                        <constraint firstItem="IXd-B5-TkF" firstAttribute="top" secondItem="cBg-Aj-kvT" secondAttribute="bottom" constant="20" id="llD-rw-NQ9"/>
+                                        <constraint firstItem="05x-ay-3Sx" firstAttribute="leading" secondItem="Tzx-1w-9xE" secondAttribute="leading" id="q3b-2B-HKt"/>
+                                        <constraint firstAttribute="bottom" secondItem="05x-ay-3Sx" secondAttribute="bottom" id="qjm-Nt-Zld"/>
+                                        <constraint firstItem="cBg-Aj-kvT" firstAttribute="centerX" secondItem="Tzx-1w-9xE" secondAttribute="centerX" id="rsD-Qi-w3U"/>
+                                        <constraint firstAttribute="trailing" secondItem="IXd-B5-TkF" secondAttribute="trailing" constant="15" id="uly-J2-uUo"/>
+                                        <constraint firstItem="6oZ-rU-niv" firstAttribute="top" secondItem="Tzx-1w-9xE" secondAttribute="top" constant="30" id="z4h-wJ-OAP"/>
+                                    </constraints>
+                                </view>
+                                <blurEffect style="extraLight"/>
+                            </visualEffectView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="8b6-MW-4s1" firstAttribute="centerY" secondItem="rwC-hJ-9nT" secondAttribute="centerY" id="2Qd-SS-whR"/>
+                            <constraint firstItem="8b6-MW-4s1" firstAttribute="centerX" secondItem="rwC-hJ-9nT" secondAttribute="centerX" id="6rK-nk-Is2"/>
+                            <constraint firstItem="8b6-MW-4s1" firstAttribute="width" secondItem="rwC-hJ-9nT" secondAttribute="width" multiplier="0.85" id="kUv-90-wlG"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="_containerView" destination="8b6-MW-4s1" id="Jdy-pq-i8I"/>
+                        <outlet property="_textLabel" destination="IXd-B5-TkF" id="CF6-r3-5Xj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mha-Mw-2Rq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1711.5" y="137.5"/>
+        </scene>
     </scenes>
     <resources>
         <image name="arrow" width="6" height="10"/>
         <image name="cancel" width="16" height="16"/>
+        <image name="first-task-graphic" width="16" height="88"/>
         <image name="onboarding-1" width="227" height="216"/>
         <image name="onboarding-4" width="193" height="229"/>
         <image name="onboarding-empty-arrow" width="60" height="66"/>
