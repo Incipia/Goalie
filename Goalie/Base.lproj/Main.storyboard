@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -24,8 +25,10 @@
             <string>NotoSans-Bold</string>
             <string>NotoSans-Bold</string>
             <string>NotoSans-Bold</string>
+            <string>NotoSans-Bold</string>
         </mutableArray>
         <mutableArray key="NotoSans-Regular.ttf">
+            <string>NotoSans</string>
             <string>NotoSans</string>
             <string>NotoSans</string>
             <string>NotoSans</string>
@@ -60,7 +63,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="451-cQ-ISH">
-                                                            <rect key="frame" x="270" y="20" width="40" height="40"/>
+                                                            <rect key="frame" x="270" y="22" width="40" height="40"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="451-cQ-ISH" secondAttribute="height" multiplier="1:1" id="uEP-wK-wv6"/>
                                                                 <constraint firstAttribute="width" constant="40" id="wG2-wP-MiH"/>
@@ -106,25 +109,25 @@
                                                     <constraints>
                                                         <constraint firstItem="Cmf-hr-XMs" firstAttribute="top" secondItem="f7d-lu-WBo" secondAttribute="top" id="26g-0U-DqA"/>
                                                         <constraint firstAttribute="trailing" secondItem="451-cQ-ISH" secondAttribute="trailing" constant="10" id="2VE-DG-Zcn"/>
-                                                        <constraint firstItem="451-cQ-ISH" firstAttribute="top" secondItem="8fz-02-pSg" secondAttribute="top" constant="20" id="5zw-RN-3zH"/>
                                                         <constraint firstItem="SEI-SD-L9z" firstAttribute="centerX" secondItem="8fz-02-pSg" secondAttribute="centerX" id="IEc-dt-i6k"/>
                                                         <constraint firstItem="SEI-SD-L9z" firstAttribute="top" secondItem="f7d-lu-WBo" secondAttribute="bottom" id="Nf3-u5-owY"/>
                                                         <constraint firstItem="f7d-lu-WBo" firstAttribute="leading" secondItem="SEI-SD-L9z" secondAttribute="trailing" constant="-20" id="cmd-Hu-q1n"/>
+                                                        <constraint firstItem="451-cQ-ISH" firstAttribute="top" secondItem="8fz-02-pSg" secondAttribute="topMargin" constant="14" id="lYd-8J-Zvw"/>
                                                         <constraint firstItem="SEI-SD-L9z" firstAttribute="centerY" secondItem="8fz-02-pSg" secondAttribute="centerY" constant="70" id="q4P-GY-u0N"/>
                                                         <constraint firstItem="SEI-SD-L9z" firstAttribute="leading" secondItem="Cmf-hr-XMs" secondAttribute="trailing" constant="-20" id="qjl-QB-ova"/>
                                                     </constraints>
                                                 </view>
-                                                <view key="tableFooterView" contentMode="scaleToFill" id="ZpZ-fK-L3y">
+                                                <view key="tableFooterView" contentMode="scaleToFill" id="fI9-At-V7G">
                                                     <rect key="frame" x="0.0" y="378" width="320" height="108"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add some new tasks to wake Goalie back up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Th9-mE-cIz">
-                                                            <rect key="frame" x="36" y="67" width="249" height="17"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add some new tasks to wake Goalie back up." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bMi-hs-HLY">
+                                                            <rect key="frame" x="34" y="67" width="252" height="17"/>
                                                             <fontDescription key="fontDescription" name="NotoSans" family="Noto Sans" pointSize="12"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nailed it." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PTI-pk-8go">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nailed it." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GFO-TT-Bl9">
                                                             <rect key="frame" x="121" y="26" width="78" height="24"/>
                                                             <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="17"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -133,10 +136,10 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstItem="Th9-mE-cIz" firstAttribute="centerX" secondItem="PTI-pk-8go" secondAttribute="centerX" id="Aat-Ee-F9O"/>
-                                                        <constraint firstItem="PTI-pk-8go" firstAttribute="centerX" secondItem="ZpZ-fK-L3y" secondAttribute="centerX" id="TBC-bF-eXc"/>
-                                                        <constraint firstItem="PTI-pk-8go" firstAttribute="top" secondItem="ZpZ-fK-L3y" secondAttribute="top" constant="26" id="mEb-72-C0T"/>
-                                                        <constraint firstItem="Th9-mE-cIz" firstAttribute="top" secondItem="PTI-pk-8go" secondAttribute="bottom" constant="17" id="pnM-Zh-DJg"/>
+                                                        <constraint firstItem="bMi-hs-HLY" firstAttribute="centerX" secondItem="GFO-TT-Bl9" secondAttribute="centerX" id="7nx-m0-wHt"/>
+                                                        <constraint firstItem="GFO-TT-Bl9" firstAttribute="top" secondItem="fI9-At-V7G" secondAttribute="top" constant="26" id="f6J-TJ-Ztt"/>
+                                                        <constraint firstItem="GFO-TT-Bl9" firstAttribute="centerX" secondItem="fI9-At-V7G" secondAttribute="centerX" id="mYT-3U-id8"/>
+                                                        <constraint firstItem="bMi-hs-HLY" firstAttribute="top" secondItem="GFO-TT-Bl9" secondAttribute="bottom" constant="17" id="wuG-CT-hly"/>
                                                     </constraints>
                                                 </view>
                                                 <prototypes>
@@ -284,6 +287,40 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Ld-vh-x0i" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="ZpZ-fK-L3y">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="108"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a task above to start your first list!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Th9-mE-cIz">
+                            <rect key="frame" x="52" y="91" width="217" height="17"/>
+                            <fontDescription key="fontDescription" name="NotoSans" family="Noto Sans" pointSize="12"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Give Goalie something to do." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PTI-pk-8go">
+                            <rect key="frame" x="38" y="50" width="244" height="24"/>
+                            <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="17"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding-empty-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="rSD-oe-3Jr">
+                            <rect key="frame" x="97" y="-34" width="60" height="66"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="60" id="28d-a1-6eE"/>
+                                <constraint firstAttribute="height" constant="66" id="Gih-uH-Lcn"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="rSD-oe-3Jr" firstAttribute="leading" secondItem="ZpZ-fK-L3y" secondAttribute="leading" constant="97" id="A3M-n9-1Fn"/>
+                        <constraint firstItem="Th9-mE-cIz" firstAttribute="centerX" secondItem="PTI-pk-8go" secondAttribute="centerX" id="Aat-Ee-F9O"/>
+                        <constraint firstItem="rSD-oe-3Jr" firstAttribute="top" secondItem="ZpZ-fK-L3y" secondAttribute="top" constant="-34" id="CNI-Kp-56m"/>
+                        <constraint firstItem="PTI-pk-8go" firstAttribute="centerX" secondItem="ZpZ-fK-L3y" secondAttribute="centerX" id="TBC-bF-eXc"/>
+                        <constraint firstItem="PTI-pk-8go" firstAttribute="top" secondItem="ZpZ-fK-L3y" secondAttribute="top" constant="50" id="mEb-72-C0T"/>
+                        <constraint firstItem="Th9-mE-cIz" firstAttribute="top" secondItem="PTI-pk-8go" secondAttribute="bottom" constant="17" id="pnM-Zh-DJg"/>
+                    </constraints>
+                </view>
             </objects>
             <point key="canvasLocation" x="392" y="138"/>
         </scene>
@@ -423,7 +460,7 @@
                                                                 <action selector="_agesButtonPressed" destination="EZY-Nk-o6p" eventType="touchDown" id="DVU-62-VTg"/>
                                                             </connections>
                                                         </button>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PRIORITY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Zq-7d-cZ0" customClass="GoalieKerningLabel" customModule="Goalie" customModuleProvider="target">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PRIORITY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Zq-7d-cZ0" customClass="GoalieKerningHeaderLabel" customModule="Goalie" customModuleProvider="target">
                                                             <rect key="frame" x="20" y="24" width="62" height="18"/>
                                                             <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="13"/>
                                                             <color key="textColor" red="0.3411764706" green="0.4823529412" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -758,7 +795,7 @@ Goalie's happy.</string>
                                             <color key="textColor" red="0.21568627450980393" green="0.29803921568627451" blue="0.33725490196078434" alpha="1" colorSpace="deviceRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SHOW COMPLETED TASKS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CeK-wk-LkK" customClass="GoalieKerningLabel" customModule="Goalie" customModuleProvider="target">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SHOW COMPLETED TASKS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CeK-wk-LkK" customClass="GoalieKerningHeaderLabel" customModule="Goalie" customModuleProvider="target">
                                             <rect key="frame" x="20" y="110" width="152" height="17"/>
                                             <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="12"/>
                                             <color key="textColor" red="0.3411764705882353" green="0.4823529411764706" blue="0.53725490196078429" alpha="1" colorSpace="calibratedRGB"/>
@@ -768,7 +805,7 @@ Goalie's happy.</string>
                                             <rect key="frame" x="20" y="135" width="51" height="31"/>
                                             <color key="onTintColor" red="0.070588235289999995" green="0.64313725489999995" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                         </switch>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MANUALLY SWITCH PRIORITY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2LN-x7-CSb" customClass="GoalieKerningLabel" customModule="Goalie" customModuleProvider="target">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MANUALLY SWITCH PRIORITY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2LN-x7-CSb" customClass="GoalieKerningHeaderLabel" customModule="Goalie" customModuleProvider="target">
                                             <rect key="frame" x="20" y="199" width="177" height="17"/>
                                             <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="12"/>
                                             <color key="textColor" red="0.3411764705882353" green="0.4823529411764706" blue="0.53725490196078429" alpha="1" colorSpace="calibratedRGB"/>
@@ -852,6 +889,7 @@ Goalie's happy.</string>
         <image name="cancel" width="16" height="16"/>
         <image name="onboarding-1" width="227" height="216"/>
         <image name="onboarding-4" width="193" height="229"/>
+        <image name="onboarding-empty-arrow" width="60" height="66"/>
         <image name="onboarding-phone" width="260" height="296"/>
         <image name="settings-gear" width="22" height="22"/>
     </resources>

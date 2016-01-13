@@ -69,7 +69,7 @@ class EditTaskViewController: UIViewController, ManagedObjectContextSettable, Me
       let attributes = [
          NSFontAttributeName : font,
          NSForegroundColorAttributeName : fontColor,
-         NSKernAttributeName : 1.5
+         NSKernAttributeName : 3
       ]
       
       _titleTextField.floatingLabel.attributedText = NSAttributedString(string: "TITLE", attributes: attributes)

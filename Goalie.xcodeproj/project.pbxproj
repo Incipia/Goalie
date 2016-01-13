@@ -53,6 +53,7 @@
 		F3A820011C441B490048237F /* GoalieFacePathProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A820001C441B490048237F /* GoalieFacePathProvider.swift */; };
 		F3B7F7301C44A26B00C364F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3B7F72F1C44A26B00C364F0 /* Assets.xcassets */; };
 		F3B7F7321C4583D900C364F0 /* GoalieMovementAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B7F7311C4583D900C364F0 /* GoalieMovementAnimator.swift */; };
+		F3B7F7341C45F2D600C364F0 /* GoalieKerningHeaderLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B7F7331C45F2D600C364F0 /* GoalieKerningHeaderLabel.swift */; };
 		F3CEAC441C4061820047DD78 /* ViewTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CEAC431C4061820047DD78 /* ViewTransformer.swift */; };
 		F3CEAC561C4061B10047DD78 /* JVFloatLabeledTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = F3CEAC511C4061B10047DD78 /* JVFloatLabeledTextField.m */; };
 		F3CEAC571C4061B10047DD78 /* JVFloatLabeledTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = F3CEAC531C4061B10047DD78 /* JVFloatLabeledTextView.m */; };
@@ -122,6 +123,7 @@
 		F3A820001C441B490048237F /* GoalieFacePathProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoalieFacePathProvider.swift; path = Goalie/GoalieFacePathProvider.swift; sourceTree = "<group>"; };
 		F3B7F72F1C44A26B00C364F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F3B7F7311C4583D900C364F0 /* GoalieMovementAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalieMovementAnimator.swift; sourceTree = "<group>"; };
+		F3B7F7331C45F2D600C364F0 /* GoalieKerningHeaderLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoalieKerningHeaderLabel.swift; path = Goalie/GoalieKerningHeaderLabel.swift; sourceTree = "<group>"; };
 		F3CEAC431C4061820047DD78 /* ViewTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewTransformer.swift; path = Goalie/ViewTransformer.swift; sourceTree = "<group>"; };
 		F3CEAC501C4061B10047DD78 /* JVFloatLabeledTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JVFloatLabeledTextField.h; sourceTree = "<group>"; };
 		F3CEAC511C4061B10047DD78 /* JVFloatLabeledTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JVFloatLabeledTextField.m; sourceTree = "<group>"; };
@@ -324,6 +326,7 @@
 				F38B55171C3854A10022453F /* GoalieKerningLabel.swift */,
 				F38319481C31B3CB00C36ACB /* GoalieTableView.swift */,
 				F383190C1C319FE800C36ACB /* TasksTableViewCell.swift */,
+				F3B7F7331C45F2D600C364F0 /* GoalieKerningHeaderLabel.swift */,
 			);
 			name = "Custom UI";
 			sourceTree = "<group>";
@@ -466,6 +469,7 @@
 				F324894F1C3F5DCF00E3DABD /* NSAttributedString+Extensions.swift in Sources */,
 				F38319331C31A72D00C36ACB /* NSManagedObjectContext+Extensions.swift in Sources */,
 				F383192F1C31A72D00C36ACB /* Utilities.swift in Sources */,
+				F3B7F7341C45F2D600C364F0 /* GoalieKerningHeaderLabel.swift in Sources */,
 				F38319351C31A72D00C36ACB /* UITableView+Extensions.swift in Sources */,
 				F32489491C3F174300E3DABD /* GoalieSpeechBubble.swift in Sources */,
 				F3CEAC581C4061B10047DD78 /* NSString+TextDirectionality.m in Sources */,

@@ -21,13 +21,13 @@ class GoalieKerningButton: UIButton
       let attributes = [
          NSFontAttributeName : label.font,
          NSForegroundColorAttributeName : label.textColor,
-         NSKernAttributeName : 2
+         NSKernAttributeName : 3
       ]
       
       let highlightedAttributes = [
          NSFontAttributeName : label.font,
          NSForegroundColorAttributeName : label.textColor.colorWithAlphaComponent(0.5),
-         NSKernAttributeName : 2
+         NSKernAttributeName : 3
       ]
       
       let attributedString = NSAttributedString(string: label.text ?? "", attributes: attributes)
@@ -45,13 +45,13 @@ class GoalieKerningButton: UIButton
       let attributes = [
          NSFontAttributeName : label.font,
          NSForegroundColorAttributeName : color,
-         NSKernAttributeName : 2
+         NSKernAttributeName : 3
       ]
       
       let highlightedAttributes = [
          NSFontAttributeName : label.font,
          NSForegroundColorAttributeName : label.textColor.colorWithAlphaComponent(0.5),
-         NSKernAttributeName : 2
+         NSKernAttributeName : 3
       ]
       
       let attributedString = NSAttributedString(string: text, attributes: attributes)
