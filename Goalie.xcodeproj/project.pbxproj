@@ -64,6 +64,7 @@
 		F3B7F7531C460F2900C364F0 /* SFXPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B7F7521C460F2900C364F0 /* SFXPlayer.swift */; };
 		F3B7F7551C4617F500C364F0 /* Delete.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F3B7F7541C4617F500C364F0 /* Delete.mp3 */; };
 		F3B7F7571C46185200C364F0 /* ChangePriorityRight.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F3B7F7561C46185200C364F0 /* ChangePriorityRight.mp3 */; };
+		F3B7F75A1C46EFBB00C364F0 /* CongratulationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B7F7591C46EFBB00C364F0 /* CongratulationsViewController.swift */; };
 		F3CEAC441C4061820047DD78 /* ViewTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CEAC431C4061820047DD78 /* ViewTransformer.swift */; };
 		F3CEAC561C4061B10047DD78 /* JVFloatLabeledTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = F3CEAC511C4061B10047DD78 /* JVFloatLabeledTextField.m */; };
 		F3CEAC571C4061B10047DD78 /* JVFloatLabeledTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = F3CEAC531C4061B10047DD78 /* JVFloatLabeledTextView.m */; };
@@ -144,6 +145,7 @@
 		F3B7F7521C460F2900C364F0 /* SFXPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFXPlayer.swift; path = Goalie/SFXPlayer.swift; sourceTree = "<group>"; };
 		F3B7F7541C4617F500C364F0 /* Delete.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Delete.mp3; path = Sounds/Delete.mp3; sourceTree = "<group>"; };
 		F3B7F7561C46185200C364F0 /* ChangePriorityRight.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = ChangePriorityRight.mp3; path = Sounds/ChangePriorityRight.mp3; sourceTree = "<group>"; };
+		F3B7F7591C46EFBB00C364F0 /* CongratulationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CongratulationsViewController.swift; path = Goalie/CongratulationsViewController.swift; sourceTree = "<group>"; };
 		F3CEAC431C4061820047DD78 /* ViewTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewTransformer.swift; path = Goalie/ViewTransformer.swift; sourceTree = "<group>"; };
 		F3CEAC501C4061B10047DD78 /* JVFloatLabeledTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JVFloatLabeledTextField.h; sourceTree = "<group>"; };
 		F3CEAC511C4061B10047DD78 /* JVFloatLabeledTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JVFloatLabeledTextField.m; sourceTree = "<group>"; };
@@ -335,6 +337,7 @@
 				F3DB3E111C3306690005C607 /* EditTaskViewController.swift */,
 				F38B550F1C34DD810022453F /* SettingsViewController.swift */,
 				F3A81FF91C4403120048237F /* OnboardingViewController.swift */,
+				F3B7F7591C46EFBB00C364F0 /* CongratulationsViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -515,6 +518,7 @@
 				F38318D11C2F343600C36ACB /* AppDelegate.swift in Sources */,
 				F324894F1C3F5DCF00E3DABD /* NSAttributedString+Extensions.swift in Sources */,
 				F38319331C31A72D00C36ACB /* NSManagedObjectContext+Extensions.swift in Sources */,
+				F3B7F75A1C46EFBB00C364F0 /* CongratulationsViewController.swift in Sources */,
 				F3B7F7531C460F2900C364F0 /* SFXPlayer.swift in Sources */,
 				F383192F1C31A72D00C36ACB /* Utilities.swift in Sources */,
 				F3B7F7341C45F2D600C364F0 /* GoalieKerningHeaderLabel.swift in Sources */,
