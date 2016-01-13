@@ -79,24 +79,36 @@ class EditTaskViewController: UIViewController, ManagedObjectContextSettable, Me
    // Mark: - IBActions
    @IBAction private func _asapButtonPressed()
    {
+      if _currentPriority != .ASAP {
+         SFXPlayer.playPriorityChangeSound()
+      }
       _currentPriority = .ASAP
       _updatePriorityIndicatorViewFrameAnimated(true)
    }
    
    @IBAction private func _soonButtonPressed()
    {
+      if _currentPriority != .Soon {
+         SFXPlayer.playPriorityChangeSound()
+      }
       _currentPriority = .Soon
       _updatePriorityIndicatorViewFrameAnimated(true)
    }
    
    @IBAction private func _laterButtonPressed()
    {
+      if _currentPriority != .Later {
+         SFXPlayer.playPriorityChangeSound()
+      }
       _currentPriority = .Later
       _updatePriorityIndicatorViewFrameAnimated(true)
    }
    
    @IBAction private func _agesButtonPressed()
    {
+      if _currentPriority != .Ages {
+         SFXPlayer.playPriorityChangeSound()
+      }
       _currentPriority = .Ages
       _updatePriorityIndicatorViewFrameAnimated(true)
    }
@@ -118,6 +130,7 @@ class EditTaskViewController: UIViewController, ManagedObjectContextSettable, Me
    
    @IBAction private func _deleteButtonPressed()
    {
+      SFXPlayer.playDeleteSound()
       dismissViewControllerAnimated(false) { () -> Void in
          self._task.delete()
       }

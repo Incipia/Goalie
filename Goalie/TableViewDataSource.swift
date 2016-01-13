@@ -100,6 +100,7 @@ class TableViewDataSource<Delegate: DataSourceDelegate, Data: DataProviderProtoc
          else {
             goal.managedObjectContext?.deleteObject(goal)
          }
+         SFXPlayer.playDeleteSound()
       }
    }
    

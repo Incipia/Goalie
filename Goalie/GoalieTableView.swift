@@ -17,6 +17,20 @@ class GoalieTableView: TPKeyboardAvoidingTableView
    @IBOutlet private var _firstTaskFooterView: UIView!
    @IBOutlet private var _normalGoalieFooterView: UIView!
    
+   @IBOutlet private var _currentCompletedSoundName: GoalieKerningLabel!
+   @IBAction private func _advanceCompletedSound()
+   {
+      SFXPlayer.advanceCompletedSound()
+      SFXPlayer.playCurrentCompletedSound()
+      _currentCompletedSoundName.updateText(SFXPlayer.currentCompletedSoundName()!, color: UIColor.whiteColor())
+   }
+   @IBAction private func _decrementCompletedSound()
+   {
+      SFXPlayer.decrementCompletedSound()
+      SFXPlayer.playCurrentCompletedSound()
+      _currentCompletedSoundName.updateText(SFXPlayer.currentCompletedSoundName()!, color: UIColor.whiteColor())
+   }
+   
    @IBOutlet private var _goalieHeaderView: UIView!
    
    private var _goalieMovementAnimator: GoalieMovementAnimator!
@@ -47,6 +61,7 @@ class GoalieTableView: TPKeyboardAvoidingTableView
       _setupHeaderView()
       _setupContentOffsetAndInset()
       _setupUIForFirstTime()
+      _currentCompletedSoundName.text = SFXPlayer.currentCompletedSoundName()
       
       _leftSpeechBubble.hidden = true
       _rightSpeechBubble.hidden = true

@@ -29,4 +29,15 @@ class GoalieKerningLabel: UILabel
       
       attributedText = attributedString
    }
+   
+   func updateText(text: String, color: UIColor)
+   {
+      let attributes = [
+         NSFontAttributeName : font,
+         NSForegroundColorAttributeName : textColor,
+         NSKernAttributeName : 3
+      ]
+      
+      attributedText = NSAttributedString(string: text, attributes: attributes)
+   }
 }

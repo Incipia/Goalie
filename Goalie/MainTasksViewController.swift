@@ -288,6 +288,9 @@ extension MainTasksViewController: TasksTableViewCellDelegate
             if !task.completed {
                task.resetLastPriorityChangeDate()
             }
+            else {
+               SFXPlayer.playCurrentCompletedSound()
+            }
          }
       }
       _currentTaskCell?.stopEditing()
