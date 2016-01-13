@@ -117,31 +117,6 @@
                                                         <constraint firstItem="SEI-SD-L9z" firstAttribute="leading" secondItem="Cmf-hr-XMs" secondAttribute="trailing" constant="-20" id="qjl-QB-ova"/>
                                                     </constraints>
                                                 </view>
-                                                <view key="tableFooterView" contentMode="scaleToFill" id="fI9-At-V7G">
-                                                    <rect key="frame" x="0.0" y="378" width="320" height="108"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add some new tasks to wake Goalie back up." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bMi-hs-HLY">
-                                                            <rect key="frame" x="34" y="67" width="252" height="17"/>
-                                                            <fontDescription key="fontDescription" name="NotoSans" family="Noto Sans" pointSize="12"/>
-                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nailed it." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GFO-TT-Bl9">
-                                                            <rect key="frame" x="121" y="26" width="78" height="24"/>
-                                                            <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="17"/>
-                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <constraints>
-                                                        <constraint firstItem="bMi-hs-HLY" firstAttribute="centerX" secondItem="GFO-TT-Bl9" secondAttribute="centerX" id="7nx-m0-wHt"/>
-                                                        <constraint firstItem="GFO-TT-Bl9" firstAttribute="top" secondItem="fI9-At-V7G" secondAttribute="top" constant="26" id="f6J-TJ-Ztt"/>
-                                                        <constraint firstItem="GFO-TT-Bl9" firstAttribute="centerX" secondItem="fI9-At-V7G" secondAttribute="centerX" id="mYT-3U-id8"/>
-                                                        <constraint firstItem="bMi-hs-HLY" firstAttribute="top" secondItem="GFO-TT-Bl9" secondAttribute="bottom" constant="17" id="wuG-CT-hly"/>
-                                                    </constraints>
-                                                </view>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TasksTableViewCell" rowHeight="50" id="0U4-ke-0VQ" customClass="TasksTableViewCell" customModule="Goalie" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="328" width="320" height="50"/>
@@ -247,9 +222,12 @@
                                                     </tableViewCell>
                                                 </prototypes>
                                                 <connections>
+                                                    <outlet property="_firstTaskFooterView" destination="ZpZ-fK-L3y" id="fZS-di-9r3"/>
+                                                    <outlet property="_firstTaskFooterViewArrow" destination="rSD-oe-3Jr" id="msZ-1f-Sdh"/>
                                                     <outlet property="_goalieFaceView" destination="SEI-SD-L9z" id="8Wb-O4-Swp"/>
                                                     <outlet property="_goalieHeaderView" destination="8fz-02-pSg" id="wt1-OM-fD8"/>
                                                     <outlet property="_leftSpeechBubble" destination="Cmf-hr-XMs" id="Nny-Bp-7Dy"/>
+                                                    <outlet property="_normalGoalieFooterView" destination="fI9-At-V7G" id="opR-gy-Dyk"/>
                                                     <outlet property="_rightSpeechBubble" destination="f7d-lu-WBo" id="qR3-WA-RVu"/>
                                                     <outlet property="_settingsButton" destination="451-cQ-ISH" id="f9l-G5-mTM"/>
                                                 </connections>
@@ -292,13 +270,13 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a task above to start your first list!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Th9-mE-cIz">
-                            <rect key="frame" x="52" y="91" width="217" height="17"/>
+                            <rect key="frame" x="52" y="86" width="217" height="17"/>
                             <fontDescription key="fontDescription" name="NotoSans" family="Noto Sans" pointSize="12"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Give Goalie something to do." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PTI-pk-8go">
-                            <rect key="frame" x="38" y="50" width="244" height="24"/>
+                            <rect key="frame" x="38" y="45" width="244" height="24"/>
                             <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -317,12 +295,37 @@
                         <constraint firstItem="Th9-mE-cIz" firstAttribute="centerX" secondItem="PTI-pk-8go" secondAttribute="centerX" id="Aat-Ee-F9O"/>
                         <constraint firstItem="rSD-oe-3Jr" firstAttribute="top" secondItem="ZpZ-fK-L3y" secondAttribute="top" constant="-34" id="CNI-Kp-56m"/>
                         <constraint firstItem="PTI-pk-8go" firstAttribute="centerX" secondItem="ZpZ-fK-L3y" secondAttribute="centerX" id="TBC-bF-eXc"/>
-                        <constraint firstItem="PTI-pk-8go" firstAttribute="top" secondItem="ZpZ-fK-L3y" secondAttribute="top" constant="50" id="mEb-72-C0T"/>
+                        <constraint firstItem="PTI-pk-8go" firstAttribute="top" secondItem="ZpZ-fK-L3y" secondAttribute="top" constant="45" id="mEb-72-C0T"/>
                         <constraint firstItem="Th9-mE-cIz" firstAttribute="top" secondItem="PTI-pk-8go" secondAttribute="bottom" constant="17" id="pnM-Zh-DJg"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" id="fI9-At-V7G">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="108"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add some new tasks to wake Goalie back up." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bMi-hs-HLY">
+                            <rect key="frame" x="34" y="67" width="252" height="17"/>
+                            <fontDescription key="fontDescription" name="NotoSans" family="Noto Sans" pointSize="12"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nailed it." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GFO-TT-Bl9">
+                            <rect key="frame" x="121" y="26" width="78" height="24"/>
+                            <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="17"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="bMi-hs-HLY" firstAttribute="centerX" secondItem="GFO-TT-Bl9" secondAttribute="centerX" id="7nx-m0-wHt"/>
+                        <constraint firstItem="GFO-TT-Bl9" firstAttribute="top" secondItem="fI9-At-V7G" secondAttribute="top" constant="26" id="f6J-TJ-Ztt"/>
+                        <constraint firstItem="GFO-TT-Bl9" firstAttribute="centerX" secondItem="fI9-At-V7G" secondAttribute="centerX" id="mYT-3U-id8"/>
+                        <constraint firstItem="bMi-hs-HLY" firstAttribute="top" secondItem="GFO-TT-Bl9" secondAttribute="bottom" constant="17" id="wuG-CT-hly"/>
+                    </constraints>
+                </view>
             </objects>
-            <point key="canvasLocation" x="392" y="138"/>
+            <point key="canvasLocation" x="245" y="138"/>
         </scene>
         <!--Edit Task View Controller-->
         <scene sceneID="otv-96-TEA">
@@ -757,7 +760,7 @@ Goalie's happy.</string>
                     </constraints>
                 </view>
             </objects>
-            <point key="canvasLocation" x="1347" y="1116"/>
+            <point key="canvasLocation" x="1323" y="1238"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="fJM-xw-aAD">
@@ -863,25 +866,6 @@ Goalie's happy.</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Ny-6F-mco" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1256.5" y="137.5"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="l3A-pR-asl">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="hIh-Eh-aXU" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="PG3-RR-Ka8">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="MHe-2g-aey" kind="relationship" relationship="rootViewController" id="yA4-dy-3fz"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iqx-Zi-sJ3" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="815" y="1116"/>
         </scene>
     </scenes>
     <resources>

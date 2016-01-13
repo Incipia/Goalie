@@ -13,8 +13,11 @@ let _minimumHeaderHeight: CGFloat = floor(UIScreen.mainScreen().bounds.height / 
 
 class GoalieTableView: TPKeyboardAvoidingTableView
 {
+   @IBOutlet private var _firstTaskFooterViewArrow: UIImageView!
+   @IBOutlet private var _firstTaskFooterView: UIView!
+   @IBOutlet private var _normalGoalieFooterView: UIView!
+   
    @IBOutlet private var _goalieHeaderView: UIView!
-   private var _goalieFooterView: UIView!
    
    private var _goalieMovementAnimator: GoalieMovementAnimator!
    @IBOutlet private weak var _goalieFaceView: GoalieFaceView! {
@@ -47,7 +50,17 @@ class GoalieTableView: TPKeyboardAvoidingTableView
       
       _leftSpeechBubble.hidden = true
       _rightSpeechBubble.hidden = true
-      _goalieFooterView = tableFooterView
+      
+      NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillAppear"), name: UIKeyboardWillShowNotification, object: nil)
+      NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide"), name: UIKeyboardWillHideNotification, object: nil)
+   }
+   
+   func keyboardWillAppear() {
+      updateFooterViewForKeyboardVisibility(true)
+   }
+   
+   func keyboardWillHide() {
+      updateFooterViewForKeyboardVisibility(false)
    }
    
    override func layoutSubviews()
@@ -86,7 +99,7 @@ class GoalieTableView: TPKeyboardAvoidingTableView
    // MARK: - Public
    func showFooterView()
    {
-      tableFooterView = _goalieFooterView
+      tableFooterView = GoalieSettingsManager.userCompletedFirstTask ? _normalGoalieFooterView : _firstTaskFooterView
    }
    
    func hideFooterView()
@@ -150,6 +163,11 @@ class GoalieTableView: TPKeyboardAvoidingTableView
    func stopGoalieMovement()
    {
       _goalieMovementAnimator.stopAnimating()
+   }
+   
+   func updateFooterViewForKeyboardVisibility(visible: Bool)
+   {
+      _firstTaskFooterViewArrow.hidden = visible
    }
 }
 

@@ -228,6 +228,7 @@ extension MainTasksViewController: TasksTableViewCellDelegate
       moc.performChanges { () -> () in
          if task?.priority == .Unknown && cell.titleText != "" {
             task?.priority = .Later
+            GoalieSettingsManager.setUserCompletedFirstTask(true)
          }
       }
       _currentTaskCell = nil

@@ -11,10 +11,12 @@ import Foundation
 private let ShowCompletedTasksKey = "GoalieShowCompletedTasksKey"
 private let ManuallySwitchPriorityKey = "GoalieManuallySwitchPriorityKey"
 private let UserHasOnboardedKey = "GoalieUserHasOnboarded"
+private let UserCompletedFirstTaskKey = "GoalieUserCompletedFirstTaskKey"
 
 private let defaultShowCompletedTasksValue = true
 private let defaultManuallySwitchPriorityValue = false
 private let defaultUserHasOnboardedValue = false
+private let defaultUserCompletedFirstTask = false
 
 struct GoalieSettingsManager
 {
@@ -42,6 +44,14 @@ struct GoalieSettingsManager
       return hasOnboarded
    }
    
+   static var userCompletedFirstTask: Bool {
+      var copmletedFirst = defaultUserCompletedFirstTask
+      if let _ = NSUserDefaults.standardUserDefaults().objectForKey(UserCompletedFirstTaskKey) {
+         copmletedFirst = NSUserDefaults.standardUserDefaults().boolForKey(UserCompletedFirstTaskKey)
+      }
+      return copmletedFirst
+   }
+   
    static func setShowCompletedTasks(show: Bool) -> Bool
    {
       var didSet = false
@@ -66,6 +76,15 @@ struct GoalieSettingsManager
       var didSet = false
       if onboarded != userHasOnboarded {
          NSUserDefaults.standardUserDefaults().setBool(onboarded, forKey: UserHasOnboardedKey)
+         didSet = true
+      }
+      return didSet
+   }
+   
+   static func setUserCompletedFirstTask(completed: Bool) -> Bool {
+      var didSet = false
+      if completed != userCompletedFirstTask {
+         NSUserDefaults.standardUserDefaults().setBool(completed, forKey: UserCompletedFirstTaskKey)
          didSet = true
       }
       return didSet
