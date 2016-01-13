@@ -62,8 +62,8 @@ class GoalieFaceLayer: CALayer
       _currentPriority = priority
       
       _performBlockWithoutAnimations { () -> Void in
-         self._leftEyeLayer.hidden = priority == .Ages
-         self._rightEyeLayer.hidden = priority == .Ages
+         self._leftEyeLayer.hidden = priority == .Ages || priority == .Unknown
+         self._rightEyeLayer.hidden = priority == .Ages || priority == .Unknown
          self._mouthLayer.hidden = false
          self._teethLayer.hidden = true
       }
