@@ -206,7 +206,15 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
 }
 
 extension MainTasksViewController: TasksTableViewCellDelegate
-{  
+{
+   func textFieldShouldEndEditing(cell: TasksTableViewCell, forTask task: Task?) -> Bool
+   {
+      if let task = task where !_tasksDataProvider.taskIsLast(task) && cell.titleText == "" {
+         cell.titleText = "untitled"
+      }
+      return true
+   }
+   
    func taskCellBeganEditing(cell: TasksTableViewCell, plusButtonPressed: Bool)
    {
       _currentTaskCell = cell
@@ -245,7 +253,6 @@ extension MainTasksViewController: TasksTableViewCellDelegate
          }
       }
       else {
-         cell.titleText = cell.titleText == "" ? "untitled" : cell.titleText
          cell.stopEditing()
          shouldReturn = true
       }
@@ -272,12 +279,14 @@ extension MainTasksViewController: TasksTableViewCellDelegate
       _presentDetailsForTask(task)
    }
    
-   func completeButtonPressedForTask(task: Task)
+   func completeButtonPressedForCell(cell: TasksTableViewCell, task: Task)
    {
-      moc.performChanges { () -> () in
-         task.completed = !task.completed
-         if !task.completed {
-            task.resetLastPriorityChangeDate()
+      if _currentTaskCell == nil {
+         moc.performChanges { () -> () in
+            task.completed = !task.completed
+            if !task.completed {
+               task.resetLastPriorityChangeDate()
+            }
          }
       }
       _currentTaskCell?.stopEditing()

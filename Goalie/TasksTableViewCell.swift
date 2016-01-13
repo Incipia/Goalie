@@ -11,12 +11,13 @@ import UIKit
 protocol TasksTableViewCellDelegate: class
 {
    func taskCellBeganEditing(cell: TasksTableViewCell, plusButtonPressed: Bool)
+   func textFieldShouldEndEditing(cell: TasksTableViewCell, forTask task: Task?) -> Bool
    func taskCellFinishedEditing(cell: TasksTableViewCell, forTask task: Task?)
    func titleTextFieldShouldReturnForCell(cell: TasksTableViewCell) -> Bool
    func returnKeyTypeForCell(cell: TasksTableViewCell) -> UIReturnKeyType
    
    func disclosureButtonPressedForTask(task: Task)
-   func completeButtonPressedForTask(task: Task)
+   func completeButtonPressedForCell(cell: TasksTableViewCell, task: Task)
 }
 
 class TasksTableViewCell: UITableViewCell
@@ -103,7 +104,7 @@ class TasksTableViewCell: UITableViewCell
    internal func _completeButtonPressed()
    {
       if let task = _task where !editing {
-         delegate?.completeButtonPressedForTask(task)
+         delegate?.completeButtonPressedForCell(self, task: task)
       }
    }
    
@@ -159,6 +160,11 @@ extension TasksTableViewCell: UITextFieldDelegate
          _disclosureButton.hidden = false
       }
       return true
+   }
+   
+   func  textFieldShouldEndEditing(textField: UITextField) -> Bool
+   {
+      return delegate?.textFieldShouldEndEditing(self, forTask: _task) ?? true
    }
 }
 
