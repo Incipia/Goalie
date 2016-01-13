@@ -23,6 +23,7 @@
             <string>NotoSans-Bold</string>
             <string>NotoSans-Bold</string>
             <string>NotoSans-Bold</string>
+            <string>NotoSans-Bold</string>
         </mutableArray>
         <mutableArray key="NotoSans-Regular.ttf">
             <string>NotoSans</string>
@@ -679,7 +680,8 @@ He really likes tasks....</string>
                     <navigationItem key="navigationItem" id="NH5-lx-Rss"/>
                     <connections>
                         <outlet property="_bottomSpacePhoneConstraint" destination="DcX-UI-JZP" id="dPN-q2-9p4"/>
-                        <outlet property="_happyGoalieImageView" destination="XwH-6r-Y4k" id="Zl7-aa-OQJ"/>
+                        <outlet property="_finalPageContainerView" destination="Bp2-3P-8EO" id="ebB-Fb-Ivy"/>
+                        <outlet property="_finalTextLabel" destination="HmC-Y4-xmo" id="FNv-yi-dr9"/>
                         <outlet property="_nextButton" destination="Tf9-Iw-fHf" id="Wis-uU-dfg"/>
                         <outlet property="_pageControl" destination="UoL-U7-vTN" id="PiQ-Tb-pML"/>
                         <outlet property="_phoneFrameImageView" destination="Bux-Tt-g3m" id="HdJ-6M-ODs"/>
@@ -688,10 +690,35 @@ He really likes tasks....</string>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tAe-Qd-U8b" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding-4" id="XwH-6r-Y4k">
-                    <rect key="frame" x="0.0" y="0.0" width="193" height="229"/>
+                <view contentMode="scaleToFill" id="Bp2-3P-8EO">
+                    <rect key="frame" x="0.0" y="0.0" width="258" height="333"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="onboarding-4" translatesAutoresizingMaskIntoConstraints="NO" id="XwH-6r-Y4k">
+                            <rect key="frame" x="34" y="0.0" width="193" height="229"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="229" id="Hi6-DD-hYx"/>
+                                <constraint firstAttribute="width" constant="193" id="nP6-jw-sGy"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HmC-Y4-xmo">
+                            <rect key="frame" x="32" y="243" width="198" height="82"/>
+                            <string key="text">So get to it.
+When you're happy,
+Goalie's happy.</string>
+                            <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="20"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="HmC-Y4-xmo" firstAttribute="top" secondItem="XwH-6r-Y4k" secondAttribute="bottom" constant="14" id="agl-vd-6nU"/>
+                        <constraint firstItem="HmC-Y4-xmo" firstAttribute="centerX" secondItem="XwH-6r-Y4k" secondAttribute="centerX" id="axA-2q-4ZL"/>
+                        <constraint firstItem="XwH-6r-Y4k" firstAttribute="centerX" secondItem="Bp2-3P-8EO" secondAttribute="centerX" id="h2J-cx-Va3"/>
+                        <constraint firstItem="XwH-6r-Y4k" firstAttribute="top" secondItem="Bp2-3P-8EO" secondAttribute="top" id="yTh-ON-fwK"/>
+                    </constraints>
+                </view>
             </objects>
             <point key="canvasLocation" x="1347" y="1116"/>
         </scene>

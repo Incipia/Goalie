@@ -16,7 +16,8 @@ class OnboardingViewController: UIViewController
    @IBOutlet private weak var _bottomSpacePhoneConstraint: NSLayoutConstraint!
    @IBOutlet private weak var _phoneFrameImageView: UIImageView!
    @IBOutlet private weak var _phoneScreenImageView: UIImageView!
-   @IBOutlet private weak var _happyGoalieImageView: UIImageView!
+   @IBOutlet private weak var _finalPageContainerView: UIView!
+   @IBOutlet private weak var _finalTextLabel: UILabel!
    @IBOutlet private weak var _textLabel: UILabel!
    @IBOutlet private weak var _pageControl: UIPageControl!
    @IBOutlet private weak var _nextButton: GoalieKerningButton!
@@ -33,6 +34,7 @@ class OnboardingViewController: UIViewController
       
       _textLabel.alpha = 0
       _textLabel.attributedText = NSAttributedString.attributedOnboardingStringForPageNumber(0)
+      _finalTextLabel.attributedText = NSAttributedString.attributedOnboardingStringForPageNumber(3)
       _bottomSpacePhoneConstraint.constant = -phoneHeight
    }
    
@@ -78,18 +80,20 @@ class OnboardingViewController: UIViewController
             }, completion: nil)
       }
       else {
-         _happyGoalieImageView.alpha = 0
-         _happyGoalieImageView.center = CGPoint(x: view.center.x, y: view.center.y - 50)
-         view.addSubview(_happyGoalieImageView)
+         _finalPageContainerView.alpha = 0
+         _finalPageContainerView.center = CGPoint(x: view.center.x, y: view.center.y - 50)
+         view.addSubview(_finalPageContainerView)
          
          _bottomSpacePhoneConstraint.constant = -_phoneFrameImageView.bounds.height
          UIView.animateWithDuration(0.3, animations: { () -> Void in
+            
+            self._textLabel.alpha = 0
             self.view.layoutIfNeeded()
             self._nextButton.updateText("LET'S GO", color: UIColor.whiteColor())
             }, completion: { (finished) -> Void in
                
                UIView.animateWithDuration(0.3, animations: { () -> Void in
-                  self._happyGoalieImageView.alpha = 1
+                  self._finalPageContainerView.alpha = 1
                })
             }
          )
