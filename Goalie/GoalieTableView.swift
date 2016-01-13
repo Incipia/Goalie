@@ -9,7 +9,8 @@
 import UIKit
 
 let _defaultHeaderHeight: CGFloat = floor(UIScreen.mainScreen().bounds.height / 3.0)
-let _minimumHeaderHeight: CGFloat = floor(UIScreen.mainScreen().bounds.height / 5.0)
+let _minimumHeaderHeight: CGFloat = floor(UIScreen.mainScreen().bounds.height / 5.1)
+let _maximumHeaderHeight: CGFloat = _defaultHeaderHeight + 70
 
 class GoalieTableView: TPKeyboardAvoidingTableView
 {
@@ -70,11 +71,13 @@ class GoalieTableView: TPKeyboardAvoidingTableView
       NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide"), name: UIKeyboardWillHideNotification, object: nil)
    }
    
-   func keyboardWillAppear() {
+   func keyboardWillAppear()
+   {
       updateFooterViewForKeyboardVisibility(true)
    }
    
-   func keyboardWillHide() {
+   func keyboardWillHide()
+   {
       updateFooterViewForKeyboardVisibility(false)
    }
    
@@ -84,8 +87,8 @@ class GoalieTableView: TPKeyboardAvoidingTableView
       _updateHeaderViewFrame()
       
       // prevent scrolling past bottom
-      if contentOffset.y < -_defaultHeaderHeight {
-         contentOffset = CGPoint(x: 0, y: -_defaultHeaderHeight)
+      if contentOffset.y < -_maximumHeaderHeight {
+         contentOffset = CGPoint(x: 0, y: -_maximumHeaderHeight)
       }
    }
    
