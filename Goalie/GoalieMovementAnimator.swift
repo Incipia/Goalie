@@ -16,8 +16,6 @@ class GoalieMovementAnimator
    private let _goalieView: UIView
    private var _isAnimating = false
    
-   var scaleAndRotate = true
-   
    init(view: UIView)
    {
       _goalieView = view
@@ -28,14 +26,8 @@ class GoalieMovementAnimator
    {
       if !_isAnimating {
          _isAnimating = true
-         
-         if scaleAndRotate {
-            _startTranslateAndRotationAnimations()
-            _goalieView.layer.addAnimation(_mainGroupAnimation(), forKey: "goalieAnimation")
-         }
-         else {
-            _startTranslateAnimations()
-         }
+         _startTranslateAndRotationAnimations()
+         _goalieView.layer.addAnimation(_mainGroupAnimation(), forKey: "goalieAnimation")
       }
    }
    
