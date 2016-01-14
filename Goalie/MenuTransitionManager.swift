@@ -53,7 +53,7 @@ class MenuTransitionManager: NSObject, UIViewControllerAnimatedTransitioning, UI
       container.addSubview(toController.view)
       
       let duration = transitionDuration(transitionContext)
-      UIView.animateWithDuration(duration, delay: 0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
+      UIView.animateWithDuration(duration, delay: 0, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
          
          toController.dialogContainer.transform = CGAffineTransformIdentity
          toController.view.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.5)
