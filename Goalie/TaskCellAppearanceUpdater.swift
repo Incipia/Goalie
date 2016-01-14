@@ -61,6 +61,11 @@ struct TaskCellAppearanceUpdater
             view.backgroundColor = color
          }
          break
+      case .LeftButton:
+         if let button = _delegate.viewForComponent(component) as? UIButton, let task = _task {
+            let color = task.completed ? UIColor(priority: task.priority) : UIColor.goalieGrayColor()
+            button.tintColor = color
+         }
       default:
          break
       }

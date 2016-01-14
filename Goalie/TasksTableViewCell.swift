@@ -180,7 +180,7 @@ extension TasksTableViewCell: ConfigurableCell
       
       _appearanceUpdater.updateTask(task)
       _appearanceUpdater.updateProperty(.Alpha, forComponents: [.LeftBar, .LeftButton, .TextField, .DisclosureButton])
-      _appearanceUpdater.updateProperty(.Color, forComponents: [.LeftBar])
+      _appearanceUpdater.updateProperty(.Color, forComponents: [.LeftBar, .LeftButton])
       _appearanceUpdater.updateProperty(.Hidden, forComponents: [.DisclosureButton])
       
       _plusButtonWasPressed = false
