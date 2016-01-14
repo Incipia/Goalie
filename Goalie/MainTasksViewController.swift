@@ -81,7 +81,7 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
    {
       if _shouldShowCongratulationsDialogWhenKeyboardIsDismissed {
          _shouldShowCongratulationsDialogWhenKeyboardIsDismissed = false
-         GoalieSettingsManager.setUserCompletedFirstTask(true)
+         GoalieSettingsManager.setUserCreatedFirstTask(true)
          _showCongratulationsDialog()
       }
    }
@@ -241,7 +241,7 @@ extension MainTasksViewController: TasksTableViewCellDelegate
          if task?.priority == .Unknown && cell.titleText != ""
          {
             task?.priority = .Later
-            if !GoalieSettingsManager.userCompletedFirstTask {
+            if !GoalieSettingsManager.userCreatedFirstTask {
                self._shouldShowCongratulationsDialogWhenKeyboardIsDismissed = true
             }
          }

@@ -106,7 +106,7 @@ class GoalieTableView: TPKeyboardAvoidingTableView
    // MARK: - Public
    func showFooterView()
    {
-      tableFooterView = GoalieSettingsManager.userCompletedFirstTask ? _normalGoalieFooterView : _firstTaskFooterView
+      tableFooterView = GoalieSettingsManager.userCreatedFirstTask ? _normalGoalieFooterView : _firstTaskFooterView
    }
    
    func hideFooterView()
