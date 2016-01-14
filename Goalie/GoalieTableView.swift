@@ -35,7 +35,7 @@ class GoalieTableView: TPKeyboardAvoidingTableView
    @IBOutlet private var _goalieHeaderView: UIView!
    
    private var _goalieMovementAnimator: GoalieMovementAnimator!
-   @IBOutlet private weak var _goalieFaceView: BaseCharacterView! {
+   @IBOutlet private weak var _goalieFaceView: CharacterView! {
       didSet {
          _goalieMovementAnimator = GoalieMovementAnimator(view: _goalieFaceView)
       }
@@ -49,6 +49,17 @@ class GoalieTableView: TPKeyboardAvoidingTableView
    }
    
    @IBOutlet private weak var _settingsButton: UIButton!
+   
+//   private var _currentCharacter: GoalieCharacter = .Unknown
+//   @IBAction private func _swap()
+//   {
+//      if _currentCharacter == .Goalie {
+//         _currentCharacter = .Unknown
+//      } else {
+//         _currentCharacter = .Goalie
+//      }
+//      _goalieFaceView.updateCharacter(_currentCharacter)
+//   }
    
    private var _shouldShowSpeechBubble = false
    private var _currentPriority = TaskPriority.Unknown

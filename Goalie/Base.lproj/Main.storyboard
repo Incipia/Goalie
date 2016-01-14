@@ -31,6 +31,7 @@
             <string>NotoSans-Bold</string>
             <string>NotoSans-Bold</string>
             <string>NotoSans-Bold</string>
+            <string>NotoSans-Bold</string>
         </mutableArray>
         <mutableArray key="NotoSans-Regular.ttf">
             <string>NotoSans</string>
@@ -80,7 +81,7 @@
                                                                 <action selector="_settingsButtonPressed" destination="8kc-U2-rbB" eventType="touchUpInside" id="8u6-SS-P1t"/>
                                                             </connections>
                                                         </button>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SEI-SD-L9z" customClass="BaseCharacterView" customModule="Goalie" customModuleProvider="target">
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SEI-SD-L9z" customClass="CharacterView" customModule="Goalie" customModuleProvider="target">
                                                             <rect key="frame" x="120" y="115" width="80" height="100"/>
                                                             <color key="backgroundColor" red="1" green="0.60022615131578949" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
                                                             <constraints>
@@ -118,7 +119,7 @@
                                                             </connections>
                                                         </view>
                                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zGl-IE-y1R" customClass="GoalieKerningButton" customModule="Goalie" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="242.5" width="40" height="33"/>
+                                                            <rect key="frame" x="0.0" y="242" width="40" height="33"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="33" id="5ZN-ad-odF"/>
                                                                 <constraint firstAttribute="width" constant="40" id="bAx-pp-HNJ"/>
@@ -130,7 +131,7 @@
                                                             </connections>
                                                         </button>
                                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vSU-fQ-8pr" customClass="GoalieKerningButton" customModule="Goalie" customModuleProvider="target">
-                                                            <rect key="frame" x="40" y="242.5" width="40" height="33"/>
+                                                            <rect key="frame" x="40" y="242" width="40" height="33"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="40" id="3dA-Ll-5wF"/>
                                                                 <constraint firstAttribute="height" constant="33" id="bcG-5G-XWK"/>
@@ -142,11 +143,19 @@
                                                             </connections>
                                                         </button>
                                                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c2r-gU-xbI" customClass="GoalieKerningLabel" customModule="Goalie" customModuleProvider="target">
-                                                            <rect key="frame" x="12" y="275.5" width="50" height="16.5"/>
+                                                            <rect key="frame" x="12" y="275" width="50" height="16.5"/>
                                                             <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="12"/>
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DfY-8z-K5t" customClass="GoalieKerningButton" customModule="Goalie" customModuleProvider="target">
+                                                            <rect key="frame" x="16" y="25.5" width="43" height="33"/>
+                                                            <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="15"/>
+                                                            <state key="normal" title="SWAP"/>
+                                                            <connections>
+                                                                <action selector="_swap" destination="arb-Tb-vJa" eventType="touchUpInside" id="wjr-26-fX0"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.070588235289999995" green="0.64313725489999995" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                                     <constraints>
@@ -156,10 +165,12 @@
                                                         <constraint firstItem="vSU-fQ-8pr" firstAttribute="leading" secondItem="zGl-IE-y1R" secondAttribute="trailing" id="Cdk-CI-65t"/>
                                                         <constraint firstItem="SEI-SD-L9z" firstAttribute="centerX" secondItem="8fz-02-pSg" secondAttribute="centerX" id="IEc-dt-i6k"/>
                                                         <constraint firstItem="c2r-gU-xbI" firstAttribute="top" secondItem="zGl-IE-y1R" secondAttribute="bottom" id="KHV-ut-62N"/>
+                                                        <constraint firstItem="DfY-8z-K5t" firstAttribute="leading" secondItem="8fz-02-pSg" secondAttribute="leading" constant="16" id="Rh6-tu-Mk3"/>
                                                         <constraint firstItem="vSU-fQ-8pr" firstAttribute="centerY" secondItem="zGl-IE-y1R" secondAttribute="centerY" id="SJh-gd-3T7"/>
                                                         <constraint firstItem="f7d-lu-WBo" firstAttribute="leading" secondItem="SEI-SD-L9z" secondAttribute="trailing" constant="-20" id="cmd-Hu-q1n"/>
                                                         <constraint firstAttribute="bottom" secondItem="c2r-gU-xbI" secondAttribute="bottom" constant="8" id="dIC-dQ-wtk"/>
                                                         <constraint firstItem="zGl-IE-y1R" firstAttribute="leading" secondItem="8fz-02-pSg" secondAttribute="leading" id="dKS-YO-RbU"/>
+                                                        <constraint firstItem="DfY-8z-K5t" firstAttribute="centerY" secondItem="451-cQ-ISH" secondAttribute="centerY" id="e1x-W6-Ti4"/>
                                                         <constraint firstItem="451-cQ-ISH" firstAttribute="top" secondItem="8fz-02-pSg" secondAttribute="topMargin" constant="14" id="lYd-8J-Zvw"/>
                                                         <constraint firstItem="SEI-SD-L9z" firstAttribute="centerY" secondItem="8fz-02-pSg" secondAttribute="centerY" constant="15" id="q4P-GY-u0N"/>
                                                         <constraint firstItem="SEI-SD-L9z" firstAttribute="leading" secondItem="Cmf-hr-XMs" secondAttribute="trailing" constant="-20" id="qjl-QB-ova"/>
@@ -410,7 +421,7 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KJR-xx-ki4" customClass="GoalieKerningButton" customModule="Goalie" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="336" width="168" height="64"/>
                                             <color key="backgroundColor" red="0.76470588235294112" green="0.84705882352941175" blue="0.88235294117647056" alpha="1" colorSpace="deviceRGB"/>
-                                            <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="17"/>
+                                            <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="16"/>
                                             <color key="tintColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
                                             <state key="normal" title="DELETE">
                                                 <color key="titleColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
@@ -627,7 +638,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="64" id="GDZ-bl-t1h"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="17"/>
+                                            <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="16"/>
                                             <color key="tintColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
                                             <state key="normal" title="DONE">
                                                 <color key="titleColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>

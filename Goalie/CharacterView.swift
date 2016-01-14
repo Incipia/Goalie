@@ -1,5 +1,5 @@
 //
-//  BaseCharacterView.swift
+//  CharacterView.swift
 //  Goalie
 //
 //  Created by Gregory Klein on 1/14/16.
@@ -22,7 +22,7 @@ enum GoalieCharacter
    
    private func _drawBlueRect(rect: CGRect)
    {
-      UIColor.blueColor().setFill()
+      UIColor.blueColor().colorWithAlphaComponent(0.5).setFill()
       UIRectFill(rect)
    }
    
@@ -36,21 +36,21 @@ enum GoalieCharacter
    }
 }
 
-class BaseCharacterView: UIView
+class CharacterView: UIView
 {
    @IBOutlet internal var widthConstraint: NSLayoutConstraint!
    @IBOutlet internal var heightConstraint: NSLayoutConstraint!
    @IBOutlet internal var centerYConstraint: NSLayoutConstraint!
    
-   private var _character: GoalieCharacter = .Goalie
+   private var _character: GoalieCharacter = .Unknown
    internal var _currentPriority: TaskPriority = .Unknown
-   internal var _faceLayer = GoalieFaceLayer()
+   internal var _faceLayer = CharacterFaceLayer()
    
    override func awakeFromNib()
    {
       super.awakeFromNib()
       
-      layer.addSublayer(_faceLayer)
+      updateCharacter(.Goalie)
       backgroundColor = UIColor.clearColor()
    }
    
@@ -59,7 +59,15 @@ class BaseCharacterView: UIView
    {
       if _character != character {
          _character = character
-         setNeedsDisplay()
+         
+         _faceLayer.removeAllAnimations()
+         _faceLayer.removeFromSuperlayer()
+         switch character {
+         case .Unknown: _faceLayer = CharacterFaceLayer()
+         case .Goalie: _faceLayer = GoalieFaceLayer()
+         }
+         layer.addSublayer(_faceLayer)
+         updateWithPriority(_currentPriority)
       }
    }
    
