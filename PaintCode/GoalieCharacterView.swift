@@ -1,5 +1,5 @@
 //
-//  GoalieFaceView.swift
+//  GoalieCharacterView.swift
 //  Goalie
 //
 //  Created by Gregory Klein on 1/5/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GoalieFaceView: CharacterView
+class GoalieCharacterView: BaseCharacterView
 {
    private var _headBackgroundColor: UIColor {
       return UIColor(priority: _currentPriority, headComponent: .Background)
@@ -22,7 +22,7 @@ class GoalieFaceView: CharacterView
    
    override func drawRect(rect: CGRect)
    {
-      GoalieHeadKit.drawGoalieHead(backgroundColor: _headBackgroundColor, cheekColor: _cheekColor, chinColor: _chinColor)
-      GoalieHeadKit.drawAccessoriesForPriority(_currentPriority)
+      GoalieCharacterKit.drawGoalieHead(backgroundColor: _headBackgroundColor, cheekColor: _cheekColor, chinColor: _chinColor)
+      GoalieCharacterKit.drawAccessoriesForPriority(_currentPriority)
    }
 }
