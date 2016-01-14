@@ -53,7 +53,7 @@ class CharacterView: UIView
    
    func animateFace()
    {
-      _faceLayer.updateWithPriority(_currentPriority)
+      _faceLayer.animateForPriority(_currentPriority)
    }
    
    func adjustAnchorPoint(point: CGPoint)

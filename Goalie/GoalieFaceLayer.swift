@@ -81,8 +81,7 @@ class GoalieFaceLayer: CharacterFaceLayer
          self._currentlyAnimating = false
       }
       
-      _updateLayersForPriority(priority)
-      animateForPriority(priority)
+      _updateLayersWithPriority(priority)
    }
    
    override func animateForPriority(priority: TaskPriority)
@@ -112,7 +111,7 @@ class GoalieFaceLayer: CharacterFaceLayer
    }
    
    // MARK: - Private
-   private func _updateLayersForPriority(priority: TaskPriority)
+   private func _updateLayersWithPriority(priority: TaskPriority)
    {
       let eyeColor = UIColor.eyeColorForPriority(priority)
       _leftEyeLayer.fillColor = eyeColor.CGColor

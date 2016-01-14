@@ -139,6 +139,7 @@ class GoalieTableView: TPKeyboardAvoidingTableView
       
       _currentPriority = priority
       _goalieFaceView.updateWithPriority(priority)
+      _goalieFaceView.animateFace()
       
       let text = SpeechBubbleTextProvider.textForPriority(priority)
       _leftSpeechBubble.updateWithText(text, priority: priority)
