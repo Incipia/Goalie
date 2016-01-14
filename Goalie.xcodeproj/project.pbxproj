@@ -13,6 +13,7 @@
 		F324894D1C3F50EE00E3DABD /* SpeechBubbleTextProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F324894C1C3F50EE00E3DABD /* SpeechBubbleTextProvider.swift */; };
 		F324894F1C3F5DCF00E3DABD /* NSAttributedString+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F324894E1C3F5DCF00E3DABD /* NSAttributedString+Extensions.swift */; };
 		F342D1D51C473679006D758A /* OnboardingTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F342D1D41C473679006D758A /* OnboardingTransitionManager.swift */; };
+		F350C7161C4806E200416F14 /* BaseCharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F350C7151C4806E200416F14 /* BaseCharacterView.swift */; };
 		F38318D11C2F343600C36ACB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38318D01C2F343600C36ACB /* AppDelegate.swift */; };
 		F38318D61C2F343600C36ACB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F38318D41C2F343600C36ACB /* Main.storyboard */; };
 		F38318DB1C2F343600C36ACB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F38318D91C2F343600C36ACB /* LaunchScreen.storyboard */; };
@@ -75,8 +76,7 @@
 		F3CEAC621C4061C70047DD78 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F3CEAC5F1C4061C70047DD78 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
 		F3CEAC651C4061F20047DD78 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3CEAC631C4061F20047DD78 /* Crashlytics.framework */; };
 		F3CEAC661C4061F20047DD78 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3CEAC641C4061F20047DD78 /* Fabric.framework */; };
-		F3CEAC6C1C4063810047DD78 /* GoalieFaceKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CEAC681C4063810047DD78 /* GoalieFaceKit.swift */; };
-		F3CEAC6D1C4063810047DD78 /* GoalieFaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CEAC691C4063810047DD78 /* GoalieFaceView.swift */; };
+		F3CEAC6D1C4063810047DD78 /* GoalieCharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CEAC691C4063810047DD78 /* GoalieCharacterView.swift */; };
 		F3CEAC6E1C4063810047DD78 /* GoalieHeadKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CEAC6A1C4063810047DD78 /* GoalieHeadKit.swift */; };
 		F3CEAC6F1C4063810047DD78 /* GoalieSpeechBubbleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CEAC6B1C4063810047DD78 /* GoalieSpeechBubbleKit.swift */; };
 		F3DB3E041C322DC40005C607 /* MainTasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DB3E031C322DC40005C607 /* MainTasksViewController.swift */; };
@@ -93,6 +93,7 @@
 		F324894C1C3F50EE00E3DABD /* SpeechBubbleTextProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SpeechBubbleTextProvider.swift; path = Goalie/SpeechBubbleTextProvider.swift; sourceTree = "<group>"; };
 		F324894E1C3F5DCF00E3DABD /* NSAttributedString+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSAttributedString+Extensions.swift"; path = "Goalie/NSAttributedString+Extensions.swift"; sourceTree = "<group>"; };
 		F342D1D41C473679006D758A /* OnboardingTransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OnboardingTransitionManager.swift; path = Goalie/OnboardingTransitionManager.swift; sourceTree = "<group>"; };
+		F350C7151C4806E200416F14 /* BaseCharacterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseCharacterView.swift; path = Goalie/BaseCharacterView.swift; sourceTree = "<group>"; };
 		F38318CD1C2F343600C36ACB /* Goalie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Goalie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F38318D01C2F343600C36ACB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F38318D51C2F343600C36ACB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -164,8 +165,7 @@
 		F3CEAC631C4061F20047DD78 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = Frameworks/Crashlytics.framework; sourceTree = "<group>"; };
 		F3CEAC641C4061F20047DD78 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fabric.framework; path = Frameworks/Fabric.framework; sourceTree = "<group>"; };
 		F3CEAC671C40631B0047DD78 /* Goalie-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Goalie-Bridging-Header.h"; sourceTree = "<group>"; };
-		F3CEAC681C4063810047DD78 /* GoalieFaceKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoalieFaceKit.swift; path = PaintCode/GoalieFaceKit.swift; sourceTree = "<group>"; };
-		F3CEAC691C4063810047DD78 /* GoalieFaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoalieFaceView.swift; path = PaintCode/GoalieFaceView.swift; sourceTree = "<group>"; };
+		F3CEAC691C4063810047DD78 /* GoalieCharacterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoalieCharacterView.swift; path = PaintCode/GoalieCharacterView.swift; sourceTree = "<group>"; };
 		F3CEAC6A1C4063810047DD78 /* GoalieHeadKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoalieHeadKit.swift; path = PaintCode/GoalieHeadKit.swift; sourceTree = "<group>"; };
 		F3CEAC6B1C4063810047DD78 /* GoalieSpeechBubbleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoalieSpeechBubbleKit.swift; path = PaintCode/GoalieSpeechBubbleKit.swift; sourceTree = "<group>"; };
 		F3DB3E031C322DC40005C607 /* MainTasksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainTasksViewController.swift; path = Goalie/MainTasksViewController.swift; sourceTree = "<group>"; };
@@ -210,26 +210,34 @@
 			name = "Managers and Updaters";
 			sourceTree = "<group>";
 		};
-		F32C2A571C3C8D55002ACA53 /* Goalie Drawing */ = {
+		F32C2A571C3C8D55002ACA53 /* Speech Bubble */ = {
 			isa = PBXGroup;
 			children = (
-				F3CEAC681C4063810047DD78 /* GoalieFaceKit.swift */,
-				F3CEAC691C4063810047DD78 /* GoalieFaceView.swift */,
-				F3CEAC6A1C4063810047DD78 /* GoalieHeadKit.swift */,
-				F3CEAC6B1C4063810047DD78 /* GoalieSpeechBubbleKit.swift */,
 				F32489481C3F174300E3DABD /* GoalieSpeechBubble.swift */,
+				F3CEAC6B1C4063810047DD78 /* GoalieSpeechBubbleKit.swift */,
 				F324894C1C3F50EE00E3DABD /* SpeechBubbleTextProvider.swift */,
+			);
+			name = "Speech Bubble";
+			sourceTree = "<group>";
+		};
+		F350C7171C48109A00416F14 /* Character Drawing */ = {
+			isa = PBXGroup;
+			children = (
+				F350C7151C4806E200416F14 /* BaseCharacterView.swift */,
+				F3CEAC691C4063810047DD78 /* GoalieCharacterView.swift */,
+				F3CEAC6A1C4063810047DD78 /* GoalieHeadKit.swift */,
 				F3A81FFE1C440B520048237F /* GoalieFaceLayer.swift */,
 				F3A820001C441B490048237F /* GoalieFacePathProvider.swift */,
 			);
-			name = "Goalie Drawing";
+			name = "Character Drawing";
 			sourceTree = "<group>";
 		};
 		F38318C41C2F343600C36ACB = {
 			isa = PBXGroup;
 			children = (
+				F350C7171C48109A00416F14 /* Character Drawing */,
 				F3B7F7351C460E8B00C364F0 /* SFX */,
-				F32C2A571C3C8D55002ACA53 /* Goalie Drawing */,
+				F32C2A571C3C8D55002ACA53 /* Speech Bubble */,
 				F383193F1C31A74900C36ACB /* Core Data */,
 				F38319421C31A9C000C36ACB /* Enums */,
 				F38319401C31A76400C36ACB /* Extensions */,
@@ -514,7 +522,6 @@
 				F383190D1C319FE800C36ACB /* TasksTableViewCell.swift in Sources */,
 				F38B55101C34DD810022453F /* SettingsViewController.swift in Sources */,
 				F38319311C31A72D00C36ACB /* NSURL+Extensions.swift in Sources */,
-				F3CEAC6C1C4063810047DD78 /* GoalieFaceKit.swift in Sources */,
 				F3A820011C441B490048237F /* GoalieFacePathProvider.swift in Sources */,
 				F38319291C31A72D00C36ACB /* ManagedObject.swift in Sources */,
 				F38E2EA51C34863600945CA4 /* UIView+Extensions.swift in Sources */,
@@ -545,7 +552,7 @@
 				F38319391C31A72D00C36ACB /* DataProvider.swift in Sources */,
 				F38319341C31A72D00C36ACB /* NSManagedObjectContext+Observers.swift in Sources */,
 				F3A81FFF1C440B520048237F /* GoalieFaceLayer.swift in Sources */,
-				F3CEAC6D1C4063810047DD78 /* GoalieFaceView.swift in Sources */,
+				F3CEAC6D1C4063810047DD78 /* GoalieCharacterView.swift in Sources */,
 				F38B551E1C388F510022453F /* NSDate+Extensions.swift in Sources */,
 				F3CEAC601C4061C70047DD78 /* TPKeyboardAvoidingScrollView.m in Sources */,
 				F3CEAC621C4061C70047DD78 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
@@ -555,6 +562,7 @@
 				F383193B1C31A72D00C36ACB /* TableViewDataSource.swift in Sources */,
 				F38A0F5A1C42010A0034DCE4 /* TaskPriorityStateSnapshotter.swift in Sources */,
 				F383193A1C31A72D00C36ACB /* FetchedResultsDataProvider.swift in Sources */,
+				F350C7161C4806E200416F14 /* BaseCharacterView.swift in Sources */,
 				F38319301C31A72D00C36ACB /* UIImage+Extensions.swift in Sources */,
 				F38B55181C3854A10022453F /* GoalieKerningLabel.swift in Sources */,
 				F3CEAC6E1C4063810047DD78 /* GoalieHeadKit.swift in Sources */,
