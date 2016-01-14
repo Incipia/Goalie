@@ -8,34 +8,6 @@
 
 import UIKit
 
-enum GoalieCharacter
-{
-   case Goalie, Unknown
-   
-   func drawRect(rect: CGRect, withPriority priority: TaskPriority)
-   {
-      switch self {
-      case .Goalie: _drawGoalieCharacterWithPriority(priority)
-      case .Unknown: _drawBlueRect(rect)
-      }
-   }
-   
-   private func _drawBlueRect(rect: CGRect)
-   {
-      UIColor.blueColor().colorWithAlphaComponent(0.5).setFill()
-      UIRectFill(rect)
-   }
-   
-   private func _drawGoalieCharacterWithPriority(priority: TaskPriority)
-   {
-      let bgColor = UIColor(priority: priority, headComponent: .Background)
-      let cheekColor = UIColor(priority: priority, headComponent: .Cheek)
-      let chinColor = UIColor(priority: priority, headComponent: .Chin)
-      GoalieCharacterKit.drawGoalieHead(backgroundColor: bgColor, cheekColor: cheekColor, chinColor: chinColor)
-      GoalieCharacterKit.drawAccessoriesForPriority(priority)
-   }
-}
-
 class CharacterView: UIView
 {
    @IBOutlet internal var widthConstraint: NSLayoutConstraint!

@@ -14,6 +14,7 @@
 		F324894F1C3F5DCF00E3DABD /* NSAttributedString+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F324894E1C3F5DCF00E3DABD /* NSAttributedString+Extensions.swift */; };
 		F342D1D51C473679006D758A /* OnboardingTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F342D1D41C473679006D758A /* OnboardingTransitionManager.swift */; };
 		F350C7161C4806E200416F14 /* CharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F350C7151C4806E200416F14 /* CharacterView.swift */; };
+		F350C7191C481CD400416F14 /* CharacterEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = F350C7181C481CD400416F14 /* CharacterEnums.swift */; };
 		F38318D11C2F343600C36ACB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38318D01C2F343600C36ACB /* AppDelegate.swift */; };
 		F38318D61C2F343600C36ACB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F38318D41C2F343600C36ACB /* Main.storyboard */; };
 		F38318DB1C2F343600C36ACB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F38318D91C2F343600C36ACB /* LaunchScreen.storyboard */; };
@@ -93,6 +94,7 @@
 		F324894E1C3F5DCF00E3DABD /* NSAttributedString+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSAttributedString+Extensions.swift"; path = "Goalie/NSAttributedString+Extensions.swift"; sourceTree = "<group>"; };
 		F342D1D41C473679006D758A /* OnboardingTransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OnboardingTransitionManager.swift; path = Goalie/OnboardingTransitionManager.swift; sourceTree = "<group>"; };
 		F350C7151C4806E200416F14 /* CharacterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CharacterView.swift; path = Goalie/CharacterView.swift; sourceTree = "<group>"; };
+		F350C7181C481CD400416F14 /* CharacterEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CharacterEnums.swift; path = Goalie/CharacterEnums.swift; sourceTree = "<group>"; };
 		F38318CD1C2F343600C36ACB /* Goalie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Goalie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F38318D01C2F343600C36ACB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F38318D51C2F343600C36ACB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 				F3CEAC6A1C4063810047DD78 /* GoalieCharacterKit.swift */,
 				F3A81FFE1C440B520048237F /* GoalieFaceLayer.swift */,
 				F3A820001C441B490048237F /* GoalieFacePathProvider.swift */,
+				F350C7181C481CD400416F14 /* CharacterEnums.swift */,
 			);
 			name = "Character Drawing";
 			sourceTree = "<group>";
@@ -233,17 +236,17 @@
 			isa = PBXGroup;
 			children = (
 				F350C7171C48109A00416F14 /* Character Drawing */,
-				F3B7F7351C460E8B00C364F0 /* SFX */,
-				F32C2A571C3C8D55002ACA53 /* Speech Bubble */,
 				F383193F1C31A74900C36ACB /* Core Data */,
+				F38319471C31AB4100C36ACB /* Custom UI */,
 				F38319421C31A9C000C36ACB /* Enums */,
 				F38319401C31A76400C36ACB /* Extensions */,
 				F383190E1C31A58A00C36ACB /* External Frameworks */,
 				F38319411C31A77E00C36ACB /* Generic Delegate/DataSource */,
-				F38319471C31AB4100C36ACB /* Custom UI */,
 				F32C2A541C3B9EA1002ACA53 /* Managers and Updaters */,
 				F38318CF1C2F343600C36ACB /* Other */,
 				F38318CE1C2F343600C36ACB /* Products */,
+				F3B7F7351C460E8B00C364F0 /* SFX */,
+				F32C2A571C3C8D55002ACA53 /* Speech Bubble */,
 				F32C2A531C3B9E8C002ACA53 /* Storyboards */,
 				F38319451C31AB2700C36ACB /* View Controllers */,
 			);
@@ -525,6 +528,7 @@
 				F383192D1C31A72D00C36ACB /* DefaultTasksFetchRequestProvider.swift in Sources */,
 				F38318D11C2F343600C36ACB /* AppDelegate.swift in Sources */,
 				F324894F1C3F5DCF00E3DABD /* NSAttributedString+Extensions.swift in Sources */,
+				F350C7191C481CD400416F14 /* CharacterEnums.swift in Sources */,
 				F38319331C31A72D00C36ACB /* NSManagedObjectContext+Extensions.swift in Sources */,
 				F3B7F75A1C46EFBB00C364F0 /* CongratulationsViewController.swift in Sources */,
 				F3B7F7531C460F2900C364F0 /* SFXPlayer.swift in Sources */,
