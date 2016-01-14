@@ -110,7 +110,7 @@
                                                                 <outlet property="widthConstraint" destination="8aW-CL-ZBs" id="ojC-Wj-371"/>
                                                             </connections>
                                                         </view>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zGl-IE-y1R" customClass="GoalieKerningButton" customModule="Goalie" customModuleProvider="target">
+                                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zGl-IE-y1R" customClass="GoalieKerningButton" customModule="Goalie" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="242" width="40" height="33"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="33" id="5ZN-ad-odF"/>
@@ -122,7 +122,7 @@
                                                                 <action selector="_decrementCompletedSound" destination="arb-Tb-vJa" eventType="touchUpInside" id="hdZ-O6-bHB"/>
                                                             </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vSU-fQ-8pr" customClass="GoalieKerningButton" customModule="Goalie" customModuleProvider="target">
+                                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vSU-fQ-8pr" customClass="GoalieKerningButton" customModule="Goalie" customModuleProvider="target">
                                                             <rect key="frame" x="40" y="242" width="40" height="33"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="40" id="3dA-Ll-5wF"/>
@@ -134,7 +134,7 @@
                                                                 <action selector="_advanceCompletedSound" destination="arb-Tb-vJa" eventType="touchUpInside" id="e1k-Rg-iOp"/>
                                                             </connections>
                                                         </button>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c2r-gU-xbI" customClass="GoalieKerningLabel" customModule="Goalie" customModuleProvider="target">
+                                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c2r-gU-xbI" customClass="GoalieKerningLabel" customModule="Goalie" customModuleProvider="target">
                                                             <rect key="frame" x="12" y="275" width="50" height="17"/>
                                                             <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="12"/>
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
@@ -443,7 +443,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </textField>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ska-ou-SBC" userLabel="Separator">
-                                                    <rect key="frame" x="20" y="84" width="298" height="2"/>
+                                                    <rect key="frame" x="20" y="84" width="318" height="2"/>
                                                     <color key="backgroundColor" red="0.76470588240000004" green="0.84705882349999995" blue="0.88235294119999996" alpha="1" colorSpace="deviceRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="2" id="ZXH-m0-EaZ"/>
@@ -585,7 +585,7 @@
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fyg-rT-Xik" userLabel="Separator">
-                                                    <rect key="frame" x="20" y="197" width="298" height="2"/>
+                                                    <rect key="frame" x="20" y="197" width="318" height="2"/>
                                                     <color key="backgroundColor" red="0.76470588240000004" green="0.84705882349999995" blue="0.88235294119999996" alpha="1" colorSpace="deviceRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="2" id="may-Oe-tXT"/>
@@ -594,7 +594,7 @@
                                             </subviews>
                                             <color key="backgroundColor" red="0.21960784310000001" green="0.23529411759999999" blue="0.34509803919999998" alpha="0.0" colorSpace="calibratedRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="Ska-ou-SBC" secondAttribute="trailing" constant="20" id="6nL-me-l4K"/>
+                                                <constraint firstAttribute="trailing" secondItem="Ska-ou-SBC" secondAttribute="trailing" id="6nL-me-l4K"/>
                                                 <constraint firstAttribute="bottom" secondItem="Ype-g1-Uyi" secondAttribute="bottom" id="Aub-K0-su9"/>
                                                 <constraint firstItem="lPJ-ET-lfq" firstAttribute="top" secondItem="xeH-au-Ics" secondAttribute="top" constant="30" id="C7d-Og-ZSe"/>
                                                 <constraint firstItem="cF0-TP-VJp" firstAttribute="width" secondItem="XVU-Ul-3zk" secondAttribute="width" id="IP9-dI-xEt"/>
@@ -606,7 +606,7 @@
                                                 <constraint firstItem="Ype-g1-Uyi" firstAttribute="top" secondItem="Ska-ou-SBC" secondAttribute="bottom" id="aMD-8P-S9N"/>
                                                 <constraint firstItem="9Zq-7d-cZ0" firstAttribute="leading" secondItem="Ska-ou-SBC" secondAttribute="leading" id="gIH-zi-Ge3"/>
                                                 <constraint firstItem="cF0-TP-VJp" firstAttribute="leading" secondItem="fyg-rT-Xik" secondAttribute="leading" id="j3x-Po-d8U"/>
-                                                <constraint firstItem="fyg-rT-Xik" firstAttribute="trailing" secondItem="0er-6a-GVP" secondAttribute="trailing" id="lOf-kq-Oac"/>
+                                                <constraint firstItem="fyg-rT-Xik" firstAttribute="trailing" secondItem="0er-6a-GVP" secondAttribute="trailing" constant="20" id="lOf-kq-Oac"/>
                                                 <constraint firstItem="fyg-rT-Xik" firstAttribute="top" secondItem="XVU-Ul-3zk" secondAttribute="bottom" constant="2" id="met-y0-sZ7"/>
                                                 <constraint firstItem="lPJ-ET-lfq" firstAttribute="leading" secondItem="xeH-au-Ics" secondAttribute="leading" constant="20" id="ojw-hu-LGH"/>
                                                 <constraint firstItem="Ska-ou-SBC" firstAttribute="top" secondItem="lPJ-ET-lfq" secondAttribute="bottom" constant="4" id="pLe-57-FDP"/>
