@@ -12,11 +12,13 @@ class SpeechBubbleTextProvider
 {
    static let sharedProvider = SpeechBubbleTextProvider()
    
-   private let _unknownTextArray = ["BOORING", "SNOOZE FEST", "YAWN", "NAP TIME!"]
-   private let _agesTextArray = ["WE GOT THIS", "COOL AS A CUCUMBER", "PLENTY OF TIME", "TAKE YOUR TIME"]
-   private let _laterTextArray = ["ALRIGHT!", "LET'S DO THIS"]
-   private let _soonTextArray = ["ANYONE ELSE HOT?", "DO I LOOK FLUSHED?", "WORKIN' UP A SWEAT", "KEEP COOL MAN"]
-   private let _asapTextArray = ["EVERYONE STAY CALM!", "BURNIN' UP", "TURN THE AC ON!", "WOAH BUDDY"]
+   private let _unknownTextArray = ["BOORING", "SNOOZE FEST", "YAWN", "NAP TIME", "1 SHEEP 2...", "ZZZZZZ", "I'M BEAT"]
+   private let _agesTextArray = ["WE GOT THIS", "ICE, ICE, BABY", "TONS O' TIME", "SO RELAXED", "JUST CHILLIN'", "SO COOL", "JUST SWELL"]
+   private let _laterTextArray = ["ALRIGHT!", "LET'S DO THIS", "POWER UP", "HELLO, IT'S ME", "GET SOME", "GO TO TOWN", "WAHOO"]
+   private let _soonTextArray = ["ARE YOU HOT?", "I'M FLUSHED", "SWEATIN' IT", "KEEP COOL", "FEVERISH", "UH... HMM..", "EXCUSE ME?"]
+   private let _asapTextArray = ["STAY CALM!", "BURNIN' UP", "WOAH BUDDY", "SEND HELP", "TOO HOT", "I NEED ICE", "!!!!!!!!!!!!"]
+   
+   // For later
    private let _productiveActivityArray = ["KILLING IT TODAY", "LOOK AT YOU GO", "BRAVO", "GETTIN' IT", "CRUSHED IT"]
    
    private var _lastTextDictionary: [TaskPriority : String] = [.Unknown: "", .Ages : "", .Later : "", .Soon : "", .ASAP : ""]
