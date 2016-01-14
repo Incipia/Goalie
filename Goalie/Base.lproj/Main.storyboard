@@ -373,7 +373,7 @@
         <!--Edit Task View Controller-->
         <scene sceneID="otv-96-TEA">
             <objects>
-                <viewController storyboardIdentifier="TaskDetailsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="EZY-Nk-o6p" customClass="EditTaskViewController" customModule="Goalie" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditTaskViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="EZY-Nk-o6p" customClass="EditTaskViewController" customModule="Goalie" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rfU-O4-SNg"/>
                         <viewControllerLayoutGuide type="bottom" id="jzc-to-hMd"/>
@@ -661,13 +661,17 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="_agesButton" destination="0er-6a-GVP" id="lBG-cY-zy5"/>
                         <outlet property="_agesPriorityBlock" destination="Pru-Tn-6Md" id="Lht-sY-bhR"/>
+                        <outlet property="_asapButton" destination="XVU-Ul-3zk" id="HCU-gP-UIY"/>
                         <outlet property="_asapPriorityBlock" destination="cLY-LI-7Cl" id="GYE-Co-9zS"/>
                         <outlet property="_deleteButton" destination="KJR-xx-ki4" id="JNV-UJ-AeP"/>
                         <outlet property="_detailsContainerView" destination="oFK-D8-eOM" id="441-ak-TUM"/>
                         <outlet property="_doneButton" destination="GhU-SJ-iKm" id="I5Z-Nh-Icn"/>
+                        <outlet property="_laterButton" destination="FtY-4A-yur" id="jSh-NH-Frr"/>
                         <outlet property="_laterPriorityBlock" destination="eWW-3T-u4E" id="yUM-zH-VQa"/>
                         <outlet property="_priorityIndicatorLeadingSpaceConstraint" destination="j3x-Po-d8U" id="rgn-rj-DQc"/>
+                        <outlet property="_soonButton" destination="bsh-dq-nQb" id="Kq2-6a-Bdo"/>
                         <outlet property="_soonPriorityBlock" destination="ixo-In-mII" id="3lG-US-7tZ"/>
                         <outlet property="_titleTextField" destination="lPJ-ET-lfq" id="TRX-yE-OWH"/>
                     </connections>

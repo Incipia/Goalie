@@ -29,7 +29,7 @@ extension UIStoryboard
    static func editTaskViewController(managedObjectContext: NSManagedObjectContext) -> EditTaskViewController
    {
       let storyboard = UIStoryboard(name: "Main", bundle: nil)
-      let editTaskController = storyboard.instantiateViewControllerWithIdentifier("TaskDetailsViewController") as! EditTaskViewController
+      let editTaskController = storyboard.instantiateViewControllerWithIdentifier("EditTaskViewController") as! EditTaskViewController
       editTaskController.moc = managedObjectContext
       editTaskController.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
       

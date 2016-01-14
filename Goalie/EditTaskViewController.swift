@@ -19,6 +19,11 @@ class EditTaskViewController: UIViewController, ManagedObjectContextSettable, Me
    @IBOutlet private weak var _laterPriorityBlock: UIView!
    @IBOutlet private weak var _agesPriorityBlock: UIView!
    
+   @IBOutlet private weak var _agesButton: UIButton!
+   @IBOutlet private weak var _laterButton: UIButton!
+   @IBOutlet private weak var _soonButton: UIButton!
+   @IBOutlet private weak var _asapButton: UIButton!
+   
    @IBOutlet private weak var _deleteButton: GoalieKerningButton!
    @IBOutlet private weak var _doneButton: GoalieKerningButton!
    
@@ -44,6 +49,7 @@ class EditTaskViewController: UIViewController, ManagedObjectContextSettable, Me
       _setupTitleTextField()
       _updateTitleTextField()
       _currentPriority = _task.priority
+      _updateButtonAlphasForPriority(_currentPriority)
    }
    
    override func viewDidLayoutSubviews()
@@ -79,37 +85,31 @@ class EditTaskViewController: UIViewController, ManagedObjectContextSettable, Me
    // Mark: - IBActions
    @IBAction private func _asapButtonPressed()
    {
-      if _currentPriority != .ASAP {
-         SFXPlayer.playPriorityChangeSound()
-      }
-      _currentPriority = .ASAP
-      _updatePriorityIndicatorViewFrameAnimated(true)
+      _buttonPressedForPriority(.ASAP)
    }
    
    @IBAction private func _soonButtonPressed()
    {
-      if _currentPriority != .Soon {
-         SFXPlayer.playPriorityChangeSound()
-      }
-      _currentPriority = .Soon
-      _updatePriorityIndicatorViewFrameAnimated(true)
+      _buttonPressedForPriority(.Soon)
    }
    
    @IBAction private func _laterButtonPressed()
    {
-      if _currentPriority != .Later {
-         SFXPlayer.playPriorityChangeSound()
-      }
-      _currentPriority = .Later
-      _updatePriorityIndicatorViewFrameAnimated(true)
+      _buttonPressedForPriority(.Later)
    }
    
    @IBAction private func _agesButtonPressed()
    {
-      if _currentPriority != .Ages {
+      _buttonPressedForPriority(.Ages)
+   }
+   
+   private func _buttonPressedForPriority(priority: TaskPriority)
+   {
+      if _currentPriority != priority {
          SFXPlayer.playPriorityChangeSound()
       }
-      _currentPriority = .Ages
+      _currentPriority = priority
+      _updateButtonAlphasForPriority(priority)
       _updatePriorityIndicatorViewFrameAnimated(true)
    }
    
@@ -143,6 +143,27 @@ class EditTaskViewController: UIViewController, ManagedObjectContextSettable, Me
    }
    
    // MARK: - Private
+   private func _updateButtonAlphasForPriority(priority: TaskPriority)
+   {
+      var agesAlpha: CGFloat = 0.5
+      var laterAlpha: CGFloat = 0.5
+      var soonAlpha: CGFloat = 0.5
+      var asapAlpha: CGFloat = 0.5
+      switch priority
+      {
+      case .Unknown:
+         break
+      case .Ages: agesAlpha = 1
+      case .Later: laterAlpha = 1
+      case .Soon: soonAlpha = 1
+      case .ASAP: asapAlpha = 1
+      }
+      _agesButton.alpha = agesAlpha
+      _laterButton.alpha = laterAlpha
+      _soonButton.alpha = soonAlpha
+      _asapButton.alpha = asapAlpha
+   }
+   
    private func _updateTitleTextField()
    {
       _titleTextField.text = _task.title
