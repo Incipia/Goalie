@@ -8,7 +8,14 @@
 
 import UIKit
 
-class GoalieFaceLayer: CALayer
+class CharacterFaceLayer: CALayer
+{
+   internal var _currentPriority: TaskPriority = .Unknown
+   func updateWithPriority(priority: TaskPriority) {}
+   func animateForPriority(priority: TaskPriority) {}
+}
+
+class GoalieFaceLayer: CharacterFaceLayer
 {
    private let _leftEyeLayer = CAShapeLayer()
    private let _rightEyeLayer = CAShapeLayer()
@@ -16,7 +23,6 @@ class GoalieFaceLayer: CALayer
    private let _teethLayer = CAShapeLayer()
    
    private let _pathProvider = GoalieFacePathProvider()
-   private var _currentPriority: TaskPriority = .Unknown
    private var _currentlyAnimating = false
    
    // MARK: - Init
@@ -57,7 +63,7 @@ class GoalieFaceLayer: CALayer
    }
    
    // MARK: - Public
-   func updateWithPriority(priority: TaskPriority)
+   override func updateWithPriority(priority: TaskPriority)
    {
       _currentPriority = priority
       
@@ -79,7 +85,7 @@ class GoalieFaceLayer: CALayer
       animateForPriority(priority)
    }
    
-   func animateForPriority(priority: TaskPriority)
+   override func animateForPriority(priority: TaskPriority)
    {
       if _currentlyAnimating == false {
          _currentlyAnimating = true

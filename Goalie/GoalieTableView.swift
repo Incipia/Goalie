@@ -35,9 +35,8 @@ class GoalieTableView: TPKeyboardAvoidingTableView
    @IBOutlet private var _goalieHeaderView: UIView!
    
    private var _goalieMovementAnimator: GoalieMovementAnimator!
-   @IBOutlet private weak var _goalieFaceView: GoalieFaceView! {
+   @IBOutlet private weak var _goalieFaceView: BaseCharacterView! {
       didSet {
-         _goalieFaceView.layer.anchorPoint = CGPoint(x: 0.5, y: 1)
          _goalieMovementAnimator = GoalieMovementAnimator(view: _goalieFaceView)
       }
    }
@@ -54,6 +53,10 @@ class GoalieTableView: TPKeyboardAvoidingTableView
    private var _shouldShowSpeechBubble = false
    private var _currentPriority = TaskPriority.Unknown
    
+   deinit {
+      NSNotificationCenter.defaultCenter().removeObserver(self)
+   }
+   
    // MARK: - Lifecycle
    override func awakeFromNib()
    {
@@ -67,21 +70,21 @@ class GoalieTableView: TPKeyboardAvoidingTableView
       _leftSpeechBubble.hidden = true
       _rightSpeechBubble.hidden = true
       
+      _setupKeyboardObserving()
+      
+      let newAnchorPoint = CGPoint(x: 0.5, y: 1)
+      _goalieFaceView.adjustAnchorPoint(newAnchorPoint)
+      _leftSpeechBubble.adjustAnchorPoint(newAnchorPoint)
+      _rightSpeechBubble.adjustAnchorPoint(newAnchorPoint)
+   }
+   
+   // MARK: - Setup
+   private func _setupKeyboardObserving()
+   {
       NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillAppear"), name: UIKeyboardWillShowNotification, object: nil)
       NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide"), name: UIKeyboardWillHideNotification, object: nil)
    }
    
-   func keyboardWillAppear()
-   {
-      updateFooterViewForKeyboardVisibility(true)
-   }
-   
-   func keyboardWillHide()
-   {
-      updateFooterViewForKeyboardVisibility(false)
-   }
-   
-   // MARK: - Setup
    private func _setupHeaderView()
    {
       tableHeaderView = nil
@@ -173,6 +176,17 @@ class GoalieTableView: TPKeyboardAvoidingTableView
    func updateFooterViewForKeyboardVisibility(visible: Bool)
    {
       _firstTaskFooterViewArrow.hidden = visible
+   }
+   
+   // MARK: - Keyboard Observing
+   func keyboardWillAppear()
+   {
+      updateFooterViewForKeyboardVisibility(true)
+   }
+   
+   func keyboardWillHide()
+   {
+      updateFooterViewForKeyboardVisibility(false)
    }
 }
 

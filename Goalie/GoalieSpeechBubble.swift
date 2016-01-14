@@ -27,7 +27,6 @@ private extension UIColor
       }
    }
    
-   
    static func textColorForPriority(priority: TaskPriority) -> UIColor
    {
       switch priority
@@ -40,7 +39,8 @@ private extension UIColor
 
 class GoalieSpeechBubble: UIView
 {
-   @IBOutlet private weak var widthConstraint: NSLayoutConstraint?
+   @IBOutlet private weak var widthConstraint: NSLayoutConstraint!
+   @IBOutlet private weak var baselineConstraint: NSLayoutConstraint!
    
    var tailDirection: BubbleTailDirection = BubbleTailDirection.Left {
       didSet {
@@ -71,6 +71,16 @@ class GoalieSpeechBubble: UIView
    }
    
    // MARK: - Public
+   func adjustAnchorPoint(point: CGPoint)
+   {
+      let oldOrigin = frame.origin
+      layer.anchorPoint = point
+      let newOrigin = frame.origin
+      
+      let transition = CGPointMake (newOrigin.x - oldOrigin.x, newOrigin.y - oldOrigin.y)
+      baselineConstraint.constant += transition.y
+   }
+   
    func updateWithText(text: String, priority: TaskPriority)
    {
       _currentPriority = priority
@@ -85,7 +95,7 @@ class GoalieSpeechBubble: UIView
       _textLabel.textColor = UIColor.textColorForPriority(priority)
       _textLabel.sizeToFit()
       
-      self.widthConstraint?.constant = self.labelWidth + 45
+      self.widthConstraint.constant = self.labelWidth + 45
    }
    
    private func _updateTextLabelPosition()

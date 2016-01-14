@@ -29,10 +29,8 @@ class GoalieMovementAnimator
       if !_isAnimating {
          _isAnimating = true
          
-         _goalieView.layer.speed = 1
          if scaleAndRotate {
             _startTranslateAndRotationAnimations()
-            _goalieView.layer.anchorPoint = CGPoint(x: 0.5, y: 1)
             _goalieView.layer.addAnimation(_mainGroupAnimation(), forKey: "goalieAnimation")
          }
          else {
