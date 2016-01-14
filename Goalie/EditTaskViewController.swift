@@ -19,10 +19,10 @@ class EditTaskViewController: UIViewController, ManagedObjectContextSettable, Me
    @IBOutlet private weak var _laterPriorityBlock: UIView!
    @IBOutlet private weak var _agesPriorityBlock: UIView!
    
-   @IBOutlet private weak var _agesButton: UIButton!
-   @IBOutlet private weak var _laterButton: UIButton!
-   @IBOutlet private weak var _soonButton: UIButton!
-   @IBOutlet private weak var _asapButton: UIButton!
+   @IBOutlet private weak var _agesButton: GoalieKerningButton!
+   @IBOutlet private weak var _laterButton: GoalieKerningButton!
+   @IBOutlet private weak var _soonButton: GoalieKerningButton!
+   @IBOutlet private weak var _asapButton: GoalieKerningButton!
    
    @IBOutlet private weak var _deleteButton: GoalieKerningButton!
    @IBOutlet private weak var _doneButton: GoalieKerningButton!
@@ -49,7 +49,7 @@ class EditTaskViewController: UIViewController, ManagedObjectContextSettable, Me
       _setupTitleTextField()
       _updateTitleTextField()
       _currentPriority = _task.priority
-      _updateButtonAlphasForPriority(_currentPriority)
+      _updateButtonTextColorsForPriority(_currentPriority)
    }
    
    override func viewDidLayoutSubviews()
@@ -109,7 +109,7 @@ class EditTaskViewController: UIViewController, ManagedObjectContextSettable, Me
          SFXPlayer.playPriorityChangeSound()
       }
       _currentPriority = priority
-      _updateButtonAlphasForPriority(priority)
+      _updateButtonTextColorsForPriority(priority)
       _updatePriorityIndicatorViewFrameAnimated(true)
    }
    
@@ -143,25 +143,30 @@ class EditTaskViewController: UIViewController, ManagedObjectContextSettable, Me
    }
    
    // MARK: - Private
-   private func _updateButtonAlphasForPriority(priority: TaskPriority)
+   private func _updateButtonTextColorsForPriority(priority: TaskPriority)
    {
-      var agesAlpha: CGFloat = 0.5
-      var laterAlpha: CGFloat = 0.5
-      var soonAlpha: CGFloat = 0.5
-      var asapAlpha: CGFloat = 0.5
+      let disabledColor = UIColor(rgbValues: (87, 123, 137))
+      let activeColor = UIColor.blackColor()
+      
+      var agesColor = disabledColor
+      var laterColor = disabledColor
+      var soonColor = disabledColor
+      var asapColor = disabledColor
+      
       switch priority
       {
       case .Unknown:
          break
-      case .Ages: agesAlpha = 1
-      case .Later: laterAlpha = 1
-      case .Soon: soonAlpha = 1
-      case .ASAP: asapAlpha = 1
+      case .Ages: agesColor = activeColor
+      case .Later: laterColor = activeColor
+      case .Soon: soonColor = activeColor
+      case .ASAP: asapColor = activeColor
       }
-      _agesButton.alpha = agesAlpha
-      _laterButton.alpha = laterAlpha
-      _soonButton.alpha = soonAlpha
-      _asapButton.alpha = asapAlpha
+      
+      _agesButton.updateTextColor(agesColor)
+      _laterButton.updateTextColor(laterColor)
+      _soonButton.updateTextColor(soonColor)
+      _asapButton.updateTextColor(asapColor)
    }
    
    private func _updateTitleTextField()
