@@ -27,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
    private var _goalieAnimationTimer: NSTimer?
    private var _mainTasksViewController: MainTasksViewController!
    private var _onboardingViewController: OnboardingViewController!
+   private let _onboardingTransitionManager = OnboardingTransitionManager()
 
    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
    {
@@ -44,8 +45,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate
       }
       else {
          _onboardingViewController = UIStoryboard.onboardingViewController()
+         _mainTasksViewController.transitioningDelegate = _onboardingTransitionManager
+         
          _onboardingViewController.onboardingCompletionBlock = {
-            self._onboardingViewController.presentViewController(self._mainTasksViewController, animated: false, completion: { () -> Void in
+            self._onboardingViewController.presentViewController(self._mainTasksViewController, animated: true, completion: { () -> Void in
                
                self._startTimers()
                self._mainTasksViewController.showSpeechBubble()

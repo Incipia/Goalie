@@ -383,7 +383,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oFK-D8-eOM">
-                                <rect key="frame" x="19" y="133" width="338" height="400"/>
+                                <rect key="frame" x="18" y="134" width="338" height="400"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="0QK-XL-YBG">
                                     <rect key="frame" x="0.0" y="0.0" width="338" height="400"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -648,12 +648,15 @@
                                         <constraint firstItem="Lq8-di-iwY" firstAttribute="leading" secondItem="0QK-XL-YBG" secondAttribute="leading" constant="20" id="xTg-aq-aca"/>
                                     </constraints>
                                 </view>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="400" id="qkX-Js-9pg"/>
+                                </constraints>
                                 <blurEffect style="extraLight"/>
                             </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="oFK-D8-eOM" firstAttribute="height" secondItem="Hp4-Py-Nfe" secondAttribute="height" multiplier="0.6" id="BbU-tw-azU"/>
+                            <constraint firstItem="oFK-D8-eOM" firstAttribute="height" secondItem="Hp4-Py-Nfe" secondAttribute="height" multiplier="0.6" priority="999" id="BbU-tw-azU"/>
                             <constraint firstItem="oFK-D8-eOM" firstAttribute="centerX" secondItem="Hp4-Py-Nfe" secondAttribute="centerX" id="KX6-sz-DfO"/>
                             <constraint firstItem="oFK-D8-eOM" firstAttribute="width" secondItem="Hp4-Py-Nfe" secondAttribute="width" multiplier="0.9" id="Wn4-8h-qOj"/>
                             <constraint firstItem="oFK-D8-eOM" firstAttribute="centerY" secondItem="Hp4-Py-Nfe" secondAttribute="centerY" id="nWD-kc-u7e"/>
@@ -693,19 +696,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding-phone" translatesAutoresizingMaskIntoConstraints="NO" id="Bux-Tt-g3m">
-                                <rect key="frame" x="32" y="216" width="256" height="292"/>
+                                <rect key="frame" x="32" y="206" width="256" height="292"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Bux-Tt-g3m" secondAttribute="height" multiplier="65:74" id="Ckm-ki-qIv"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding-1" translatesAutoresizingMaskIntoConstraints="NO" id="aRS-AB-up1">
-                                <rect key="frame" x="48" y="294" width="224" height="214"/>
+                                <rect key="frame" x="48" y="284" width="224" height="214"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="aRS-AB-up1" secondAttribute="height" multiplier="227:216" id="FR4-aT-Klp"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LdQ-he-PWO">
-                                <rect key="frame" x="49" y="118" width="222" height="55"/>
+                                <rect key="frame" x="49" y="108" width="222" height="55"/>
                                 <color key="tintColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="deviceRGB"/>
                                 <string key="text">Meet Goalie.
 He really likes tasks....</string>
@@ -721,17 +724,17 @@ He really likes tasks....</string>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="✕"/>
+                                <state key="normal" image="onboarding-cancel"/>
                                 <connections>
                                     <action selector="_closeButtonPressed" destination="EZY-Nk-o6p" eventType="touchUpInside" id="FIV-vO-Tcs"/>
                                     <action selector="_closeButtonPressed" destination="MHe-2g-aey" eventType="touchUpInside" id="esn-k1-zYF"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tf9-Iw-fHf" customClass="GoalieKerningButton" customModule="Goalie" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="508" width="320" height="60"/>
+                                <rect key="frame" x="0.0" y="498" width="320" height="70"/>
                                 <color key="backgroundColor" red="0.12156862745098039" green="0.30588235294117649" blue="0.42352941176470588" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="FF8-FK-pUp"/>
+                                    <constraint firstAttribute="height" constant="70" id="FF8-FK-pUp"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="17"/>
                                 <color key="tintColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="deviceRGB"/>
@@ -743,7 +746,7 @@ He really likes tasks....</string>
                                 </connections>
                             </button>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="UoL-U7-vTN">
-                                <rect key="frame" x="133" y="38" width="55" height="37"/>
+                                <rect key="frame" x="133" y="58" width="55" height="37"/>
                             </pageControl>
                         </subviews>
                         <color key="backgroundColor" red="0.14117647058823529" green="0.65098039215686276" blue="0.9882352941176471" alpha="1" colorSpace="calibratedRGB"/>
@@ -759,7 +762,7 @@ He really likes tasks....</string>
                             <constraint firstItem="LdQ-he-PWO" firstAttribute="centerX" secondItem="Bux-Tt-g3m" secondAttribute="centerX" id="N7N-v6-zPF"/>
                             <constraint firstItem="Tf9-Iw-fHf" firstAttribute="leading" secondItem="bhf-ub-OlU" secondAttribute="leading" id="TFd-P6-Do9"/>
                             <constraint firstItem="aRS-AB-up1" firstAttribute="width" secondItem="Bux-Tt-g3m" secondAttribute="width" multiplier="0.873" id="eNh-dD-jBd"/>
-                            <constraint firstItem="UoL-U7-vTN" firstAttribute="bottom" secondItem="wfC-QU-hO3" secondAttribute="bottom" id="faS-eh-4HV"/>
+                            <constraint firstItem="UoL-U7-vTN" firstAttribute="bottom" secondItem="wfC-QU-hO3" secondAttribute="bottom" constant="20" id="faS-eh-4HV"/>
                             <constraint firstAttribute="trailing" secondItem="wfC-QU-hO3" secondAttribute="trailing" id="hOD-i2-rPQ"/>
                             <constraint firstItem="wfC-QU-hO3" firstAttribute="top" secondItem="bhf-ub-OlU" secondAttribute="top" constant="15" id="j0s-tf-vfr"/>
                             <constraint firstItem="wfC-QU-hO3" firstAttribute="width" secondItem="wfC-QU-hO3" secondAttribute="height" multiplier="1:1" id="nk5-om-Ncf"/>
@@ -773,6 +776,7 @@ He really likes tasks....</string>
                         <outlet property="_finalTextLabel" destination="HmC-Y4-xmo" id="FNv-yi-dr9"/>
                         <outlet property="_nextButton" destination="Tf9-Iw-fHf" id="Wis-uU-dfg"/>
                         <outlet property="_pageControl" destination="UoL-U7-vTN" id="PiQ-Tb-pML"/>
+                        <outlet property="_pageControlLayoutConstraint" destination="faS-eh-4HV" id="AiV-GD-D79"/>
                         <outlet property="_phoneFrameImageView" destination="Bux-Tt-g3m" id="HdJ-6M-ODs"/>
                         <outlet property="_phoneScreenImageView" destination="aRS-AB-up1" id="ZBI-5L-tgf"/>
                         <outlet property="_textLabel" destination="LdQ-he-PWO" id="yVK-rr-XO8"/>
@@ -882,6 +886,7 @@ Goalie's happy.</string>
                                         <constraint firstItem="e3k-GH-Iqu" firstAttribute="leading" secondItem="2LN-x7-CSb" secondAttribute="leading" id="Ehg-1V-Faz"/>
                                         <constraint firstItem="CeK-wk-LkK" firstAttribute="top" secondItem="ug8-L9-t1w" secondAttribute="bottom" constant="50" id="FmO-hO-AYD"/>
                                         <constraint firstItem="0Yr-sT-wBA" firstAttribute="top" secondItem="e3k-GH-Iqu" secondAttribute="bottom" constant="8" id="NcN-V6-tOz"/>
+                                        <constraint firstAttribute="bottom" secondItem="0Yr-sT-wBA" secondAttribute="bottom" constant="24" id="Of2-rV-JMg"/>
                                         <constraint firstItem="e3k-GH-Iqu" firstAttribute="top" secondItem="2LN-x7-CSb" secondAttribute="bottom" constant="8" id="PVB-YK-6QH"/>
                                         <constraint firstItem="2LN-x7-CSb" firstAttribute="top" secondItem="Elq-nd-LiQ" secondAttribute="bottom" constant="33" id="QvF-a4-p8h"/>
                                         <constraint firstItem="ug8-L9-t1w" firstAttribute="centerY" secondItem="IJK-co-R7s" secondAttribute="centerY" id="e1J-5A-giU"/>
@@ -892,9 +897,6 @@ Goalie's happy.</string>
                                         <constraint firstItem="ug8-L9-t1w" firstAttribute="leading" secondItem="KBr-Zv-qva" secondAttribute="leading" constant="20" id="zlZ-h4-PZO"/>
                                     </constraints>
                                 </view>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="320" id="yVb-WQ-ceu"/>
-                                </constraints>
                                 <blurEffect style="extraLight"/>
                             </visualEffectView>
                         </subviews>
@@ -1009,6 +1011,7 @@ Goalie's happy.</string>
         <image name="first-task-graphic" width="16" height="88"/>
         <image name="onboarding-1" width="227" height="216"/>
         <image name="onboarding-4" width="193" height="229"/>
+        <image name="onboarding-cancel" width="19" height="19"/>
         <image name="onboarding-empty-arrow" width="60" height="66"/>
         <image name="onboarding-phone" width="260" height="296"/>
         <image name="settings-gear" width="22" height="22"/>
