@@ -12,6 +12,7 @@
 		F32489491C3F174300E3DABD /* GoalieSpeechBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32489481C3F174300E3DABD /* GoalieSpeechBubble.swift */; };
 		F324894D1C3F50EE00E3DABD /* SpeechBubbleTextProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F324894C1C3F50EE00E3DABD /* SpeechBubbleTextProvider.swift */; };
 		F324894F1C3F5DCF00E3DABD /* NSAttributedString+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F324894E1C3F5DCF00E3DABD /* NSAttributedString+Extensions.swift */; };
+		F342D1D51C473679006D758A /* OnboardingTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F342D1D41C473679006D758A /* OnboardingTransitionManager.swift */; };
 		F38318D11C2F343600C36ACB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38318D01C2F343600C36ACB /* AppDelegate.swift */; };
 		F38318D61C2F343600C36ACB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F38318D41C2F343600C36ACB /* Main.storyboard */; };
 		F38318DB1C2F343600C36ACB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F38318D91C2F343600C36ACB /* LaunchScreen.storyboard */; };
@@ -91,6 +92,7 @@
 		F32489481C3F174300E3DABD /* GoalieSpeechBubble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoalieSpeechBubble.swift; path = Goalie/GoalieSpeechBubble.swift; sourceTree = "<group>"; };
 		F324894C1C3F50EE00E3DABD /* SpeechBubbleTextProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SpeechBubbleTextProvider.swift; path = Goalie/SpeechBubbleTextProvider.swift; sourceTree = "<group>"; };
 		F324894E1C3F5DCF00E3DABD /* NSAttributedString+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSAttributedString+Extensions.swift"; path = "Goalie/NSAttributedString+Extensions.swift"; sourceTree = "<group>"; };
+		F342D1D41C473679006D758A /* OnboardingTransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OnboardingTransitionManager.swift; path = Goalie/OnboardingTransitionManager.swift; sourceTree = "<group>"; };
 		F38318CD1C2F343600C36ACB /* Goalie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Goalie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F38318D01C2F343600C36ACB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F38318D51C2F343600C36ACB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -133,7 +135,7 @@
 		F3A81FFE1C440B520048237F /* GoalieFaceLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoalieFaceLayer.swift; path = Goalie/GoalieFaceLayer.swift; sourceTree = "<group>"; };
 		F3A820001C441B490048237F /* GoalieFacePathProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoalieFacePathProvider.swift; path = Goalie/GoalieFacePathProvider.swift; sourceTree = "<group>"; };
 		F3B7F72F1C44A26B00C364F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F3B7F7311C4583D900C364F0 /* GoalieMovementAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalieMovementAnimator.swift; sourceTree = "<group>"; };
+		F3B7F7311C4583D900C364F0 /* GoalieMovementAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoalieMovementAnimator.swift; path = Goalie/GoalieMovementAnimator.swift; sourceTree = "<group>"; };
 		F3B7F7331C45F2D600C364F0 /* GoalieKerningHeaderLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoalieKerningHeaderLabel.swift; path = Goalie/GoalieKerningHeaderLabel.swift; sourceTree = "<group>"; };
 		F3B7F7441C460EB500C364F0 /* Celeste.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Celeste.mp3; path = Sounds/Celeste.mp3; sourceTree = "<group>"; };
 		F3B7F7451C460EB500C364F0 /* DrumRoll.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = DrumRoll.mp3; path = Sounds/DrumRoll.mp3; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 				F38B551B1C3863000022453F /* TaskPriorityUpdater.swift */,
 				F38A0F591C42010A0034DCE4 /* TaskPriorityStateSnapshotter.swift */,
 				F38A0F5B1C42EBA40034DCE4 /* MenuTransitionManager.swift */,
+				F342D1D41C473679006D758A /* OnboardingTransitionManager.swift */,
 			);
 			name = "Managers and Updaters";
 			sourceTree = "<group>";
@@ -258,7 +261,6 @@
 				F38318DC1C2F343600C36ACB /* Info.plist */,
 				F38B55131C3851190022453F /* NotoSans-Bold.ttf */,
 				F38B55141C3851190022453F /* NotoSans-Regular.ttf */,
-				F3B7F7311C4583D900C364F0 /* GoalieMovementAnimator.swift */,
 			);
 			name = Other;
 			path = Goalie;
@@ -345,6 +347,7 @@
 		F38319471C31AB4100C36ACB /* Custom UI */ = {
 			isa = PBXGroup;
 			children = (
+				F3B7F7311C4583D900C364F0 /* GoalieMovementAnimator.swift */,
 				F3CEAC431C4061820047DD78 /* ViewTransformer.swift */,
 				F38B55191C3859050022453F /* GoalieKerningButton.swift */,
 				F38B55171C3854A10022453F /* GoalieKerningLabel.swift */,
@@ -505,6 +508,7 @@
 				F3FB80981C320E65008C1E07 /* Task.xcdatamodeld in Sources */,
 				F3CEAC441C4061820047DD78 /* ViewTransformer.swift in Sources */,
 				F38B55121C34E0EA0022453F /* GoalieSettingsManager.swift in Sources */,
+				F342D1D51C473679006D758A /* OnboardingTransitionManager.swift in Sources */,
 				F383193C1C31A72D00C36ACB /* TableViewDelegate.swift in Sources */,
 				F383192A1C31A72D00C36ACB /* CoreDataStack.swift in Sources */,
 				F383190D1C319FE800C36ACB /* TasksTableViewCell.swift in Sources */,
