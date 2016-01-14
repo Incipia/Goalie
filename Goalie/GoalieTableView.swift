@@ -81,17 +81,6 @@ class GoalieTableView: TPKeyboardAvoidingTableView
       updateFooterViewForKeyboardVisibility(false)
    }
    
-   override func layoutSubviews()
-   {
-      super.layoutSubviews()
-      _updateHeaderViewFrame()
-      
-      // prevent scrolling past bottom
-      if contentOffset.y < -_maximumHeaderHeight {
-         contentOffset = CGPoint(x: 0, y: -_maximumHeaderHeight)
-      }
-   }
-   
    // MARK: - Setup
    private func _setupHeaderView()
    {
@@ -145,13 +134,7 @@ class GoalieTableView: TPKeyboardAvoidingTableView
       _updateHeaderViewColor(color, animationDuration: 0.3)
       
       if _shouldShowSpeechBubble {
-         
-//         _animateViewOut(_leftSpeechBubble)
-//         _animateViewOut(_rightSpeechBubble)
-         
          _showOnlyLeftOrRightSpeechBubble()
-
-         // Since we were interrupted, start five second timer and then start observing for "productive activity"
       }
    }
    
@@ -245,6 +228,17 @@ extension GoalieTableView
       UIView.animateWithDuration(0.25, delay: 0, options: .CurveEaseOut, animations: { () -> Void in
          self._updateHeaderViewFrame()
          }, completion: nil)
+   }
+   
+   override func layoutSubviews()
+   {
+      super.layoutSubviews()
+      _updateHeaderViewFrame()
+      
+      // prevent scrolling past bottom
+      if contentOffset.y < -_maximumHeaderHeight {
+         contentOffset = CGPoint(x: 0, y: -_maximumHeaderHeight)
+      }
    }
    
    private func _updateHeaderViewFrame()
