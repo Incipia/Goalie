@@ -11,6 +11,23 @@ import UIKit
 let phoneFrameAspectRatio: CGFloat = 65.0/74.0
 let phoneScreenWidthPercentage: CGFloat = 0.8
 
+extension UIScreen {
+   
+   enum SizeType: CGFloat {
+      case Unknown = 0.0
+      case iPhone4 = 960.0
+      case iPhone5 = 1136.0
+      case iPhone6 = 1334.0
+      case iPhone6Plus = 1920.0
+   }
+   
+   var sizeType: SizeType {
+      let height = nativeBounds.height
+      guard let sizeType = SizeType(rawValue: height) else { return .Unknown }
+      return sizeType
+   }
+}
+
 class OnboardingViewController: UIViewController
 {
    @IBOutlet private weak var _bottomSpacePhoneConstraint: NSLayoutConstraint!
@@ -19,7 +36,22 @@ class OnboardingViewController: UIViewController
    @IBOutlet private weak var _finalPageContainerView: UIView!
    @IBOutlet private weak var _finalTextLabel: UILabel!
    @IBOutlet private weak var _textLabel: UILabel!
-   @IBOutlet private weak var _pageControl: UIPageControl!
+   
+   @IBOutlet private weak var _pageControlLayoutConstraint: NSLayoutConstraint! {
+      didSet {
+         if UIScreen.mainScreen().sizeType == .iPhone5 {
+            _pageControlLayoutConstraint.constant = 0
+         }
+      }
+   }
+   
+   @IBOutlet private weak var _pageControl: UIPageControl! {
+      didSet {
+         if UIScreen.mainScreen().sizeType != .iPhone5 {
+            _pageControl.transform = CGAffineTransformMakeScale(2, 2)
+         }
+      }
+   }
    @IBOutlet private weak var _nextButton: GoalieKerningButton!
    
    var onboardingCompletionBlock: (() -> Void)?
@@ -86,7 +118,7 @@ class OnboardingViewController: UIViewController
       }
       else {
          _finalPageContainerView.alpha = 0
-         _finalPageContainerView.center = CGPoint(x: view.center.x, y: view.center.y - 50)
+         _finalPageContainerView.center = CGPoint(x: view.center.x, y: view.center.y - 20)
          view.addSubview(_finalPageContainerView)
          
          _bottomSpacePhoneConstraint.constant = -_phoneFrameImageView.bounds.height
