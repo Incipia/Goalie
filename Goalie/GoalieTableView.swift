@@ -141,6 +141,10 @@ class GoalieTableView: TPKeyboardAvoidingTableView
    func showSpeechBubble()
    {
       _shouldShowSpeechBubble = true
+      
+      let text = SpeechBubbleTextProvider.textForPriority(_currentPriority)
+      _leftSpeechBubble.updateWithText(text, priority: _currentPriority)
+      _rightSpeechBubble.updateWithText(text, priority: _currentPriority)
       _showOnlyLeftOrRightSpeechBubble()
    }
    
