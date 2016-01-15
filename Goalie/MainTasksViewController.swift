@@ -77,7 +77,10 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
       _tasksDataProvider.updateFetchRequest()
       _updateTableViewHeaderDisplay()
       
-      NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardDidHide"), name: UIKeyboardDidHideNotification, object: nil)
+      NSNotificationCenter.defaultCenter().addObserver(self,
+         selector: Selector("keyboardDidHide"),
+         name: UIKeyboardDidHideNotification,
+         object: nil)
       _goalieTableView.longPressReorderDelegate = self
    }
    
@@ -341,7 +344,6 @@ extension MainTasksViewController: DataProviderDelegate
          }
          // completion
          }) { () -> () in
-            self._tableViewDataSource.shouldAnimate = true
             if self._shouldGiveNextCreatedCellFocus {
                self._shouldGiveNextCreatedCellFocus = false
                self._goalieTableView.scrollToBottomWithDuration(0.2, completion: { (finished) -> () in
@@ -441,12 +443,12 @@ extension MainTasksViewController: LPRTableViewDelegate
       let tenDays: NSTimeInterval = 60 * 60 * 24 * 10
       var newCreationDate = destTask.creationDate.dateByAddingTimeInterval(tenDays)
       
-      // moving to first position, make the new creation date 10 days BEFORE the date of the previous task in the first position
       if destIP.row == 0 {
+         // moving to first position, make the new creation date 10 days BEFORE the date of the previous task in the first position
          newCreationDate = destTask.creationDate.dateByAddingTimeInterval(-tenDays)
       }
-      // moving to last position, make the new creation date 10 days AFTER the date of the previous task in the first position
       else if destIP.row >= _goalieTableView.numberOfRowsInSection(0) - 2 {
+         // moving to last position, make the new creation date 10 days AFTER the date of the previous task in the first position
          newCreationDate = destTask.creationDate.dateByAddingTimeInterval(tenDays)
       }
       // moving somewhere in the middle
@@ -483,13 +485,11 @@ extension MainTasksViewController: LPRTableViewDelegate
       _sourceDraggingIndexPath = nil
       _destinationDraggingIndexPath = nil
       
-      // shouldAnimate needs to be set to false before the changes are made!!! otherwise the drag & drop looks like garbage.
-      // after calling saveOrRollback(), _tableViewDataSource will reload the table, and shouldAnimate will br set to true again
-      // in the dataProviderDidUpdate completion block
-      _tableViewDataSource.shouldAnimate = false
       moc.performBlockAndWait { () -> Void in
          sourceTask.priority = destTask.priority
          sourceTask.creationDate = newCreationDate
+         
+         self._goalieTableView.reloadData()
          self.moc.saveOrRollback()
       }
    }

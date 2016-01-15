@@ -22,7 +22,6 @@ class TableViewDataSource<Delegate: DataSourceDelegate, Data: DataProviderProtoc
    }
    var saveOnDelete = true
    var allowEditingLast = true
-   var shouldAnimate = true
    private var _isUpdating = false
    
    required init(tableView: UITableView, dataProvider: Data, delegate: Delegate)
@@ -40,45 +39,35 @@ class TableViewDataSource<Delegate: DataSourceDelegate, Data: DataProviderProtoc
    {
       guard let updates = updates else { return _tableView.reloadData() }
       
-      if shouldAnimate {
-         CATransaction.begin()
-         CATransaction.setCompletionBlock { () -> Void in
-            completion?()
-         }
-         
-         self._tableView.beginUpdates()
-         for update in updates
+      CATransaction.begin()
+      CATransaction.setCompletionBlock { () -> Void in
+         completion?()
+      }
+      
+      self._tableView.beginUpdates()
+      for update in updates
+      {
+         switch update
          {
-            switch update
-            {
-            case .Insert(let indexPath):
-               self._tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .None)
-            case .Update(let indexPath, let object):
-               guard let cell = self._tableView.cellForRowAtIndexPath(indexPath) as? Cell else {
-                  break
-               }
-               cell.configureForObject(object, atIndexPath: indexPath)
-            case .Move(let indexPath, let newIndexPath):
-               self._tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .None)
-               self._tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .None)
-            case .Delete(let indexPath):
-               self._tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .None)
+         case .Insert(let indexPath):
+            self._tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+         case .Update(let indexPath, let object):
+            guard let cell = self._tableView.cellForRowAtIndexPath(indexPath) as? Cell else {
+               break
             }
+            cell.configureForObject(object, atIndexPath: indexPath)
+         case .Move(let indexPath, let newIndexPath):
+            self._tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            self._tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Fade)
+         case .Delete(let indexPath):
+            self._tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
          }
-         
-         self._tableView.endUpdates()
-         animationBlock?()
-         
-         CATransaction.commit()
       }
-      else {
-         UIView.animateWithDuration(0, animations: { () -> Void in
-            self._tableView.reloadData()
-            }, completion: { (finished) -> Void in
-               animationBlock?()
-               completion?()
-         })
-      }
+      
+      self._tableView.endUpdates()
+      animationBlock?()
+      
+      CATransaction.commit()
    }
    
    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
@@ -128,7 +117,7 @@ class TableViewDataSource<Delegate: DataSourceDelegate, Data: DataProviderProtoc
    {
       var canEdit = true
       if _dataProvider.numberOfItemsInSection(0) - 1 == indexPath.row ||
-         _dataProvider.numberOfItemsInSection(0) == 1 {
+         _dataProvider.numberOfItemsInSection(0) <= 2 {
          canEdit = false
       }
       return canEdit
