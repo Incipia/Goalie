@@ -16,6 +16,7 @@
 		F350C7161C4806E200416F14 /* CharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F350C7151C4806E200416F14 /* CharacterView.swift */; };
 		F350C7191C481CD400416F14 /* CharacterEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = F350C7181C481CD400416F14 /* CharacterEnums.swift */; };
 		F350C71B1C48990500416F14 /* LPRTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F350C71A1C48990500416F14 /* LPRTableView.swift */; };
+		F350C71D1C48C18300416F14 /* CreamyDrops.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F350C71C1C48C18300416F14 /* CreamyDrops.mp3 */; };
 		F38318D11C2F343600C36ACB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38318D01C2F343600C36ACB /* AppDelegate.swift */; };
 		F38318D61C2F343600C36ACB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F38318D41C2F343600C36ACB /* Main.storyboard */; };
 		F38318DB1C2F343600C36ACB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F38318D91C2F343600C36ACB /* LaunchScreen.storyboard */; };
@@ -97,6 +98,7 @@
 		F350C7151C4806E200416F14 /* CharacterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CharacterView.swift; path = Goalie/CharacterView.swift; sourceTree = "<group>"; };
 		F350C7181C481CD400416F14 /* CharacterEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CharacterEnums.swift; path = Goalie/CharacterEnums.swift; sourceTree = "<group>"; };
 		F350C71A1C48990500416F14 /* LPRTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LPRTableView.swift; sourceTree = "<group>"; };
+		F350C71C1C48C18300416F14 /* CreamyDrops.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = CreamyDrops.mp3; sourceTree = "<group>"; };
 		F38318CD1C2F343600C36ACB /* Goalie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Goalie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F38318D01C2F343600C36ACB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F38318D51C2F343600C36ACB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -372,6 +374,7 @@
 		F3B7F7351C460E8B00C364F0 /* SFX */ = {
 			isa = PBXGroup;
 			children = (
+				F350C71C1C48C18300416F14 /* CreamyDrops.mp3 */,
 				F3B7F7561C46185200C364F0 /* ChangePriorityRight.mp3 */,
 				F3B7F7541C4617F500C364F0 /* Delete.mp3 */,
 				F3B7F7441C460EB500C364F0 /* Celeste.mp3 */,
@@ -477,6 +480,7 @@
 				F38B55151C3851190022453F /* NotoSans-Bold.ttf in Resources */,
 				F3B7F7511C460EB500C364F0 /* VSSPiano.mp3 in Resources */,
 				F38318DB1C2F343600C36ACB /* LaunchScreen.storyboard in Resources */,
+				F350C71D1C48C18300416F14 /* CreamyDrops.mp3 in Resources */,
 				F3B7F74C1C460EB500C364F0 /* DrumRoll.mp3 in Resources */,
 				F3B7F7501C460EB500C364F0 /* RockOn.mp3 in Resources */,
 				F38B55161C3851190022453F /* NotoSans-Regular.ttf in Resources */,

@@ -48,7 +48,7 @@ class SFXPlayer
 //         _player.play()
 //      }
       
-      if let url = NSBundle.mainBundle().URLForResource("Kalimba", withExtension: "mp3") {
+      if let url = NSBundle.mainBundle().URLForResource("CreamyDrops", withExtension: "mp3") {
          do {
             _player = try AVAudioPlayer(contentsOfURL: url, fileTypeHint: nil)
          }
