@@ -13,7 +13,7 @@ public final class Task: ManagedObject
 {
    @NSManaged public private(set) var uuid: String
    @NSManaged public var title: String
-   @NSManaged public private(set) var creationDate: NSDate
+   @NSManaged public var creationDate: NSDate
    @NSManaged public private(set) var lastPriorityChangeDate: NSDate
    @NSManaged public private(set) var priorityValue: Int16
    @NSManaged public var completed: Bool
@@ -58,6 +58,30 @@ public final class Task: ManagedObject
       creationDate = NSDate()
       lastPriorityChangeDate = NSDate()
       uuid = NSUUID().UUIDString
+   }
+   
+   public func swapWithTask(task: Task)
+   {
+      managedObjectContext?.performBlock({ () -> Void in
+         
+         let newUUID = task.uuid
+         let newTitle = task.title
+         let newCreationDate = task.creationDate
+         let newLPR = task.lastPriorityChangeDate
+         let newPriorityValue = task.priorityValue
+         
+         task.uuid = self.uuid
+         task.title = self.title
+         task.creationDate = self.creationDate
+         task.lastPriorityChangeDate = self.lastPriorityChangeDate
+         task.priorityValue = self.priorityValue
+         
+         self.uuid = newUUID
+         self.title = newTitle
+         self.creationDate = newCreationDate
+         self.lastPriorityChangeDate = newLPR
+         self.priorityValue = newPriorityValue
+      })
    }
 }
 
