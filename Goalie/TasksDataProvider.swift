@@ -107,6 +107,17 @@ public class TasksDataProvider: NSObject, NSFetchedResultsControllerDelegate
       return tasks
    }
    
+   func completedTasksWithPriority(priority: TaskPriority) -> [Task]
+   {
+      var tasks: [Task] = []
+      for task in completedTasks() {
+         if task.priority == priority {
+            tasks.append(task)
+         }
+      }
+      return tasks
+   }
+   
    func incompletedTasks() -> [Task]
    {
       var tasks: [Task] = []
@@ -115,6 +126,17 @@ public class TasksDataProvider: NSObject, NSFetchedResultsControllerDelegate
             if !task.completed && task.title != "" {
                tasks.append(task)
             }
+         }
+      }
+      return tasks
+   }
+   
+   func incompletedTasksForPriority(priority: TaskPriority) -> [Task]
+   {
+      var tasks: [Task] = []
+      for task in incompletedTasks() {
+         if task.priority == priority {
+            tasks.append(task)
          }
       }
       return tasks
