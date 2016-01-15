@@ -94,7 +94,7 @@
                                                                 <outlet property="widthConstraint" destination="MYM-JI-3wX" id="Yg6-tu-RNJ"/>
                                                             </connections>
                                                         </view>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f7d-lu-WBo" customClass="GoalieSpeechBubble" customModule="Goalie" customModuleProvider="target">
+                                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f7d-lu-WBo" customClass="GoalieSpeechBubble" customModule="Goalie" customModuleProvider="target">
                                                             <rect key="frame" x="180" y="113" width="120" height="62"/>
                                                             <color key="backgroundColor" white="1" alpha="0.6138091216216216" colorSpace="calibratedWhite"/>
                                                             <constraints>
@@ -106,7 +106,7 @@
                                                                 <outlet property="widthConstraint" destination="VEj-fB-9PJ" id="gJb-Ct-kHp"/>
                                                             </connections>
                                                         </view>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cmf-hr-XMs" customClass="GoalieSpeechBubble" customModule="Goalie" customModuleProvider="target">
+                                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cmf-hr-XMs" customClass="GoalieSpeechBubble" customModule="Goalie" customModuleProvider="target">
                                                             <rect key="frame" x="20" y="113" width="120" height="62"/>
                                                             <color key="backgroundColor" white="1" alpha="0.61380912160000001" colorSpace="calibratedWhite"/>
                                                             <constraints>
@@ -143,13 +143,13 @@
                                                             </connections>
                                                         </button>
                                                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c2r-gU-xbI" customClass="GoalieKerningLabel" customModule="Goalie" customModuleProvider="target">
-                                                            <rect key="frame" x="12" y="275" width="50" height="16.5"/>
+                                                            <rect key="frame" x="12" y="275" width="50" height="17"/>
                                                             <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="12"/>
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DfY-8z-K5t" customClass="GoalieKerningButton" customModule="Goalie" customModuleProvider="target">
-                                                            <rect key="frame" x="16" y="25.5" width="43" height="33"/>
+                                                            <rect key="frame" x="16" y="26" width="43" height="33"/>
                                                             <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="15"/>
                                                             <state key="normal" title="SWAP"/>
                                                             <connections>
@@ -386,7 +386,7 @@
                     </constraints>
                 </view>
             </objects>
-            <point key="canvasLocation" x="274" y="122"/>
+            <point key="canvasLocation" x="207" y="122"/>
         </scene>
         <!--Edit Task View Controller-->
         <scene sceneID="otv-96-TEA">
@@ -813,7 +813,7 @@ He really likes tasks....</string>
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HmC-Y4-xmo">
-                            <rect key="frame" x="32" y="243" width="198" height="82"/>
+                            <rect key="frame" x="32" y="258" width="198" height="82"/>
                             <string key="text">So get to it.
 When you're happy,
 Goalie's happy.</string>
@@ -845,10 +845,10 @@ Goalie's happy.</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mzx-uK-MIU">
-                                <rect key="frame" x="19" y="174" width="337" height="320"/>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mzx-uK-MIU">
+                                <rect key="frame" x="19" y="174" width="337" height="319"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="KBr-Zv-qva">
-                                    <rect key="frame" x="0.0" y="0.0" width="337" height="320"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="337" height="319"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IJK-co-R7s">
@@ -880,17 +880,17 @@ Goalie's happy.</string>
                                             <color key="onTintColor" red="0.070588235289999995" green="0.64313725489999995" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                         </switch>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MANUALLY SWITCH PRIORITY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2LN-x7-CSb" customClass="GoalieKerningHeaderLabel" customModule="Goalie" customModuleProvider="target">
-                                            <rect key="frame" x="20" y="199" width="177" height="17"/>
+                                            <rect key="frame" x="20" y="199" width="177" height="16"/>
                                             <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="12"/>
                                             <color key="textColor" red="0.3411764705882353" green="0.4823529411764706" blue="0.53725490196078429" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Yr-sT-wBA">
-                                            <rect key="frame" x="20" y="265" width="51" height="31"/>
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Yr-sT-wBA">
+                                            <rect key="frame" x="20" y="264" width="51" height="31"/>
                                             <color key="onTintColor" red="0.070588235289999995" green="0.64313725489999995" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                         </switch>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="(TASKS WILL ALWAYS STAY AT THE PRIORITY YOU SET THEM AS)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e3k-GH-Iqu" customClass="GoalieKerningLabel" customModule="Goalie" customModuleProvider="target">
-                                            <rect key="frame" x="20" y="224" width="270" height="33"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(TASKS WILL ALWAYS STAY AT THE PRIORITY YOU SET THEM AS)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e3k-GH-Iqu" customClass="GoalieKerningLabel" customModule="Goalie" customModuleProvider="target">
+                                            <rect key="frame" x="20" y="223" width="270" height="33"/>
                                             <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="12"/>
                                             <color key="textColor" red="0.3411764706" green="0.4823529412" blue="0.53725490200000003" alpha="0.6035948057432432" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
