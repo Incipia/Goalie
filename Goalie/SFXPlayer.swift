@@ -55,21 +55,21 @@ class SFXPlayer
          catch let error as NSError {
             print(error.description)
          }
-         _player.volume = 0.05
+         _player.volume = 0.2
          _player.play()
       }
    }
    
    private func _playDelete()
    {
-      if let url = NSBundle.mainBundle().URLForResource("ChangePriorityRight", withExtension: "mp3") {
+      if let url = NSBundle.mainBundle().URLForResource("Delete", withExtension: "mp3") {
          do {
             _player = try AVAudioPlayer(contentsOfURL: url, fileTypeHint: nil)
          }
          catch let error as NSError {
             print(error.description)
          }
-         _player.volume = 0.05
+         _player.volume = 0.1
          _player.play()
       }
    }
@@ -83,7 +83,7 @@ class SFXPlayer
          catch let error as NSError {
             print(error.description)
          }
-         _player.volume = 0.05
+         _player.volume = 0.1
          _player.play()
       }
    }
