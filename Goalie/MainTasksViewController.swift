@@ -440,44 +440,53 @@ extension MainTasksViewController: LPRTableViewDelegate
       let sourceTask = _tableViewDataProvider.objectAtIndexPath(sourceIP)
       let destTask = _tableViewDataProvider.objectAtIndexPath(destIP)
       
-      let tenDays: NSTimeInterval = 60 * 60 * 24 * 10
-      var newCreationDate = destTask.creationDate.dateByAddingTimeInterval(tenDays)
-      
-      if destIP.row == 0 {
-         // moving to first position, make the new creation date 10 days BEFORE the date of the previous task in the first position
-         newCreationDate = destTask.creationDate.dateByAddingTimeInterval(-tenDays)
+      if destIP.row == 0
+      {
+         // moving to FIRST position, destTask is first
       }
-      else if destIP.row >= _goalieTableView.numberOfRowsInSection(0) - 2 {
-         // moving to last position, make the new creation date 10 days AFTER the date of the previous task in the first position
-         newCreationDate = destTask.creationDate.dateByAddingTimeInterval(tenDays)
+      else if destIP.row >= _goalieTableView.numberOfRowsInSection(0) - 2
+      {
+         // moving to LAST position, destTask is last
       }
-      // moving somewhere in the middle
-      else {
-         // moved DOWN
-         if sourceIP.row < destIP.row
+      else // ----------- SOMEWHERE IN MIDDLE -----------
+      {
+         if sourceIP.row < destIP.row // ----------- MOVED DOWN -----------
          {
-            let taskUnderneath = _tableViewDataProvider.objectAtIndexPath(destIP.next)
-            if taskUnderneath.priority != destTask.priority
+            let taskAbove = destTask
+            let taskBelow = _tableViewDataProvider.objectAtIndexPath(destIP.next)
+            if taskBelow.priority == taskAbove.priority
             {
-               // since the task under us is not the same priority, then we're moving to the last position in this priority section
-               // so we should set the new creation date to ten days AFTER the task that used to be the last task in this section
-               newCreationDate = destTask.creationDate.dateByAddingTimeInterval(tenDays)
+               // SAME PRIORITY ABOVE AND BELOW
+               print("ABOVE/BELOW – taking \(destTask.priority)")
+               print("-- above: \(taskAbove.title)")
+               print("-- inserting: \(sourceTask.title)")
+               print("-- below: \(taskBelow.title)")
             }
-            else {
-               newCreationDate = taskUnderneath.creationDate.dateHalfwayBetweenDate(destTask.creationDate)
+            else
+            {
+               print("ABOVE - taking \(destTask.priority)")
+               print("-- above: \(taskAbove.title)")
+               print("-- inserting: \(sourceTask.title)")
             }
          }
-         // moved UP
-         else {
+         else // ----------- MOVED UP -----------
+         {
+            let taskBelow = destTask
             let taskAbove = _tableViewDataProvider.objectAtIndexPath(destIP.before)
-            if taskAbove.priority != destTask.priority
+            if taskBelow.priority == taskAbove.priority
             {
-               // since the task above us is not the same priority, then we're moving to the first position in this priority section
-               // so we should set the new creation date to ten days BEFORE the task that used to be the first task in this section
-               newCreationDate = destTask.creationDate.dateByAddingTimeInterval(-tenDays)
+               // SAME PRIORITY ABOVE AND BELOW
+               print("ABOVE/BELOW – taking \(destTask.priority)")
+               print("-- above: \(taskAbove.title)")
+               print("-- inserting: \(sourceTask.title)")
+               print("-- below: \(taskBelow.title)")
             }
-            else {
-               newCreationDate = taskAbove.creationDate.dateHalfwayBetweenDate(destTask.creationDate)
+            else
+            {
+               // ONLY THE TASK ABOVE HAS SAME PRIORITY
+               print("BELOW - taking \(destTask.priority)")
+               print("-- above: \(taskAbove.title)")
+               print("-- inserting: \(sourceTask.title)")
             }
          }
       }
@@ -487,7 +496,6 @@ extension MainTasksViewController: LPRTableViewDelegate
       
       moc.performBlockAndWait { () -> Void in
          sourceTask.priority = destTask.priority
-         sourceTask.creationDate = newCreationDate
          
          self._goalieTableView.reloadData()
          self.moc.saveOrRollback()
