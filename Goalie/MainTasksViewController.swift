@@ -54,6 +54,9 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
    private var _shouldCreateMoreCellsOnReturnKeyPressed = false
    private var _shouldShowCongratulationsDialogWhenKeyboardIsDismissed = false
    
+   private var _sourceDraggingIndexPath: NSIndexPath?
+   private var _destinationDraggingIndexPath: NSIndexPath?
+   
    // Mark: - Lifecycle
    override func viewDidLoad()
    {
@@ -75,6 +78,7 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
       _updateTableViewHeaderDisplay()
       
       NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardDidHide"), name: UIKeyboardDidHideNotification, object: nil)
+      _goalieTableView.longPressReorderDelegate = self
    }
    
    func keyboardDidHide()
@@ -337,6 +341,7 @@ extension MainTasksViewController: DataProviderDelegate
          }
          // completion
          }) { () -> () in
+            self._tableViewDataSource.shouldAnimate = true
             if self._shouldGiveNextCreatedCellFocus {
                self._shouldGiveNextCreatedCellFocus = false
                self._goalieTableView.scrollToBottomWithDuration(0.2, completion: { (finished) -> () in
@@ -398,5 +403,94 @@ extension MainTasksViewController: SettingsViewControllerDelegate
       _tableViewDataProvider.updateFetchRequest()
       _tasksDataProvider.updateFetchRequest()
       _goalieTableView.reloadData()
+   }
+}
+
+extension MainTasksViewController: LPRTableViewDelegate
+{
+   /** Provides the delegate a chance to modify the cell visually before dragging occurs. Defaults to using the cell as-is if not implemented. */
+   func tableView(tableView: UITableView, draggingCell cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) -> UITableViewCell
+   {
+      let frame = cell.frame
+      let newFrame = CGRect(origin: CGPoint(x: frame.origin.x, y: frame.origin.y), size: CGSize(width: frame.width, height: 50))
+      cell.frame = newFrame
+      return cell
+   }
+   
+   /** Called within an animation block when the dragging view is about to show. */
+   func tableView(tableView: UITableView, showDraggingView view: UIView, atIndexPath indexPath: NSIndexPath)
+   {
+      _currentTaskCell?.stopEditing()
+      _sourceDraggingIndexPath = indexPath
+   }
+   
+   /** Called within an animation block when the dragging view is about to hide. */
+   func tableView(tableView: UITableView, hideDraggingView view: UIView, atIndexPath indexPath: NSIndexPath)
+   {
+      _destinationDraggingIndexPath = indexPath
+   }
+   
+   func performCompletion()
+   {
+      guard let sourceIP = _sourceDraggingIndexPath, let destIP = _destinationDraggingIndexPath
+         where sourceIP.row != destIP.row else { return }
+      
+      let sourceTask = _tableViewDataProvider.objectAtIndexPath(sourceIP)
+      let destTask = _tableViewDataProvider.objectAtIndexPath(destIP)
+      
+      let tenDays: NSTimeInterval = 60 * 60 * 24 * 10
+      var newCreationDate = destTask.creationDate.dateByAddingTimeInterval(tenDays)
+      
+      // moving to first position, make the new creation date 10 days BEFORE the date of the previous task in the first position
+      if destIP.row == 0 {
+         newCreationDate = destTask.creationDate.dateByAddingTimeInterval(-tenDays)
+      }
+      // moving to last position, make the new creation date 10 days AFTER the date of the previous task in the first position
+      else if destIP.row >= _goalieTableView.numberOfRowsInSection(0) - 2 {
+         newCreationDate = destTask.creationDate.dateByAddingTimeInterval(tenDays)
+      }
+      // moving somewhere in the middle
+      else {
+         // moved DOWN
+         if sourceIP.row < destIP.row
+         {
+            let taskUnderneath = _tableViewDataProvider.objectAtIndexPath(destIP.next)
+            if taskUnderneath.priority != destTask.priority
+            {
+               // since the task under us is not the same priority, then we're moving to the last position in this priority section
+               // so we should set the new creation date to ten days AFTER the task that used to be the last task in this section
+               newCreationDate = destTask.creationDate.dateByAddingTimeInterval(tenDays)
+            }
+            else {
+               newCreationDate = taskUnderneath.creationDate.dateHalfwayBetweenDate(destTask.creationDate)
+            }
+         }
+         // moved UP
+         else {
+            let taskAbove = _tableViewDataProvider.objectAtIndexPath(destIP.before)
+            if taskAbove.priority != destTask.priority
+            {
+               // since the task above us is not the same priority, then we're moving to the first position in this priority section
+               // so we should set the new creation date to ten days BEFORE the task that used to be the first task in this section
+               newCreationDate = destTask.creationDate.dateByAddingTimeInterval(-tenDays)
+            }
+            else {
+               newCreationDate = taskAbove.creationDate.dateHalfwayBetweenDate(destTask.creationDate)
+            }
+         }
+      }
+      
+      _sourceDraggingIndexPath = nil
+      _destinationDraggingIndexPath = nil
+      
+      // shouldAnimate needs to be set to false before the changes are made!!! otherwise the drag & drop looks like garbage.
+      // after calling saveOrRollback(), _tableViewDataSource will reload the table, and shouldAnimate will br set to true again
+      // in the dataProviderDidUpdate completion block
+      _tableViewDataSource.shouldAnimate = false
+      moc.performBlockAndWait { () -> Void in
+         sourceTask.priority = destTask.priority
+         sourceTask.creationDate = newCreationDate
+         self.moc.saveOrRollback()
+      }
    }
 }
