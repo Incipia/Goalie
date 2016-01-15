@@ -15,6 +15,7 @@
 		F342D1D51C473679006D758A /* OnboardingTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F342D1D41C473679006D758A /* OnboardingTransitionManager.swift */; };
 		F350C7161C4806E200416F14 /* CharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F350C7151C4806E200416F14 /* CharacterView.swift */; };
 		F350C7191C481CD400416F14 /* CharacterEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = F350C7181C481CD400416F14 /* CharacterEnums.swift */; };
+		F350C71B1C48990500416F14 /* LPRTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F350C71A1C48990500416F14 /* LPRTableView.swift */; };
 		F38318D11C2F343600C36ACB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38318D01C2F343600C36ACB /* AppDelegate.swift */; };
 		F38318D61C2F343600C36ACB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F38318D41C2F343600C36ACB /* Main.storyboard */; };
 		F38318DB1C2F343600C36ACB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F38318D91C2F343600C36ACB /* LaunchScreen.storyboard */; };
@@ -95,6 +96,7 @@
 		F342D1D41C473679006D758A /* OnboardingTransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OnboardingTransitionManager.swift; path = Goalie/OnboardingTransitionManager.swift; sourceTree = "<group>"; };
 		F350C7151C4806E200416F14 /* CharacterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CharacterView.swift; path = Goalie/CharacterView.swift; sourceTree = "<group>"; };
 		F350C7181C481CD400416F14 /* CharacterEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CharacterEnums.swift; path = Goalie/CharacterEnums.swift; sourceTree = "<group>"; };
+		F350C71A1C48990500416F14 /* LPRTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LPRTableView.swift; sourceTree = "<group>"; };
 		F38318CD1C2F343600C36ACB /* Goalie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Goalie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F38318D01C2F343600C36ACB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F38318D51C2F343600C36ACB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -355,6 +357,7 @@
 		F38319471C31AB4100C36ACB /* Custom UI */ = {
 			isa = PBXGroup;
 			children = (
+				F350C71A1C48990500416F14 /* LPRTableView.swift */,
 				F3B7F7311C4583D900C364F0 /* GoalieMovementAnimator.swift */,
 				F3CEAC431C4061820047DD78 /* ViewTransformer.swift */,
 				F38B55191C3859050022453F /* GoalieKerningButton.swift */,
@@ -551,6 +554,7 @@
 				F38319321C31A72D00C36ACB /* UINavigationBar+Extensions.swift in Sources */,
 				F3DB3E101C32682A0005C607 /* ProjectEnums.swift in Sources */,
 				F38319391C31A72D00C36ACB /* DataProvider.swift in Sources */,
+				F350C71B1C48990500416F14 /* LPRTableView.swift in Sources */,
 				F38319341C31A72D00C36ACB /* NSManagedObjectContext+Observers.swift in Sources */,
 				F3A81FFF1C440B520048237F /* GoalieFaceLayer.swift in Sources */,
 				F38B551E1C388F510022453F /* NSDate+Extensions.swift in Sources */,
