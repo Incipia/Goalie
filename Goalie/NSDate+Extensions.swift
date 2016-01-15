@@ -40,6 +40,13 @@ extension NSDate
       return NSCalendar.autoupdatingCurrentCalendar().components((.Month), fromDate: self).month
    }
    
+   func dateHalfwayBetweenDate(date: NSDate) -> NSDate
+   {
+      let difference = max(timeIntervalSince1970, date.timeIntervalSince1970) - min(timeIntervalSince1970, date.timeIntervalSince1970)
+      let newTimeInterval = max(timeIntervalSince1970, date.timeIntervalSince1970) - (difference * 0.5)
+      return NSDate(timeIntervalSince1970: newTimeInterval)
+   }
+   
    func logHourAndMinute()
    {
       print("hour: \(self.hour) minute: \(self.minute)")
