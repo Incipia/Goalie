@@ -12,7 +12,7 @@ let _defaultHeaderHeight: CGFloat = floor(UIScreen.mainScreen().bounds.height / 
 let _minimumHeaderHeight: CGFloat = floor(UIScreen.mainScreen().bounds.height / 5.1)
 let _maximumHeaderHeight: CGFloat = _defaultHeaderHeight + 50
 
-class GoalieTableView: TPKeyboardAvoidingTableView
+class GoalieTableView: LPRTableView
 {
    @IBOutlet private var _firstTaskFooterViewArrow: UIImageView!
    @IBOutlet private var _firstTaskFooterView: UIView!
@@ -76,17 +76,14 @@ class GoalieTableView: TPKeyboardAvoidingTableView
       _setupHeaderView()
       _setupContentOffsetAndInset()
       _setupUIForFirstTime()
-      _currentCompletedSoundName.text = SFXPlayer.currentCompletedSoundName()
-      
-      _leftSpeechBubble.hidden = true
-      _rightSpeechBubble.hidden = true
-      
       _setupKeyboardObserving()
       
       let newAnchorPoint = CGPoint(x: 0.5, y: 1)
       _goalieFaceView.adjustAnchorPoint(newAnchorPoint)
       _leftSpeechBubble.adjustAnchorPoint(newAnchorPoint)
       _rightSpeechBubble.adjustAnchorPoint(newAnchorPoint)
+      
+      decelerationRate = UIScrollViewDecelerationRateFast
    }
    
    // MARK: - Setup
