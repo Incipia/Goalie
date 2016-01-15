@@ -13,6 +13,10 @@ extension NSIndexPath
    var next: NSIndexPath {
       return NSIndexPath(forRow: row + 1, inSection: section)
    }
+   
+   var before: NSIndexPath {
+      return NSIndexPath(forRow: row - 1, inSection: section)
+   }
 }
 
 extension UITableView
