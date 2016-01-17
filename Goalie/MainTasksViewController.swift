@@ -440,6 +440,7 @@ extension MainTasksViewController: LPRTableViewDelegate
       let sourceTask = _tableViewDataProvider.objectAtIndexPath(sourceIP)
       let destTask = _tableViewDataProvider.objectAtIndexPath(destIP)
       
+      let newCreationDate = destTask.creationDate
       if destIP.row == 0
       {
          // moving to FIRST position, destTask is first
@@ -457,14 +458,14 @@ extension MainTasksViewController: LPRTableViewDelegate
             if taskBelow.priority == taskAbove.priority
             {
                // SAME PRIORITY ABOVE AND BELOW
-               print("ABOVE/BELOW – taking \(destTask.priority)")
+               print("ABOVE/BELOW – taking \(taskAbove.priority)")
                print("-- above: \(taskAbove.title)")
                print("-- inserting: \(sourceTask.title)")
                print("-- below: \(taskBelow.title)")
             }
             else
             {
-               print("ABOVE - taking \(destTask.priority)")
+               print("ABOVE - taking \(taskAbove.priority)")
                print("-- above: \(taskAbove.title)")
                print("-- inserting: \(sourceTask.title)")
             }
@@ -476,7 +477,7 @@ extension MainTasksViewController: LPRTableViewDelegate
             if taskBelow.priority == taskAbove.priority
             {
                // SAME PRIORITY ABOVE AND BELOW
-               print("ABOVE/BELOW – taking \(destTask.priority)")
+               print("ABOVE/BELOW – taking \(taskBelow.priority)")
                print("-- above: \(taskAbove.title)")
                print("-- inserting: \(sourceTask.title)")
                print("-- below: \(taskBelow.title)")
@@ -484,7 +485,7 @@ extension MainTasksViewController: LPRTableViewDelegate
             else
             {
                // ONLY THE TASK ABOVE HAS SAME PRIORITY
-               print("BELOW - taking \(destTask.priority)")
+               print("BELOW - taking \(taskBelow.priority)")
                print("-- above: \(taskAbove.title)")
                print("-- inserting: \(sourceTask.title)")
             }
@@ -495,6 +496,25 @@ extension MainTasksViewController: LPRTableViewDelegate
       _destinationDraggingIndexPath = nil
       
       moc.performBlockAndWait { () -> Void in
+         
+         let movedDown = sourceIP.row < destIP.row
+         if movedDown {
+            // go backwards and subtract from creation dates
+            for task in self._tasksDataProvider.allTasks() {
+               if task != sourceTask && task.creationDate <= newCreationDate {
+                  task.creationDate = task.creationDate.dateByAddingTimeInterval(-1)
+               }
+            }
+         }
+         else {
+            // go forwards and subtract from creation dates
+            for task in self._tasksDataProvider.allTasks() {
+               if task != sourceTask && task.creationDate >= newCreationDate {
+                  task.creationDate = task.creationDate.dateByAddingTimeInterval(1)
+               }
+            }
+         }
+         sourceTask.creationDate = newCreationDate
          sourceTask.priority = destTask.priority
          
          self._goalieTableView.reloadData()
