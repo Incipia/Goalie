@@ -65,6 +65,11 @@ public class TasksDataProvider: NSObject, NSFetchedResultsControllerDelegate
       try! tasksFRC.performFetch()
    }
    
+   func allTasks() -> [Task]
+   {
+      return tasksFRC.fetchedObjects as? [Task] ?? []
+   }
+   
    func taskIsLast(task: Task) -> Bool
    {
       var isLast = false
