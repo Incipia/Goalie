@@ -14,7 +14,7 @@ class SpeechBubbleTextProvider
    
    private let _unknownTextArray = ["BOORING", "SNOOZE FEST", "YAWN", "NAP TIME", "1 SHEEP 2...", "ZZZZZZ", "I'M BEAT"]
    private let _agesTextArray = ["WE GOT THIS", "ICE, ICE, BABY", "TONS O' TIME", "SO RELAXED", "JUST CHILLIN'", "SO COOL", "JUST SWELL"]
-   private let _laterTextArray = ["ALRIGHT!", "LET'S DO THIS", "POWER UP", "HELLO, IT'S ME", "GET SOME", "GO TO TOWN", "WAHOO"]
+   private let _laterTextArray = ["ALRIGHT!", "LET'S DO THIS", "POWER UP", "HELLO, IT'S ME", "GO TO TOWN", "WAHOO"]
    private let _soonTextArray = ["ARE YOU HOT?", "I'M FLUSHED", "SWEATIN' IT", "KEEP COOL", "FEVERISH", "UH... HMM..", "EXCUSE ME?"]
    private let _asapTextArray = ["STAY CALM!", "BURNIN' UP", "WOAH BUDDY", "SEND HELP", "TOO HOT", "I NEED ICE", "!!!!!!!!!!!!"]
    
