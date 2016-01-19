@@ -10,6 +10,7 @@ import UIKit
 
 let phoneFrameAspectRatio: CGFloat = 65.0/74.0
 let phoneScreenWidthPercentage: CGFloat = 0.8
+let finalPageNumber = 3
 
 extension UIScreen {
    
@@ -37,6 +38,9 @@ class OnboardingViewController: UIViewController
    @IBOutlet private weak var _finalTextLabel: UILabel!
    @IBOutlet private weak var _textLabel: UILabel!
    
+   private let _swipeRightRecognizer = UISwipeGestureRecognizer()
+   private let _swipeLeftRecognizer = UISwipeGestureRecognizer()
+   
    @IBOutlet private weak var _pageControlLayoutConstraint: NSLayoutConstraint! {
       didSet {
          if UIScreen.mainScreen().sizeType == .iPhone5 {
@@ -56,9 +60,17 @@ class OnboardingViewController: UIViewController
    
    var onboardingCompletionBlock: (() -> Void)?
    
+   // MARK: - Lifecycle
    override func viewDidLoad()
    {
       super.viewDidLoad()
+      
+      _swipeRightRecognizer.addTarget(self, action: "_goBackwards")
+      view.addGestureRecognizer(_swipeRightRecognizer)
+      
+      _swipeLeftRecognizer.addTarget(self, action: "_goForwards")
+      _swipeLeftRecognizer.direction = .Left
+      view.addGestureRecognizer(_swipeLeftRecognizer)
       
       // calculate phone height
       let phoneWidth = UIScreen.mainScreen().bounds.width * phoneScreenWidthPercentage
@@ -88,14 +100,29 @@ class OnboardingViewController: UIViewController
       })
    }
    
-   @IBAction private func _nextButtonPressed()
+   // MARK: - Swipe Recognition Methods
+   internal func _goForwards()
    {
-      if _pageControl.currentPage++ == _pageControl.numberOfPages - 1 {
+      let previousPage = _pageControl.currentPage
+      if _pageControl.currentPage++ == finalPageNumber {
          self.onboardingCompletionBlock?()
       }
       else {
-         _updateUIForCurrentPage(_pageControl.currentPage)
+         _updateUIFromPageNumber(previousPage, toPageNumber: _pageControl.currentPage)
       }
+   }
+   
+   internal func _goBackwards()
+   {
+      let previousPage = _pageControl.currentPage
+      let currentPage = --_pageControl.currentPage
+      _updateUIFromPageNumber(previousPage, toPageNumber: currentPage)
+   }
+   
+   // MARK: - IBActions
+   @IBAction private func _nextButtonPressed()
+   {
+      _goForwards()
    }
    
    @IBAction private func _closeButtonPressed()
@@ -103,40 +130,96 @@ class OnboardingViewController: UIViewController
       self.onboardingCompletionBlock?()
    }
    
-   private func _updateUIForCurrentPage(pageNumber: Int)
+   // MARK: - Private
+   private func _updateUIFromPageNumber(previousPageNumber: Int, toPageNumber currentPageNumber: Int)
    {
-      UIView.transitionWithView(_textLabel, duration: 0.3, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: { () -> Void in
-         
-         let attrText = NSAttributedString.attributedOnboardingStringForPageNumber(pageNumber)
-         self._textLabel.attributedText = attrText
-         }, completion: nil)
+      guard currentPageNumber >= 0 && previousPageNumber != currentPageNumber else { return }
       
-      if let image = _screenImageForPageNumber(pageNumber) {
-         UIView.transitionWithView(_phoneScreenImageView, duration: 0.3, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: { () -> Void in
-            self._phoneScreenImageView.image = image
-            }, completion: nil)
-      }
-      else {
-         _finalPageContainerView.alpha = 0
-         _finalPageContainerView.center = CGPoint(x: view.center.x, y: view.center.y - 20)
-         view.addSubview(_finalPageContainerView)
-         
-         _bottomSpacePhoneConstraint.constant = -_phoneFrameImageView.bounds.height
-         UIView.animateWithDuration(0.3, animations: { () -> Void in
+      if previousPageNumber == finalPageNumber && currentPageNumber < previousPageNumber
+      {
+         _animateFinalPageOutWithDuration(0.3, completion: { (finished) -> () in
             
-            self._textLabel.alpha = 0
-            self.view.layoutIfNeeded()
-            self._nextButton.updateText("LET'S GO", color: UIColor.whiteColor())
-            }, completion: { (finished) -> Void in
+            guard let image = self._screenImageForPageNumber(currentPageNumber) else { return }
+            let attrText = NSAttributedString.attributedOnboardingStringForPageNumber(currentPageNumber)
+            self._updateIPhoneScreenImage(image, duration: 0.3)
+            self._updateMainTextLabelWithAttributedText(attrText, duration: 0.3)
+            
+            self._bottomSpacePhoneConstraint.constant = 0
+            UIView.animateWithDuration(0.3, animations: { () -> Void in
                
-               UIView.animateWithDuration(0.3, animations: { () -> Void in
-                  self._finalPageContainerView.alpha = 1
-               })
-            }
-         )
+               self._textLabel.alpha = 1
+               self.view.layoutIfNeeded()
+            })
+         })
+      }
+      
+      let attrText = NSAttributedString.attributedOnboardingStringForPageNumber(currentPageNumber)
+      if currentPageNumber < finalPageNumber
+      {
+         guard let image = _screenImageForPageNumber(currentPageNumber) else { return }
+         _updateIPhoneScreenImage(image, duration: 0.3)
+         _updateMainTextLabelWithAttributedText(attrText, duration: 0.3)
+      }
+      else
+      {
+         _setupFinalPageContainerView()
+         _animateFinalPageInWithDuration(0.6)
       }
    }
    
+   private func _updateIPhoneScreenImage(image: UIImage, duration: NSTimeInterval)
+   {
+      UIView.transitionWithView(_phoneScreenImageView, duration: duration, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: { () -> Void in
+         self._phoneScreenImageView.image = image
+         }, completion: nil)
+   }
+   
+   private func _updateMainTextLabelWithAttributedText(text: NSAttributedString, duration: NSTimeInterval)
+   {
+      UIView.transitionWithView(_textLabel, duration: duration, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: { () -> Void in
+         self._textLabel.attributedText = text
+         }, completion: nil)
+   }
+   
+   private func _setupFinalPageContainerView()
+   {
+      _finalPageContainerView.alpha = 0
+      _finalPageContainerView.center = CGPoint(x: view.center.x, y: view.center.y - 20)
+      view.addSubview(_finalPageContainerView)
+   }
+   
+   private func _removeFinalPageContainerView()
+   {
+      _finalPageContainerView.removeFromSuperview()
+   }
+   
+   private func _animateFinalPageInWithDuration(duration: NSTimeInterval)
+   {
+      _bottomSpacePhoneConstraint.constant = -_phoneFrameImageView.bounds.height
+      UIView.animateWithDuration(duration * 0.5, animations: { () -> Void in
+         
+         self._textLabel.alpha = 0
+         self.view.layoutIfNeeded()
+         self._nextButton.updateText("LET'S GO", color: UIColor.whiteColor())
+         }, completion: { (finished) -> Void in
+            
+            UIView.animateWithDuration(duration * 0.5, animations: { () -> Void in
+               self._finalPageContainerView.alpha = 1
+            })
+         }
+      )
+   }
+   
+   private func _animateFinalPageOutWithDuration(duration: NSTimeInterval, completion: ((finished: Bool) -> ())?)
+   {
+      UIView.animateWithDuration(duration, animations: { () -> Void in
+         self._finalPageContainerView.alpha = 0
+         }) { (finished) -> Void in
+            self._removeFinalPageContainerView()
+            completion?(finished: finished)
+      }
+   }
+
    private func _mainTextForPageNumber(number: Int) -> String?
    {
       switch number
