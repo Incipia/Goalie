@@ -68,6 +68,7 @@ class GoalieTableView: LPRTableView
       NSNotificationCenter.defaultCenter().removeObserver(self)
    }
    
+   private let _tapGestureRecognizer = UITapGestureRecognizer()
    // MARK: - Lifecycle
    override func awakeFromNib()
    {
@@ -84,6 +85,14 @@ class GoalieTableView: LPRTableView
       _rightSpeechBubble.adjustAnchorPoint(newAnchorPoint)
       
       decelerationRate = UIScrollViewDecelerationRateFast
+      
+      _tapGestureRecognizer.addTarget(self, action: "goalieTapped")
+      _goalieFaceView.addGestureRecognizer(_tapGestureRecognizer)
+   }
+   
+   func goalieTapped()
+   {
+      print("tapped!")
    }
    
    // MARK: - Setup
