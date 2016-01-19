@@ -40,7 +40,9 @@ class GoalieMovementAnimator
    private func _startTranslateAnimations()
    {
       let delay = 0.0
-      let raw = UIViewKeyframeAnimationOptions.Repeat.rawValue | UIViewAnimationOptions.CurveLinear.rawValue
+      let raw = UIViewKeyframeAnimationOptions.Repeat.rawValue |
+         UIViewAnimationOptions.CurveLinear.rawValue |
+         UIViewKeyframeAnimationOptions.AllowUserInteraction.rawValue
       let options = UIViewKeyframeAnimationOptions(rawValue: raw)
       
       UIView.animateKeyframesWithDuration(TotalDuration, delay: delay, options: options, animations: {
@@ -60,7 +62,9 @@ class GoalieMovementAnimator
    private func _startTranslateAndRotationAnimations()
    {
       let delay = 0.0
-      let raw = UIViewKeyframeAnimationOptions.Repeat.rawValue | UIViewAnimationOptions.CurveLinear.rawValue
+      let raw = UIViewKeyframeAnimationOptions.Repeat.rawValue |
+         UIViewAnimationOptions.CurveLinear.rawValue |
+         UIViewKeyframeAnimationOptions.AllowUserInteraction.rawValue
       let options = UIViewKeyframeAnimationOptions(rawValue: raw)
       let rotation: CGFloat = 0.0872665
       
