@@ -91,6 +91,7 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
          GoalieSettingsManager.setUserCreatedFirstTask(true)
          _showCongratulationsDialog()
       }
+      _shouldCreateMoreCellsOnReturnKeyPressed = false
    }
    
    override func viewDidAppear(animated: Bool)
