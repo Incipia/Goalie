@@ -31,6 +31,7 @@ enum GoalieCharacter
       let bgColor = UIColor(priority: priority, headComponent: .Background)
       let cheekColor = UIColor(priority: priority, headComponent: .Cheek)
       let chinColor = UIColor(priority: priority, headComponent: .Chin)
+      
       GoalieCharacterKit.drawGoalieHead(backgroundColor: bgColor, cheekColor: cheekColor, chinColor: chinColor)
       GoalieCharacterKit.drawAccessoriesForPriority(priority)
    }

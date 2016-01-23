@@ -34,10 +34,12 @@ class CharacterView: UIView
          
          _faceLayer.removeAllAnimations()
          _faceLayer.removeFromSuperlayer()
+         
          switch character {
          case .Unknown: _faceLayer = CharacterFaceLayer()
          case .Goalie: _faceLayer = GoalieFaceLayer()
          }
+         
          layer.addSublayer(_faceLayer)
          updateWithPriority(_currentPriority)
       }
