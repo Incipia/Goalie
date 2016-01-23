@@ -16,7 +16,6 @@ class GoalieKerningLabel: UILabel
    override func awakeFromNib()
    {
       super.awakeFromNib()
-      
       guard let textValue = text else { return }
       
       let attributes = [
