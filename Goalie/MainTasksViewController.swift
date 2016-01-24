@@ -9,6 +9,9 @@
 import UIKit
 import CoreData
 
+let kNormalCellHeight: CGFloat = 50
+let kFirstCellHeight: CGFloat = 70
+
 class MainTasksViewController: UIViewController, ManagedObjectContextSettable
 {
    // We use this to get notified when the tasks change (separately from the table view configureCell: stuff)
@@ -395,7 +398,7 @@ extension MainTasksViewController: TableViewDelegateProtocol
    
    func heightForRowAtIndexPath(indexPath: NSIndexPath) -> CGFloat
    {
-      return indexPath.row == 0 ? 70 : 50
+      return indexPath.row == 0 ? kFirstCellHeight : kNormalCellHeight
    }
 }
 
@@ -415,7 +418,7 @@ extension MainTasksViewController: LPRTableViewDelegate
    func tableView(tableView: UITableView, draggingCell cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) -> UITableViewCell
    {
       let frame = cell.frame
-      let newFrame = CGRect(origin: CGPoint(x: frame.origin.x, y: frame.origin.y), size: CGSize(width: frame.width, height: 50))
+      let newFrame = CGRect(origin: frame.origin, size: CGSize(width: frame.width, height: kNormalCellHeight))
       cell.frame = newFrame
       return cell
    }
