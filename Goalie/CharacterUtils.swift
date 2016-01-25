@@ -36,3 +36,17 @@ enum GoalieCharacter
       GoalieCharacterKit.drawAccessoriesForPriority(priority)
    }
 }
+
+extension CGSize
+{
+   init(character: GoalieCharacter)
+   {
+      var size: (w: Int, h: Int)
+      switch character
+      {
+      case .Unknown: size = (130, 100)
+      case .Goalie: size = (80, 100)
+      }
+      self.init(width: size.w, height: size.h)
+   }
+}

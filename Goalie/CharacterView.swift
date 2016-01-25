@@ -14,7 +14,7 @@ class CharacterView: UIView
    @IBOutlet internal var heightConstraint: NSLayoutConstraint!
    @IBOutlet internal var centerYConstraint: NSLayoutConstraint!
    
-   private var _character: GoalieCharacter = .Unknown
+   private(set) var character: GoalieCharacter = .Unknown
    internal var _currentPriority: TaskPriority = .Unknown
    internal var _faceLayer = CharacterFaceLayer()
    
@@ -27,20 +27,13 @@ class CharacterView: UIView
    }
    
    // MARK: - Public
-   func updateCharacter(character: GoalieCharacter)
+   func updateCharacter(c: GoalieCharacter)
    {
-      if _character != character {
-         _character = character
-         
-         _faceLayer.removeAllAnimations()
-         _faceLayer.removeFromSuperlayer()
-         
-         switch character {
-         case .Unknown: _faceLayer = CharacterFaceLayer()
-         case .Goalie: _faceLayer = GoalieFaceLayer()
-         }
-         
-         layer.addSublayer(_faceLayer)
+      if character != c
+      {
+         character = c
+         _updateFaceLayerWithCharacter(c)
+         _updateConstraintsWithCharacter(c)
          updateWithPriority(_currentPriority)
       }
    }
@@ -68,9 +61,26 @@ class CharacterView: UIView
       centerYConstraint.constant -= transition.y
    }
    
+   // MARK: - Private
+   private func _updateFaceLayerWithCharacter(c: GoalieCharacter)
+   {
+      _faceLayer.removeAllAnimations()
+      _faceLayer.removeFromSuperlayer()
+      _faceLayer = FaceLayerFactory.layerForCharacter(c)
+      
+      layer.addSublayer(_faceLayer)
+   }
+   
+   private func _updateConstraintsWithCharacter(c: GoalieCharacter)
+   {
+      let newSize = CGSize(character: c)
+      widthConstraint.constant = newSize.width
+      heightConstraint.constant = newSize.height
+   }
+   
    // MARK: - Overridden
    override func drawRect(rect: CGRect)
    {
-      _character.drawRect(rect, withPriority: _currentPriority)
+      character.drawRect(rect, withPriority: _currentPriority)
    }
 }

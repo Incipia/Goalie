@@ -16,7 +16,7 @@
 		F324894F1C3F5DCF00E3DABD /* NSAttributedString+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F324894E1C3F5DCF00E3DABD /* NSAttributedString+Extensions.swift */; };
 		F342D1D51C473679006D758A /* OnboardingTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F342D1D41C473679006D758A /* OnboardingTransitionManager.swift */; };
 		F350C7161C4806E200416F14 /* CharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F350C7151C4806E200416F14 /* CharacterView.swift */; };
-		F350C7191C481CD400416F14 /* CharacterEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = F350C7181C481CD400416F14 /* CharacterEnums.swift */; };
+		F350C7191C481CD400416F14 /* CharacterUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F350C7181C481CD400416F14 /* CharacterUtils.swift */; };
 		F38318D11C2F343600C36ACB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38318D01C2F343600C36ACB /* AppDelegate.swift */; };
 		F38318D61C2F343600C36ACB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F38318D41C2F343600C36ACB /* Main.storyboard */; };
 		F38318DB1C2F343600C36ACB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F38318D91C2F343600C36ACB /* LaunchScreen.storyboard */; };
@@ -98,7 +98,7 @@
 		F324894E1C3F5DCF00E3DABD /* NSAttributedString+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSAttributedString+Extensions.swift"; path = "Goalie/NSAttributedString+Extensions.swift"; sourceTree = "<group>"; };
 		F342D1D41C473679006D758A /* OnboardingTransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OnboardingTransitionManager.swift; path = Goalie/OnboardingTransitionManager.swift; sourceTree = "<group>"; };
 		F350C7151C4806E200416F14 /* CharacterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CharacterView.swift; path = Goalie/CharacterView.swift; sourceTree = "<group>"; };
-		F350C7181C481CD400416F14 /* CharacterEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CharacterEnums.swift; path = Goalie/CharacterEnums.swift; sourceTree = "<group>"; };
+		F350C7181C481CD400416F14 /* CharacterUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CharacterUtils.swift; path = Goalie/CharacterUtils.swift; sourceTree = "<group>"; };
 		F38318CD1C2F343600C36ACB /* Goalie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Goalie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F38318D01C2F343600C36ACB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F38318D51C2F343600C36ACB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -231,7 +231,7 @@
 				F3CEAC6A1C4063810047DD78 /* GoalieCharacterKit.swift */,
 				F3A81FFE1C440B520048237F /* GoalieFaceLayer.swift */,
 				F3A820001C441B490048237F /* GoalieFacePathProvider.swift */,
-				F350C7181C481CD400416F14 /* CharacterEnums.swift */,
+				F350C7181C481CD400416F14 /* CharacterUtils.swift */,
 			);
 			name = "Character Drawing";
 			sourceTree = "<group>";
@@ -535,7 +535,7 @@
 				F383192D1C31A72D00C36ACB /* DefaultTasksFetchRequestProvider.swift in Sources */,
 				F38318D11C2F343600C36ACB /* AppDelegate.swift in Sources */,
 				F324894F1C3F5DCF00E3DABD /* NSAttributedString+Extensions.swift in Sources */,
-				F350C7191C481CD400416F14 /* CharacterEnums.swift in Sources */,
+				F350C7191C481CD400416F14 /* CharacterUtils.swift in Sources */,
 				F38319331C31A72D00C36ACB /* NSManagedObjectContext+Extensions.swift in Sources */,
 				F3B7F75A1C46EFBB00C364F0 /* CongratulationsViewController.swift in Sources */,
 				F3B7F7531C460F2900C364F0 /* SFXPlayer.swift in Sources */,

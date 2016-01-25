@@ -8,6 +8,17 @@
 
 import UIKit
 
+class FaceLayerFactory
+{
+   static func layerForCharacter(character: GoalieCharacter) -> CharacterFaceLayer
+   {
+      switch character {
+      case .Unknown: return CharacterFaceLayer()
+      case .Goalie: return GoalieFaceLayer()
+      }
+   }
+}
+
 class CharacterFaceLayer: CALayer
 {
    internal var _currentPriority: TaskPriority = .Unknown

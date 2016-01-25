@@ -50,26 +50,26 @@ class GoalieTableView: LPRTableView
    
    @IBOutlet private weak var _settingsButton: UIButton!
    
-//   private var _currentCharacter: GoalieCharacter = .Unknown
-//   @IBAction private func _swap()
-//   {
-//      if _currentCharacter == .Goalie {
-//         _currentCharacter = .Unknown
-//      } else {
-//         _currentCharacter = .Goalie
-//      }
-//      _goalieFaceView.updateCharacter(_currentCharacter)
-//   }
+   // For testing
+   @IBAction private func _swap()
+   {
+      var newCharacter: GoalieCharacter = .Goalie
+      if _goalieFaceView.character == .Goalie {
+         newCharacter = .Unknown
+      }
+      _goalieFaceView.updateCharacter(newCharacter)
+   }
    
    private var _shouldShowSpeechBubble = false
    private var _currentPriority = TaskPriority.Unknown
    
+   private let _tapGestureRecognizer = UITapGestureRecognizer()
+   
+   // MARK: - Lifecycle
    deinit {
       NSNotificationCenter.defaultCenter().removeObserver(self)
    }
    
-   private let _tapGestureRecognizer = UITapGestureRecognizer()
-   // MARK: - Lifecycle
    override func awakeFromNib()
    {
       super.awakeFromNib()
@@ -79,13 +79,7 @@ class GoalieTableView: LPRTableView
       _setupUIForFirstTime()
       _setupKeyboardObserving()
       
-      let newAnchorPoint = CGPoint(x: 0.5, y: 1)
-      _goalieFaceView.adjustAnchorPoint(newAnchorPoint)
-      _leftSpeechBubble.adjustAnchorPoint(newAnchorPoint)
-      _rightSpeechBubble.adjustAnchorPoint(newAnchorPoint)
-      
       decelerationRate = UIScrollViewDecelerationRateFast
-      
       _tapGestureRecognizer.addTarget(self, action: "goalieTapped")
       _goalieFaceView.addGestureRecognizer(_tapGestureRecognizer)
    }
@@ -116,11 +110,18 @@ class GoalieTableView: LPRTableView
    
    private func _setupUIForFirstTime()
    {
+      // Needs refactor
       let priority = TaskPriority.Unknown
+      
       let text = SpeechBubbleTextProvider.textForPriority(priority)
       _leftSpeechBubble.updateWithText(text, priority: priority)
       _rightSpeechBubble.updateWithText(text, priority: priority)
       _goalieHeaderView.backgroundColor = UIColor.goalieHeaderBackgroundColor(priority)
+      
+      let newAnchorPoint = CGPoint(x: 0.5, y: 1)
+      _goalieFaceView.adjustAnchorPoint(newAnchorPoint)
+      _leftSpeechBubble.adjustAnchorPoint(newAnchorPoint)
+      _rightSpeechBubble.adjustAnchorPoint(newAnchorPoint)
    }
    
    // MARK: - Public
@@ -271,7 +272,7 @@ extension GoalieTableView
       super.layoutSubviews()
       _updateHeaderViewFrame()
       
-      // prevent scrolling past bottom
+      // only allow scrolling past bottom a certain amount
       if contentOffset.y < -_maximumHeaderHeight {
          contentOffset = CGPoint(x: 0, y: -_maximumHeaderHeight)
       }
