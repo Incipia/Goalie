@@ -55,7 +55,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate
                self._mainTasksViewController.startGoalieMovement()
                GoalieSettingsManager.setUserHasOnboarded(true)
             })
-            
          }
          _setupMainWindowWithViewController(_onboardingViewController)
       }

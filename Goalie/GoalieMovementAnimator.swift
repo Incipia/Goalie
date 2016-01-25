@@ -27,7 +27,7 @@ class GoalieMovementAnimator
       if !_isAnimating {
          _isAnimating = true
          _startTranslateAndRotationAnimations()
-         _goalieView.layer.addAnimation(_mainGroupAnimation(), forKey: "goalieAnimation")
+         _startScalingAnimations()
       }
    }
    
@@ -35,28 +35,6 @@ class GoalieMovementAnimator
    {
       _goalieView.layer.removeAllAnimations()
       _isAnimating = false
-   }
-   
-   private func _startTranslateAnimations()
-   {
-      let delay = 0.0
-      let raw = UIViewKeyframeAnimationOptions.Repeat.rawValue |
-         UIViewAnimationOptions.CurveLinear.rawValue |
-         UIViewKeyframeAnimationOptions.AllowUserInteraction.rawValue
-      let options = UIViewKeyframeAnimationOptions(rawValue: raw)
-      
-      UIView.animateKeyframesWithDuration(TotalDuration, delay: delay, options: options, animations: {
-         UIView.addKeyframeWithRelativeStartTime(0, relativeDuration: 0.25, animations: {
-            self._goalieView.transform = CGAffineTransformMakeTranslation(5, 0)
-         })
-         UIView.addKeyframeWithRelativeStartTime(0.25, relativeDuration: 0.5, animations: {
-            self._goalieView.transform = CGAffineTransformMakeTranslation(-5, 0)
-         })
-         UIView.addKeyframeWithRelativeStartTime(0.75, relativeDuration: 0.25, animations: {
-            self._goalieView.transform = CGAffineTransformMakeTranslation(0, 0)
-         })
-         
-         }, completion: nil)
    }
    
    private func _startTranslateAndRotationAnimations()
@@ -82,6 +60,7 @@ class GoalieMovementAnimator
             self._goalieView.transform = CGAffineTransformConcat(rotatedTransform, translatedTransform)
          })
          UIView.addKeyframeWithRelativeStartTime(0.75, relativeDuration: 0.25, animations: {
+            
             let rotatedTransform = CGAffineTransformMakeRotation(0)
             let translatedTransform = CGAffineTransformMakeTranslation(0, 0)
             self._goalieView.transform = CGAffineTransformConcat(rotatedTransform, translatedTransform)
@@ -90,7 +69,7 @@ class GoalieMovementAnimator
          }, completion: nil)
    }
    
-   private func _mainGroupAnimation() -> CAAnimationGroup
+   private func _startScalingAnimations()
    {
       let scaleYAnimation = CAKeyframeAnimation(keyPath: "transform.scale.y")
       scaleYAnimation.values = [1, 0.95, 1]
@@ -109,6 +88,6 @@ class GoalieMovementAnimator
       group.duration = TotalDuration
       group.repeatCount = Float.infinity
       
-      return group
+      _goalieView.layer.addAnimation(group, forKey: "goalieAnimation")
    }
 }
