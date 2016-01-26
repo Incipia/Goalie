@@ -148,7 +148,7 @@
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DfY-8z-K5t" customClass="GoalieKerningButton" customModule="Goalie" customModuleProvider="target">
+                                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DfY-8z-K5t" customClass="GoalieKerningButton" customModule="Goalie" customModuleProvider="target">
                                                             <rect key="frame" x="16" y="26" width="43" height="33"/>
                                                             <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="15"/>
                                                             <state key="normal" title="SWAP"/>
