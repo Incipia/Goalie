@@ -27,13 +27,14 @@ class CharacterView: UIView
    }
    
    // MARK: - Public
-   func updateCharacter(c: GoalieCharacter)
+   func updateCharacter(character: GoalieCharacter)
    {
-      if character != c
+      if self.character != character
       {
-         character = c
-         _updateFaceLayerWithCharacter(c)
-         _updateConstraintsWithCharacter(c)
+         self.character = character
+         _updateFaceLayerWithCharacter(character)
+         _updateConstraintsWithCharacter(character)
+         
          updateWithPriority(_currentPriority)
       }
    }

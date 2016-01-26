@@ -65,8 +65,8 @@ class ViewTransformer: ViewTransformerProtocol
          let deltaVector = CGVector(dx: dx, dy: dy)
          
          var updatedTransform = CATransform3D.perspectiveTransform
-         self.rotateTransform(&updatedTransform, withDeltaVector: deltaVector)
-         self.scaleTransform(&updatedTransform, withDeltaVector: deltaVector)
+         rotateTransform(&updatedTransform, withDeltaVector: deltaVector)
+         scaleTransform(&updatedTransform, withDeltaVector: deltaVector)
          
          self.view.layer.transform = updatedTransform
          
@@ -99,14 +99,14 @@ class ViewTransformer: ViewTransformerProtocol
    
    private func scaleTransform(inout transform: CATransform3D, withDeltaVector deltaVector: CGVector)
    {
-      let xScale = self.scaleFromDeltaValue(deltaVector.dy)
-      let yScale = self.scaleFromDeltaValue(deltaVector.dx)
+      let xScale = scaleForDeltaValue(deltaVector.dy)
+      let yScale = scaleForDeltaValue(deltaVector.dx)
       let zScale = (xScale * yScale) / 2
       
       transform = CATransform3DScale(transform, xScale, yScale, zScale)
    }
    
-   private func scaleFromDeltaValue(value: CGFloat) -> CGFloat
+   private func scaleForDeltaValue(value: CGFloat) -> CGFloat
    {
       return max(log(abs(value * 0.012) + 1) * 0.8, 1.0)
    }
