@@ -82,8 +82,6 @@
 		F3CEAC601C4061C70047DD78 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = F3CEAC5B1C4061C70047DD78 /* TPKeyboardAvoidingScrollView.m */; };
 		F3CEAC611C4061C70047DD78 /* TPKeyboardAvoidingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = F3CEAC5D1C4061C70047DD78 /* TPKeyboardAvoidingTableView.m */; };
 		F3CEAC621C4061C70047DD78 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F3CEAC5F1C4061C70047DD78 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
-		F3CEAC651C4061F20047DD78 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3CEAC631C4061F20047DD78 /* Crashlytics.framework */; };
-		F3CEAC661C4061F20047DD78 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3CEAC641C4061F20047DD78 /* Fabric.framework */; };
 		F3CEAC6E1C4063810047DD78 /* GoalieCharacterKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CEAC6A1C4063810047DD78 /* GoalieCharacterKit.swift */; };
 		F3CEAC6F1C4063810047DD78 /* GoalieSpeechBubbleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CEAC6B1C4063810047DD78 /* GoalieSpeechBubbleKit.swift */; };
 		F3DB3E041C322DC40005C607 /* MainTasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DB3E031C322DC40005C607 /* MainTasksViewController.swift */; };
@@ -177,8 +175,6 @@
 		F3CEAC5D1C4061C70047DD78 /* TPKeyboardAvoidingTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingTableView.m; sourceTree = "<group>"; };
 		F3CEAC5E1C4061C70047DD78 /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
 		F3CEAC5F1C4061C70047DD78 /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
-		F3CEAC631C4061F20047DD78 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = Frameworks/Crashlytics.framework; sourceTree = "<group>"; };
-		F3CEAC641C4061F20047DD78 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fabric.framework; path = Frameworks/Fabric.framework; sourceTree = "<group>"; };
 		F3CEAC671C40631B0047DD78 /* Goalie-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Goalie-Bridging-Header.h"; sourceTree = "<group>"; };
 		F3CEAC6A1C4063810047DD78 /* GoalieCharacterKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoalieCharacterKit.swift; path = PaintCode/GoalieCharacterKit.swift; sourceTree = "<group>"; };
 		F3CEAC6B1C4063810047DD78 /* GoalieSpeechBubbleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoalieSpeechBubbleKit.swift; path = PaintCode/GoalieSpeechBubbleKit.swift; sourceTree = "<group>"; };
@@ -194,8 +190,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F3CEAC651C4061F20047DD78 /* Crashlytics.framework in Frameworks */,
-				F3CEAC661C4061F20047DD78 /* Fabric.framework in Frameworks */,
 				E1377B27D478F96068A214FA /* BuddyBuildSDK.framework in Frameworks */,
 				0350F767EF1F43B55733F510 /* AssetsLibrary.framework in Frameworks */,
 				6C85397C33F010F911D74784 /* CoreText.framework in Frameworks */,
@@ -309,8 +303,6 @@
 		F383190E1C31A58A00C36ACB /* External Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F3CEAC631C4061F20047DD78 /* Crashlytics.framework */,
-				F3CEAC641C4061F20047DD78 /* Fabric.framework */,
 				F3CEAC591C4061C70047DD78 /* TPKeyboardAvoiding */,
 				F3CEAC4F1C4061B10047DD78 /* JVFloatingLabel */,
 			);
@@ -455,7 +447,6 @@
 				F38318C91C2F343600C36ACB /* Sources */,
 				F38318CA1C2F343600C36ACB /* Frameworks */,
 				F38318CB1C2F343600C36ACB /* Resources */,
-				F3DB3E261C3361170005C607 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -524,22 +515,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		F3DB3E261C3361170005C607 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "./Frameworks/Fabric.framework/run f8adb97359f3be505eb37f857a45751f47fd970d 407866616ca285468c6460521feef426e433f90b9fb69faf01009c146bb9da62";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F38318C91C2F343600C36ACB /* Sources */ = {
