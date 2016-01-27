@@ -33,22 +33,9 @@ class SFXPlayer
       }
    }
    
-   private func _playCurrent()
+   private func _playCompleted()
    {
-//      if _soundURLs.count > _currentURLIndex {
-//         let url = _soundURLs[_currentURLIndex]
-//         
-//         do {
-//            _player = try AVAudioPlayer(contentsOfURL: url, fileTypeHint: nil)
-//         }
-//         catch let error as NSError {
-//            print(error.description)
-//         }
-//         _player.volume = 0.1
-//         _player.play()
-//      }
-      
-      if let url = NSBundle.mainBundle().URLForResource("CreamyDrops", withExtension: "mp3") {
+      if let url = NSBundle.mainBundle().URLForResource("Kalimba", withExtension: "mp3") {
          do {
             _player = try AVAudioPlayer(contentsOfURL: url, fileTypeHint: nil)
          }
@@ -56,6 +43,8 @@ class SFXPlayer
             print(error.description)
          }
          _player.volume = 0.2
+         _player.enableRate = true
+         _player.rate = 1.5
          _player.play()
       }
    }
@@ -106,7 +95,7 @@ class SFXPlayer
    
    static func playCurrentCompletedSound()
    {
-      _sharedInstance._playCurrent()
+      _sharedInstance._playCompleted()
    }
    
    static func playDeleteSound()
