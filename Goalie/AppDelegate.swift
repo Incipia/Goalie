@@ -34,10 +34,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate
       _moc = createGoalieMainContext()
       _setupMainTasksViewControllerWithMOC(_moc)
       
-//       FOR TESTING!
-//      GoalieSettingsManager.setUserHasOnboarded(false)
-//      GoalieSettingsManager.setUserCreatedFirstTask(false)
-      
       if GoalieSettingsManager.userHasOnboarded {
          _setupMainWindowWithViewController(_mainTasksViewController)
       }
