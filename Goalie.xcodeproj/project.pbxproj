@@ -12,7 +12,7 @@
 		6C85397C33F010F911D74784 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7281E6C74163214166DB801E /* CoreText.framework */; };
 		93A0856151B82D96D463EED5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDCA42C672C6D47B9F2F7F3F /* SystemConfiguration.framework */; };
 		CEB5854C1C5300DB00A39746 /* LPRTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB5854B1C5300DB00A39746 /* LPRTableView.swift */; };
-		CEB5854E1C530E9B00A39746 /* CreamyDrops.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CEB5854D1C530E9B00A39746 /* CreamyDrops.mp3 */; };
+		CEC5CC051C5A9F0E0039FF89 /* ChangePriorityRight.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CEC5CC041C5A9F0E0039FF89 /* ChangePriorityRight.mp3 */; };
 		E1377B27D478F96068A214FA /* BuddyBuildSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27E93C80FA0525366BB63CEC /* BuddyBuildSDK.framework */; };
 		F322EB111C34C371001B8C44 /* TaskCellAppearanceUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = F322EB101C34C371001B8C44 /* TaskCellAppearanceUpdater.swift */; };
 		F322EB131C34C9D4001B8C44 /* UIButton+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F322EB121C34C9D4001B8C44 /* UIButton+Extensions.swift */; };
@@ -64,16 +64,9 @@
 		F3B7F7301C44A26B00C364F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3B7F72F1C44A26B00C364F0 /* Assets.xcassets */; };
 		F3B7F7321C4583D900C364F0 /* GoalieMovementAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B7F7311C4583D900C364F0 /* GoalieMovementAnimator.swift */; };
 		F3B7F7341C45F2D600C364F0 /* GoalieKerningHeaderLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B7F7331C45F2D600C364F0 /* GoalieKerningHeaderLabel.swift */; };
-		F3B7F74B1C460EB500C364F0 /* Celeste.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F3B7F7441C460EB500C364F0 /* Celeste.mp3 */; };
-		F3B7F74C1C460EB500C364F0 /* DrumRoll.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F3B7F7451C460EB500C364F0 /* DrumRoll.mp3 */; };
-		F3B7F74D1C460EB500C364F0 /* Horns.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F3B7F7461C460EB500C364F0 /* Horns.mp3 */; };
 		F3B7F74E1C460EB500C364F0 /* Kalimba.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F3B7F7471C460EB500C364F0 /* Kalimba.mp3 */; };
-		F3B7F74F1C460EB500C364F0 /* MusicBox.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F3B7F7481C460EB500C364F0 /* MusicBox.mp3 */; };
-		F3B7F7501C460EB500C364F0 /* RockOn.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F3B7F7491C460EB500C364F0 /* RockOn.mp3 */; };
-		F3B7F7511C460EB500C364F0 /* VSSPiano.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F3B7F74A1C460EB500C364F0 /* VSSPiano.mp3 */; };
 		F3B7F7531C460F2900C364F0 /* SFXPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B7F7521C460F2900C364F0 /* SFXPlayer.swift */; };
 		F3B7F7551C4617F500C364F0 /* Delete.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F3B7F7541C4617F500C364F0 /* Delete.mp3 */; };
-		F3B7F7571C46185200C364F0 /* ChangePriorityRight.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F3B7F7561C46185200C364F0 /* ChangePriorityRight.mp3 */; };
 		F3B7F75A1C46EFBB00C364F0 /* CongratulationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B7F7591C46EFBB00C364F0 /* CongratulationsViewController.swift */; };
 		F3CEAC441C4061820047DD78 /* ViewTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CEAC431C4061820047DD78 /* ViewTransformer.swift */; };
 		F3CEAC561C4061B10047DD78 /* JVFloatLabeledTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = F3CEAC511C4061B10047DD78 /* JVFloatLabeledTextField.m */; };
@@ -98,7 +91,7 @@
 		8A9D52B062DA22466B7C4B90 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		CDCA42C672C6D47B9F2F7F3F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		CEB5854B1C5300DB00A39746 /* LPRTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LPRTableView.swift; path = Frameworks/LPRTableView.swift; sourceTree = "<group>"; };
-		CEB5854D1C530E9B00A39746 /* CreamyDrops.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = CreamyDrops.mp3; path = Sounds/CreamyDrops.mp3; sourceTree = "<group>"; };
+		CEC5CC041C5A9F0E0039FF89 /* ChangePriorityRight.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ChangePriorityRight.mp3; sourceTree = "<group>"; };
 		F322EB101C34C371001B8C44 /* TaskCellAppearanceUpdater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TaskCellAppearanceUpdater.swift; path = Goalie/TaskCellAppearanceUpdater.swift; sourceTree = "<group>"; };
 		F322EB121C34C9D4001B8C44 /* UIButton+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIButton+Extensions.swift"; path = "Goalie/UIButton+Extensions.swift"; sourceTree = "<group>"; };
 		F32489481C3F174300E3DABD /* GoalieSpeechBubble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoalieSpeechBubble.swift; path = Goalie/GoalieSpeechBubble.swift; sourceTree = "<group>"; };
@@ -151,16 +144,9 @@
 		F3B7F72F1C44A26B00C364F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F3B7F7311C4583D900C364F0 /* GoalieMovementAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoalieMovementAnimator.swift; path = Goalie/GoalieMovementAnimator.swift; sourceTree = "<group>"; };
 		F3B7F7331C45F2D600C364F0 /* GoalieKerningHeaderLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoalieKerningHeaderLabel.swift; path = Goalie/GoalieKerningHeaderLabel.swift; sourceTree = "<group>"; };
-		F3B7F7441C460EB500C364F0 /* Celeste.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Celeste.mp3; path = Sounds/Celeste.mp3; sourceTree = "<group>"; };
-		F3B7F7451C460EB500C364F0 /* DrumRoll.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = DrumRoll.mp3; path = Sounds/DrumRoll.mp3; sourceTree = "<group>"; };
-		F3B7F7461C460EB500C364F0 /* Horns.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Horns.mp3; path = Sounds/Horns.mp3; sourceTree = "<group>"; };
 		F3B7F7471C460EB500C364F0 /* Kalimba.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Kalimba.mp3; path = Sounds/Kalimba.mp3; sourceTree = "<group>"; };
-		F3B7F7481C460EB500C364F0 /* MusicBox.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = MusicBox.mp3; path = Sounds/MusicBox.mp3; sourceTree = "<group>"; };
-		F3B7F7491C460EB500C364F0 /* RockOn.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = RockOn.mp3; path = Sounds/RockOn.mp3; sourceTree = "<group>"; };
-		F3B7F74A1C460EB500C364F0 /* VSSPiano.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = VSSPiano.mp3; path = Sounds/VSSPiano.mp3; sourceTree = "<group>"; };
 		F3B7F7521C460F2900C364F0 /* SFXPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFXPlayer.swift; path = Goalie/SFXPlayer.swift; sourceTree = "<group>"; };
 		F3B7F7541C4617F500C364F0 /* Delete.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Delete.mp3; path = Sounds/Delete.mp3; sourceTree = "<group>"; };
-		F3B7F7561C46185200C364F0 /* ChangePriorityRight.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = ChangePriorityRight.mp3; path = Sounds/ChangePriorityRight.mp3; sourceTree = "<group>"; };
 		F3B7F7591C46EFBB00C364F0 /* CongratulationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CongratulationsViewController.swift; path = Goalie/CongratulationsViewController.swift; sourceTree = "<group>"; };
 		F3CEAC431C4061820047DD78 /* ViewTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewTransformer.swift; path = Goalie/ViewTransformer.swift; sourceTree = "<group>"; };
 		F3CEAC501C4061B10047DD78 /* JVFloatLabeledTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JVFloatLabeledTextField.h; sourceTree = "<group>"; };
@@ -394,16 +380,9 @@
 		F3B7F7351C460E8B00C364F0 /* SFX */ = {
 			isa = PBXGroup;
 			children = (
-				CEB5854D1C530E9B00A39746 /* CreamyDrops.mp3 */,
-				F3B7F7561C46185200C364F0 /* ChangePriorityRight.mp3 */,
+				CEC5CC041C5A9F0E0039FF89 /* ChangePriorityRight.mp3 */,
 				F3B7F7541C4617F500C364F0 /* Delete.mp3 */,
-				F3B7F7441C460EB500C364F0 /* Celeste.mp3 */,
-				F3B7F7451C460EB500C364F0 /* DrumRoll.mp3 */,
-				F3B7F7461C460EB500C364F0 /* Horns.mp3 */,
 				F3B7F7471C460EB500C364F0 /* Kalimba.mp3 */,
-				F3B7F7481C460EB500C364F0 /* MusicBox.mp3 */,
-				F3B7F7491C460EB500C364F0 /* RockOn.mp3 */,
-				F3B7F74A1C460EB500C364F0 /* VSSPiano.mp3 */,
 				F3B7F7521C460F2900C364F0 /* SFXPlayer.swift */,
 			);
 			name = SFX;
@@ -497,19 +476,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				F38B55151C3851190022453F /* NotoSans-Bold.ttf in Resources */,
-				F3B7F7511C460EB500C364F0 /* VSSPiano.mp3 in Resources */,
 				F38318DB1C2F343600C36ACB /* LaunchScreen.storyboard in Resources */,
-				CEB5854E1C530E9B00A39746 /* CreamyDrops.mp3 in Resources */,
-				F3B7F74C1C460EB500C364F0 /* DrumRoll.mp3 in Resources */,
-				F3B7F7501C460EB500C364F0 /* RockOn.mp3 in Resources */,
 				F38B55161C3851190022453F /* NotoSans-Regular.ttf in Resources */,
 				F38318D61C2F343600C36ACB /* Main.storyboard in Resources */,
-				F3B7F7571C46185200C364F0 /* ChangePriorityRight.mp3 in Resources */,
+				CEC5CC051C5A9F0E0039FF89 /* ChangePriorityRight.mp3 in Resources */,
 				F3B7F7551C4617F500C364F0 /* Delete.mp3 in Resources */,
-				F3B7F74B1C460EB500C364F0 /* Celeste.mp3 in Resources */,
-				F3B7F74F1C460EB500C364F0 /* MusicBox.mp3 in Resources */,
 				F3B7F74E1C460EB500C364F0 /* Kalimba.mp3 in Resources */,
-				F3B7F74D1C460EB500C364F0 /* Horns.mp3 in Resources */,
 				F3B7F7301C44A26B00C364F0 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

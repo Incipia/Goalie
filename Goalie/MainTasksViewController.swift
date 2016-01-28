@@ -142,7 +142,7 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
       _goalieTableView.hideSpeechBubble()
    }
    
-   // Mark: - Private
+//    MARK: - Private
    private func _updateTableViewFooter()
    {
       if _tasksDataProvider.incompletedTasks().count > 0 {

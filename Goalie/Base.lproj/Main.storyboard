@@ -831,7 +831,7 @@ Goalie's happy.</string>
                     </constraints>
                 </view>
             </objects>
-            <point key="canvasLocation" x="1323" y="1238"/>
+            <point key="canvasLocation" x="1241" y="834"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="fJM-xw-aAD">
