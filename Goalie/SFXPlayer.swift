@@ -58,7 +58,7 @@ class SFXPlayer
          catch let error as NSError {
             print(error.description)
          }
-         _player.volume = 0.1
+         _player.volume = 0.05
          _player.play()
       }
    }
@@ -72,7 +72,7 @@ class SFXPlayer
          catch let error as NSError {
             print(error.description)
          }
-         _player.volume = 0.1
+         _player.volume = 0.08
          _player.play()
       }
    }
