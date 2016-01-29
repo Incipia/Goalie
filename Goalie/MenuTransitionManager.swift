@@ -8,6 +8,17 @@
 
 import UIKit
 
+extension UIViewControllerContextTransitioning
+{
+   var toViewController: UIViewController? {
+      return viewControllerForKey(UITransitionContextToViewControllerKey)
+   }
+   
+   var fromViewController: UIViewController? {
+      return viewControllerForKey(UITransitionContextFromViewControllerKey)
+   }
+}
+
 class MenuTransitionManager: NSObject, UIViewControllerAnimatedTransitioning, UIViewControllerTransitioningDelegate
 {
    var presenting = true
@@ -42,7 +53,10 @@ class MenuTransitionManager: NSObject, UIViewControllerAnimatedTransitioning, UI
       // get reference to our fromView, toView and the container view that we should perform the transition in
       let container = transitionContext.containerView()!
       
-      let toController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey) as! MenuController
+      guard let toController = transitionContext.toViewController as? MenuController else {
+         transitionContext.completeTransition(true)
+         return
+      }
       
       let scaledTransform = CGAffineTransformMakeScale(0.4, 0.4)
       toController.dialogContainer.transform = scaledTransform
@@ -53,7 +67,10 @@ class MenuTransitionManager: NSObject, UIViewControllerAnimatedTransitioning, UI
       container.addSubview(toController.view)
       
       let duration = transitionDuration(transitionContext)
-      UIView.animateWithDuration(duration, delay: 0, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
+      UIView.animateWithDuration(duration,
+         delay: 0,
+         options: UIViewAnimationOptions.CurveEaseIn,
+         animations: { () -> Void in
          
          toController.dialogContainer.transform = CGAffineTransformIdentity
          toController.view.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.5)
@@ -67,12 +84,18 @@ class MenuTransitionManager: NSObject, UIViewControllerAnimatedTransitioning, UI
    {
       // get reference to our fromView, toView and the container view that we should perform the transition in
       let container = transitionContext.containerView()!
-      
-      let fromController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey) as! MenuController
+      guard let fromController = transitionContext.fromViewController as? MenuController else {
+         transitionContext.completeTransition(true)
+         return
+      }
+   
       container.addSubview(fromController.view)
       
       let duration = transitionDuration(transitionContext)
-      UIView.animateWithDuration(duration, delay: 0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
+      UIView.animateWithDuration(duration,
+         delay: 0,
+         options: UIViewAnimationOptions.CurveEaseOut,
+         animations: { () -> Void in
          
          fromController.view.alpha = 0
          fromController.dialogContainer.transform = CGAffineTransformMakeScale(0.4, 0.4)
