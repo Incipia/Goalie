@@ -131,7 +131,7 @@ class EditTaskViewController: UIViewController, ManagedObjectContextSettable, Me
    @IBAction private func _deleteButtonPressed()
    {
       SFXPlayer.playDeleteSound()
-      dismissViewControllerAnimated(false) { () -> Void in
+      dismissViewControllerAnimated(true) { () -> Void in
          self._task.delete()
       }
    }
