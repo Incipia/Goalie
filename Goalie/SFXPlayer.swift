@@ -42,7 +42,7 @@ class SFXPlayer
          catch let error as NSError {
             print(error.description)
          }
-         _player.volume = 0.2
+         _player.volume = 0.25
          _player.enableRate = true
          _player.rate = 1.5
          _player.play()
