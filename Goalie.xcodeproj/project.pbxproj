@@ -7,12 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0350F767EF1F43B55733F510 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2831F042354906D79C5B8C05 /* AssetsLibrary.framework */; };
-		41C37DADEBF7188D667E3DE0 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A9D52B062DA22466B7C4B90 /* CoreTelephony.framework */; };
-		6C85397C33F010F911D74784 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7281E6C74163214166DB801E /* CoreText.framework */; };
-		93A0856151B82D96D463EED5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDCA42C672C6D47B9F2F7F3F /* SystemConfiguration.framework */; };
-		CE8561371C5C8055003FAE89 /* BuddyBuildSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE8561361C5C8055003FAE89 /* BuddyBuildSDK.framework */; };
 		CEB5854C1C5300DB00A39746 /* LPRTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB5854B1C5300DB00A39746 /* LPRTableView.swift */; };
+		CEC1C8451C5C8B2D0074290A /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC1C8431C5C8B2D0074290A /* Fabric.framework */; };
+		CEC1C8461C5C8B2D0074290A /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC1C8441C5C8B2D0074290A /* Crashlytics.framework */; };
 		CEC5CC051C5A9F0E0039FF89 /* ChangePriorityRight.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CEC5CC041C5A9F0E0039FF89 /* ChangePriorityRight.mp3 */; };
 		F322EB111C34C371001B8C44 /* TaskCellAppearanceUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = F322EB101C34C371001B8C44 /* TaskCellAppearanceUpdater.swift */; };
 		F322EB131C34C9D4001B8C44 /* UIButton+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F322EB121C34C9D4001B8C44 /* UIButton+Extensions.swift */; };
@@ -85,12 +82,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2831F042354906D79C5B8C05 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
-		7281E6C74163214166DB801E /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
-		8A9D52B062DA22466B7C4B90 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
-		CDCA42C672C6D47B9F2F7F3F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		CE8561361C5C8055003FAE89 /* BuddyBuildSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BuddyBuildSDK.framework; path = Frameworks/BuddyBuildSDK.framework; sourceTree = "<group>"; };
 		CEB5854B1C5300DB00A39746 /* LPRTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LPRTableView.swift; path = Frameworks/LPRTableView.swift; sourceTree = "<group>"; };
+		CEC1C8431C5C8B2D0074290A /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		CEC1C8441C5C8B2D0074290A /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		CEC5CC041C5A9F0E0039FF89 /* ChangePriorityRight.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ChangePriorityRight.mp3; sourceTree = "<group>"; };
 		F322EB101C34C371001B8C44 /* TaskCellAppearanceUpdater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TaskCellAppearanceUpdater.swift; path = Goalie/TaskCellAppearanceUpdater.swift; sourceTree = "<group>"; };
 		F322EB121C34C9D4001B8C44 /* UIButton+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIButton+Extensions.swift"; path = "Goalie/UIButton+Extensions.swift"; sourceTree = "<group>"; };
@@ -176,28 +170,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE8561371C5C8055003FAE89 /* BuddyBuildSDK.framework in Frameworks */,
-				0350F767EF1F43B55733F510 /* AssetsLibrary.framework in Frameworks */,
-				6C85397C33F010F911D74784 /* CoreText.framework in Frameworks */,
-				41C37DADEBF7188D667E3DE0 /* CoreTelephony.framework in Frameworks */,
-				93A0856151B82D96D463EED5 /* SystemConfiguration.framework in Frameworks */,
+				CEC1C8461C5C8B2D0074290A /* Crashlytics.framework in Frameworks */,
+				CEC1C8451C5C8B2D0074290A /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		BB0A32A125D791E060F226BD /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				2831F042354906D79C5B8C05 /* AssetsLibrary.framework */,
-				7281E6C74163214166DB801E /* CoreText.framework */,
-				8A9D52B062DA22466B7C4B90 /* CoreTelephony.framework */,
-				CDCA42C672C6D47B9F2F7F3F /* SystemConfiguration.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		F32C2A531C3B9E8C002ACA53 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
@@ -259,7 +239,6 @@
 				F32C2A571C3C8D55002ACA53 /* Speech Bubble */,
 				F32C2A531C3B9E8C002ACA53 /* Storyboards */,
 				F38319451C31AB2700C36ACB /* View Controllers */,
-				BB0A32A125D791E060F226BD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -288,7 +267,8 @@
 		F383190E1C31A58A00C36ACB /* External Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CE8561361C5C8055003FAE89 /* BuddyBuildSDK.framework */,
+				CEC1C8431C5C8B2D0074290A /* Fabric.framework */,
+				CEC1C8441C5C8B2D0074290A /* Crashlytics.framework */,
 				F3CEAC591C4061C70047DD78 /* TPKeyboardAvoiding */,
 				F3CEAC4F1C4061B10047DD78 /* JVFloatingLabel */,
 			);
@@ -426,6 +406,7 @@
 				F38318C91C2F343600C36ACB /* Sources */,
 				F38318CA1C2F343600C36ACB /* Frameworks */,
 				F38318CB1C2F343600C36ACB /* Resources */,
+				CEC1C8421C5C8B210074290A /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -487,6 +468,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		CEC1C8421C5C8B210074290A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run f8adb97359f3be505eb37f857a45751f47fd970d 407866616ca285468c6460521feef426e433f90b9fb69faf01009c146bb9da62";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F38318C91C2F343600C36ACB /* Sources */ = {
@@ -680,7 +677,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.incipia.Goalie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "67c525bb-7b28-4cd8-966a-b9872ac0c5aa";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Goalie/Goalie-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -704,7 +701,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.incipia.Goalie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "67c525bb-7b28-4cd8-966a-b9872ac0c5aa";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Goalie/Goalie-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
