@@ -4,4 +4,3 @@
 
 #import "TPKeyboardAvoidingTableView.h"
 #import "JVFloatLabeledTextField.h"
-#import <BuddyBuildSDK/BuddyBuildSDK.h>
