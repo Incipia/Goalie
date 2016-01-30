@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		CEB5854C1C5300DB00A39746 /* LPRTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB5854B1C5300DB00A39746 /* LPRTableView.swift */; };
-		CEC1C8451C5C8B2D0074290A /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC1C8431C5C8B2D0074290A /* Fabric.framework */; };
-		CEC1C8461C5C8B2D0074290A /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC1C8441C5C8B2D0074290A /* Crashlytics.framework */; };
-		CEC5CC051C5A9F0E0039FF89 /* ChangePriorityRight.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CEC5CC041C5A9F0E0039FF89 /* ChangePriorityRight.mp3 */; };
+		CEC1C84C1C5C90CB0074290A /* ChangePriorityRight.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CEC1C84B1C5C90CB0074290A /* ChangePriorityRight.mp3 */; };
+		CEC1C84F1C5C91450074290A /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC1C84D1C5C91450074290A /* Crashlytics.framework */; };
+		CEC1C8501C5C91450074290A /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC1C84E1C5C91450074290A /* Fabric.framework */; };
 		F322EB111C34C371001B8C44 /* TaskCellAppearanceUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = F322EB101C34C371001B8C44 /* TaskCellAppearanceUpdater.swift */; };
 		F322EB131C34C9D4001B8C44 /* UIButton+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F322EB121C34C9D4001B8C44 /* UIButton+Extensions.swift */; };
 		F32489491C3F174300E3DABD /* GoalieSpeechBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32489481C3F174300E3DABD /* GoalieSpeechBubble.swift */; };
@@ -83,9 +83,9 @@
 
 /* Begin PBXFileReference section */
 		CEB5854B1C5300DB00A39746 /* LPRTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LPRTableView.swift; path = Frameworks/LPRTableView.swift; sourceTree = "<group>"; };
-		CEC1C8431C5C8B2D0074290A /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
-		CEC1C8441C5C8B2D0074290A /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
-		CEC5CC041C5A9F0E0039FF89 /* ChangePriorityRight.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ChangePriorityRight.mp3; sourceTree = "<group>"; };
+		CEC1C84B1C5C90CB0074290A /* ChangePriorityRight.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = ChangePriorityRight.mp3; path = Sounds/ChangePriorityRight.mp3; sourceTree = "<group>"; };
+		CEC1C84D1C5C91450074290A /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		CEC1C84E1C5C91450074290A /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		F322EB101C34C371001B8C44 /* TaskCellAppearanceUpdater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TaskCellAppearanceUpdater.swift; path = Goalie/TaskCellAppearanceUpdater.swift; sourceTree = "<group>"; };
 		F322EB121C34C9D4001B8C44 /* UIButton+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIButton+Extensions.swift"; path = "Goalie/UIButton+Extensions.swift"; sourceTree = "<group>"; };
 		F32489481C3F174300E3DABD /* GoalieSpeechBubble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoalieSpeechBubble.swift; path = Goalie/GoalieSpeechBubble.swift; sourceTree = "<group>"; };
@@ -170,8 +170,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEC1C8461C5C8B2D0074290A /* Crashlytics.framework in Frameworks */,
-				CEC1C8451C5C8B2D0074290A /* Fabric.framework in Frameworks */,
+				CEC1C84F1C5C91450074290A /* Crashlytics.framework in Frameworks */,
+				CEC1C8501C5C91450074290A /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,8 +267,8 @@
 		F383190E1C31A58A00C36ACB /* External Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CEC1C8431C5C8B2D0074290A /* Fabric.framework */,
-				CEC1C8441C5C8B2D0074290A /* Crashlytics.framework */,
+				CEC1C84D1C5C91450074290A /* Crashlytics.framework */,
+				CEC1C84E1C5C91450074290A /* Fabric.framework */,
 				F3CEAC591C4061C70047DD78 /* TPKeyboardAvoiding */,
 				F3CEAC4F1C4061B10047DD78 /* JVFloatingLabel */,
 			);
@@ -360,7 +360,7 @@
 		F3B7F7351C460E8B00C364F0 /* SFX */ = {
 			isa = PBXGroup;
 			children = (
-				CEC5CC041C5A9F0E0039FF89 /* ChangePriorityRight.mp3 */,
+				CEC1C84B1C5C90CB0074290A /* ChangePriorityRight.mp3 */,
 				F3B7F7541C4617F500C364F0 /* Delete.mp3 */,
 				F3B7F7471C460EB500C364F0 /* Kalimba.mp3 */,
 				F3B7F7521C460F2900C364F0 /* SFXPlayer.swift */,
@@ -457,10 +457,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F38B55151C3851190022453F /* NotoSans-Bold.ttf in Resources */,
+				CEC1C84C1C5C90CB0074290A /* ChangePriorityRight.mp3 in Resources */,
 				F38318DB1C2F343600C36ACB /* LaunchScreen.storyboard in Resources */,
 				F38B55161C3851190022453F /* NotoSans-Regular.ttf in Resources */,
 				F38318D61C2F343600C36ACB /* Main.storyboard in Resources */,
-				CEC5CC051C5A9F0E0039FF89 /* ChangePriorityRight.mp3 in Resources */,
 				F3B7F7551C4617F500C364F0 /* Delete.mp3 in Resources */,
 				F3B7F74E1C460EB500C364F0 /* Kalimba.mp3 in Resources */,
 				F3B7F7301C44A26B00C364F0 /* Assets.xcassets in Resources */,
