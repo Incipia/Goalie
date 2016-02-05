@@ -142,7 +142,7 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
       _goalieTableView.hideSpeechBubble()
    }
    
-//    MARK: - Private
+   // MARK: - Private
    private func _updateTableViewFooter()
    {
       if _tasksDataProvider.incompletedTasks().count > 0 {
@@ -344,12 +344,14 @@ extension MainTasksViewController: DataProviderDelegate
    func dataProviderDidUpdate(updates: [DataProviderUpdate<Task>]?)
    {
       _tableViewDataSource.processUpdates(updates, animationBlock: { () -> Void in
+         
          self._goalieTableView.updateHeaderViewFrameAnimated()
          if self._shouldGiveNextCreatedCellFocus {
             self._goalieTableView.scrollToBottom()
          }
          // completion
          }) { () -> () in
+            
             if self._shouldGiveNextCreatedCellFocus {
                self._shouldGiveNextCreatedCellFocus = false
                self._goalieTableView.scrollToBottomWithDuration(0.2, completion: { (finished) -> () in
