@@ -313,7 +313,9 @@ extension MainTasksViewController: TasksTableViewCellDelegate
    func disclosureButtonPressedForTask(task: Task)
    {
       _currentTaskCell?.stopEditing()
-      _presentDetailsForTask(task)
+      if !task.title.isEmpty {
+         _presentDetailsForTask(task)
+      }
    }
    
    func completeButtonPressedForCell(cell: TasksTableViewCell, task: Task)
