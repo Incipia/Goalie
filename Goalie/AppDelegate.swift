@@ -32,6 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
    {
       Fabric.with([Crashlytics.self])
+      _setupStoreKit()
       
       _moc = createGoalieMainContext()
       _setupMainTasksViewControllerWithMOC(_moc)
@@ -77,9 +78,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate
       }
    }
    
+   private func _setupStoreKit()
+   {
+      MKStoreKit.sharedKit().startProductRequest()
+      
+      NSNotificationCenter.defaultCenter().addObserverForName(kMKStoreKitProductsAvailableNotification,
+         object: nil, queue: NSOperationQueue.mainQueue()) { (note) -> Void in
+            
+            for product in MKStoreKit.sharedKit().availableProducts {
+               print(product.localizedTitle)
+            }
+      }
+      
+      NSNotificationCenter.defaultCenter().addObserverForName(kMKStoreKitProductPurchasedNotification,
+         object: nil, queue: NSOperationQueue.mainQueue()) { (note) -> Void in
+            
+            print ("Purchased product: \(note.object)")
+      }
+   }
+   
    private func _startTimers()
    {
-      _startTimerForMinuteChangedNotification()
+      _startTimerForAutoIncrementingTasksPriorities()
       _startTimerForSpeechBubble()
       _startTimerForGoalieAnimations()
    }
@@ -121,7 +141,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
       window?.makeKeyAndVisible()
    }
 
-   private func _startTimerForMinuteChangedNotification()
+   private func _startTimerForAutoIncrementingTasksPriorities()
    {
       guard _updateTaskPrioritiesTimer == nil else {return}
       
@@ -132,6 +152,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate
       let fireDate = NSDate().dateByAddingTimeInterval(NSTimeInterval(60 - currentSecond + 1))
       _updateTaskPrioritiesTimer = NSTimer(fireDate: fireDate, interval: 60, target: self, selector: Selector("_updateTaskPriorities:"), userInfo: nil, repeats: true)
       
+      // update task priorities manually before timer is added to run loop
+      _updateTaskPriorities(_updateTaskPrioritiesTimer!)
       NSRunLoop.mainRunLoop().addTimer(_updateTaskPrioritiesTimer!, forMode: NSDefaultRunLoopMode)
    }
    

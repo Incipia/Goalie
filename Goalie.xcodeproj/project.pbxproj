@@ -9,8 +9,11 @@
 /* Begin PBXBuildFile section */
 		CEB5854C1C5300DB00A39746 /* LPRTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB5854B1C5300DB00A39746 /* LPRTableView.swift */; };
 		CEC1C84C1C5C90CB0074290A /* ChangePriorityRight.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CEC1C84B1C5C90CB0074290A /* ChangePriorityRight.mp3 */; };
-		CEC1C84F1C5C91450074290A /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC1C84D1C5C91450074290A /* Crashlytics.framework */; };
-		CEC1C8501C5C91450074290A /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC1C84E1C5C91450074290A /* Fabric.framework */; };
+		CEE541011C6A7380008BEC7C /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE541001C6A7380008BEC7C /* AdSupport.framework */; };
+		CEE541041C6A73AD008BEC7C /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE541021C6A73AD008BEC7C /* Crashlytics.framework */; };
+		CEE541051C6A73AD008BEC7C /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE541031C6A73AD008BEC7C /* Fabric.framework */; };
+		CEE541091C6A9DA5008BEC7C /* MKStoreKit.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE541071C6A9DA5008BEC7C /* MKStoreKit.m */; };
+		CEE5410A1C6A9DA5008BEC7C /* MKStoreKitConfigs.plist in Resources */ = {isa = PBXBuildFile; fileRef = CEE541081C6A9DA5008BEC7C /* MKStoreKitConfigs.plist */; };
 		F322EB111C34C371001B8C44 /* TaskCellAppearanceUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = F322EB101C34C371001B8C44 /* TaskCellAppearanceUpdater.swift */; };
 		F322EB131C34C9D4001B8C44 /* UIButton+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F322EB121C34C9D4001B8C44 /* UIButton+Extensions.swift */; };
 		F32489491C3F174300E3DABD /* GoalieSpeechBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32489481C3F174300E3DABD /* GoalieSpeechBubble.swift */; };
@@ -84,8 +87,12 @@
 /* Begin PBXFileReference section */
 		CEB5854B1C5300DB00A39746 /* LPRTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LPRTableView.swift; path = Frameworks/LPRTableView.swift; sourceTree = "<group>"; };
 		CEC1C84B1C5C90CB0074290A /* ChangePriorityRight.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = ChangePriorityRight.mp3; path = Sounds/ChangePriorityRight.mp3; sourceTree = "<group>"; };
-		CEC1C84D1C5C91450074290A /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
-		CEC1C84E1C5C91450074290A /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		CEE541001C6A7380008BEC7C /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		CEE541021C6A73AD008BEC7C /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = Frameworks/Crashlytics.framework; sourceTree = "<group>"; };
+		CEE541031C6A73AD008BEC7C /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fabric.framework; path = Frameworks/Fabric.framework; sourceTree = "<group>"; };
+		CEE541061C6A9DA5008BEC7C /* MKStoreKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKStoreKit.h; path = Frameworks/MKStoreKit/MKStoreKit.h; sourceTree = "<group>"; };
+		CEE541071C6A9DA5008BEC7C /* MKStoreKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKStoreKit.m; path = Frameworks/MKStoreKit/MKStoreKit.m; sourceTree = "<group>"; };
+		CEE541081C6A9DA5008BEC7C /* MKStoreKitConfigs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = MKStoreKitConfigs.plist; path = Frameworks/MKStoreKit/MKStoreKitConfigs.plist; sourceTree = "<group>"; };
 		F322EB101C34C371001B8C44 /* TaskCellAppearanceUpdater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TaskCellAppearanceUpdater.swift; path = Goalie/TaskCellAppearanceUpdater.swift; sourceTree = "<group>"; };
 		F322EB121C34C9D4001B8C44 /* UIButton+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIButton+Extensions.swift"; path = "Goalie/UIButton+Extensions.swift"; sourceTree = "<group>"; };
 		F32489481C3F174300E3DABD /* GoalieSpeechBubble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoalieSpeechBubble.swift; path = Goalie/GoalieSpeechBubble.swift; sourceTree = "<group>"; };
@@ -170,14 +177,25 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEC1C84F1C5C91450074290A /* Crashlytics.framework in Frameworks */,
-				CEC1C8501C5C91450074290A /* Fabric.framework in Frameworks */,
+				CEE541041C6A73AD008BEC7C /* Crashlytics.framework in Frameworks */,
+				CEE541011C6A7380008BEC7C /* AdSupport.framework in Frameworks */,
+				CEE541051C6A73AD008BEC7C /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CEE5410B1C6A9DAA008BEC7C /* MKStoreKit */ = {
+			isa = PBXGroup;
+			children = (
+				CEE541061C6A9DA5008BEC7C /* MKStoreKit.h */,
+				CEE541071C6A9DA5008BEC7C /* MKStoreKit.m */,
+				CEE541081C6A9DA5008BEC7C /* MKStoreKitConfigs.plist */,
+			);
+			name = MKStoreKit;
+			sourceTree = "<group>";
+		};
 		F32C2A531C3B9E8C002ACA53 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
@@ -267,8 +285,10 @@
 		F383190E1C31A58A00C36ACB /* External Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CEC1C84D1C5C91450074290A /* Crashlytics.framework */,
-				CEC1C84E1C5C91450074290A /* Fabric.framework */,
+				CEE5410B1C6A9DAA008BEC7C /* MKStoreKit */,
+				CEE541021C6A73AD008BEC7C /* Crashlytics.framework */,
+				CEE541031C6A73AD008BEC7C /* Fabric.framework */,
+				CEE541001C6A7380008BEC7C /* AdSupport.framework */,
 				F3CEAC591C4061C70047DD78 /* TPKeyboardAvoiding */,
 				F3CEAC4F1C4061B10047DD78 /* JVFloatingLabel */,
 			);
@@ -456,6 +476,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEE5410A1C6A9DA5008BEC7C /* MKStoreKitConfigs.plist in Resources */,
 				F38B55151C3851190022453F /* NotoSans-Bold.ttf in Resources */,
 				CEC1C84C1C5C90CB0074290A /* ChangePriorityRight.mp3 in Resources */,
 				F38318DB1C2F343600C36ACB /* LaunchScreen.storyboard in Resources */,
@@ -481,7 +502,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "./Fabric.framework/run f8adb97359f3be505eb37f857a45751f47fd970d 407866616ca285468c6460521feef426e433f90b9fb69faf01009c146bb9da62";
+			shellScript = "./Frameworks/Fabric.framework/run f8adb97359f3be505eb37f857a45751f47fd970d 407866616ca285468c6460521feef426e433f90b9fb69faf01009c146bb9da62";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -509,6 +530,7 @@
 				F324894F1C3F5DCF00E3DABD /* NSAttributedString+Extensions.swift in Sources */,
 				F350C7191C481CD400416F14 /* CharacterUtils.swift in Sources */,
 				F38319331C31A72D00C36ACB /* NSManagedObjectContext+Extensions.swift in Sources */,
+				CEE541091C6A9DA5008BEC7C /* MKStoreKit.m in Sources */,
 				F3B7F75A1C46EFBB00C364F0 /* CongratulationsViewController.swift in Sources */,
 				F3B7F7531C460F2900C364F0 /* SFXPlayer.swift in Sources */,
 				F383192F1C31A72D00C36ACB /* Utilities.swift in Sources */,
