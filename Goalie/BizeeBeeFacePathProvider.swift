@@ -150,15 +150,13 @@ class BizeeBeeFacePathProvider: CharacterFacePathProvider
    
    lazy var flatScaredMouthPath: CGPathRef = {
       let mouthPath = UIBezierPath()
-      mouthPath.moveToPoint(CGPointMake(46.14, 53.03))
-      mouthPath.addCurveToPoint(CGPointMake(41.02, 52.42), controlPoint1: CGPointMake(44.69, 52.64), controlPoint2: CGPointMake(42.93, 52.42))
-      mouthPath.addCurveToPoint(CGPointMake(36.05, 53), controlPoint1: CGPointMake(39.19, 52.42), controlPoint2: CGPointMake(37.48, 52.63))
-      mouthPath.addCurveToPoint(CGPointMake(32.57, 54.61), controlPoint1: CGPointMake(34.52, 53.39), controlPoint2: CGPointMake(33.3, 53.95))
-      mouthPath.addCurveToPoint(CGPointMake(34.18, 56), controlPoint1: CGPointMake(31.91, 55.23), controlPoint2: CGPointMake(32.81, 56))
-      mouthPath.addLineToPoint(CGPointMake(41.48, 56))
-      mouthPath.addLineToPoint(CGPointMake(47.81, 56))
-      mouthPath.addCurveToPoint(CGPointMake(49.37, 54.55), controlPoint1: CGPointMake(49.23, 56), controlPoint2: CGPointMake(50.08, 55.19))
-      mouthPath.addCurveToPoint(CGPointMake(46.14, 53.03), controlPoint1: CGPointMake(48.69, 53.94), controlPoint2: CGPointMake(47.57, 53.41))
+      mouthPath.moveToPoint(CGPointMake(42.98, 30.22))
+      mouthPath.addCurveToPoint(CGPointMake(50.63, 30.85), controlPoint1: CGPointMake(45.76, 30.22), controlPoint2: CGPointMake(48.39, 30.45))
+      mouthPath.addCurveToPoint(CGPointMake(51.97, 30.22), controlPoint1: CGPointMake(51.43, 31.01), controlPoint2: CGPointMake(52.17, 30.63))
+      mouthPath.addCurveToPoint(CGPointMake(42.98, 26.72), controlPoint1: CGPointMake(50.93, 28.19), controlPoint2: CGPointMake(47.3, 26.72))
+      mouthPath.addCurveToPoint(CGPointMake(33.98, 30.22), controlPoint1: CGPointMake(38.65, 26.72), controlPoint2: CGPointMake(35.07, 28.21))
+      mouthPath.addCurveToPoint(CGPointMake(35.32, 30.85), controlPoint1: CGPointMake(33.78, 30.63), controlPoint2: CGPointMake(34.52, 31.01))
+      mouthPath.addCurveToPoint(CGPointMake(42.98, 30.22), controlPoint1: CGPointMake(37.56, 30.45), controlPoint2: CGPointMake(40.19, 30.22))
       mouthPath.closePath()
       mouthPath.miterLimit = 4;
       return mouthPath.CGPath
@@ -238,22 +236,22 @@ class BizeeBeeFacePathProvider: CharacterFacePathProvider
    
    lazy var leftSurprisedEyePath: CGPathRef = {
       let leftEyePath = UIBezierPath()
-      leftEyePath.moveToPoint(CGPointMake(35, 44.3))
-      leftEyePath.addCurveToPoint(CGPointMake(32.5, 46.6), controlPoint1: CGPointMake(35, 45.57), controlPoint2: CGPointMake(33.88, 46.6))
-      leftEyePath.addCurveToPoint(CGPointMake(30, 44.3), controlPoint1: CGPointMake(31.12, 46.6), controlPoint2: CGPointMake(30, 45.57))
-      leftEyePath.addCurveToPoint(CGPointMake(32.5, 42), controlPoint1: CGPointMake(30, 43.03), controlPoint2: CGPointMake(31.12, 42))
-      leftEyePath.addCurveToPoint(CGPointMake(35, 44.3), controlPoint1: CGPointMake(33.88, 42), controlPoint2: CGPointMake(35, 43.03))
+      leftEyePath.moveToPoint(CGPointMake(36.26, 20.82))
+      leftEyePath.addCurveToPoint(CGPointMake(34.13, 22.64), controlPoint1: CGPointMake(36.26, 21.82), controlPoint2: CGPointMake(35.31, 22.64))
+      leftEyePath.addCurveToPoint(CGPointMake(32, 20.82), controlPoint1: CGPointMake(32.95, 22.64), controlPoint2: CGPointMake(32, 21.82))
+      leftEyePath.addCurveToPoint(CGPointMake(34.13, 19), controlPoint1: CGPointMake(32, 19.81), controlPoint2: CGPointMake(32.95, 19))
+      leftEyePath.addCurveToPoint(CGPointMake(36.26, 20.82), controlPoint1: CGPointMake(35.31, 19), controlPoint2: CGPointMake(36.26, 19.81))
       leftEyePath.closePath()
       return leftEyePath.CGPath
    }()
    
    lazy var rightSurprisedEyePath: CGPathRef = {
       let rightEyePath = UIBezierPath()
-      rightEyePath.moveToPoint(CGPointMake(52, 44.3))
-      rightEyePath.addCurveToPoint(CGPointMake(49.5, 46.6), controlPoint1: CGPointMake(52, 45.57), controlPoint2: CGPointMake(50.88, 46.6))
-      rightEyePath.addCurveToPoint(CGPointMake(47, 44.3), controlPoint1: CGPointMake(48.12, 46.6), controlPoint2: CGPointMake(47, 45.57))
-      rightEyePath.addCurveToPoint(CGPointMake(49.5, 42), controlPoint1: CGPointMake(47, 43.03), controlPoint2: CGPointMake(48.12, 42))
-      rightEyePath.addCurveToPoint(CGPointMake(52, 44.3), controlPoint1: CGPointMake(50.88, 42), controlPoint2: CGPointMake(52, 43.03))
+      rightEyePath.moveToPoint(CGPointMake(53.75, 20.71))
+      rightEyePath.addCurveToPoint(CGPointMake(51.82, 22.64), controlPoint1: CGPointMake(53.75, 21.77), controlPoint2: CGPointMake(52.89, 22.64))
+      rightEyePath.addCurveToPoint(CGPointMake(49.89, 20.71), controlPoint1: CGPointMake(50.75, 22.64), controlPoint2: CGPointMake(49.89, 21.77))
+      rightEyePath.addCurveToPoint(CGPointMake(51.82, 18.77), controlPoint1: CGPointMake(49.89, 19.64), controlPoint2: CGPointMake(50.75, 18.77))
+      rightEyePath.addCurveToPoint(CGPointMake(53.75, 20.71), controlPoint1: CGPointMake(52.89, 18.77), controlPoint2: CGPointMake(53.75, 19.64))
       rightEyePath.closePath()
       return rightEyePath.CGPath
    }()
