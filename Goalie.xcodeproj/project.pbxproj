@@ -747,7 +747,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.incipia.Goalie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "0df6c441-8000-4ad0-a77b-a2645e632b1b";
+				PROVISIONING_PROFILE = "df80e192-98ea-496c-b5c5-9853c4dda4e0";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Goalie/Goalie-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -771,7 +771,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.incipia.Goalie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "0df6c441-8000-4ad0-a77b-a2645e632b1b";
+				PROVISIONING_PROFILE = "df80e192-98ea-496c-b5c5-9853c4dda4e0";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Goalie/Goalie-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

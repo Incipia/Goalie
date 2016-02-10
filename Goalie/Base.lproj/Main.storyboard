@@ -76,7 +76,7 @@
                                                                 <constraint firstAttribute="width" constant="40" id="wG2-wP-MiH"/>
                                                             </constraints>
                                                             <color key="tintColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="deviceRGB"/>
-                                                            <state key="normal" image="settings-gear"/>
+                                                            <state key="normal" image="settings-gear-new"/>
                                                             <connections>
                                                                 <action selector="_settingsButtonPressed" destination="8kc-U2-rbB" eventType="touchUpInside" id="8u6-SS-P1t"/>
                                                             </connections>
@@ -1044,6 +1044,6 @@ Goalie's happy.</string>
         <image name="onboarding-cancel" width="19" height="19"/>
         <image name="onboarding-empty-arrow" width="60" height="66"/>
         <image name="onboarding-phone" width="260" height="296"/>
-        <image name="settings-gear" width="22" height="22"/>
+        <image name="settings-gear-new" width="20" height="20"/>
     </resources>
 </document>
