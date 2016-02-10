@@ -40,8 +40,8 @@ enum GoalieCharacter
    private func _drawBizeeBeeCharacterWithPriority(priority: TaskPriority)
    {
       let bgColor = UIColor(priority: priority, headComponent: .Background)
-      let cheekColor = UIColor(priority: priority, headComponent: .Cheek)
-      let stripeColor = UIColor(priority: priority, headComponent: .Stripe)
+      let cheekColor = UIColor.bizeeBeeCheeckColor(priority)
+      let stripeColor = UIColor.bizeeBeeStripeColor(priority)
       
       BizeeBeeCharacterKit.drawBody(bgColor, cheekColor: cheekColor, stripeColor: stripeColor)
       BizeeBeeCharacterKit.drawAccessoriesForPriority(priority)
