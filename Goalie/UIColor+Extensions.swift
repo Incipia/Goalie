@@ -260,4 +260,28 @@ extension UIColor
       case .Unknown: return UIColor(red: 0.225, green: 0.211, blue: 0.504, alpha: 1.000)
       }
    }
+   
+   static func bizeeBeeCheeckColor(priority: TaskPriority) -> UIColor
+   {
+      switch priority
+      {
+      case .Ages: return UIColor(red: 0.945, green: 0.890, blue: 0.914, alpha: 0.400)
+      case .Later: return UIColor(red: 0.965, green: 0.752, blue: 0.845, alpha: 0.300)
+      case .Soon: return UIColor(red: 0.965, green: 0.752, blue: 0.845, alpha: 0.300)
+      case .ASAP: return UIColor(red: 0.965, green: 0.752, blue: 0.845, alpha: 0.300)
+      case .Unknown: return UIColor(red: 0.965, green: 0.752, blue: 0.845, alpha: 0.300)
+      }
+   }
+   
+   static func bizeeBeeStripeColor(priority: TaskPriority) -> UIColor
+   {
+      switch priority
+      {
+      case .Ages: return UIColor(red: 0.098, green: 0.325, blue: 0.243, alpha: 0.400)
+      case .Later: return UIColor(red: 0.090, green: 0.233, blue: 0.352, alpha: 0.400)
+      case .Soon: return UIColor(red: 0.722, green: 0.448, blue: 0.061, alpha: 1.000)
+      case .ASAP: return UIColor(red: 0.522, green: 0.053, blue: 0.177, alpha: 0.400)
+      case .Unknown: return UIColor(red: 0.225, green: 0.211, blue: 0.504, alpha: 0.400)
+      }
+   }
 }
