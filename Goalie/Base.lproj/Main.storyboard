@@ -81,18 +81,29 @@
                                                                 <action selector="_settingsButtonPressed" destination="8kc-U2-rbB" eventType="touchUpInside" id="8u6-SS-P1t"/>
                                                             </connections>
                                                         </button>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SEI-SD-L9z" customClass="CharacterView" customModule="Goalie" customModuleProvider="target">
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SEI-SD-L9z" userLabel="Character View Container">
                                                             <rect key="frame" x="120" y="115" width="80" height="100"/>
+                                                            <subviews>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EtT-D2-vub" customClass="CharacterView" customModule="Goalie" customModuleProvider="target">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="100"/>
+                                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.39882535460992907" colorSpace="calibratedRGB"/>
+                                                                    <connections>
+                                                                        <outlet property="centerYConstraint" destination="q4P-GY-u0N" id="1Tq-t5-0FK"/>
+                                                                        <outlet property="containerView" destination="SEI-SD-L9z" id="vhp-H8-Fn8"/>
+                                                                        <outlet property="heightConstraint" destination="men-8C-Rz3" id="gII-PL-qr3"/>
+                                                                        <outlet property="widthConstraint" destination="MYM-JI-3wX" id="1Qz-s9-fAv"/>
+                                                                    </connections>
+                                                                </view>
+                                                            </subviews>
                                                             <color key="backgroundColor" red="1" green="0.60022615131578949" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
                                                             <constraints>
+                                                                <constraint firstAttribute="bottom" secondItem="EtT-D2-vub" secondAttribute="bottom" id="2dG-qB-LJr"/>
+                                                                <constraint firstAttribute="trailing" secondItem="EtT-D2-vub" secondAttribute="trailing" id="JFw-th-FZH"/>
                                                                 <constraint firstAttribute="width" constant="80" id="MYM-JI-3wX"/>
+                                                                <constraint firstItem="EtT-D2-vub" firstAttribute="leading" secondItem="SEI-SD-L9z" secondAttribute="leading" id="clA-OS-tF1"/>
                                                                 <constraint firstAttribute="height" constant="100" id="men-8C-Rz3"/>
+                                                                <constraint firstItem="EtT-D2-vub" firstAttribute="top" secondItem="SEI-SD-L9z" secondAttribute="top" id="rbX-Pd-ApO"/>
                                                             </constraints>
-                                                            <connections>
-                                                                <outlet property="centerYConstraint" destination="q4P-GY-u0N" id="Z30-pp-3YX"/>
-                                                                <outlet property="heightConstraint" destination="men-8C-Rz3" id="YAh-lh-OxI"/>
-                                                                <outlet property="widthConstraint" destination="MYM-JI-3wX" id="Yg6-tu-RNJ"/>
-                                                            </connections>
                                                         </view>
                                                         <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f7d-lu-WBo" customClass="GoalieSpeechBubble" customModule="Goalie" customModuleProvider="target">
                                                             <rect key="frame" x="180" y="113" width="120" height="62"/>
@@ -285,7 +296,8 @@
                                                     <outlet property="_currentCompletedSoundName" destination="c2r-gU-xbI" id="UI2-62-Xee"/>
                                                     <outlet property="_firstTaskFooterView" destination="ZpZ-fK-L3y" id="fZS-di-9r3"/>
                                                     <outlet property="_firstTaskFooterViewArrow" destination="rSD-oe-3Jr" id="msZ-1f-Sdh"/>
-                                                    <outlet property="_goalieFaceView" destination="SEI-SD-L9z" id="8Wb-O4-Swp"/>
+                                                    <outlet property="_goalieFaceContainerView" destination="SEI-SD-L9z" id="A9W-Ag-zQH"/>
+                                                    <outlet property="_goalieFaceView" destination="EtT-D2-vub" id="zcd-a5-PON"/>
                                                     <outlet property="_goalieHeaderView" destination="8fz-02-pSg" id="wt1-OM-fD8"/>
                                                     <outlet property="_leftSpeechBubble" destination="Cmf-hr-XMs" id="Nny-Bp-7Dy"/>
                                                     <outlet property="_normalGoalieFooterView" destination="fI9-At-V7G" id="opR-gy-Dyk"/>

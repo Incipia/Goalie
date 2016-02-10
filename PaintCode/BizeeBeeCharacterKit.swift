@@ -85,31 +85,11 @@ class BizeeBeeCharacterKit
       //// General Declarations
       let context = UIGraphicsGetCurrentContext()
       
-      //// Color Declarations
-//      let wingColor = UIColor(red: 0.965, green: 0.753, blue: 0.843, alpha: 0.302)
-      
       //// Shadow Declarations
       let shadow = NSShadow()
       shadow.shadowColor = UIColor.blackColor().colorWithAlphaComponent(0.2)
       shadow.shadowOffset = CGSizeMake(-1.1, 4.1)
       shadow.shadowBlurRadius = 8
-      
-      //// Group 2
-      //// Wings Drawing
-//      let wingsPath = UIBezierPath()
-//      wingsPath.moveToPoint(CGPointMake(68.68, 59.38))
-//      wingsPath.addLineToPoint(CGPointMake(17.32, 59.38))
-//      wingsPath.addCurveToPoint(CGPointMake(3, 45.06), controlPoint1: CGPointMake(9.41, 59.38), controlPoint2: CGPointMake(3, 52.92))
-//      wingsPath.addCurveToPoint(CGPointMake(17.32, 30.74), controlPoint1: CGPointMake(3, 37.16), controlPoint2: CGPointMake(9.46, 30.74))
-//      wingsPath.addLineToPoint(CGPointMake(68.68, 30.74))
-//      wingsPath.addCurveToPoint(CGPointMake(83, 45.06), controlPoint1: CGPointMake(76.59, 30.74), controlPoint2: CGPointMake(83, 37.21))
-//      wingsPath.addCurveToPoint(CGPointMake(68.68, 59.38), controlPoint1: CGPointMake(83, 52.92), controlPoint2: CGPointMake(76.59, 59.38))
-//      wingsPath.closePath()
-//      wingsPath.miterLimit = 4;
-//      
-//      wingColor.setFill()
-//      wingsPath.fill()
-      
       
       //// BodyOutline Drawing
       let bodyOutlinePath = UIBezierPath()
@@ -186,5 +166,33 @@ class BizeeBeeCharacterKit
       
       stripeColor.setFill()
       topStripePath.fill()
+   }
+   
+   static func drawWingsWithColor(color: UIColor)
+   {
+      //// Color Declarations
+      let wingColor = UIColor(red: 0.965, green: 0.753, blue: 0.843, alpha: 0.302)
+      
+      //// Shadow Declarations
+      let shadow = NSShadow()
+      shadow.shadowColor = UIColor.blackColor().colorWithAlphaComponent(0.2)
+      shadow.shadowOffset = CGSizeMake(-1.1, 4.1)
+      shadow.shadowBlurRadius = 8
+      
+      //// Group 2
+      //// Wings Drawing
+      let wingsPath = UIBezierPath()
+      wingsPath.moveToPoint(CGPointMake(68.68, 59.38))
+      wingsPath.addLineToPoint(CGPointMake(17.32, 59.38))
+      wingsPath.addCurveToPoint(CGPointMake(3, 45.06), controlPoint1: CGPointMake(9.41, 59.38), controlPoint2: CGPointMake(3, 52.92))
+      wingsPath.addCurveToPoint(CGPointMake(17.32, 30.74), controlPoint1: CGPointMake(3, 37.16), controlPoint2: CGPointMake(9.46, 30.74))
+      wingsPath.addLineToPoint(CGPointMake(68.68, 30.74))
+      wingsPath.addCurveToPoint(CGPointMake(83, 45.06), controlPoint1: CGPointMake(76.59, 30.74), controlPoint2: CGPointMake(83, 37.21))
+      wingsPath.addCurveToPoint(CGPointMake(68.68, 59.38), controlPoint1: CGPointMake(83, 52.92), controlPoint2: CGPointMake(76.59, 59.38))
+      wingsPath.closePath()
+      wingsPath.miterLimit = 4;
+      
+      wingColor.setFill()
+      wingsPath.fill()
    }
 }

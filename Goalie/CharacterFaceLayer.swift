@@ -10,6 +10,8 @@ import Foundation
 
 class CharacterFaceLayer: CALayer
 {
+   var backingContainerLayer: CALayer?
+   
    internal var _currentPriority: TaskPriority = .Unknown
    internal var _currentlyAnimating = false
    
@@ -118,6 +120,17 @@ class CharacterFaceLayer: CALayer
             angryBlink()
          case .Unknown:
             _currentlyAnimating = false
+         }
+      }
+   }
+   
+   func reset()
+   {
+      performBlockWithoutAnimations { () -> Void in
+         self.removeAllAnimations()
+         for layer in self._shapeLayers {
+            layer.removeAllAnimations()
+            layer.removeFromSuperlayer()
          }
       }
    }

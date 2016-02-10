@@ -255,4 +255,18 @@ class BizeeBeeFacePathProvider: CharacterFacePathProvider
       rightEyePath.closePath()
       return rightEyePath.CGPath
    }()
+   
+   lazy var wingsPath: CGPathRef = {
+      let wingsPath = UIBezierPath()
+      wingsPath.moveToPoint(CGPointMake(68.68, 59.38))
+      wingsPath.addLineToPoint(CGPointMake(17.32, 59.38))
+      wingsPath.addCurveToPoint(CGPointMake(3, 45.06), controlPoint1: CGPointMake(9.41, 59.38), controlPoint2: CGPointMake(3, 52.92))
+      wingsPath.addCurveToPoint(CGPointMake(17.32, 30.74), controlPoint1: CGPointMake(3, 37.16), controlPoint2: CGPointMake(9.46, 30.74))
+      wingsPath.addLineToPoint(CGPointMake(68.68, 30.74))
+      wingsPath.addCurveToPoint(CGPointMake(83, 45.06), controlPoint1: CGPointMake(76.59, 30.74), controlPoint2: CGPointMake(83, 37.21))
+      wingsPath.addCurveToPoint(CGPointMake(68.68, 59.38), controlPoint1: CGPointMake(83, 52.92), controlPoint2: CGPointMake(76.59, 59.38))
+      wingsPath.closePath()
+      wingsPath.miterLimit = 4;
+      return wingsPath.CGPath
+   }()
 }

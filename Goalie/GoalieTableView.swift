@@ -35,12 +35,15 @@ class GoalieTableView: LPRTableView
    @IBOutlet private var _goalieHeaderView: UIView!
    
    private var _goalieMovementAnimator: GoalieMovementAnimator!
-   @IBOutlet private weak var _goalieFaceView: CharacterView! {
+   
+   @IBOutlet private weak var _goalieFaceContainerView: UIView! {
       didSet {
-         _goalieMovementAnimator = GoalieMovementAnimator(view: _goalieFaceView)
+         _goalieMovementAnimator = GoalieMovementAnimator(view: _goalieFaceContainerView)
       }
    }
    
+   
+   @IBOutlet private weak var _goalieFaceView: CharacterView!
    @IBOutlet private weak var _rightSpeechBubble: GoalieSpeechBubble!
    @IBOutlet private weak var _leftSpeechBubble: GoalieSpeechBubble! {
       didSet {
@@ -58,6 +61,7 @@ class GoalieTableView: LPRTableView
          newCharacter = .BizeeBee
       }
       _goalieFaceView.updateCharacter(newCharacter)
+      _goalieFaceView.animateFace()
    }
    
    private var _shouldShowSpeechBubble = false
