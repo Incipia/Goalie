@@ -21,8 +21,6 @@ class CharacterView: UIView
    override func awakeFromNib()
    {
       super.awakeFromNib()
-      
-      updateCharacter(.BizeeBee)
       backgroundColor = UIColor.clearColor()
    }
    
