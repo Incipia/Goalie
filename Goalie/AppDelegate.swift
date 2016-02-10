@@ -90,7 +90,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate
             }
       }
       
-      NSNotificationCenter.defaultCenter().addObserverForName(kMKStoreKitProductPurchasedNotification,
+      let notificationName = kMKStoreKitProductPurchasedNotification
+      NSNotificationCenter.defaultCenter().addObserverForName(notificationName,
          object: nil, queue: NSOperationQueue.mainQueue()) { (note) -> Void in
             
             print ("Purchased product: \(note.object)")

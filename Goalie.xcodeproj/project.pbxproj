@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE7F61F61C6AEAAF00C2C0A2 /* BizeeBeeFacePathProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7F61F51C6AEAAF00C2C0A2 /* BizeeBeeFacePathProvider.swift */; };
+		CE7F61FB1C6AEDC700C2C0A2 /* CharacterFaceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7F61FA1C6AEDC700C2C0A2 /* CharacterFaceLayer.swift */; };
+		CE7F61FD1C6AEDE700C2C0A2 /* BizeeBeeFaceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7F61FC1C6AEDE700C2C0A2 /* BizeeBeeFaceLayer.swift */; };
+		CE7F61FF1C6AF2D800C2C0A2 /* CharacterFacePathProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7F61FE1C6AF2D800C2C0A2 /* CharacterFacePathProvider.swift */; };
+		CEAA5A811C6ADEFA0061BFA8 /* BizeeBeeCharacterKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAA5A801C6ADEFA0061BFA8 /* BizeeBeeCharacterKit.swift */; };
 		CEB5854C1C5300DB00A39746 /* LPRTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB5854B1C5300DB00A39746 /* LPRTableView.swift */; };
 		CEC1C84C1C5C90CB0074290A /* ChangePriorityRight.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CEC1C84B1C5C90CB0074290A /* ChangePriorityRight.mp3 */; };
 		CEE541011C6A7380008BEC7C /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE541001C6A7380008BEC7C /* AdSupport.framework */; };
@@ -21,7 +26,7 @@
 		F324894F1C3F5DCF00E3DABD /* NSAttributedString+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F324894E1C3F5DCF00E3DABD /* NSAttributedString+Extensions.swift */; };
 		F342D1D51C473679006D758A /* OnboardingTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F342D1D41C473679006D758A /* OnboardingTransitionManager.swift */; };
 		F350C7161C4806E200416F14 /* CharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F350C7151C4806E200416F14 /* CharacterView.swift */; };
-		F350C7191C481CD400416F14 /* CharacterUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F350C7181C481CD400416F14 /* CharacterUtils.swift */; };
+		F350C7191C481CD400416F14 /* GoalieCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F350C7181C481CD400416F14 /* GoalieCharacter.swift */; };
 		F38318D11C2F343600C36ACB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38318D01C2F343600C36ACB /* AppDelegate.swift */; };
 		F38318D61C2F343600C36ACB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F38318D41C2F343600C36ACB /* Main.storyboard */; };
 		F38318DB1C2F343600C36ACB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F38318D91C2F343600C36ACB /* LaunchScreen.storyboard */; };
@@ -85,6 +90,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE7F61F51C6AEAAF00C2C0A2 /* BizeeBeeFacePathProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BizeeBeeFacePathProvider.swift; path = Goalie/BizeeBeeFacePathProvider.swift; sourceTree = "<group>"; };
+		CE7F61FA1C6AEDC700C2C0A2 /* CharacterFaceLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CharacterFaceLayer.swift; path = Goalie/CharacterFaceLayer.swift; sourceTree = "<group>"; };
+		CE7F61FC1C6AEDE700C2C0A2 /* BizeeBeeFaceLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BizeeBeeFaceLayer.swift; path = Goalie/BizeeBeeFaceLayer.swift; sourceTree = "<group>"; };
+		CE7F61FE1C6AF2D800C2C0A2 /* CharacterFacePathProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CharacterFacePathProvider.swift; path = Goalie/CharacterFacePathProvider.swift; sourceTree = "<group>"; };
+		CEAA5A801C6ADEFA0061BFA8 /* BizeeBeeCharacterKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BizeeBeeCharacterKit.swift; path = PaintCode/BizeeBeeCharacterKit.swift; sourceTree = "<group>"; };
 		CEB5854B1C5300DB00A39746 /* LPRTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LPRTableView.swift; path = Frameworks/LPRTableView.swift; sourceTree = "<group>"; };
 		CEC1C84B1C5C90CB0074290A /* ChangePriorityRight.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = ChangePriorityRight.mp3; path = Sounds/ChangePriorityRight.mp3; sourceTree = "<group>"; };
 		CEE541001C6A7380008BEC7C /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
@@ -100,7 +110,7 @@
 		F324894E1C3F5DCF00E3DABD /* NSAttributedString+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSAttributedString+Extensions.swift"; path = "Goalie/NSAttributedString+Extensions.swift"; sourceTree = "<group>"; };
 		F342D1D41C473679006D758A /* OnboardingTransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OnboardingTransitionManager.swift; path = Goalie/OnboardingTransitionManager.swift; sourceTree = "<group>"; };
 		F350C7151C4806E200416F14 /* CharacterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CharacterView.swift; path = Goalie/CharacterView.swift; sourceTree = "<group>"; };
-		F350C7181C481CD400416F14 /* CharacterUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CharacterUtils.swift; path = Goalie/CharacterUtils.swift; sourceTree = "<group>"; };
+		F350C7181C481CD400416F14 /* GoalieCharacter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoalieCharacter.swift; path = Goalie/GoalieCharacter.swift; sourceTree = "<group>"; };
 		F38318CD1C2F343600C36ACB /* Goalie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Goalie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F38318D01C2F343600C36ACB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F38318D51C2F343600C36ACB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -186,6 +196,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE7F61F71C6AED9000C2C0A2 /* Goalie */ = {
+			isa = PBXGroup;
+			children = (
+				F3A820001C441B490048237F /* GoalieFacePathProvider.swift */,
+				F3CEAC6A1C4063810047DD78 /* GoalieCharacterKit.swift */,
+				F3A81FFE1C440B520048237F /* GoalieFaceLayer.swift */,
+			);
+			name = Goalie;
+			sourceTree = "<group>";
+		};
+		CE7F61F81C6AED9400C2C0A2 /* BizeeBee */ = {
+			isa = PBXGroup;
+			children = (
+				CEAA5A801C6ADEFA0061BFA8 /* BizeeBeeCharacterKit.swift */,
+				CE7F61F51C6AEAAF00C2C0A2 /* BizeeBeeFacePathProvider.swift */,
+				CE7F61FC1C6AEDE700C2C0A2 /* BizeeBeeFaceLayer.swift */,
+			);
+			name = BizeeBee;
+			sourceTree = "<group>";
+		};
+		CE7F61F91C6AEDA500C2C0A2 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				CE7F61FA1C6AEDC700C2C0A2 /* CharacterFaceLayer.swift */,
+				CE7F61FE1C6AF2D800C2C0A2 /* CharacterFacePathProvider.swift */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
 		CEE5410B1C6A9DAA008BEC7C /* MKStoreKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -232,10 +271,10 @@
 			isa = PBXGroup;
 			children = (
 				F350C7151C4806E200416F14 /* CharacterView.swift */,
-				F3CEAC6A1C4063810047DD78 /* GoalieCharacterKit.swift */,
-				F3A81FFE1C440B520048237F /* GoalieFaceLayer.swift */,
-				F3A820001C441B490048237F /* GoalieFacePathProvider.swift */,
-				F350C7181C481CD400416F14 /* CharacterUtils.swift */,
+				F350C7181C481CD400416F14 /* GoalieCharacter.swift */,
+				CE7F61F91C6AEDA500C2C0A2 /* Base */,
+				CE7F61F81C6AED9400C2C0A2 /* BizeeBee */,
+				CE7F61F71C6AED9000C2C0A2 /* Goalie */,
 			);
 			name = "Character Drawing";
 			sourceTree = "<group>";
@@ -528,7 +567,7 @@
 				F383192D1C31A72D00C36ACB /* DefaultTasksFetchRequestProvider.swift in Sources */,
 				F38318D11C2F343600C36ACB /* AppDelegate.swift in Sources */,
 				F324894F1C3F5DCF00E3DABD /* NSAttributedString+Extensions.swift in Sources */,
-				F350C7191C481CD400416F14 /* CharacterUtils.swift in Sources */,
+				F350C7191C481CD400416F14 /* GoalieCharacter.swift in Sources */,
 				F38319331C31A72D00C36ACB /* NSManagedObjectContext+Extensions.swift in Sources */,
 				CEE541091C6A9DA5008BEC7C /* MKStoreKit.m in Sources */,
 				F3B7F75A1C46EFBB00C364F0 /* CongratulationsViewController.swift in Sources */,
@@ -541,13 +580,16 @@
 				F3CEAC581C4061B10047DD78 /* NSString+TextDirectionality.m in Sources */,
 				F3CEAC571C4061B10047DD78 /* JVFloatLabeledTextView.m in Sources */,
 				F322EB131C34C9D4001B8C44 /* UIButton+Extensions.swift in Sources */,
+				CE7F61FB1C6AEDC700C2C0A2 /* CharacterFaceLayer.swift in Sources */,
 				F3DB3E041C322DC40005C607 /* MainTasksViewController.swift in Sources */,
 				F38A0F5C1C42EBA40034DCE4 /* MenuTransitionManager.swift in Sources */,
 				F383192C1C31A72D00C36ACB /* ManagedObjectObserver.swift in Sources */,
 				F38319371C31A72D00C36ACB /* UIColor+Extensions.swift in Sources */,
 				F383192B1C31A72D00C36ACB /* DataRelatedProtocols.swift in Sources */,
+				CE7F61F61C6AEAAF00C2C0A2 /* BizeeBeeFacePathProvider.swift in Sources */,
 				F38319381C31A72D00C36ACB /* UIFont+Extensions.swift in Sources */,
 				F324894D1C3F50EE00E3DABD /* SpeechBubbleTextProvider.swift in Sources */,
+				CEAA5A811C6ADEFA0061BFA8 /* BizeeBeeCharacterKit.swift in Sources */,
 				F3CEAC561C4061B10047DD78 /* JVFloatLabeledTextField.m in Sources */,
 				F38319491C31B3CB00C36ACB /* GoalieTableView.swift in Sources */,
 				F38319321C31A72D00C36ACB /* UINavigationBar+Extensions.swift in Sources */,
@@ -563,12 +605,14 @@
 				F3B7F7321C4583D900C364F0 /* GoalieMovementAnimator.swift in Sources */,
 				F383193B1C31A72D00C36ACB /* TableViewDataSource.swift in Sources */,
 				F38A0F5A1C42010A0034DCE4 /* TaskPriorityStateSnapshotter.swift in Sources */,
+				CE7F61FD1C6AEDE700C2C0A2 /* BizeeBeeFaceLayer.swift in Sources */,
 				F383193A1C31A72D00C36ACB /* FetchedResultsDataProvider.swift in Sources */,
 				F350C7161C4806E200416F14 /* CharacterView.swift in Sources */,
 				F38319301C31A72D00C36ACB /* UIImage+Extensions.swift in Sources */,
 				F38B55181C3854A10022453F /* GoalieKerningLabel.swift in Sources */,
 				F3CEAC6E1C4063810047DD78 /* GoalieCharacterKit.swift in Sources */,
 				F383192E1C31A72D00C36ACB /* TasksDataProvider.swift in Sources */,
+				CE7F61FF1C6AF2D800C2C0A2 /* CharacterFacePathProvider.swift in Sources */,
 				F38B551A1C3859050022453F /* GoalieKerningButton.swift in Sources */,
 				F38B551C1C3863000022453F /* TaskPriorityUpdater.swift in Sources */,
 				F3CEAC6F1C4063810047DD78 /* GoalieSpeechBubbleKit.swift in Sources */,

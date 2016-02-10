@@ -22,7 +22,7 @@ class CharacterView: UIView
    {
       super.awakeFromNib()
       
-      updateCharacter(.Goalie)
+      updateCharacter(.BizeeBee)
       backgroundColor = UIColor.clearColor()
    }
    

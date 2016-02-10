@@ -9,7 +9,7 @@
 import UIKit
 
 enum GoalieHeadComponent {
-   case Background, Cheek, Chin
+   case Background, Cheek, Chin, Stripe
 }
 
 /*
@@ -50,6 +50,8 @@ private func _rgb(priority: TaskPriority, component: GoalieHeadComponent) -> (r:
       values = _headCheeksRGBA(priority)
    case .Chin:
       values = _headChinRGBA(priority)
+   case .Stripe:
+      values = _headStripeRGBA(priority)
    }
    return values
 }
@@ -60,7 +62,7 @@ private func _headBackgroundRGBA(priority: TaskPriority) -> (r: CGFloat, g: CGFl
    switch priority
    {
    case .Ages:
-      values = (8, 207, 152, 1)
+      values = (4, 191, 133, 1)
       break
    case .Later:
       values = (14, 127, 204, 1)
@@ -123,6 +125,31 @@ private func _headChinRGBA(priority: TaskPriority) -> (r: CGFloat, g: CGFloat, b
       break
    case .Unknown:
       values = (30, 94, 99, 0.2)
+      break
+   }
+   values = (values.r/255.0, values.g/255.0, values.b/255.0, values.a)
+   return values
+}
+
+private func _headStripeRGBA(priority: TaskPriority) -> (r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat)
+{
+   var values: (r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat) = (0, 0, 0, 0)
+   switch priority
+   {
+   case .Ages:
+      values = (29, 100, 79, 1)
+      break
+   case .Later:
+      values = (28, 77, 109, 1)
+      break
+   case .Soon:
+      values = (198, 133, 16, 1)
+      break
+   case .ASAP:
+      values = (153, 29, 59, 1)
+      break
+   case .Unknown:
+      values = (74, 74, 147, 1)
       break
    }
    values = (values.r/255.0, values.g/255.0, values.b/255.0, values.a)

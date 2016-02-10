@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GoalieFacePathProvider
+class GoalieFacePathProvider: CharacterFacePathProvider
 {
    lazy var normalLeftEyePath: CGPathRef = {
       let leftEyePath = UIBezierPath()
@@ -230,46 +230,4 @@ class GoalieFacePathProvider
       rightEyePath.closePath()
       return rightEyePath.CGPath
    }()
-   
-   lazy var leftWorriedEyePath: CGPathRef = {
-      let leftEyePath = UIBezierPath()
-      leftEyePath.moveToPoint(CGPointMake(35.43, 43.3))
-      leftEyePath.addCurveToPoint(CGPointMake(32.21, 46.6), controlPoint1: CGPointMake(35.43, 45.12), controlPoint2: CGPointMake(33.99, 46.6))
-      leftEyePath.addCurveToPoint(CGPointMake(29, 43.3), controlPoint1: CGPointMake(30.44, 46.6), controlPoint2: CGPointMake(29, 45.12))
-      leftEyePath.addCurveToPoint(CGPointMake(32, 42), controlPoint1: CGPointMake(29, 41.48), controlPoint2: CGPointMake(30.22, 42))
-      leftEyePath.addCurveToPoint(CGPointMake(35.43, 43.3), controlPoint1: CGPointMake(33.78, 42), controlPoint2: CGPointMake(35.43, 41.48))
-      leftEyePath.closePath()
-      return leftEyePath.CGPath
-   }()
-   
-   lazy var rightWorriedEyePath: CGPathRef = {
-      let rightEyePath = UIBezierPath()
-      rightEyePath.moveToPoint(CGPointMake(53.43, 43.3))
-      rightEyePath.addCurveToPoint(CGPointMake(50.21, 46.6), controlPoint1: CGPointMake(53.43, 45.12), controlPoint2: CGPointMake(51.99, 46.6))
-      rightEyePath.addCurveToPoint(CGPointMake(47, 43.3), controlPoint1: CGPointMake(48.44, 46.6), controlPoint2: CGPointMake(47, 45.12))
-      rightEyePath.addCurveToPoint(CGPointMake(50, 42), controlPoint1: CGPointMake(47, 41.48), controlPoint2: CGPointMake(48.22, 42))
-      rightEyePath.addCurveToPoint(CGPointMake(53.43, 43.3), controlPoint1: CGPointMake(51.78, 42), controlPoint2: CGPointMake(53.43, 41.48))
-      rightEyePath.closePath()
-      return rightEyePath.CGPath
-   }()
-   
-   func mouthPathForPriority(priority: TaskPriority) -> CGPathRef?
-   {
-      switch priority
-      {
-      case .Ages, .Later: return happyMouthPath
-      case .Soon: return scaredMouthPath
-      case .ASAP: return yellingMouthPath
-      default: return nil
-      }
-   }
-   
-   func teethPathForPriority(priority: TaskPriority) -> CGPathRef?
-   {
-      switch priority
-      {
-      case .ASAP: return angryTeethPath
-      default: return nil
-      }
-   }
 }

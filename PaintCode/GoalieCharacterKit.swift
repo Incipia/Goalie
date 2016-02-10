@@ -12,10 +12,10 @@
 
 import UIKit
 
-public class GoalieCharacterKit : NSObject
+class GoalieCharacterKit
 {
     //// Drawing Methods
-   public class func drawAccessoriesForPriority(priority: TaskPriority)
+   class func drawAccessoriesForPriority(priority: TaskPriority)
    {
       switch priority
       {
@@ -27,7 +27,7 @@ public class GoalieCharacterKit : NSObject
       }
    }
 
-   public class func drawGoalieHead(backgroundColor backgroundColor: UIColor, cheekColor: UIColor, chinColor: UIColor)
+   class func drawGoalieHead(backgroundColor backgroundColor: UIColor, cheekColor: UIColor, chinColor: UIColor)
    {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()
