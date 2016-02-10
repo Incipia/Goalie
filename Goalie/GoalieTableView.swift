@@ -55,7 +55,7 @@ class GoalieTableView: LPRTableView
    {
       var newCharacter: GoalieCharacter = .Goalie
       if _goalieFaceView.character == .Goalie {
-         newCharacter = .Unknown
+         newCharacter = .BizeeBee
       }
       _goalieFaceView.updateCharacter(newCharacter)
    }
@@ -82,6 +82,8 @@ class GoalieTableView: LPRTableView
       decelerationRate = UIScrollViewDecelerationRateFast
       _tapGestureRecognizer.addTarget(self, action: "goalieTapped")
       _goalieFaceView.addGestureRecognizer(_tapGestureRecognizer)
+      
+      _goalieFaceView.updateCharacter(.BizeeBee)
    }
    
    func goalieTapped()
