@@ -19,6 +19,8 @@ class SFXPlayer
    
    private var _player = AVAudioPlayer()
    
+   private var _currentCharacter: GoalieCharacter = .Goalie
+   
    init()
    {
       _setupURLs()
@@ -35,7 +37,8 @@ class SFXPlayer
    
    private func _playCompleted()
    {
-      if let url = NSBundle.mainBundle().URLForResource("Kalimba", withExtension: "mp3") {
+      let soundName = _currentCharacter == .Goalie ? "Kalimba" : "BusyBeeCompleted"
+      if let url = NSBundle.mainBundle().URLForResource(soundName, withExtension: "mp3") {
          do {
             _player = try AVAudioPlayer(contentsOfURL: url, fileTypeHint: nil)
          }
@@ -121,5 +124,10 @@ class SFXPlayer
    static func currentCompletedSoundName() -> String?
    {
       return _sharedInstance._urlNames[_sharedInstance._currentURLIndex]
+   }
+   
+   static func updateCurrentCharacter(character: GoalieCharacter)
+   {
+      _sharedInstance._currentCharacter = character
    }
 }

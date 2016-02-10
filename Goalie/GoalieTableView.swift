@@ -60,6 +60,8 @@ class GoalieTableView: LPRTableView
       if _goalieFaceView.character == .Goalie {
          newCharacter = .BizeeBee
       }
+      
+      SFXPlayer.updateCurrentCharacter(newCharacter)
       _goalieFaceView.updateCharacter(newCharacter)
       _goalieFaceView.animateFace()
    }
@@ -88,6 +90,7 @@ class GoalieTableView: LPRTableView
       _goalieFaceView.addGestureRecognizer(_tapGestureRecognizer)
       
       _goalieFaceView.updateCharacter(.BizeeBee)
+      SFXPlayer.updateCurrentCharacter(.BizeeBee)
    }
    
    func goalieTapped()
