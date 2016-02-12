@@ -87,4 +87,12 @@ class SettingsViewController: UIViewController, ManagedObjectContextSettable, Me
          self.delegate?.settingsDidClose()
       }
    }
+   
+   @IBAction private func _tapRecognized(gestureRecognizer: UIGestureRecognizer)
+   {
+      let touchLocation = gestureRecognizer.locationInView(nil)
+      guard !_containerView.frame.contains(touchLocation) else { return }
+      
+      _closeButtonPressed()
+   }
 }

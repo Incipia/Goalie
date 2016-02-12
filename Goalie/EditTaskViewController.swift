@@ -136,6 +136,14 @@ class EditTaskViewController: UIViewController, ManagedObjectContextSettable, Me
       }
    }
    
+   @IBAction private func _tapRecognized(gestureRecognizer: UIGestureRecognizer)
+   {
+      let touchLocation = gestureRecognizer.locationInView(nil)
+      guard !_detailsContainerView.frame.contains(touchLocation) else { return }
+      
+      _closeButtonPressed()
+   }
+
    // MARK: - Public
    func configureWithTask(task: Task)
    {

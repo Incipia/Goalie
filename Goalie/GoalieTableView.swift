@@ -95,7 +95,12 @@ class GoalieTableView: LPRTableView
    
    func goalieTapped()
    {
-      print("tapped!")
+      print("character taped")
+   }
+   
+   @IBAction private func _headerViewTapped(gestureRecognizer: UIGestureRecognizer)
+   {
+      print("header tapped");
    }
    
    // MARK: - Setup

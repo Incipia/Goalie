@@ -116,6 +116,12 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
       return .LightContent
    }
    
+   @IBAction private func _tableHeaderViewTapped(recognizer: UIGestureRecognizer)
+   {
+      print("table header tapped")
+      _currentTaskCell?.stopEditing()
+   }
+   
    // MARK: - Public
    func animateGoalie()
    {
