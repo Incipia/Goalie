@@ -16,6 +16,7 @@ class FaceLayerFactory
       case .Unknown: return CharacterFaceLayer()
       case .Goalie: return GoalieFaceLayer()
       case .BizeeBee: return BizeeBeeFaceLayer()
+      case .Fox: return FoxFaceLayer()
       }
    }
 }

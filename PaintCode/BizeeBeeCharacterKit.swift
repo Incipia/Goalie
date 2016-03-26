@@ -85,12 +85,12 @@ class BizeeBeeCharacterKit
       //// General Declarations
       let context = UIGraphicsGetCurrentContext()
       
-      //// Shadow Declarations
       let shadow = NSShadow()
       shadow.shadowColor = UIColor.blackColor().colorWithAlphaComponent(0.2)
       shadow.shadowOffset = CGSizeMake(-1.1, 4.1)
       shadow.shadowBlurRadius = 8
       
+      //// Group 2
       //// BodyOutline Drawing
       let bodyOutlinePath = UIBezierPath()
       bodyOutlinePath.moveToPoint(CGPointMake(65.65, 13.54))

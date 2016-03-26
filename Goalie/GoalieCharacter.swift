@@ -10,13 +10,14 @@ import UIKit
 
 enum GoalieCharacter
 {
-   case Goalie, BizeeBee, Unknown
+   case Goalie, BizeeBee, Fox, Unknown
    
    func drawRect(rect: CGRect, withPriority priority: TaskPriority)
    {
       switch self {
       case .Goalie: _drawGoalieCharacterWithPriority(priority)
       case .BizeeBee: _drawBizeeBeeCharacterWithPriority(priority)
+      case .Fox: _drawFoxCharacterWithPriority(priority, frame: rect)
       case .Unknown: _drawPurpleRect(rect)
       }
    }
@@ -46,6 +47,17 @@ enum GoalieCharacter
       BizeeBeeCharacterKit.drawBody(bgColor, cheekColor: cheekColor, stripeColor: stripeColor)
       BizeeBeeCharacterKit.drawAccessoriesForPriority(priority)
    }
+   
+   private func _drawFoxCharacterWithPriority(priority: TaskPriority, frame: CGRect)
+   {
+      let bgColor = UIColor(priority: priority, headComponent: .Background)
+      let cheekColor = UIColor(priority: priority, headComponent: .Cheek)
+      let stripeColor = UIColor.bizeeBeeStripeColor(priority)
+      let noseColor = UIColor.eyeColorForPriority(priority)
+      
+      FoxCharacterKit.drawBody(bgColor, cheekColor: cheekColor, outerCheekColor: stripeColor, noseColor: noseColor, frame: frame)
+      FoxCharacterKit.drawAccessoriesForPriority(priority)
+   }
 }
 
 extension CGSize
@@ -57,7 +69,8 @@ extension CGSize
       {
       case .Unknown: size = (100, 100)
       case .Goalie: size = (80, 100)
-      case .BizeeBee: size = (85, 100)
+      case .BizeeBee: size = (90, 100)
+      case .Fox: size = (100, 105)
       }
       self.init(width: size.w, height: size.h)
    }

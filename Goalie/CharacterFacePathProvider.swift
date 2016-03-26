@@ -16,6 +16,7 @@ struct FacePathProviderFactory
       case .Unknown: return GoalieFacePathProvider()
       case .Goalie: return GoalieFacePathProvider()
       case .BizeeBee: return GoalieFacePathProvider()
+      case .Fox: return FoxFacePathProvider()
       }
    }
 }

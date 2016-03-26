@@ -10,7 +10,6 @@ import UIKit
 
 class BizeeBeeFacePathProvider: CharacterFacePathProvider
 {
-   //
    lazy var normalLeftEyePath: CGPathRef = {
       let leftEyePath = UIBezierPath()
       leftEyePath.moveToPoint(CGPointMake(36.26, 19.71))

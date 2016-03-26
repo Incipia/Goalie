@@ -12,6 +12,18 @@ let _defaultHeaderHeight: CGFloat = floor(UIScreen.mainScreen().bounds.height / 
 let _minimumHeaderHeight: CGFloat = floor(UIScreen.mainScreen().bounds.height / 5.1)
 let _maximumHeaderHeight: CGFloat = _defaultHeaderHeight + 50
 
+private extension GoalieCharacter
+{
+   var next: GoalieCharacter {
+      switch self {
+      case .Goalie: return .BizeeBee
+      case .BizeeBee: return .Fox
+      case .Fox: return .Goalie
+      case .Unknown: return .Goalie
+      }
+   }
+}
+
 class GoalieTableView: LPRTableView
 {
    @IBOutlet private var _firstTaskFooterViewArrow: UIImageView!
@@ -56,10 +68,7 @@ class GoalieTableView: LPRTableView
    // For testing
    @IBAction private func _swap()
    {
-      var newCharacter: GoalieCharacter = .Goalie
-      if _goalieFaceView.character == .Goalie {
-         newCharacter = .BizeeBee
-      }
+      let newCharacter = _goalieFaceView.character.next
       
       SFXPlayer.updateCurrentCharacter(newCharacter)
       _goalieFaceView.updateCharacter(newCharacter)

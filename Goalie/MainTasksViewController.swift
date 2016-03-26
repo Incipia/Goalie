@@ -118,7 +118,6 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
    
    @IBAction private func _tableHeaderViewTapped(recognizer: UIGestureRecognizer)
    {
-      print("table header tapped")
       _currentTaskCell?.stopEditing()
    }
    
@@ -455,56 +454,6 @@ extension MainTasksViewController: LPRTableViewDelegate
       let destTask = _tableViewDataProvider.objectAtIndexPath(destIP)
       
       let newCreationDate = destTask.creationDate
-      if destIP.row == 0
-      {
-         // moving to FIRST position, destTask is first
-      }
-      else if destIP.row >= _goalieTableView.numberOfRowsInSection(0) - 2
-      {
-         // moving to LAST position, destTask is last
-      }
-      else // ----------- SOMEWHERE IN MIDDLE -----------
-      {
-         if sourceIP.row < destIP.row // ----------- MOVED DOWN -----------
-         {
-            let taskAbove = destTask
-            let taskBelow = _tableViewDataProvider.objectAtIndexPath(destIP.next)
-            if taskBelow.priority == taskAbove.priority
-            {
-               // SAME PRIORITY ABOVE AND BELOW
-               print("ABOVE/BELOW – taking \(taskAbove.priority)")
-               print("-- above: \(taskAbove.title)")
-               print("-- inserting: \(sourceTask.title)")
-               print("-- below: \(taskBelow.title)")
-            }
-            else
-            {
-               print("ABOVE - taking \(taskAbove.priority)")
-               print("-- above: \(taskAbove.title)")
-               print("-- inserting: \(sourceTask.title)")
-            }
-         }
-         else // ----------- MOVED UP -----------
-         {
-            let taskBelow = destTask
-            let taskAbove = _tableViewDataProvider.objectAtIndexPath(destIP.before)
-            if taskBelow.priority == taskAbove.priority
-            {
-               // SAME PRIORITY ABOVE AND BELOW
-               print("ABOVE/BELOW – taking \(taskBelow.priority)")
-               print("-- above: \(taskAbove.title)")
-               print("-- inserting: \(sourceTask.title)")
-               print("-- below: \(taskBelow.title)")
-            }
-            else
-            {
-               // ONLY THE TASK ABOVE HAS SAME PRIORITY
-               print("BELOW - taking \(taskBelow.priority)")
-               print("-- above: \(taskAbove.title)")
-               print("-- inserting: \(sourceTask.title)")
-            }
-         }
-      }
       
       _sourceDraggingIndexPath = nil
       _destinationDraggingIndexPath = nil

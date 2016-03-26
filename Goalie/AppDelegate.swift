@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 import Fabric
 import Crashlytics
+import AVFoundation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate
@@ -56,6 +57,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate
          _setupMainWindowWithViewController(_onboardingViewController)
       }
    
+//      do {
+//         try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryMultiRoute, withOptions: .MixWithOthers)
+//      }
+//      catch _ as NSError {
+//      }
+      
       return true
    }
    

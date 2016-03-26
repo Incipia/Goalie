@@ -199,7 +199,7 @@ extension GoalieCharacterKit
    private class func _drawSunglasses()
    {
       //// Color Declarations
-      let fillColor14 = UIColor(red: 0.098, green: 0.324, blue: 0.243, alpha: 1.000)
+      let fillColor14 = UIColor(priority: .Ages, headComponent: .Stripe)
       
       //// Group 2
       //// Group 3
