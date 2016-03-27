@@ -201,8 +201,14 @@ extension TasksTableViewCell
          var buttonTitle = task.completed ? _completedButtonTitle : _incompletedButtonTitle
          buttonTitle = task.title == "" ? _plusButtonTitle : buttonTitle
          
+         let buttonFontSize: CGFloat = task.title == "" ? 30 : 20
+         let newFont = UIFont.systemFontOfSize(buttonFontSize)
+         let attributedTitle = NSAttributedString(string: buttonTitle,
+            attributes: [NSFontAttributeName : newFont])
+         
          UIView.setAnimationsEnabled(false)
-         _leftButton.setTitle(buttonTitle, forState: .Normal)
+//         _leftButton.setTitle(buttonTitle, forState: .Normal)
+         _leftButton.setAttributedTitle(attributedTitle, forState: .Normal)
          _leftButton.layoutIfNeeded()
          UIView.setAnimationsEnabled(true);
       }

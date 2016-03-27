@@ -26,5 +26,4 @@ class FoxFaceLayer: CharacterFaceLayer
    {
       super.updateWithPriority(priority)
    }
-
 }

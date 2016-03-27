@@ -8,19 +8,6 @@
 
 import UIKit
 
-class FaceLayerFactory
-{
-   static func layerForCharacter(character: GoalieCharacter) -> CharacterFaceLayer
-   {
-      switch character {
-      case .Unknown: return CharacterFaceLayer()
-      case .Goalie: return GoalieFaceLayer()
-      case .BizeeBee: return BizeeBeeFaceLayer()
-      case .Fox: return FoxFaceLayer()
-      }
-   }
-}
-
 class GoalieFaceLayer: CharacterFaceLayer
 {
    internal var _teethLayer = CAShapeLayer()

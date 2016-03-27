@@ -15,8 +15,9 @@ struct FacePathProviderFactory
       switch character {
       case .Unknown: return GoalieFacePathProvider()
       case .Goalie: return GoalieFacePathProvider()
-      case .BizeeBee: return GoalieFacePathProvider()
+      case .BizeeBee: return BizeeBeeFacePathProvider()
       case .Fox: return FoxFacePathProvider()
+      case .Checklistor: return ChecklistorFacePathProvider()
       }
    }
 }

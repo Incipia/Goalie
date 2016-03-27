@@ -18,7 +18,8 @@ private extension GoalieCharacter
       switch self {
       case .Goalie: return .BizeeBee
       case .BizeeBee: return .Fox
-      case .Fox: return .Goalie
+      case .Fox: return .Checklistor
+      case .Checklistor: return Goalie
       case .Unknown: return .Goalie
       }
    }
@@ -105,6 +106,7 @@ class GoalieTableView: LPRTableView
    func goalieTapped()
    {
       print("character taped")
+      _swap()
    }
    
    @IBAction private func _headerViewTapped(gestureRecognizer: UIGestureRecognizer)
@@ -238,11 +240,11 @@ extension GoalieTableView
    private func _showOnlyLeftOrRightSpeechBubble()
    {
       // The magic '12' is to account for the padding on the sides of the speech bubble
-      let rightSpeechBubbleMaxX = _rightSpeechBubble.frame.origin.x + _rightSpeechBubble.actualWidth - 12
-      let shouldShowLeft = _settingsButton.frame.minX < rightSpeechBubbleMaxX
+//      let rightSpeechBubbleMaxX = _rightSpeechBubble.frame.origin.x + _rightSpeechBubble.actualWidth - 12
+////      let shouldShowLeft = _settingsButton.frame.minX < rightSpeechBubbleMaxX
       let oneOrZero = Int.randRange(0, upper: 1)
       
-      if oneOrZero == 0 || shouldShowLeft {
+      if oneOrZero == 0 {// || shouldShowLeft {
          if _leftSpeechBubble.hidden == true {
             _animateViewIn(_leftSpeechBubble, completion: nil)
             _rightSpeechBubble.hidden = true

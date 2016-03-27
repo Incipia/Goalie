@@ -109,6 +109,9 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
       _goalieTableView.reloadData()
       _createEmptyTaskIfNecessary()
       _updateTableViewFooter()
+      
+      _goalieTableView.stopGoalieMovement()
+      _goalieTableView.startGoalieMovement()
    }
    
    override func preferredStatusBarStyle() -> UIStatusBarStyle
@@ -218,7 +221,7 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
       }
    }
    
-   // Mark: - IBActions
+   // MARK: - IBActions
    @IBAction private func _settingsButtonPressed()
    {
       guard _currentTaskCell == nil else {
@@ -230,6 +233,12 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
       presentViewController(_settingsController, animated: true) { () -> Void in
          self._transitionManager.presenting = false
       }
+   }
+   
+   @IBAction private func _editListButtonPressed()
+   {
+      let controller = UIStoryboard.editListViewController()
+      presentViewController(controller, animated: true, completion: nil)
    }
 }
 

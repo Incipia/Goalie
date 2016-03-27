@@ -107,7 +107,7 @@ class FoxCharacterKit
 
    }
    
-   static func drawBody(bodyColor: UIColor, cheekColor: UIColor, outerCheekColor: UIColor, noseColor: UIColor, frame: CGRect)
+   static func drawBody(bodyColor: UIColor, cheekColor: UIColor, outerCheekColor: UIColor, noseColor: UIColor)
    {
       //// General Declarations
       let context = UIGraphicsGetCurrentContext()
@@ -121,7 +121,7 @@ class FoxCharacterKit
       //// Shadow Declarations
       let shadow = NSShadow()
       shadow.shadowColor = UIColor.blackColor().colorWithAlphaComponent(0.2)
-      shadow.shadowOffset = CGSizeMake(-1.1, 4.1)
+      shadow.shadowOffset = CGSizeMake(-1.3, 6.1)
       shadow.shadowBlurRadius = 8
       
       //// Bezier Drawing

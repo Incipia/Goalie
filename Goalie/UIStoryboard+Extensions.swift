@@ -11,6 +11,13 @@ import CoreData
 
 extension UIStoryboard
 {
+   static func editListViewController() -> EditListViewController
+   {
+      let storyboard = UIStoryboard(name: "Main", bundle: nil)
+      let controller = storyboard.instantiateViewControllerWithIdentifier("EditListViewControllerID") as! EditListViewController
+      return controller
+   }
+   
    static func onboardingViewController() -> OnboardingViewController
    {
       let storyboard = UIStoryboard(name: "Main", bundle: nil)

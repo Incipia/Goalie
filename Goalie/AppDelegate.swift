@@ -50,7 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
                
                self._startTimers()
                self._mainTasksViewController.showSpeechBubble()
-               self._mainTasksViewController.startGoalieMovement()
+//               self._mainTasksViewController.startGoalieMovement()
                GoalieSettingsManager.setUserHasOnboarded(true)
             })
          }

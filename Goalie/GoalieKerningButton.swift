@@ -18,16 +18,21 @@ class GoalieKerningButton: UIButton
       super.init(coder: aDecoder)
       guard let label = titleLabel else { return }
       
+      let paragraphStyle: NSMutableParagraphStyle = NSParagraphStyle.defaultParagraphStyle().mutableCopy() as! NSMutableParagraphStyle
+      paragraphStyle.alignment = NSTextAlignment.Center
+      
       let attributes = [
          NSFontAttributeName : label.font,
          NSForegroundColorAttributeName : label.textColor,
-         NSKernAttributeName : 3
+         NSKernAttributeName : 3,
+         NSParagraphStyleAttributeName : paragraphStyle
       ]
       
       let highlightedAttributes = [
          NSFontAttributeName : label.font,
          NSForegroundColorAttributeName : label.textColor.colorWithAlphaComponent(0.5),
-         NSKernAttributeName : 3
+         NSKernAttributeName : 3,
+         NSParagraphStyleAttributeName : paragraphStyle
       ]
       
       let attributedString = NSAttributedString(string: label.text ?? "", attributes: attributes)
@@ -45,13 +50,13 @@ class GoalieKerningButton: UIButton
       let attributes = [
          NSFontAttributeName : label.font,
          NSForegroundColorAttributeName : color,
-         NSKernAttributeName : 3
+         NSKernAttributeName : 3,
       ]
       
       let highlightedAttributes = [
          NSFontAttributeName : label.font,
          NSForegroundColorAttributeName : label.textColor.colorWithAlphaComponent(0.5),
-         NSKernAttributeName : 3
+         NSKernAttributeName : 3,
       ]
       
       let attributedString = NSAttributedString(string: text, attributes: attributes)

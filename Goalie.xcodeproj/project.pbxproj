@@ -16,7 +16,12 @@
 		CEB15B981CA5F5EC002B8C66 /* FoxCharacterKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB15B971CA5F5EC002B8C66 /* FoxCharacterKit.swift */; };
 		CEB15B9B1CA5FB58002B8C66 /* FoxFaceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB15B9A1CA5FB58002B8C66 /* FoxFaceLayer.swift */; };
 		CEB15B9D1CA5FCA6002B8C66 /* FoxFacePathProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB15B9C1CA5FCA6002B8C66 /* FoxFacePathProvider.swift */; };
+		CEB15B9F1CA6157C002B8C66 /* ChecklistorCharacterKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB15B9E1CA6157C002B8C66 /* ChecklistorCharacterKit.swift */; };
 		CEB5854C1C5300DB00A39746 /* LPRTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB5854B1C5300DB00A39746 /* LPRTableView.swift */; };
+		CEBB00F21CA61CB2005BB8DB /* ChecklistorFaceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBB00F11CA61CB2005BB8DB /* ChecklistorFaceLayer.swift */; };
+		CEBB00F41CA61CFE005BB8DB /* FaceLayerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBB00F31CA61CFE005BB8DB /* FaceLayerFactory.swift */; };
+		CEBB00F61CA61F6E005BB8DB /* ChecklistorFacePathProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBB00F51CA61F6E005BB8DB /* ChecklistorFacePathProvider.swift */; };
+		CEBB00F81CA7BABC005BB8DB /* EditListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBB00F71CA7BABC005BB8DB /* EditListViewController.swift */; };
 		CEC1C84C1C5C90CB0074290A /* ChangePriorityRight.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CEC1C84B1C5C90CB0074290A /* ChangePriorityRight.mp3 */; };
 		CEE541011C6A7380008BEC7C /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE541001C6A7380008BEC7C /* AdSupport.framework */; };
 		CEE541041C6A73AD008BEC7C /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE541021C6A73AD008BEC7C /* Crashlytics.framework */; };
@@ -103,7 +108,12 @@
 		CEB15B971CA5F5EC002B8C66 /* FoxCharacterKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FoxCharacterKit.swift; path = PaintCode/FoxCharacterKit.swift; sourceTree = "<group>"; };
 		CEB15B9A1CA5FB58002B8C66 /* FoxFaceLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FoxFaceLayer.swift; path = Goalie/FoxFaceLayer.swift; sourceTree = "<group>"; };
 		CEB15B9C1CA5FCA6002B8C66 /* FoxFacePathProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FoxFacePathProvider.swift; path = Goalie/FoxFacePathProvider.swift; sourceTree = "<group>"; };
+		CEB15B9E1CA6157C002B8C66 /* ChecklistorCharacterKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChecklistorCharacterKit.swift; path = Goalie/ChecklistorCharacterKit.swift; sourceTree = "<group>"; };
 		CEB5854B1C5300DB00A39746 /* LPRTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LPRTableView.swift; path = Frameworks/LPRTableView.swift; sourceTree = "<group>"; };
+		CEBB00F11CA61CB2005BB8DB /* ChecklistorFaceLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChecklistorFaceLayer.swift; path = Goalie/ChecklistorFaceLayer.swift; sourceTree = "<group>"; };
+		CEBB00F31CA61CFE005BB8DB /* FaceLayerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FaceLayerFactory.swift; path = Goalie/FaceLayerFactory.swift; sourceTree = "<group>"; };
+		CEBB00F51CA61F6E005BB8DB /* ChecklistorFacePathProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChecklistorFacePathProvider.swift; path = Goalie/ChecklistorFacePathProvider.swift; sourceTree = "<group>"; };
+		CEBB00F71CA7BABC005BB8DB /* EditListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditListViewController.swift; path = Goalie/EditListViewController.swift; sourceTree = "<group>"; };
 		CEC1C84B1C5C90CB0074290A /* ChangePriorityRight.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = ChangePriorityRight.mp3; path = Sounds/ChangePriorityRight.mp3; sourceTree = "<group>"; };
 		CEE541001C6A7380008BEC7C /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		CEE541021C6A73AD008BEC7C /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = Frameworks/Crashlytics.framework; sourceTree = "<group>"; };
@@ -243,6 +253,16 @@
 			name = Fox;
 			sourceTree = "<group>";
 		};
+		CEB15BA01CA615AE002B8C66 /* Checklistor */ = {
+			isa = PBXGroup;
+			children = (
+				CEB15B9E1CA6157C002B8C66 /* ChecklistorCharacterKit.swift */,
+				CEBB00F11CA61CB2005BB8DB /* ChecklistorFaceLayer.swift */,
+				CEBB00F51CA61F6E005BB8DB /* ChecklistorFacePathProvider.swift */,
+			);
+			name = Checklistor;
+			sourceTree = "<group>";
+		};
 		CEE5410B1C6A9DAA008BEC7C /* MKStoreKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -294,6 +314,8 @@
 				CE7F61F81C6AED9400C2C0A2 /* BizeeBee */,
 				CE7F61F71C6AED9000C2C0A2 /* Goalie */,
 				CEB15B991CA5F630002B8C66 /* Fox */,
+				CEB15BA01CA615AE002B8C66 /* Checklistor */,
+				CEBB00F31CA61CFE005BB8DB /* FaceLayerFactory.swift */,
 			);
 			name = "Character Drawing";
 			sourceTree = "<group>";
@@ -416,6 +438,7 @@
 				F38B550F1C34DD810022453F /* SettingsViewController.swift */,
 				F3A81FF91C4403120048237F /* OnboardingViewController.swift */,
 				F3B7F7591C46EFBB00C364F0 /* CongratulationsViewController.swift */,
+				CEBB00F71CA7BABC005BB8DB /* EditListViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -595,6 +618,7 @@
 				F3B7F7531C460F2900C364F0 /* SFXPlayer.swift in Sources */,
 				F383192F1C31A72D00C36ACB /* Utilities.swift in Sources */,
 				F3B7F7341C45F2D600C364F0 /* GoalieKerningHeaderLabel.swift in Sources */,
+				CEB15B9F1CA6157C002B8C66 /* ChecklistorCharacterKit.swift in Sources */,
 				CEB5854C1C5300DB00A39746 /* LPRTableView.swift in Sources */,
 				F38319351C31A72D00C36ACB /* UITableView+Extensions.swift in Sources */,
 				F32489491C3F174300E3DABD /* GoalieSpeechBubble.swift in Sources */,
@@ -602,6 +626,7 @@
 				F3CEAC571C4061B10047DD78 /* JVFloatLabeledTextView.m in Sources */,
 				F322EB131C34C9D4001B8C44 /* UIButton+Extensions.swift in Sources */,
 				CE7F61FB1C6AEDC700C2C0A2 /* CharacterFaceLayer.swift in Sources */,
+				CEBB00F61CA61F6E005BB8DB /* ChecklistorFacePathProvider.swift in Sources */,
 				F3DB3E041C322DC40005C607 /* MainTasksViewController.swift in Sources */,
 				F38A0F5C1C42EBA40034DCE4 /* MenuTransitionManager.swift in Sources */,
 				F383192C1C31A72D00C36ACB /* ManagedObjectObserver.swift in Sources */,
@@ -613,6 +638,7 @@
 				CEAA5A811C6ADEFA0061BFA8 /* BizeeBeeCharacterKit.swift in Sources */,
 				F3CEAC561C4061B10047DD78 /* JVFloatLabeledTextField.m in Sources */,
 				F38319491C31B3CB00C36ACB /* GoalieTableView.swift in Sources */,
+				CEBB00F81CA7BABC005BB8DB /* EditListViewController.swift in Sources */,
 				F38319321C31A72D00C36ACB /* UINavigationBar+Extensions.swift in Sources */,
 				F3DB3E101C32682A0005C607 /* ProjectEnums.swift in Sources */,
 				F38319391C31A72D00C36ACB /* DataProvider.swift in Sources */,
@@ -635,6 +661,8 @@
 				F38319301C31A72D00C36ACB /* UIImage+Extensions.swift in Sources */,
 				F38B55181C3854A10022453F /* GoalieKerningLabel.swift in Sources */,
 				F3CEAC6E1C4063810047DD78 /* GoalieCharacterKit.swift in Sources */,
+				CEBB00F41CA61CFE005BB8DB /* FaceLayerFactory.swift in Sources */,
+				CEBB00F21CA61CB2005BB8DB /* ChecklistorFaceLayer.swift in Sources */,
 				F383192E1C31A72D00C36ACB /* TasksDataProvider.swift in Sources */,
 				CE7F61FF1C6AF2D800C2C0A2 /* CharacterFacePathProvider.swift in Sources */,
 				F38B551A1C3859050022453F /* GoalieKerningButton.swift in Sources */,

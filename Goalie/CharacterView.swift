@@ -23,8 +23,8 @@ class CharacterView: UIView
    {
       super.awakeFromNib()
       
-//      backgroundColor = UIColor.purpleColor().colorWithAlphaComponent(0.5)
       backgroundColor = UIColor.clearColor()
+//      backgroundColor = UIColor.purpleColor().colorWithAlphaComponent(0.5)
       containerView.backgroundColor = UIColor.clearColor()
    }
    
