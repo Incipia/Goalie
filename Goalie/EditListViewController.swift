@@ -17,9 +17,14 @@ class EditListViewController: UIViewController
       }
    }
    
+   @IBOutlet private weak var _collectionView: UICollectionView!
+   
+   private var _collectionViewDataSource: EditListCollectionViewDataSource!
+   
    override func viewDidLoad()
    {
       super.viewDidLoad()
+      _collectionViewDataSource = EditListCollectionViewDataSource(collectionView: _collectionView)
    }
    
    @IBAction private func _doneButtonPressed()

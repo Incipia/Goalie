@@ -34,8 +34,10 @@
             <string>NotoSans-Bold</string>
             <string>NotoSans-Bold</string>
             <string>NotoSans-Bold</string>
+            <string>NotoSans-Bold</string>
         </mutableArray>
         <mutableArray key="NotoSans-Regular.ttf">
+            <string>NotoSans</string>
             <string>NotoSans</string>
             <string>NotoSans</string>
             <string>NotoSans</string>
@@ -438,8 +440,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit List" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q1I-wU-WUb">
-                                <rect key="frame" x="120" y="30" width="80" height="27.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit list" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q1I-wU-WUb">
+                                <rect key="frame" x="122.5" y="30" width="75" height="27.5"/>
                                 <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="20"/>
                                 <color key="textColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
                                 <nil key="highlightedColor"/>
@@ -459,16 +461,71 @@
                                     <action selector="_doneButtonPressed" destination="rpO-UU-QpH" eventType="touchUpInside" id="ppw-Ka-trA"/>
                                 </connections>
                             </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Dse-Od-M3C">
+                                <rect key="frame" x="0.0" y="67" width="320" height="501"/>
+                                <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="yDM-Qm-Rlt">
+                                    <size key="itemSize" width="320" height="150"/>
+                                    <size key="headerReferenceSize" width="50" height="110"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="EditListCellID" id="Dob-ZP-rRw" customClass="EditListCollectionViewCell" customModule="Goalie" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="110" width="320" height="150"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="EditListHeaderCellID" id="Yif-Wf-HMY" customClass="EditListHeaderCell" customModule="Goalie" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Characters" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nkb-iQ-Pn6">
+                                            <rect key="frame" x="15" y="30" width="82" height="20.5"/>
+                                            <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="15"/>
+                                            <color key="textColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pick a character to chat with and help keep you motivated and entiertained" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m1q-AU-GHR">
+                                            <rect key="frame" x="15" y="58" width="255" height="33"/>
+                                            <fontDescription key="fontDescription" name="NotoSans" family="Noto Sans" pointSize="12"/>
+                                            <color key="textColor" red="0.3411764706" green="0.4823529412" blue="0.53725490200000003" alpha="0.60359480570000001" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Nkb-iQ-Pn6" firstAttribute="leading" secondItem="Yif-Wf-HMY" secondAttribute="leading" constant="15" id="BXj-ke-yF2"/>
+                                        <constraint firstItem="m1q-AU-GHR" firstAttribute="top" secondItem="Nkb-iQ-Pn6" secondAttribute="bottom" constant="8" id="JOm-iV-aBp"/>
+                                        <constraint firstItem="Nkb-iQ-Pn6" firstAttribute="top" secondItem="Yif-Wf-HMY" secondAttribute="top" constant="30" id="Jci-YP-kpa"/>
+                                        <constraint firstItem="m1q-AU-GHR" firstAttribute="leading" secondItem="Nkb-iQ-Pn6" secondAttribute="leading" id="Lxs-uu-VH2"/>
+                                        <constraint firstAttribute="trailing" secondItem="m1q-AU-GHR" secondAttribute="trailing" constant="50" id="m5L-VP-kd2"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="_subtitleLabel" destination="m1q-AU-GHR" id="tF5-6m-d32"/>
+                                        <outlet property="_titleLabel" destination="Nkb-iQ-Pn6" id="hHM-Y6-a5b"/>
+                                    </connections>
+                                </collectionReusableView>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="wdQ-Sz-ntk" firstAttribute="trailing" secondItem="BX5-ci-vbt" secondAttribute="trailingMargin" id="3Da-Ih-vTY"/>
+                            <constraint firstItem="Dse-Od-M3C" firstAttribute="top" secondItem="wdQ-Sz-ntk" secondAttribute="bottom" constant="8" id="3IN-V9-uB2"/>
+                            <constraint firstAttribute="trailing" secondItem="Dse-Od-M3C" secondAttribute="trailing" id="A16-qn-4Fs"/>
+                            <constraint firstItem="Dse-Od-M3C" firstAttribute="leading" secondItem="BX5-ci-vbt" secondAttribute="leading" id="E4V-vI-Voq"/>
                             <constraint firstItem="q1I-wU-WUb" firstAttribute="top" secondItem="xrV-2Y-NMG" secondAttribute="bottom" constant="10" id="IKQ-pu-vOR"/>
                             <constraint firstItem="q1I-wU-WUb" firstAttribute="centerX" secondItem="BX5-ci-vbt" secondAttribute="centerX" id="OQS-ns-yFL"/>
                             <constraint firstItem="wdQ-Sz-ntk" firstAttribute="centerY" secondItem="q1I-wU-WUb" secondAttribute="centerY" id="aV6-gf-n8k"/>
+                            <constraint firstItem="5cW-6r-7BM" firstAttribute="top" secondItem="Dse-Od-M3C" secondAttribute="bottom" id="mY5-mx-Lte"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="_collectionView" destination="Dse-Od-M3C" id="JLS-vb-VMd"/>
                         <outlet property="_doneButton" destination="wdQ-Sz-ntk" id="4XX-Mp-4Xz"/>
                     </connections>
                 </viewController>

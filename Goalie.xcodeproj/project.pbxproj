@@ -22,6 +22,10 @@
 		CEBB00F41CA61CFE005BB8DB /* FaceLayerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBB00F31CA61CFE005BB8DB /* FaceLayerFactory.swift */; };
 		CEBB00F61CA61F6E005BB8DB /* ChecklistorFacePathProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBB00F51CA61F6E005BB8DB /* ChecklistorFacePathProvider.swift */; };
 		CEBB00F81CA7BABC005BB8DB /* EditListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBB00F71CA7BABC005BB8DB /* EditListViewController.swift */; };
+		CEBB00FA1CA97CFF005BB8DB /* EditListCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBB00F91CA97CFF005BB8DB /* EditListCollectionViewDataSource.swift */; };
+		CEBB00FC1CA982D1005BB8DB /* EditListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBB00FB1CA982D1005BB8DB /* EditListCollectionViewCell.swift */; };
+		CEBB00FE1CA982E8005BB8DB /* EditListHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBB00FD1CA982E8005BB8DB /* EditListHeaderCell.swift */; };
+		CEBB01001CA98382005BB8DB /* EditListOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBB00FF1CA98382005BB8DB /* EditListOption.swift */; };
 		CEC1C84C1C5C90CB0074290A /* ChangePriorityRight.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CEC1C84B1C5C90CB0074290A /* ChangePriorityRight.mp3 */; };
 		CEE541011C6A7380008BEC7C /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE541001C6A7380008BEC7C /* AdSupport.framework */; };
 		CEE541041C6A73AD008BEC7C /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE541021C6A73AD008BEC7C /* Crashlytics.framework */; };
@@ -114,6 +118,10 @@
 		CEBB00F31CA61CFE005BB8DB /* FaceLayerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FaceLayerFactory.swift; path = Goalie/FaceLayerFactory.swift; sourceTree = "<group>"; };
 		CEBB00F51CA61F6E005BB8DB /* ChecklistorFacePathProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChecklistorFacePathProvider.swift; path = Goalie/ChecklistorFacePathProvider.swift; sourceTree = "<group>"; };
 		CEBB00F71CA7BABC005BB8DB /* EditListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditListViewController.swift; path = Goalie/EditListViewController.swift; sourceTree = "<group>"; };
+		CEBB00F91CA97CFF005BB8DB /* EditListCollectionViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditListCollectionViewDataSource.swift; path = Goalie/EditListCollectionViewDataSource.swift; sourceTree = "<group>"; };
+		CEBB00FB1CA982D1005BB8DB /* EditListCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditListCollectionViewCell.swift; path = Goalie/EditListCollectionViewCell.swift; sourceTree = "<group>"; };
+		CEBB00FD1CA982E8005BB8DB /* EditListHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditListHeaderCell.swift; path = Goalie/EditListHeaderCell.swift; sourceTree = "<group>"; };
+		CEBB00FF1CA98382005BB8DB /* EditListOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditListOption.swift; path = Goalie/EditListOption.swift; sourceTree = "<group>"; };
 		CEC1C84B1C5C90CB0074290A /* ChangePriorityRight.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = ChangePriorityRight.mp3; path = Sounds/ChangePriorityRight.mp3; sourceTree = "<group>"; };
 		CEE541001C6A7380008BEC7C /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		CEE541021C6A73AD008BEC7C /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = Frameworks/Crashlytics.framework; sourceTree = "<group>"; };
@@ -439,6 +447,10 @@
 				F3A81FF91C4403120048237F /* OnboardingViewController.swift */,
 				F3B7F7591C46EFBB00C364F0 /* CongratulationsViewController.swift */,
 				CEBB00F71CA7BABC005BB8DB /* EditListViewController.swift */,
+				CEBB00F91CA97CFF005BB8DB /* EditListCollectionViewDataSource.swift */,
+				CEBB00FB1CA982D1005BB8DB /* EditListCollectionViewCell.swift */,
+				CEBB00FD1CA982E8005BB8DB /* EditListHeaderCell.swift */,
+				CEBB00FF1CA98382005BB8DB /* EditListOption.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -604,6 +616,7 @@
 				F383192A1C31A72D00C36ACB /* CoreDataStack.swift in Sources */,
 				F383190D1C319FE800C36ACB /* TasksTableViewCell.swift in Sources */,
 				F38B55101C34DD810022453F /* SettingsViewController.swift in Sources */,
+				CEBB01001CA98382005BB8DB /* EditListOption.swift in Sources */,
 				F38319311C31A72D00C36ACB /* NSURL+Extensions.swift in Sources */,
 				F3A820011C441B490048237F /* GoalieFacePathProvider.swift in Sources */,
 				F38319291C31A72D00C36ACB /* ManagedObject.swift in Sources */,
@@ -651,10 +664,13 @@
 				F3A81FFA1C4403120048237F /* OnboardingViewController.swift in Sources */,
 				CEB15B981CA5F5EC002B8C66 /* FoxCharacterKit.swift in Sources */,
 				F3B7F7321C4583D900C364F0 /* GoalieMovementAnimator.swift in Sources */,
+				CEBB00FA1CA97CFF005BB8DB /* EditListCollectionViewDataSource.swift in Sources */,
+				CEBB00FE1CA982E8005BB8DB /* EditListHeaderCell.swift in Sources */,
 				CEB15B9B1CA5FB58002B8C66 /* FoxFaceLayer.swift in Sources */,
 				F383193B1C31A72D00C36ACB /* TableViewDataSource.swift in Sources */,
 				F38A0F5A1C42010A0034DCE4 /* TaskPriorityStateSnapshotter.swift in Sources */,
 				CEB15B9D1CA5FCA6002B8C66 /* FoxFacePathProvider.swift in Sources */,
+				CEBB00FC1CA982D1005BB8DB /* EditListCollectionViewCell.swift in Sources */,
 				CE7F61FD1C6AEDE700C2C0A2 /* BizeeBeeFaceLayer.swift in Sources */,
 				F383193A1C31A72D00C36ACB /* FetchedResultsDataProvider.swift in Sources */,
 				F350C7161C4806E200416F14 /* CharacterView.swift in Sources */,
