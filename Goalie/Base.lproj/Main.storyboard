@@ -1211,8 +1211,10 @@ Goalie's happy.</string>
                     <connections>
                         <outlet property="_gymView" destination="mi6-U5-qwL" id="ZUT-jK-PFI"/>
                         <outlet property="_homeView" destination="C2C-iA-4Jh" id="NRb-SN-cck"/>
+                        <outlet property="_workView" destination="pUu-1p-Pnx" id="e0m-H5-6em"/>
                         <outletCollection property="_accessoryPacksViews" destination="mi6-U5-qwL" collectionClass="NSMutableArray" id="0zS-Np-pCc"/>
                         <outletCollection property="_accessoryPacksViews" destination="C2C-iA-4Jh" collectionClass="NSMutableArray" id="2Cj-Mc-eOH"/>
+                        <outletCollection property="_accessoryPacksViews" destination="pUu-1p-Pnx" collectionClass="NSMutableArray" id="uzE-ac-P8i"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UWJ-4n-37X" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1410,6 +1412,104 @@ Goalie's happy.</string>
                         <outletCollection property="_accessoryViews" destination="brx-qI-YIE" collectionClass="NSMutableArray" id="iQt-mu-E1C"/>
                         <outletCollection property="_accessoryViews" destination="6BF-WZ-Wm1" collectionClass="NSMutableArray" id="nsH-ZY-93q"/>
                         <outletCollection property="_accessoryViews" destination="rhG-9Z-baw" collectionClass="NSMutableArray" id="o6W-ih-d5x"/>
+                    </connections>
+                </view>
+                <view contentMode="scaleToFill" id="pUu-1p-Pnx" customClass="WorkView" customModule="Goalie" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="438" height="232"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BVP-RW-MvV" userLabel="Character View Container">
+                            <rect key="frame" x="179" y="81" width="80" height="100"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lei-ch-0cx" customClass="CharacterView" customModule="Goalie" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="80" height="100"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.39882535460000001" colorSpace="calibratedRGB"/>
+                                    <connections>
+                                        <outlet property="centerYConstraint" destination="q4P-GY-u0N" id="A6D-8N-ubq"/>
+                                        <outlet property="containerView" destination="BVP-RW-MvV" id="0Kp-9w-b7V"/>
+                                        <outlet property="heightConstraint" destination="Kda-tz-MxT" id="bEe-0X-bB7"/>
+                                        <outlet property="widthConstraint" destination="ioh-XU-DVE" id="uuP-J9-Jn7"/>
+                                    </connections>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" red="1" green="0.60022615130000001" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="lei-ch-0cx" secondAttribute="bottom" id="DKY-n4-HjE"/>
+                                <constraint firstAttribute="height" constant="100" id="Kda-tz-MxT"/>
+                                <constraint firstAttribute="trailing" secondItem="lei-ch-0cx" secondAttribute="trailing" id="Xp0-vK-SeQ"/>
+                                <constraint firstItem="lei-ch-0cx" firstAttribute="top" secondItem="BVP-RW-MvV" secondAttribute="top" id="bya-Iv-aYz"/>
+                                <constraint firstAttribute="width" constant="80" id="ioh-XU-DVE"/>
+                                <constraint firstItem="lei-ch-0cx" firstAttribute="leading" secondItem="BVP-RW-MvV" secondAttribute="leading" id="pKn-hT-DcL"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gb2-7d-bV3" customClass="ComputerView" customModule="Goalie" customModuleProvider="target">
+                            <rect key="frame" x="58" y="107" width="91" height="64"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="64" id="bZN-XR-i0X"/>
+                                <constraint firstAttribute="width" constant="91" id="kdy-ue-gi0"/>
+                            </constraints>
+                            <connections>
+                                <outlet property="_heightConstraint" destination="bZN-XR-i0X" id="rEI-Rv-bIZ"/>
+                                <outlet property="_widthConstraint" destination="kdy-ue-gi0" id="bvU-J6-Uga"/>
+                            </connections>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="84B-2h-dXY" customClass="WorkClockView" customModule="Goalie" customModuleProvider="target">
+                            <rect key="frame" x="289" y="80" width="42" height="42"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="42" id="PTY-Pd-Vme"/>
+                                <constraint firstAttribute="height" constant="42" id="qKp-6R-aVe"/>
+                            </constraints>
+                            <connections>
+                                <outlet property="_heightConstraint" destination="qKp-6R-aVe" id="9WO-Sy-5OS"/>
+                                <outlet property="_widthConstraint" destination="PTY-Pd-Vme" id="wEr-v9-3Hx"/>
+                            </connections>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QGR-9U-f6p" customClass="LampView" customModule="Goalie" customModuleProvider="target">
+                            <rect key="frame" x="331" y="107" width="42" height="64"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="64" id="RMh-hb-cwz"/>
+                                <constraint firstAttribute="width" constant="42" id="mql-gt-pS6"/>
+                            </constraints>
+                            <connections>
+                                <outlet property="_heightConstraint" destination="RMh-hb-cwz" id="qQl-oY-TBQ"/>
+                                <outlet property="_widthConstraint" destination="mql-gt-pS6" id="Q2e-5i-DBb"/>
+                            </connections>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gzt-V3-kS9" userLabel="Window View" customClass="WorkWindowView" customModule="Goalie" customModuleProvider="target">
+                            <rect key="frame" x="19" y="37" width="91" height="64"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="64" id="6Jq-y1-bvo"/>
+                                <constraint firstAttribute="width" constant="91" id="gzn-xS-qVm"/>
+                            </constraints>
+                            <connections>
+                                <outlet property="_heightConstraint" destination="6Jq-y1-bvo" id="lfm-am-rZH"/>
+                                <outlet property="_widthConstraint" destination="gzn-xS-qVm" id="cNv-2Y-Rf6"/>
+                            </connections>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="BVP-RW-MvV" firstAttribute="centerY" secondItem="pUu-1p-Pnx" secondAttribute="centerY" constant="15" id="7Hc-Xy-LZt"/>
+                        <constraint firstItem="84B-2h-dXY" firstAttribute="centerY" secondItem="lei-ch-0cx" secondAttribute="centerY" constant="-30" id="Ao3-4S-hrz"/>
+                        <constraint firstItem="BVP-RW-MvV" firstAttribute="centerX" secondItem="pUu-1p-Pnx" secondAttribute="centerX" id="BGZ-VL-1dY"/>
+                        <constraint firstItem="lei-ch-0cx" firstAttribute="leading" secondItem="gb2-7d-bV3" secondAttribute="trailing" constant="30" id="DLb-sl-wAt"/>
+                        <constraint firstItem="QGR-9U-f6p" firstAttribute="bottom" secondItem="gb2-7d-bV3" secondAttribute="bottom" id="Jr6-Oj-lLz"/>
+                        <constraint firstItem="gb2-7d-bV3" firstAttribute="bottom" secondItem="lei-ch-0cx" secondAttribute="bottom" constant="-10" id="L53-hV-52f"/>
+                        <constraint firstItem="84B-2h-dXY" firstAttribute="leading" secondItem="lei-ch-0cx" secondAttribute="trailing" constant="30" id="VP2-3o-B0q"/>
+                        <constraint firstItem="lei-ch-0cx" firstAttribute="top" secondItem="gzt-V3-kS9" secondAttribute="bottom" constant="-20" id="eA7-Of-He1"/>
+                        <constraint firstItem="gb2-7d-bV3" firstAttribute="leading" secondItem="gzt-V3-kS9" secondAttribute="trailing" constant="-52" id="fb5-F2-7x9"/>
+                        <constraint firstItem="QGR-9U-f6p" firstAttribute="leading" secondItem="84B-2h-dXY" secondAttribute="trailing" id="pdq-6c-Y8Y"/>
+                    </constraints>
+                    <connections>
+                        <outlet property="characterView" destination="lei-ch-0cx" id="yeu-T0-8ju"/>
+                        <outletCollection property="_accessoryViews" destination="gzt-V3-kS9" collectionClass="NSMutableArray" id="Ua8-1y-Ha8"/>
+                        <outletCollection property="_accessoryViews" destination="gb2-7d-bV3" collectionClass="NSMutableArray" id="qhz-pG-6JS"/>
+                        <outletCollection property="_accessoryViews" destination="84B-2h-dXY" collectionClass="NSMutableArray" id="uIU-X0-CVr"/>
+                        <outletCollection property="_accessoryViews" destination="QGR-9U-f6p" collectionClass="NSMutableArray" id="tUy-63-YFY"/>
                     </connections>
                 </view>
             </objects>

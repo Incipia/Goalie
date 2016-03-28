@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE0100721CA9C41200DFE513 /* WorkClockAccessoryKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0100711CA9C41200DFE513 /* WorkClockAccessoryKit.swift */; };
+		CE0100761CA9C46200DFE513 /* LampAccessoryKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0100751CA9C46200DFE513 /* LampAccessoryKit.swift */; };
+		CE0100781CA9C47F00DFE513 /* ComputerAccessoryKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0100771CA9C47F00DFE513 /* ComputerAccessoryKit.swift */; };
+		CE01007A1CA9C49100DFE513 /* WorkWindowAccessoryKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0100791CA9C49100DFE513 /* WorkWindowAccessoryKit.swift */; };
+		CE01007C1CA9C5B900DFE513 /* WorkViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE01007B1CA9C5B900DFE513 /* WorkViews.swift */; };
 		CE7F61F61C6AEAAF00C2C0A2 /* BizeeBeeFacePathProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7F61F51C6AEAAF00C2C0A2 /* BizeeBeeFacePathProvider.swift */; };
 		CE7F61FB1C6AEDC700C2C0A2 /* CharacterFaceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7F61FA1C6AEDC700C2C0A2 /* CharacterFaceLayer.swift */; };
 		CE7F61FD1C6AEDE700C2C0A2 /* BizeeBeeFaceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7F61FC1C6AEDE700C2C0A2 /* BizeeBeeFaceLayer.swift */; };
@@ -116,6 +121,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE0100711CA9C41200DFE513 /* WorkClockAccessoryKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WorkClockAccessoryKit.swift; path = PaintCode/WorkClockAccessoryKit.swift; sourceTree = "<group>"; };
+		CE0100751CA9C46200DFE513 /* LampAccessoryKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LampAccessoryKit.swift; path = PaintCode/LampAccessoryKit.swift; sourceTree = "<group>"; };
+		CE0100771CA9C47F00DFE513 /* ComputerAccessoryKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ComputerAccessoryKit.swift; path = PaintCode/ComputerAccessoryKit.swift; sourceTree = "<group>"; };
+		CE0100791CA9C49100DFE513 /* WorkWindowAccessoryKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WorkWindowAccessoryKit.swift; path = PaintCode/WorkWindowAccessoryKit.swift; sourceTree = "<group>"; };
+		CE01007B1CA9C5B900DFE513 /* WorkViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WorkViews.swift; path = Goalie/WorkViews.swift; sourceTree = "<group>"; };
 		CE7F61F51C6AEAAF00C2C0A2 /* BizeeBeeFacePathProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BizeeBeeFacePathProvider.swift; path = Goalie/BizeeBeeFacePathProvider.swift; sourceTree = "<group>"; };
 		CE7F61FA1C6AEDC700C2C0A2 /* CharacterFaceLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CharacterFaceLayer.swift; path = Goalie/CharacterFaceLayer.swift; sourceTree = "<group>"; };
 		CE7F61FC1C6AEDE700C2C0A2 /* BizeeBeeFaceLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BizeeBeeFaceLayer.swift; path = Goalie/BizeeBeeFaceLayer.swift; sourceTree = "<group>"; };
@@ -302,6 +312,10 @@
 		CE86B8651CA9AB54004B2895 /* Work */ = {
 			isa = PBXGroup;
 			children = (
+				CE0100711CA9C41200DFE513 /* WorkClockAccessoryKit.swift */,
+				CE0100751CA9C46200DFE513 /* LampAccessoryKit.swift */,
+				CE0100771CA9C47F00DFE513 /* ComputerAccessoryKit.swift */,
+				CE0100791CA9C49100DFE513 /* WorkWindowAccessoryKit.swift */,
 			);
 			name = Work;
 			sourceTree = "<group>";
@@ -344,6 +358,7 @@
 				CE86B8631CA9AB39004B2895 /* Gym */,
 				CE86B86E1CA9ACEE004B2895 /* GymViews.swift */,
 				CE86B8721CA9AD20004B2895 /* HomeViews.swift */,
+				CE01007B1CA9C5B900DFE513 /* WorkViews.swift */,
 			);
 			name = "Paint Code";
 			sourceTree = "<group>";
@@ -697,6 +712,7 @@
 				F383190D1C319FE800C36ACB /* TasksTableViewCell.swift in Sources */,
 				F38B55101C34DD810022453F /* SettingsViewController.swift in Sources */,
 				CEBB01001CA98382005BB8DB /* EditListOption.swift in Sources */,
+				CE01007A1CA9C49100DFE513 /* WorkWindowAccessoryKit.swift in Sources */,
 				F38319311C31A72D00C36ACB /* NSURL+Extensions.swift in Sources */,
 				F3A820011C441B490048237F /* GoalieFacePathProvider.swift in Sources */,
 				CEBB010A1CA99044005BB8DB /* AccessoriesViewController.swift in Sources */,
@@ -709,6 +725,7 @@
 				F350C7191C481CD400416F14 /* GoalieCharacter.swift in Sources */,
 				F38319331C31A72D00C36ACB /* NSManagedObjectContext+Extensions.swift in Sources */,
 				CEE541091C6A9DA5008BEC7C /* MKStoreKit.m in Sources */,
+				CE0100781CA9C47F00DFE513 /* ComputerAccessoryKit.swift in Sources */,
 				F3B7F75A1C46EFBB00C364F0 /* CongratulationsViewController.swift in Sources */,
 				F3B7F7531C460F2900C364F0 /* SFXPlayer.swift in Sources */,
 				F383192F1C31A72D00C36ACB /* Utilities.swift in Sources */,
@@ -732,6 +749,7 @@
 				F38319381C31A72D00C36ACB /* UIFont+Extensions.swift in Sources */,
 				F324894D1C3F50EE00E3DABD /* SpeechBubbleTextProvider.swift in Sources */,
 				CEAA5A811C6ADEFA0061BFA8 /* BizeeBeeCharacterKit.swift in Sources */,
+				CE01007C1CA9C5B900DFE513 /* WorkViews.swift in Sources */,
 				F3CEAC561C4061B10047DD78 /* JVFloatLabeledTextField.m in Sources */,
 				F38319491C31B3CB00C36ACB /* GoalieTableView.swift in Sources */,
 				CEBB00F81CA7BABC005BB8DB /* EditListViewController.swift in Sources */,
@@ -763,11 +781,13 @@
 				CEBB00FC1CA982D1005BB8DB /* EditListCollectionViewCell.swift in Sources */,
 				CE7F61FD1C6AEDE700C2C0A2 /* BizeeBeeFaceLayer.swift in Sources */,
 				F383193A1C31A72D00C36ACB /* FetchedResultsDataProvider.swift in Sources */,
+				CE0100761CA9C46200DFE513 /* LampAccessoryKit.swift in Sources */,
 				F350C7161C4806E200416F14 /* CharacterView.swift in Sources */,
 				F38319301C31A72D00C36ACB /* UIImage+Extensions.swift in Sources */,
 				F38B55181C3854A10022453F /* GoalieKerningLabel.swift in Sources */,
 				F3CEAC6E1C4063810047DD78 /* GoalieCharacterKit.swift in Sources */,
 				CEBB00F41CA61CFE005BB8DB /* FaceLayerFactory.swift in Sources */,
+				CE0100721CA9C41200DFE513 /* WorkClockAccessoryKit.swift in Sources */,
 				CEBB00F21CA61CB2005BB8DB /* ChecklistorFaceLayer.swift in Sources */,
 				F383192E1C31A72D00C36ACB /* TasksDataProvider.swift in Sources */,
 				CE86B8691CA9AB8D004B2895 /* PlantAccessoryKit.swift in Sources */,

@@ -131,6 +131,9 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
    @IBAction private func _tableHeaderViewTapped(recognizer: UIGestureRecognizer)
    {
       _currentTaskCell?.stopEditing()
+      
+      let nextAccessoryPack = _accessoriesViewController.currentAccessoryPack.next
+      _accessoriesViewController.updateAccessoryPack(nextAccessoryPack)
    }
    
    // MARK: - Public
