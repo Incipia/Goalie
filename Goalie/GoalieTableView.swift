@@ -31,6 +31,7 @@ class GoalieTableView: LPRTableView
    @IBOutlet private var _firstTaskFooterView: UIView!
    @IBOutlet private var _normalGoalieFooterView: UIView!
    
+   @IBOutlet private var _accessoryContainerViewHeightConstraint: NSLayoutConstraint!
    @IBOutlet private var _currentCompletedSoundName: GoalieKerningLabel!
    @IBAction private func _advanceCompletedSound()
    {
@@ -54,7 +55,6 @@ class GoalieTableView: LPRTableView
          _goalieMovementAnimator = GoalieMovementAnimator(view: _goalieFaceContainerView)
       }
    }
-   
    
    @IBOutlet private weak var _goalieFaceView: CharacterView!
    @IBOutlet private weak var _rightSpeechBubble: GoalieSpeechBubble!
@@ -101,6 +101,8 @@ class GoalieTableView: LPRTableView
       
       _goalieFaceView.updateCharacter(.BizeeBee)
       SFXPlayer.updateCurrentCharacter(.BizeeBee)
+      
+//      _accessoryContainerViewHeightConstraint.constant = _defaultHeaderHeight
    }
    
    func goalieTapped()
@@ -178,7 +180,7 @@ class GoalieTableView: LPRTableView
       _rightSpeechBubble.updateWithText(text, priority: priority)
       
       let color = UIColor.goalieHeaderBackgroundColor(priority)
-      _updateHeaderViewColor(color, animationDuration: 0.3)
+      _updateHeaderViewColor(color, animationDuration: 0)
       
       if _shouldShowSpeechBubble {
          _showOnlyLeftOrRightSpeechBubble()

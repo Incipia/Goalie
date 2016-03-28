@@ -11,6 +11,9 @@
 		CE7F61FB1C6AEDC700C2C0A2 /* CharacterFaceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7F61FA1C6AEDC700C2C0A2 /* CharacterFaceLayer.swift */; };
 		CE7F61FD1C6AEDE700C2C0A2 /* BizeeBeeFaceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7F61FC1C6AEDE700C2C0A2 /* BizeeBeeFaceLayer.swift */; };
 		CE7F61FF1C6AF2D800C2C0A2 /* CharacterFacePathProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7F61FE1C6AF2D800C2C0A2 /* CharacterFacePathProvider.swift */; };
+		CE86B85E1CA99A6C004B2895 /* WeightAccessoryKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE86B85D1CA99A6C004B2895 /* WeightAccessoryKit.swift */; };
+		CE86B8601CA9A2FA004B2895 /* JumpropeAccessoryKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE86B85F1CA9A2FA004B2895 /* JumpropeAccessoryKit.swift */; };
+		CE86B8621CA9A55F004B2895 /* WaterBottleAccessoryKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE86B8611CA9A55F004B2895 /* WaterBottleAccessoryKit.swift */; };
 		CEAA5A811C6ADEFA0061BFA8 /* BizeeBeeCharacterKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAA5A801C6ADEFA0061BFA8 /* BizeeBeeCharacterKit.swift */; };
 		CEAC1EB81C6BE2E600969E04 /* BusyBeeCompleted.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CEAC1EB71C6BE2E600969E04 /* BusyBeeCompleted.mp3 */; };
 		CEB15B981CA5F5EC002B8C66 /* FoxCharacterKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB15B971CA5F5EC002B8C66 /* FoxCharacterKit.swift */; };
@@ -26,6 +29,10 @@
 		CEBB00FC1CA982D1005BB8DB /* EditListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBB00FB1CA982D1005BB8DB /* EditListCollectionViewCell.swift */; };
 		CEBB00FE1CA982E8005BB8DB /* EditListHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBB00FD1CA982E8005BB8DB /* EditListHeaderCell.swift */; };
 		CEBB01001CA98382005BB8DB /* EditListOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBB00FF1CA98382005BB8DB /* EditListOption.swift */; };
+		CEBB01031CA986C8005BB8DB /* GoalieAccessory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBB01021CA986C8005BB8DB /* GoalieAccessory.swift */; };
+		CEBB01051CA98789005BB8DB /* AccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBB01041CA98789005BB8DB /* AccessoryView.swift */; };
+		CEBB01081CA9887E005BB8DB /* BricksAccessoryKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBB01071CA9887E005BB8DB /* BricksAccessoryKit.swift */; };
+		CEBB010A1CA99044005BB8DB /* AccessoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBB01091CA99044005BB8DB /* AccessoriesViewController.swift */; };
 		CEC1C84C1C5C90CB0074290A /* ChangePriorityRight.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CEC1C84B1C5C90CB0074290A /* ChangePriorityRight.mp3 */; };
 		CEE541011C6A7380008BEC7C /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE541001C6A7380008BEC7C /* AdSupport.framework */; };
 		CEE541041C6A73AD008BEC7C /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE541021C6A73AD008BEC7C /* Crashlytics.framework */; };
@@ -107,6 +114,9 @@
 		CE7F61FA1C6AEDC700C2C0A2 /* CharacterFaceLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CharacterFaceLayer.swift; path = Goalie/CharacterFaceLayer.swift; sourceTree = "<group>"; };
 		CE7F61FC1C6AEDE700C2C0A2 /* BizeeBeeFaceLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BizeeBeeFaceLayer.swift; path = Goalie/BizeeBeeFaceLayer.swift; sourceTree = "<group>"; };
 		CE7F61FE1C6AF2D800C2C0A2 /* CharacterFacePathProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CharacterFacePathProvider.swift; path = Goalie/CharacterFacePathProvider.swift; sourceTree = "<group>"; };
+		CE86B85D1CA99A6C004B2895 /* WeightAccessoryKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeightAccessoryKit.swift; path = PaintCode/WeightAccessoryKit.swift; sourceTree = "<group>"; };
+		CE86B85F1CA9A2FA004B2895 /* JumpropeAccessoryKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JumpropeAccessoryKit.swift; path = PaintCode/JumpropeAccessoryKit.swift; sourceTree = "<group>"; };
+		CE86B8611CA9A55F004B2895 /* WaterBottleAccessoryKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WaterBottleAccessoryKit.swift; path = PaintCode/WaterBottleAccessoryKit.swift; sourceTree = "<group>"; };
 		CEAA5A801C6ADEFA0061BFA8 /* BizeeBeeCharacterKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BizeeBeeCharacterKit.swift; path = PaintCode/BizeeBeeCharacterKit.swift; sourceTree = "<group>"; };
 		CEAC1EB71C6BE2E600969E04 /* BusyBeeCompleted.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = BusyBeeCompleted.mp3; path = Sounds/BusyBeeCompleted.mp3; sourceTree = "<group>"; };
 		CEB15B971CA5F5EC002B8C66 /* FoxCharacterKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FoxCharacterKit.swift; path = PaintCode/FoxCharacterKit.swift; sourceTree = "<group>"; };
@@ -122,6 +132,10 @@
 		CEBB00FB1CA982D1005BB8DB /* EditListCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditListCollectionViewCell.swift; path = Goalie/EditListCollectionViewCell.swift; sourceTree = "<group>"; };
 		CEBB00FD1CA982E8005BB8DB /* EditListHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditListHeaderCell.swift; path = Goalie/EditListHeaderCell.swift; sourceTree = "<group>"; };
 		CEBB00FF1CA98382005BB8DB /* EditListOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditListOption.swift; path = Goalie/EditListOption.swift; sourceTree = "<group>"; };
+		CEBB01021CA986C8005BB8DB /* GoalieAccessory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoalieAccessory.swift; path = Goalie/GoalieAccessory.swift; sourceTree = "<group>"; };
+		CEBB01041CA98789005BB8DB /* AccessoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccessoryView.swift; path = Goalie/AccessoryView.swift; sourceTree = "<group>"; };
+		CEBB01071CA9887E005BB8DB /* BricksAccessoryKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BricksAccessoryKit.swift; path = PaintCode/BricksAccessoryKit.swift; sourceTree = "<group>"; };
+		CEBB01091CA99044005BB8DB /* AccessoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccessoriesViewController.swift; path = Goalie/AccessoriesViewController.swift; sourceTree = "<group>"; };
 		CEC1C84B1C5C90CB0074290A /* ChangePriorityRight.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = ChangePriorityRight.mp3; path = Sounds/ChangePriorityRight.mp3; sourceTree = "<group>"; };
 		CEE541001C6A7380008BEC7C /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		CEE541021C6A73AD008BEC7C /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = Frameworks/Crashlytics.framework; sourceTree = "<group>"; };
@@ -271,6 +285,27 @@
 			name = Checklistor;
 			sourceTree = "<group>";
 		};
+		CEBB01011CA986B2005BB8DB /* Accessory Drawing */ = {
+			isa = PBXGroup;
+			children = (
+				CEBB01061CA98840005BB8DB /* Paint Code */,
+				CEBB01021CA986C8005BB8DB /* GoalieAccessory.swift */,
+				CEBB01041CA98789005BB8DB /* AccessoryView.swift */,
+			);
+			name = "Accessory Drawing";
+			sourceTree = "<group>";
+		};
+		CEBB01061CA98840005BB8DB /* Paint Code */ = {
+			isa = PBXGroup;
+			children = (
+				CEBB01071CA9887E005BB8DB /* BricksAccessoryKit.swift */,
+				CE86B85D1CA99A6C004B2895 /* WeightAccessoryKit.swift */,
+				CE86B85F1CA9A2FA004B2895 /* JumpropeAccessoryKit.swift */,
+				CE86B8611CA9A55F004B2895 /* WaterBottleAccessoryKit.swift */,
+			);
+			name = "Paint Code";
+			sourceTree = "<group>";
+		};
 		CEE5410B1C6A9DAA008BEC7C /* MKStoreKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -331,6 +366,7 @@
 		F38318C41C2F343600C36ACB = {
 			isa = PBXGroup;
 			children = (
+				CEBB01011CA986B2005BB8DB /* Accessory Drawing */,
 				F350C7171C48109A00416F14 /* Character Drawing */,
 				F383193F1C31A74900C36ACB /* Core Data */,
 				F38319471C31AB4100C36ACB /* Custom UI */,
@@ -451,6 +487,7 @@
 				CEBB00FB1CA982D1005BB8DB /* EditListCollectionViewCell.swift */,
 				CEBB00FD1CA982E8005BB8DB /* EditListHeaderCell.swift */,
 				CEBB00FF1CA98382005BB8DB /* EditListOption.swift */,
+				CEBB01091CA99044005BB8DB /* AccessoriesViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -619,6 +656,8 @@
 				CEBB01001CA98382005BB8DB /* EditListOption.swift in Sources */,
 				F38319311C31A72D00C36ACB /* NSURL+Extensions.swift in Sources */,
 				F3A820011C441B490048237F /* GoalieFacePathProvider.swift in Sources */,
+				CEBB010A1CA99044005BB8DB /* AccessoriesViewController.swift in Sources */,
+				CEBB01081CA9887E005BB8DB /* BricksAccessoryKit.swift in Sources */,
 				F38319291C31A72D00C36ACB /* ManagedObject.swift in Sources */,
 				F38E2EA51C34863600945CA4 /* UIView+Extensions.swift in Sources */,
 				F383192D1C31A72D00C36ACB /* DefaultTasksFetchRequestProvider.swift in Sources */,
@@ -638,6 +677,7 @@
 				F3CEAC581C4061B10047DD78 /* NSString+TextDirectionality.m in Sources */,
 				F3CEAC571C4061B10047DD78 /* JVFloatLabeledTextView.m in Sources */,
 				F322EB131C34C9D4001B8C44 /* UIButton+Extensions.swift in Sources */,
+				CE86B8621CA9A55F004B2895 /* WaterBottleAccessoryKit.swift in Sources */,
 				CE7F61FB1C6AEDC700C2C0A2 /* CharacterFaceLayer.swift in Sources */,
 				CEBB00F61CA61F6E005BB8DB /* ChecklistorFacePathProvider.swift in Sources */,
 				F3DB3E041C322DC40005C607 /* MainTasksViewController.swift in Sources */,
@@ -663,12 +703,16 @@
 				F322EB111C34C371001B8C44 /* TaskCellAppearanceUpdater.swift in Sources */,
 				F3A81FFA1C4403120048237F /* OnboardingViewController.swift in Sources */,
 				CEB15B981CA5F5EC002B8C66 /* FoxCharacterKit.swift in Sources */,
+				CEBB01051CA98789005BB8DB /* AccessoryView.swift in Sources */,
 				F3B7F7321C4583D900C364F0 /* GoalieMovementAnimator.swift in Sources */,
+				CE86B8601CA9A2FA004B2895 /* JumpropeAccessoryKit.swift in Sources */,
+				CE86B85E1CA99A6C004B2895 /* WeightAccessoryKit.swift in Sources */,
 				CEBB00FA1CA97CFF005BB8DB /* EditListCollectionViewDataSource.swift in Sources */,
 				CEBB00FE1CA982E8005BB8DB /* EditListHeaderCell.swift in Sources */,
 				CEB15B9B1CA5FB58002B8C66 /* FoxFaceLayer.swift in Sources */,
 				F383193B1C31A72D00C36ACB /* TableViewDataSource.swift in Sources */,
 				F38A0F5A1C42010A0034DCE4 /* TaskPriorityStateSnapshotter.swift in Sources */,
+				CEBB01031CA986C8005BB8DB /* GoalieAccessory.swift in Sources */,
 				CEB15B9D1CA5FCA6002B8C66 /* FoxFacePathProvider.swift in Sources */,
 				CEBB00FC1CA982D1005BB8DB /* EditListCollectionViewCell.swift in Sources */,
 				CE7F61FD1C6AEDE700C2C0A2 /* BizeeBeeFaceLayer.swift in Sources */,

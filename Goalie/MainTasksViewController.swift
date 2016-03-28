@@ -50,6 +50,7 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
          cacheName: nil)
    }
    
+   private var _accessoriesViewController: AccessoriesViewController!
    private let _transitionManager = MenuTransitionManager()
    private var _settingsController: SettingsViewController!
    private var _editTaskViewController: EditTaskViewController!
@@ -114,6 +115,14 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
       _goalieTableView.startGoalieMovement()
    }
    
+   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+   {
+      if let childViewController = segue.destinationViewController as? AccessoriesViewController
+      {
+         _accessoriesViewController = childViewController
+      }
+   }
+   
    override func preferredStatusBarStyle() -> UIStatusBarStyle
    {
       return .LightContent
@@ -165,6 +174,7 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
    {
       let priority = _tasksDataProvider.averagePriority()
       _goalieTableView.updateWithPriority(priority)
+      _accessoriesViewController.updateWithPriority(priority)
    }
    
    private func _updateTaskCellsLeftBar()
