@@ -1210,7 +1210,9 @@ Goalie's happy.</string>
                     </view>
                     <connections>
                         <outlet property="_gymView" destination="mi6-U5-qwL" id="ZUT-jK-PFI"/>
+                        <outlet property="_homeView" destination="C2C-iA-4Jh" id="NRb-SN-cck"/>
                         <outletCollection property="_accessoryPacksViews" destination="mi6-U5-qwL" collectionClass="NSMutableArray" id="0zS-Np-pCc"/>
+                        <outletCollection property="_accessoryPacksViews" destination="C2C-iA-4Jh" collectionClass="NSMutableArray" id="2Cj-Mc-eOH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UWJ-4n-37X" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1310,6 +1312,104 @@ Goalie's happy.</string>
                         <outletCollection property="_accessoryViews" destination="SlN-2b-Ijy" collectionClass="NSMutableArray" id="9MU-of-ZfY"/>
                         <outletCollection property="_accessoryViews" destination="ylE-Or-s1F" collectionClass="NSMutableArray" id="w4m-ij-gPO"/>
                         <outletCollection property="_accessoryViews" destination="8Bf-4x-aQZ" collectionClass="NSMutableArray" id="Cbd-SH-8Np"/>
+                    </connections>
+                </view>
+                <view contentMode="scaleToFill" id="C2C-iA-4Jh" customClass="HomeView" customModule="Goalie" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="438" height="232"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Kz-Ch-dtk" userLabel="Character View Container">
+                            <rect key="frame" x="179" y="81" width="80" height="100"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H6E-eL-P1q" customClass="CharacterView" customModule="Goalie" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="80" height="100"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.39882535460000001" colorSpace="calibratedRGB"/>
+                                    <connections>
+                                        <outlet property="centerYConstraint" destination="q4P-GY-u0N" id="Gz1-7d-IqM"/>
+                                        <outlet property="containerView" destination="7Kz-Ch-dtk" id="R1c-42-OPg"/>
+                                        <outlet property="heightConstraint" destination="Mdi-xX-Pkr" id="QPc-ND-VDQ"/>
+                                        <outlet property="widthConstraint" destination="EuT-RF-MQj" id="qxF-c0-Fhi"/>
+                                    </connections>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" red="1" green="0.60022615130000001" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="H6E-eL-P1q" secondAttribute="bottom" id="3yW-dQ-Gv6"/>
+                                <constraint firstAttribute="trailing" secondItem="H6E-eL-P1q" secondAttribute="trailing" id="5Hf-l8-w2C"/>
+                                <constraint firstAttribute="width" constant="80" id="EuT-RF-MQj"/>
+                                <constraint firstItem="H6E-eL-P1q" firstAttribute="leading" secondItem="7Kz-Ch-dtk" secondAttribute="leading" id="GcH-8s-blp"/>
+                                <constraint firstAttribute="height" constant="100" id="Mdi-xX-Pkr"/>
+                                <constraint firstItem="H6E-eL-P1q" firstAttribute="top" secondItem="7Kz-Ch-dtk" secondAttribute="top" id="wxp-6m-sLd"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hJQ-Ka-j56" userLabel="Window View" customClass="HomeWindowView" customModule="Goalie" customModuleProvider="target">
+                            <rect key="frame" x="-13" y="37" width="91" height="64"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="64" id="D6W-6o-Jeh"/>
+                                <constraint firstAttribute="width" constant="91" id="y9N-V4-XT2"/>
+                            </constraints>
+                            <connections>
+                                <outlet property="_heightConstraint" destination="D6W-6o-Jeh" id="kJQ-HR-yAl"/>
+                                <outlet property="_widthConstraint" destination="y9N-V4-XT2" id="UVi-lL-27x"/>
+                            </connections>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="brx-qI-YIE" customClass="ClockView" customModule="Goalie" customModuleProvider="target">
+                            <rect key="frame" x="58" y="107" width="91" height="64"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="91" id="UCR-T3-mzk"/>
+                                <constraint firstAttribute="height" constant="64" id="WBy-HQ-A4v"/>
+                            </constraints>
+                            <connections>
+                                <outlet property="_heightConstraint" destination="WBy-HQ-A4v" id="ivc-LL-fJx"/>
+                                <outlet property="_widthConstraint" destination="UCR-T3-mzk" id="gIi-lS-lQQ"/>
+                            </connections>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6BF-WZ-Wm1" customClass="PlantView" customModule="Goalie" customModuleProvider="target">
+                            <rect key="frame" x="289" y="107" width="58" height="64"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="58" id="7Q9-P8-fH6"/>
+                                <constraint firstAttribute="height" constant="64" id="cGb-Kx-vm5"/>
+                            </constraints>
+                            <connections>
+                                <outlet property="_heightConstraint" destination="cGb-Kx-vm5" id="E5O-co-lHo"/>
+                                <outlet property="_widthConstraint" destination="7Q9-P8-fH6" id="C4t-Tk-LaO"/>
+                            </connections>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rhG-9Z-baw" customClass="SodaView" customModule="Goalie" customModuleProvider="target">
+                            <rect key="frame" x="367" y="107" width="58" height="64"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="64" id="ABz-1K-Ulv"/>
+                                <constraint firstAttribute="width" constant="58" id="uBP-Wn-J9G"/>
+                            </constraints>
+                            <connections>
+                                <outlet property="_heightConstraint" destination="ABz-1K-Ulv" id="OPW-cz-RPg"/>
+                                <outlet property="_widthConstraint" destination="uBP-Wn-J9G" id="063-bX-Wk6"/>
+                            </connections>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="rhG-9Z-baw" firstAttribute="leading" secondItem="6BF-WZ-Wm1" secondAttribute="trailing" constant="20" id="E4l-vK-BJi"/>
+                        <constraint firstItem="H6E-eL-P1q" firstAttribute="leading" secondItem="brx-qI-YIE" secondAttribute="trailing" constant="30" id="RxF-88-wBC"/>
+                        <constraint firstItem="6BF-WZ-Wm1" firstAttribute="leading" secondItem="H6E-eL-P1q" secondAttribute="trailing" constant="30" id="Wc2-1z-s76"/>
+                        <constraint firstItem="brx-qI-YIE" firstAttribute="leading" secondItem="hJQ-Ka-j56" secondAttribute="trailing" constant="-20" id="YHq-Mg-qma"/>
+                        <constraint firstItem="H6E-eL-P1q" firstAttribute="top" secondItem="hJQ-Ka-j56" secondAttribute="bottom" constant="-20" id="cI1-6l-aKk"/>
+                        <constraint firstItem="rhG-9Z-baw" firstAttribute="bottom" secondItem="brx-qI-YIE" secondAttribute="bottom" id="ck8-W1-Reu"/>
+                        <constraint firstItem="7Kz-Ch-dtk" firstAttribute="centerY" secondItem="C2C-iA-4Jh" secondAttribute="centerY" constant="15" id="dba-hb-cPY"/>
+                        <constraint firstItem="brx-qI-YIE" firstAttribute="bottom" secondItem="H6E-eL-P1q" secondAttribute="bottom" constant="-10" id="lJ9-39-Rbs"/>
+                        <constraint firstItem="7Kz-Ch-dtk" firstAttribute="centerX" secondItem="C2C-iA-4Jh" secondAttribute="centerX" id="rbr-gw-tk7"/>
+                        <constraint firstItem="6BF-WZ-Wm1" firstAttribute="bottom" secondItem="brx-qI-YIE" secondAttribute="bottom" id="v99-rg-9mv"/>
+                    </constraints>
+                    <connections>
+                        <outlet property="characterView" destination="H6E-eL-P1q" id="oix-Hf-5oQ"/>
+                        <outletCollection property="_accessoryViews" destination="hJQ-Ka-j56" collectionClass="NSMutableArray" id="jb4-ef-R1a"/>
+                        <outletCollection property="_accessoryViews" destination="brx-qI-YIE" collectionClass="NSMutableArray" id="iQt-mu-E1C"/>
+                        <outletCollection property="_accessoryViews" destination="6BF-WZ-Wm1" collectionClass="NSMutableArray" id="nsH-ZY-93q"/>
+                        <outletCollection property="_accessoryViews" destination="rhG-9Z-baw" collectionClass="NSMutableArray" id="o6W-ih-d5x"/>
                     </connections>
                 </view>
             </objects>

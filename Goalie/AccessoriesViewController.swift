@@ -13,11 +13,15 @@ class AccessoriesViewController: UIViewController
    @IBOutlet private var _accessoryPacksViews: [AccessoryPackView]!
    
    @IBOutlet private weak var _gymView: GymView!
+   @IBOutlet private weak var _homeView: HomeView!
    
    override func viewDidLoad()
    {
       super.viewDidLoad()
       view.addSubview(_gymView)
+      view.addSubview(_homeView)
+      
+      _gymView.hidden = true
    }
    
    override func viewDidLayoutSubviews()
@@ -61,5 +65,9 @@ class AccessoryPackView: UIView
 }
 
 class GymView: AccessoryPackView
+{
+}
+
+class HomeView: AccessoryPackView
 {
 }

@@ -54,38 +54,3 @@ class AccessoryView: UIView
    }
 }
 
-class BricksView: AccessoryView
-{
-   override func awakeFromNib()
-   {
-      super.awakeFromNib()
-      updateAccessory(.Bricks)
-   }
-}
-
-class WeightView: AccessoryView
-{
-   override func awakeFromNib()
-   {
-      super.awakeFromNib()
-      updateAccessory(.Weight)
-   }
-}
-
-class JumpropeView: AccessoryView
-{
-   override func awakeFromNib()
-   {
-      super.awakeFromNib()
-      updateAccessory(.Jumprope)
-   }
-}
-
-class WaterBottleView: AccessoryView
-{
-   override func awakeFromNib()
-   {
-      super.awakeFromNib()
-      updateAccessory(.WaterBottle)
-   }
-}

@@ -14,6 +14,12 @@
 		CE86B85E1CA99A6C004B2895 /* WeightAccessoryKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE86B85D1CA99A6C004B2895 /* WeightAccessoryKit.swift */; };
 		CE86B8601CA9A2FA004B2895 /* JumpropeAccessoryKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE86B85F1CA9A2FA004B2895 /* JumpropeAccessoryKit.swift */; };
 		CE86B8621CA9A55F004B2895 /* WaterBottleAccessoryKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE86B8611CA9A55F004B2895 /* WaterBottleAccessoryKit.swift */; };
+		CE86B8671CA9AB65004B2895 /* ClockAccessoryKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE86B8661CA9AB65004B2895 /* ClockAccessoryKit.swift */; };
+		CE86B8691CA9AB8D004B2895 /* PlantAccessoryKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE86B8681CA9AB8D004B2895 /* PlantAccessoryKit.swift */; };
+		CE86B86B1CA9AB9D004B2895 /* SodaAccessoryKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE86B86A1CA9AB9D004B2895 /* SodaAccessoryKit.swift */; };
+		CE86B86D1CA9ABB6004B2895 /* HomeWindowAccessoryKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE86B86C1CA9ABB6004B2895 /* HomeWindowAccessoryKit.swift */; };
+		CE86B86F1CA9ACEE004B2895 /* GymViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE86B86E1CA9ACEE004B2895 /* GymViews.swift */; };
+		CE86B8731CA9AD20004B2895 /* HomeViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE86B8721CA9AD20004B2895 /* HomeViews.swift */; };
 		CEAA5A811C6ADEFA0061BFA8 /* BizeeBeeCharacterKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAA5A801C6ADEFA0061BFA8 /* BizeeBeeCharacterKit.swift */; };
 		CEAC1EB81C6BE2E600969E04 /* BusyBeeCompleted.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CEAC1EB71C6BE2E600969E04 /* BusyBeeCompleted.mp3 */; };
 		CEB15B981CA5F5EC002B8C66 /* FoxCharacterKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB15B971CA5F5EC002B8C66 /* FoxCharacterKit.swift */; };
@@ -117,6 +123,12 @@
 		CE86B85D1CA99A6C004B2895 /* WeightAccessoryKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeightAccessoryKit.swift; path = PaintCode/WeightAccessoryKit.swift; sourceTree = "<group>"; };
 		CE86B85F1CA9A2FA004B2895 /* JumpropeAccessoryKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JumpropeAccessoryKit.swift; path = PaintCode/JumpropeAccessoryKit.swift; sourceTree = "<group>"; };
 		CE86B8611CA9A55F004B2895 /* WaterBottleAccessoryKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WaterBottleAccessoryKit.swift; path = PaintCode/WaterBottleAccessoryKit.swift; sourceTree = "<group>"; };
+		CE86B8661CA9AB65004B2895 /* ClockAccessoryKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClockAccessoryKit.swift; path = PaintCode/ClockAccessoryKit.swift; sourceTree = "<group>"; };
+		CE86B8681CA9AB8D004B2895 /* PlantAccessoryKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlantAccessoryKit.swift; path = PaintCode/PlantAccessoryKit.swift; sourceTree = "<group>"; };
+		CE86B86A1CA9AB9D004B2895 /* SodaAccessoryKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SodaAccessoryKit.swift; path = PaintCode/SodaAccessoryKit.swift; sourceTree = "<group>"; };
+		CE86B86C1CA9ABB6004B2895 /* HomeWindowAccessoryKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeWindowAccessoryKit.swift; path = PaintCode/HomeWindowAccessoryKit.swift; sourceTree = "<group>"; };
+		CE86B86E1CA9ACEE004B2895 /* GymViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GymViews.swift; path = Goalie/GymViews.swift; sourceTree = "<group>"; };
+		CE86B8721CA9AD20004B2895 /* HomeViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViews.swift; path = Goalie/HomeViews.swift; sourceTree = "<group>"; };
 		CEAA5A801C6ADEFA0061BFA8 /* BizeeBeeCharacterKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BizeeBeeCharacterKit.swift; path = PaintCode/BizeeBeeCharacterKit.swift; sourceTree = "<group>"; };
 		CEAC1EB71C6BE2E600969E04 /* BusyBeeCompleted.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = BusyBeeCompleted.mp3; path = Sounds/BusyBeeCompleted.mp3; sourceTree = "<group>"; };
 		CEB15B971CA5F5EC002B8C66 /* FoxCharacterKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FoxCharacterKit.swift; path = PaintCode/FoxCharacterKit.swift; sourceTree = "<group>"; };
@@ -265,6 +277,35 @@
 			name = Base;
 			sourceTree = "<group>";
 		};
+		CE86B8631CA9AB39004B2895 /* Gym */ = {
+			isa = PBXGroup;
+			children = (
+				CEBB01071CA9887E005BB8DB /* BricksAccessoryKit.swift */,
+				CE86B85D1CA99A6C004B2895 /* WeightAccessoryKit.swift */,
+				CE86B85F1CA9A2FA004B2895 /* JumpropeAccessoryKit.swift */,
+				CE86B8611CA9A55F004B2895 /* WaterBottleAccessoryKit.swift */,
+			);
+			name = Gym;
+			sourceTree = "<group>";
+		};
+		CE86B8641CA9AB4F004B2895 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				CE86B8661CA9AB65004B2895 /* ClockAccessoryKit.swift */,
+				CE86B8681CA9AB8D004B2895 /* PlantAccessoryKit.swift */,
+				CE86B86A1CA9AB9D004B2895 /* SodaAccessoryKit.swift */,
+				CE86B86C1CA9ABB6004B2895 /* HomeWindowAccessoryKit.swift */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		CE86B8651CA9AB54004B2895 /* Work */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Work;
+			sourceTree = "<group>";
+		};
 		CEB15B991CA5F630002B8C66 /* Fox */ = {
 			isa = PBXGroup;
 			children = (
@@ -298,10 +339,11 @@
 		CEBB01061CA98840005BB8DB /* Paint Code */ = {
 			isa = PBXGroup;
 			children = (
-				CEBB01071CA9887E005BB8DB /* BricksAccessoryKit.swift */,
-				CE86B85D1CA99A6C004B2895 /* WeightAccessoryKit.swift */,
-				CE86B85F1CA9A2FA004B2895 /* JumpropeAccessoryKit.swift */,
-				CE86B8611CA9A55F004B2895 /* WaterBottleAccessoryKit.swift */,
+				CE86B8651CA9AB54004B2895 /* Work */,
+				CE86B8641CA9AB4F004B2895 /* Home */,
+				CE86B8631CA9AB39004B2895 /* Gym */,
+				CE86B86E1CA9ACEE004B2895 /* GymViews.swift */,
+				CE86B8721CA9AD20004B2895 /* HomeViews.swift */,
 			);
 			name = "Paint Code";
 			sourceTree = "<group>";
@@ -644,6 +686,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3FB809A1C320E86008C1E07 /* Task.swift in Sources */,
+				CE86B86D1CA9ABB6004B2895 /* HomeWindowAccessoryKit.swift in Sources */,
 				F3CEAC611C4061C70047DD78 /* TPKeyboardAvoidingTableView.m in Sources */,
 				F3FB80981C320E65008C1E07 /* Task.xcdatamodeld in Sources */,
 				F3CEAC441C4061820047DD78 /* ViewTransformer.swift in Sources */,
@@ -698,6 +741,7 @@
 				F38319341C31A72D00C36ACB /* NSManagedObjectContext+Observers.swift in Sources */,
 				F3A81FFF1C440B520048237F /* GoalieFaceLayer.swift in Sources */,
 				F38B551E1C388F510022453F /* NSDate+Extensions.swift in Sources */,
+				CE86B8731CA9AD20004B2895 /* HomeViews.swift in Sources */,
 				F3CEAC601C4061C70047DD78 /* TPKeyboardAvoidingScrollView.m in Sources */,
 				F3CEAC621C4061C70047DD78 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				F322EB111C34C371001B8C44 /* TaskCellAppearanceUpdater.swift in Sources */,
@@ -711,8 +755,10 @@
 				CEBB00FE1CA982E8005BB8DB /* EditListHeaderCell.swift in Sources */,
 				CEB15B9B1CA5FB58002B8C66 /* FoxFaceLayer.swift in Sources */,
 				F383193B1C31A72D00C36ACB /* TableViewDataSource.swift in Sources */,
+				CE86B86B1CA9AB9D004B2895 /* SodaAccessoryKit.swift in Sources */,
 				F38A0F5A1C42010A0034DCE4 /* TaskPriorityStateSnapshotter.swift in Sources */,
 				CEBB01031CA986C8005BB8DB /* GoalieAccessory.swift in Sources */,
+				CE86B86F1CA9ACEE004B2895 /* GymViews.swift in Sources */,
 				CEB15B9D1CA5FCA6002B8C66 /* FoxFacePathProvider.swift in Sources */,
 				CEBB00FC1CA982D1005BB8DB /* EditListCollectionViewCell.swift in Sources */,
 				CE7F61FD1C6AEDE700C2C0A2 /* BizeeBeeFaceLayer.swift in Sources */,
@@ -724,7 +770,9 @@
 				CEBB00F41CA61CFE005BB8DB /* FaceLayerFactory.swift in Sources */,
 				CEBB00F21CA61CB2005BB8DB /* ChecklistorFaceLayer.swift in Sources */,
 				F383192E1C31A72D00C36ACB /* TasksDataProvider.swift in Sources */,
+				CE86B8691CA9AB8D004B2895 /* PlantAccessoryKit.swift in Sources */,
 				CE7F61FF1C6AF2D800C2C0A2 /* CharacterFacePathProvider.swift in Sources */,
+				CE86B8671CA9AB65004B2895 /* ClockAccessoryKit.swift in Sources */,
 				F38B551A1C3859050022453F /* GoalieKerningButton.swift in Sources */,
 				F38B551C1C3863000022453F /* TaskPriorityUpdater.swift in Sources */,
 				F3CEAC6F1C4063810047DD78 /* GoalieSpeechBubbleKit.swift in Sources */,
