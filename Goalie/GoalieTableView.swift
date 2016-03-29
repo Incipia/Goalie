@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol KonamiDelegate: class
+{
+   func konamiRecognized()
+}
+
 let _defaultHeaderHeight: CGFloat = floor(UIScreen.mainScreen().bounds.height / 3.0)
 let _minimumHeaderHeight: CGFloat = floor(UIScreen.mainScreen().bounds.height / 5.1)
 let _maximumHeaderHeight: CGFloat = _defaultHeaderHeight + 50
@@ -79,6 +84,8 @@ class GoalieTableView: LPRTableView
    private var _shouldShowSpeechBubble = false
    private var _currentPriority = TaskPriority.Unknown
    
+   weak var konamiDelegate: KonamiDelegate?
+   
    private let _tapGestureRecognizer = UITapGestureRecognizer()
    
    // MARK: - Lifecycle
@@ -100,17 +107,22 @@ class GoalieTableView: LPRTableView
       _goalieFaceView.addGestureRecognizer(_tapGestureRecognizer)
       
       _goalieFaceView.updateCharacter(.Goalie)
+      
+      let recognizer = PlopixKonamiGesture(target: self, action: "_konamiRecognized:")
+      recognizer.cancelsTouchesInView = false
+      _goalieHeaderView.addGestureRecognizer(recognizer)
+   }
+   
+   internal func _konamiRecognized(recognizer: UIGestureRecognizer)
+   {
+      if recognizer.state == .Ended {
+         konamiDelegate?.konamiRecognized()
+      }
    }
    
    func goalieTapped()
    {
-      print("character taped")
-      _swap()
-   }
-   
-   @IBAction private func _headerViewTapped(gestureRecognizer: UIGestureRecognizer)
-   {
-      print("header tapped");
+//      _swap()
    }
    
    // MARK: - Setup

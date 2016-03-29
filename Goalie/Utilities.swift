@@ -84,6 +84,15 @@ extension Int
    }
 }
 
+extension CGFloat
+{
+   static func randRange(lower : CGFloat , upper : CGFloat) -> CGFloat
+   {
+      let difference = upper - lower
+      return CGFloat(rand())/CGFloat(RAND_MAX) * CGFloat(difference + 1) + lower
+   }
+}
+
 extension String
 {
    var trimmedString: String {

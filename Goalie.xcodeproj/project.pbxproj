@@ -28,6 +28,7 @@
 		CEA372FD1CA9D03B00697BBD /* CharacterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA372FC1CA9D03B00697BBD /* CharacterCollectionViewCell.swift */; };
 		CEA372FF1CA9D04700697BBD /* AccessoryPackCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA372FE1CA9D04700697BBD /* AccessoryPackCollectionViewCell.swift */; };
 		CEA373011CA9EE2800697BBD /* UnlockedBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA373001CA9EE2800697BBD /* UnlockedBadgeView.swift */; };
+		CEA373091CAA3EFD00697BBD /* PlopixKonamiGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA373081CAA3EFD00697BBD /* PlopixKonamiGesture.swift */; };
 		CEAA5A811C6ADEFA0061BFA8 /* BizeeBeeCharacterKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAA5A801C6ADEFA0061BFA8 /* BizeeBeeCharacterKit.swift */; };
 		CEAC1EB81C6BE2E600969E04 /* BusyBeeCompleted.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CEAC1EB71C6BE2E600969E04 /* BusyBeeCompleted.mp3 */; };
 		CEB15B981CA5F5EC002B8C66 /* FoxCharacterKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB15B971CA5F5EC002B8C66 /* FoxCharacterKit.swift */; };
@@ -145,6 +146,7 @@
 		CEA372FC1CA9D03B00697BBD /* CharacterCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CharacterCollectionViewCell.swift; path = Goalie/CharacterCollectionViewCell.swift; sourceTree = "<group>"; };
 		CEA372FE1CA9D04700697BBD /* AccessoryPackCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccessoryPackCollectionViewCell.swift; path = Goalie/AccessoryPackCollectionViewCell.swift; sourceTree = "<group>"; };
 		CEA373001CA9EE2800697BBD /* UnlockedBadgeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UnlockedBadgeView.swift; path = PaintCode/UnlockedBadgeView.swift; sourceTree = "<group>"; };
+		CEA373081CAA3EFD00697BBD /* PlopixKonamiGesture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlopixKonamiGesture.swift; sourceTree = "<group>"; };
 		CEAA5A801C6ADEFA0061BFA8 /* BizeeBeeCharacterKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BizeeBeeCharacterKit.swift; path = PaintCode/BizeeBeeCharacterKit.swift; sourceTree = "<group>"; };
 		CEAC1EB71C6BE2E600969E04 /* BusyBeeCompleted.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = BusyBeeCompleted.mp3; path = Sounds/BusyBeeCompleted.mp3; sourceTree = "<group>"; };
 		CEB15B971CA5F5EC002B8C66 /* FoxCharacterKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FoxCharacterKit.swift; path = PaintCode/FoxCharacterKit.swift; sourceTree = "<group>"; };
@@ -458,6 +460,7 @@
 		F38318CF1C2F343600C36ACB /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				CEA373081CAA3EFD00697BBD /* PlopixKonamiGesture.swift */,
 				F3B7F72F1C44A26B00C364F0 /* Assets.xcassets */,
 				F38318D01C2F343600C36ACB /* AppDelegate.swift */,
 				F3CEAC671C40631B0047DD78 /* Goalie-Bridging-Header.h */,
@@ -805,6 +808,7 @@
 				CE86B8691CA9AB8D004B2895 /* PlantAccessoryKit.swift in Sources */,
 				CE7F61FF1C6AF2D800C2C0A2 /* CharacterFacePathProvider.swift in Sources */,
 				CE86B8671CA9AB65004B2895 /* ClockAccessoryKit.swift in Sources */,
+				CEA373091CAA3EFD00697BBD /* PlopixKonamiGesture.swift in Sources */,
 				F38B551A1C3859050022453F /* GoalieKerningButton.swift in Sources */,
 				F38B551C1C3863000022453F /* TaskPriorityUpdater.swift in Sources */,
 				F3CEAC6F1C4063810047DD78 /* GoalieSpeechBubbleKit.swift in Sources */,

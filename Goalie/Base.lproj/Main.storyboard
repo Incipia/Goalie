@@ -36,9 +36,6 @@
             <string>NotoSans-Bold</string>
             <string>NotoSans-Bold</string>
             <string>NotoSans-Bold</string>
-            <string>NotoSans-Bold</string>
-            <string>NotoSans-Bold</string>
-            <string>NotoSans-Bold</string>
         </mutableArray>
         <mutableArray key="NotoSans-Regular.ttf">
             <string>NotoSans</string>
@@ -133,36 +130,6 @@
                                                                 <outlet property="widthConstraint" destination="8aW-CL-ZBs" id="ojC-Wj-371"/>
                                                             </connections>
                                                         </view>
-                                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zGl-IE-y1R" customClass="GoalieKerningButton" customModule="Goalie" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="242.5" width="40" height="33"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="33" id="5ZN-ad-odF"/>
-                                                                <constraint firstAttribute="width" constant="40" id="bAx-pp-HNJ"/>
-                                                            </constraints>
-                                                            <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="15"/>
-                                                            <state key="normal" title="⇠"/>
-                                                            <connections>
-                                                                <action selector="_decrementCompletedSound" destination="arb-Tb-vJa" eventType="touchUpInside" id="hdZ-O6-bHB"/>
-                                                            </connections>
-                                                        </button>
-                                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vSU-fQ-8pr" customClass="GoalieKerningButton" customModule="Goalie" customModuleProvider="target">
-                                                            <rect key="frame" x="40" y="242.5" width="40" height="33"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="40" id="3dA-Ll-5wF"/>
-                                                                <constraint firstAttribute="height" constant="33" id="bcG-5G-XWK"/>
-                                                            </constraints>
-                                                            <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="15"/>
-                                                            <state key="normal" title="⇢"/>
-                                                            <connections>
-                                                                <action selector="_advanceCompletedSound" destination="arb-Tb-vJa" eventType="touchUpInside" id="e1k-Rg-iOp"/>
-                                                            </connections>
-                                                        </button>
-                                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c2r-gU-xbI" customClass="GoalieKerningLabel" customModule="Goalie" customModuleProvider="target">
-                                                            <rect key="frame" x="12" y="275.5" width="50" height="16.5"/>
-                                                            <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="12"/>
-                                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
                                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DfY-8z-K5t" customClass="GoalieKerningButton" customModule="Goalie" customModuleProvider="target">
                                                             <rect key="frame" x="16" y="26" width="43" height="33"/>
                                                             <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="15"/>
@@ -202,18 +169,12 @@
                                                         <constraint firstAttribute="trailing" secondItem="451-cQ-ISH" secondAttribute="trailing" constant="10" id="2VE-DG-Zcn"/>
                                                         <constraint firstItem="451-cQ-ISH" firstAttribute="leading" secondItem="11J-Y1-OrL" secondAttribute="trailing" id="3ZA-Sh-PHO"/>
                                                         <constraint firstItem="f7d-lu-WBo" firstAttribute="baseline" secondItem="SEI-SD-L9z" secondAttribute="baseline" constant="-40" id="AnE-NX-YpW"/>
-                                                        <constraint firstItem="c2r-gU-xbI" firstAttribute="leading" secondItem="8fz-02-pSg" secondAttribute="leading" constant="12" id="BKo-QG-bu8"/>
-                                                        <constraint firstItem="vSU-fQ-8pr" firstAttribute="leading" secondItem="zGl-IE-y1R" secondAttribute="trailing" id="Cdk-CI-65t"/>
                                                         <constraint firstItem="11J-Y1-OrL" firstAttribute="centerY" secondItem="451-cQ-ISH" secondAttribute="centerY" id="Cw0-Mk-j0J"/>
                                                         <constraint firstItem="sjJ-e5-7DA" firstAttribute="leading" secondItem="8fz-02-pSg" secondAttribute="leading" id="CzD-kt-DeV"/>
                                                         <constraint firstItem="sjJ-e5-7DA" firstAttribute="top" secondItem="8fz-02-pSg" secondAttribute="top" id="Eis-uM-5gJ"/>
                                                         <constraint firstItem="SEI-SD-L9z" firstAttribute="centerX" secondItem="8fz-02-pSg" secondAttribute="centerX" id="IEc-dt-i6k"/>
-                                                        <constraint firstItem="c2r-gU-xbI" firstAttribute="top" secondItem="zGl-IE-y1R" secondAttribute="bottom" id="KHV-ut-62N"/>
                                                         <constraint firstItem="DfY-8z-K5t" firstAttribute="leading" secondItem="8fz-02-pSg" secondAttribute="leading" constant="16" id="Rh6-tu-Mk3"/>
-                                                        <constraint firstItem="vSU-fQ-8pr" firstAttribute="centerY" secondItem="zGl-IE-y1R" secondAttribute="centerY" id="SJh-gd-3T7"/>
                                                         <constraint firstItem="f7d-lu-WBo" firstAttribute="leading" secondItem="SEI-SD-L9z" secondAttribute="trailing" constant="-20" id="cmd-Hu-q1n"/>
-                                                        <constraint firstAttribute="bottom" secondItem="c2r-gU-xbI" secondAttribute="bottom" constant="8" id="dIC-dQ-wtk"/>
-                                                        <constraint firstItem="zGl-IE-y1R" firstAttribute="leading" secondItem="8fz-02-pSg" secondAttribute="leading" id="dKS-YO-RbU"/>
                                                         <constraint firstItem="DfY-8z-K5t" firstAttribute="centerY" secondItem="451-cQ-ISH" secondAttribute="centerY" id="e1x-W6-Ti4"/>
                                                         <constraint firstItem="451-cQ-ISH" firstAttribute="top" secondItem="8fz-02-pSg" secondAttribute="topMargin" constant="14" id="lYd-8J-Zvw"/>
                                                         <constraint firstAttribute="trailing" secondItem="sjJ-e5-7DA" secondAttribute="trailing" id="lbG-sE-1Pb"/>
@@ -332,7 +293,6 @@
                                                     </tableViewCell>
                                                 </prototypes>
                                                 <connections>
-                                                    <outlet property="_currentCompletedSoundName" destination="c2r-gU-xbI" id="UI2-62-Xee"/>
                                                     <outlet property="_firstTaskFooterView" destination="ZpZ-fK-L3y" id="fZS-di-9r3"/>
                                                     <outlet property="_firstTaskFooterViewArrow" destination="rSD-oe-3Jr" id="msZ-1f-Sdh"/>
                                                     <outlet property="_goalieFaceContainerView" destination="SEI-SD-L9z" id="A9W-Ag-zQH"/>

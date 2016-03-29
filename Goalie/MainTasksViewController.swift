@@ -85,7 +85,9 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
          selector: Selector("keyboardDidHide"),
          name: UIKeyboardDidHideNotification,
          object: nil)
+      
       _goalieTableView.longPressReorderDelegate = self
+      _goalieTableView.konamiDelegate = self
    }
    
    func keyboardDidHide()
@@ -505,5 +507,18 @@ extension MainTasksViewController: LPRTableViewDelegate
          self._goalieTableView.reloadData()
          self.moc.saveOrRollback()
       }
+   }
+}
+
+extension MainTasksViewController: KonamiDelegate
+{
+   func konamiRecognized()
+   {
+      let alertController = UIAlertController(title: "Konami Code Entered", message: "Enjoy all of the free characters and accessory packs.", preferredStyle: .Alert)
+      
+      let action = UIAlertAction(title: "Thank You", style: UIAlertActionStyle.Default, handler: nil)
+      alertController.addAction(action)
+      
+      presentViewController(alertController, animated: true, completion: nil)
    }
 }

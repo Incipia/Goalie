@@ -70,7 +70,10 @@ class CharacterCollectionViewCell: UICollectionViewCell
       _characterView.containerView.transform = CGAffineTransformMakeScale(0.8, 0.8)
       
       _movementAnimator = GoalieMovementAnimator(view: _characterView.containerView)
-      _movementAnimator.startScalingAnimation()
+      let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(Double(CGFloat.randRange(0, upper: 0.9)) * Double(NSEC_PER_SEC)))
+      dispatch_after(delayTime, dispatch_get_main_queue()) {
+         self._movementAnimator.startAnimating()
+      }
    }
    
    func configureWithCharacter(c: GoalieCharacter)
