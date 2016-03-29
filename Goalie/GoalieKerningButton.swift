@@ -68,6 +68,30 @@ class GoalieKerningButton: UIButton
       UIView.setAnimationsEnabled(true)
    }
    
+   func updateText(text: String)
+   {
+      guard let label = titleLabel else { return }
+      let attributes = [
+         NSFontAttributeName : label.font,
+         NSForegroundColorAttributeName : label.textColor,
+         NSKernAttributeName : 1.5,
+      ]
+      
+      let highlightedAttributes = [
+         NSFontAttributeName : label.font,
+         NSForegroundColorAttributeName : label.textColor.colorWithAlphaComponent(0.5),
+         NSKernAttributeName : 1.5,
+      ]
+      
+      let attributedString = NSAttributedString(string: text, attributes: attributes)
+      let highlightedAttributedString = NSAttributedString(string: text, attributes: highlightedAttributes)
+      
+      UIView.setAnimationsEnabled(false)
+      setAttributedTitle(attributedString, forState: .Normal)
+      setAttributedTitle(highlightedAttributedString, forState: .Highlighted)
+      UIView.setAnimationsEnabled(true)
+   }
+   
    func updateTextColor(color: UIColor)
    {
       guard let label = titleLabel else { return }
@@ -83,6 +107,32 @@ class GoalieKerningButton: UIButton
          NSFontAttributeName : label.font,
          NSForegroundColorAttributeName : label.textColor.colorWithAlphaComponent(0.5),
          NSKernAttributeName : 3
+      ]
+      
+      let attributedString = NSAttributedString(string: text, attributes: attributes)
+      let highlightedAttributedString = NSAttributedString(string: text, attributes: highlightedAttributes)
+      
+      UIView.setAnimationsEnabled(false)
+      setAttributedTitle(attributedString, forState: .Normal)
+      setAttributedTitle(highlightedAttributedString, forState: .Highlighted)
+      UIView.setAnimationsEnabled(true)
+   }
+   
+   func updateKerningValue(value: CGFloat)
+   {
+      guard let label = titleLabel else { return }
+      guard let text = label.text else { return }
+      
+      let attributes = [
+         NSFontAttributeName : label.font,
+         NSForegroundColorAttributeName : label.textColor,
+         NSKernAttributeName : value
+      ]
+      
+      let highlightedAttributes = [
+         NSFontAttributeName : label.font,
+         NSForegroundColorAttributeName : label.textColor.colorWithAlphaComponent(0.5),
+         NSKernAttributeName : value
       ]
       
       let attributedString = NSAttributedString(string: text, attributes: attributes)

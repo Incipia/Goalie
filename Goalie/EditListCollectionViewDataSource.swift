@@ -22,13 +22,15 @@ class EditListCollectionViewDataSource: NSObject
       super.init()
       
       let layout = UICollectionViewFlowLayout()
-      layout.itemSize = CGSize(width: UIScreen.mainScreen().bounds.width, height: 150)
+      layout.itemSize = CGSize(width: UIScreen.mainScreen().bounds.width, height: 200)
       layout.minimumInteritemSpacing = 0
       layout.minimumLineSpacing = 0
-      layout.headerReferenceSize = CGSize(width: UIScreen.mainScreen().bounds.width, height: 110)
+      layout.headerReferenceSize = CGSize(width: UIScreen.mainScreen().bounds.width, height: 80)
+      layout.footerReferenceSize = CGSize(width: UIScreen.mainScreen().bounds.width, height: 30)
       
       _collectionView.collectionViewLayout = layout
       _collectionView.dataSource = self
+      _collectionView.delegate = self
    }
 }
 
@@ -47,7 +49,9 @@ extension EditListCollectionViewDataSource: UICollectionViewDataSource
    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell
    {
       let cell = collectionView.dequeueReusableCellWithReuseIdentifier(EditListCellIdentifier, forIndexPath: indexPath) as! EditListCollectionViewCell
-      cell.backgroundColor = UIColor.redColor()
+      
+      let option = _editListOptions[indexPath.section]
+      cell.configureWithOption(option)
       
       return cell
    }
@@ -67,6 +71,16 @@ extension EditListCollectionViewDataSource: UICollectionViewDataSource
          headerView.configureWithOption(option)
          
          return headerView
+         //2
+      case UICollectionElementKindSectionFooter:
+         //3
+         let headerView =
+         collectionView.dequeueReusableSupplementaryViewOfKind(kind,
+            withReuseIdentifier: "EditListFooterCellID",
+            forIndexPath: indexPath)
+         return headerView
+         
+         
       default:
          //4
          assert(false, "Unexpected element kind")
@@ -74,5 +88,16 @@ extension EditListCollectionViewDataSource: UICollectionViewDataSource
       
       // This should not happen
       return collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "INVALID", forIndexPath: indexPath)
+   }
+}
+
+extension EditListCollectionViewDataSource: UICollectionViewDelegate
+{
+   func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize
+   {
+      let width: CGFloat = UIScreen.mainScreen().bounds.width
+      let height: CGFloat = section == 0 ? 110 : 80
+      
+      return CGSize(width: width, height: height)
    }
 }

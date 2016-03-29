@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum GoalieCharacter
+enum GoalieCharacter: Int
 {
    case Goalie, BizeeBee, Fox, Checklistor, Unknown
    

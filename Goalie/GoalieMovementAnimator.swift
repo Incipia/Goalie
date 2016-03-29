@@ -8,6 +8,17 @@
 
 import UIKit
 
+extension CGAffineTransform
+{
+   var xScale: CGFloat {
+      return sqrt(a * a + c * c)
+   }
+   
+   var yScale: CGFloat {
+      return sqrt(b * b + d * d)
+   }
+}
+
 let TotalDuration: Double = 6
 
 class GoalieMovementAnimator
@@ -16,9 +27,14 @@ class GoalieMovementAnimator
    private let _goalieView: UIView
    private var _isAnimating = false
    
+   private var _initialScale: (x: CGFloat, y: CGFloat) = (1, 1)
+   
    init(view: UIView)
    {
       _goalieView = view
+      _initialScale.x = view.transform.xScale
+      _initialScale.y = view.transform.yScale
+      
       _startingCenter = _goalieView.center
    }
    
@@ -27,6 +43,14 @@ class GoalieMovementAnimator
       if !_isAnimating {
          _isAnimating = true
          _startTranslateAndRotationAnimations()
+         _startScalingAnimations()
+      }
+   }
+   
+   func startScalingAnimation()
+   {
+      if !_isAnimating {
+         _isAnimating = true
          _startScalingAnimations()
       }
    }
@@ -72,13 +96,13 @@ class GoalieMovementAnimator
    private func _startScalingAnimations()
    {
       let scaleYAnimation = CAKeyframeAnimation(keyPath: "transform.scale.y")
-      scaleYAnimation.values = [1, 0.95, 1]
+      scaleYAnimation.values = [_initialScale.y, _initialScale.y * 0.95, _initialScale.y]
       scaleYAnimation.keyTimes = [0, 0.5, 1]
       scaleYAnimation.duration = TotalDuration * 0.25
       scaleYAnimation.repeatCount = Float(TotalDuration)
       
       let scaleXAnimation = CAKeyframeAnimation(keyPath: "transform.scale.x")
-      scaleXAnimation.values = [1, 1.05, 1]
+      scaleXAnimation.values = [_initialScale.x, _initialScale.x * 1.05, _initialScale.x]
       scaleXAnimation.keyTimes = [0, 0.5, 1]
       scaleXAnimation.duration = TotalDuration * 0.25
       scaleXAnimation.repeatCount = Float(TotalDuration)

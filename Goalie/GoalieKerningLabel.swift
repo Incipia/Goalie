@@ -29,7 +29,7 @@ class GoalieKerningLabel: UILabel
       attributedText = attributedString
    }
    
-   func updateText(text: String, color: UIColor)
+   func updateText(text: String)
    {
       let attributes = [
          NSFontAttributeName : font,
@@ -38,5 +38,27 @@ class GoalieKerningLabel: UILabel
       ]
       
       attributedText = NSAttributedString(string: text, attributes: attributes)
+   }
+   
+   func updateTextColor(color: UIColor)
+   {
+      let attributes = [
+         NSFontAttributeName : font,
+         NSForegroundColorAttributeName : color,
+         NSKernAttributeName : 3
+      ]
+      
+      attributedText = NSAttributedString(string: self.text!, attributes: attributes)
+   }
+   
+   func updateKerningValue(value: CGFloat)
+   {
+      let attributes = [
+         NSFontAttributeName : font,
+         NSForegroundColorAttributeName : textColor,
+         NSKernAttributeName : value
+      ]
+      
+      attributedText = NSAttributedString(string: self.text!, attributes: attributes)
    }
 }

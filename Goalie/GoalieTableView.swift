@@ -37,13 +37,13 @@ class GoalieTableView: LPRTableView
    {
       SFXPlayer.advanceCompletedSound()
       SFXPlayer.playCurrentCompletedSound()
-      _currentCompletedSoundName.updateText(SFXPlayer.currentCompletedSoundName()!, color: UIColor.whiteColor())
+      _currentCompletedSoundName.updateText(SFXPlayer.currentCompletedSoundName()!)
    }
    @IBAction private func _decrementCompletedSound()
    {
       SFXPlayer.decrementCompletedSound()
       SFXPlayer.playCurrentCompletedSound()
-      _currentCompletedSoundName.updateText(SFXPlayer.currentCompletedSoundName()!, color: UIColor.whiteColor())
+      _currentCompletedSoundName.updateText(SFXPlayer.currentCompletedSoundName()!)
    }
    
    @IBOutlet private var _goalieHeaderView: UIView!
@@ -99,10 +99,7 @@ class GoalieTableView: LPRTableView
       _tapGestureRecognizer.addTarget(self, action: "goalieTapped")
       _goalieFaceView.addGestureRecognizer(_tapGestureRecognizer)
       
-      _goalieFaceView.updateCharacter(.BizeeBee)
-      SFXPlayer.updateCurrentCharacter(.BizeeBee)
-      
-//      _accessoryContainerViewHeightConstraint.constant = _defaultHeaderHeight
+      _goalieFaceView.updateCharacter(.Goalie)
    }
    
    func goalieTapped()

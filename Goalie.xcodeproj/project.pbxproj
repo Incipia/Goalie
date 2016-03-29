@@ -25,6 +25,9 @@
 		CE86B86D1CA9ABB6004B2895 /* HomeWindowAccessoryKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE86B86C1CA9ABB6004B2895 /* HomeWindowAccessoryKit.swift */; };
 		CE86B86F1CA9ACEE004B2895 /* GymViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE86B86E1CA9ACEE004B2895 /* GymViews.swift */; };
 		CE86B8731CA9AD20004B2895 /* HomeViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE86B8721CA9AD20004B2895 /* HomeViews.swift */; };
+		CEA372FD1CA9D03B00697BBD /* CharacterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA372FC1CA9D03B00697BBD /* CharacterCollectionViewCell.swift */; };
+		CEA372FF1CA9D04700697BBD /* AccessoryPackCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA372FE1CA9D04700697BBD /* AccessoryPackCollectionViewCell.swift */; };
+		CEA373011CA9EE2800697BBD /* UnlockedBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA373001CA9EE2800697BBD /* UnlockedBadgeView.swift */; };
 		CEAA5A811C6ADEFA0061BFA8 /* BizeeBeeCharacterKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAA5A801C6ADEFA0061BFA8 /* BizeeBeeCharacterKit.swift */; };
 		CEAC1EB81C6BE2E600969E04 /* BusyBeeCompleted.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CEAC1EB71C6BE2E600969E04 /* BusyBeeCompleted.mp3 */; };
 		CEB15B981CA5F5EC002B8C66 /* FoxCharacterKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB15B971CA5F5EC002B8C66 /* FoxCharacterKit.swift */; };
@@ -139,6 +142,9 @@
 		CE86B86C1CA9ABB6004B2895 /* HomeWindowAccessoryKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeWindowAccessoryKit.swift; path = PaintCode/HomeWindowAccessoryKit.swift; sourceTree = "<group>"; };
 		CE86B86E1CA9ACEE004B2895 /* GymViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GymViews.swift; path = Goalie/GymViews.swift; sourceTree = "<group>"; };
 		CE86B8721CA9AD20004B2895 /* HomeViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViews.swift; path = Goalie/HomeViews.swift; sourceTree = "<group>"; };
+		CEA372FC1CA9D03B00697BBD /* CharacterCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CharacterCollectionViewCell.swift; path = Goalie/CharacterCollectionViewCell.swift; sourceTree = "<group>"; };
+		CEA372FE1CA9D04700697BBD /* AccessoryPackCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccessoryPackCollectionViewCell.swift; path = Goalie/AccessoryPackCollectionViewCell.swift; sourceTree = "<group>"; };
+		CEA373001CA9EE2800697BBD /* UnlockedBadgeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UnlockedBadgeView.swift; path = PaintCode/UnlockedBadgeView.swift; sourceTree = "<group>"; };
 		CEAA5A801C6ADEFA0061BFA8 /* BizeeBeeCharacterKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BizeeBeeCharacterKit.swift; path = PaintCode/BizeeBeeCharacterKit.swift; sourceTree = "<group>"; };
 		CEAC1EB71C6BE2E600969E04 /* BusyBeeCompleted.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = BusyBeeCompleted.mp3; path = Sounds/BusyBeeCompleted.mp3; sourceTree = "<group>"; };
 		CEB15B971CA5F5EC002B8C66 /* FoxCharacterKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FoxCharacterKit.swift; path = PaintCode/FoxCharacterKit.swift; sourceTree = "<group>"; };
@@ -560,6 +566,9 @@
 				F38319481C31B3CB00C36ACB /* GoalieTableView.swift */,
 				F383190C1C319FE800C36ACB /* TasksTableViewCell.swift */,
 				F3B7F7331C45F2D600C364F0 /* GoalieKerningHeaderLabel.swift */,
+				CEA372FC1CA9D03B00697BBD /* CharacterCollectionViewCell.swift */,
+				CEA372FE1CA9D04700697BBD /* AccessoryPackCollectionViewCell.swift */,
+				CEA373001CA9EE2800697BBD /* UnlockedBadgeView.swift */,
 			);
 			name = "Custom UI";
 			sourceTree = "<group>";
@@ -738,6 +747,7 @@
 				F3CEAC571C4061B10047DD78 /* JVFloatLabeledTextView.m in Sources */,
 				F322EB131C34C9D4001B8C44 /* UIButton+Extensions.swift in Sources */,
 				CE86B8621CA9A55F004B2895 /* WaterBottleAccessoryKit.swift in Sources */,
+				CEA372FF1CA9D04700697BBD /* AccessoryPackCollectionViewCell.swift in Sources */,
 				CE7F61FB1C6AEDC700C2C0A2 /* CharacterFaceLayer.swift in Sources */,
 				CEBB00F61CA61F6E005BB8DB /* ChecklistorFacePathProvider.swift in Sources */,
 				F3DB3E041C322DC40005C607 /* MainTasksViewController.swift in Sources */,
@@ -757,6 +767,7 @@
 				F3DB3E101C32682A0005C607 /* ProjectEnums.swift in Sources */,
 				F38319391C31A72D00C36ACB /* DataProvider.swift in Sources */,
 				F38319341C31A72D00C36ACB /* NSManagedObjectContext+Observers.swift in Sources */,
+				CEA373011CA9EE2800697BBD /* UnlockedBadgeView.swift in Sources */,
 				F3A81FFF1C440B520048237F /* GoalieFaceLayer.swift in Sources */,
 				F38B551E1C388F510022453F /* NSDate+Extensions.swift in Sources */,
 				CE86B8731CA9AD20004B2895 /* HomeViews.swift in Sources */,
@@ -775,6 +786,7 @@
 				F383193B1C31A72D00C36ACB /* TableViewDataSource.swift in Sources */,
 				CE86B86B1CA9AB9D004B2895 /* SodaAccessoryKit.swift in Sources */,
 				F38A0F5A1C42010A0034DCE4 /* TaskPriorityStateSnapshotter.swift in Sources */,
+				CEA372FD1CA9D03B00697BBD /* CharacterCollectionViewCell.swift in Sources */,
 				CEBB01031CA986C8005BB8DB /* GoalieAccessory.swift in Sources */,
 				CE86B86F1CA9ACEE004B2895 /* GymViews.swift in Sources */,
 				CEB15B9D1CA5FCA6002B8C66 /* FoxFacePathProvider.swift in Sources */,

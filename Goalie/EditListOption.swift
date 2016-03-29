@@ -25,4 +25,18 @@ enum EditListOption
       case .AccessoryPacks: return "Spruce up your character's space with furniture that matches your goals"
       }
    }
+   
+   var characters: [GoalieCharacter] {
+      switch self {
+      case .Characters: return [.Goalie, .BizeeBee, .Fox, .Checklistor]
+      default: return []
+      }
+   }
+   
+   var accessoryPacks: [AccessoryPack] {
+      switch self {
+      case .AccessoryPacks: return [.None, .Gym, .Home, .Work]
+      default: return []
+      }
+   }
 }
