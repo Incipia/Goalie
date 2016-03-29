@@ -50,6 +50,9 @@ class EditTaskViewController: UIViewController, ManagedObjectContextSettable, Me
       _updateTitleTextField()
       _currentPriority = _task.priority
       _updateButtonTextColorsForPriority(_currentPriority)
+      
+      _detailsContainerView.layer.cornerRadius = 8.0
+      _detailsContainerView.layer.masksToBounds = true
    }
    
    override func viewDidLayoutSubviews()

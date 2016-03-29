@@ -35,7 +35,7 @@ class MenuTransitionManager: NSObject, UIViewControllerAnimatedTransitioning, UI
    }
    
    func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
-      return 0.25
+      return 0.5
    }
    
    // MARK: - UIViewControllerTransitioningDelegate protocol methods
@@ -67,17 +67,25 @@ class MenuTransitionManager: NSObject, UIViewControllerAnimatedTransitioning, UI
       container.addSubview(toController.view)
       
       let duration = transitionDuration(transitionContext)
-      UIView.animateWithDuration(duration,
+      UIView.animateWithDuration(duration * 0.4,
          delay: 0,
          options: UIViewAnimationOptions.CurveEaseIn,
          animations: { () -> Void in
          
-         toController.dialogContainer.transform = CGAffineTransformIdentity
+//         toController.dialogContainer.transform = CGAffineTransformIdentity
          toController.view.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.5)
          
          }, completion: { finished in
-            transitionContext.completeTransition(true)
+//            transitionContext.completeTransition(true)
       })
+      
+      UIView.animateWithDuration(duration, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.3, options: [], animations: { () -> Void in
+         
+         toController.dialogContainer.transform = CGAffineTransformIdentity
+//         toController.view.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.5)
+         }) { (finished) -> Void in
+            transitionContext.completeTransition(true)
+      }
    }
    
    private func _dismissWithTransitionContext(transitionContext: UIViewControllerContextTransitioning)
@@ -91,8 +99,8 @@ class MenuTransitionManager: NSObject, UIViewControllerAnimatedTransitioning, UI
    
       container.addSubview(fromController.view)
       
-      let duration = transitionDuration(transitionContext)
-      UIView.animateWithDuration(duration,
+//      let duration = transitionDuration(transitionContext)
+      UIView.animateWithDuration(0.25,
          delay: 0,
          options: UIViewAnimationOptions.CurveEaseOut,
          animations: { () -> Void in

@@ -524,6 +524,7 @@
 		F38319411C31A77E00C36ACB /* Generic Delegate/DataSource */ = {
 			isa = PBXGroup;
 			children = (
+				CEBB00F91CA97CFF005BB8DB /* EditListCollectionViewDataSource.swift */,
 				F38319211C31A72D00C36ACB /* DataProvider.swift */,
 				F38319221C31A72D00C36ACB /* FetchedResultsDataProvider.swift */,
 				F38319231C31A72D00C36ACB /* TableViewDataSource.swift */,
@@ -549,9 +550,7 @@
 				F3A81FF91C4403120048237F /* OnboardingViewController.swift */,
 				F3B7F7591C46EFBB00C364F0 /* CongratulationsViewController.swift */,
 				CEBB00F71CA7BABC005BB8DB /* EditListViewController.swift */,
-				CEBB00F91CA97CFF005BB8DB /* EditListCollectionViewDataSource.swift */,
 				CEBB00FB1CA982D1005BB8DB /* EditListCollectionViewCell.swift */,
-				CEBB00FD1CA982E8005BB8DB /* EditListHeaderCell.swift */,
 				CEBB00FF1CA98382005BB8DB /* EditListOption.swift */,
 				CEBB01091CA99044005BB8DB /* AccessoriesViewController.swift */,
 			);
@@ -561,6 +560,7 @@
 		F38319471C31AB4100C36ACB /* Custom UI */ = {
 			isa = PBXGroup;
 			children = (
+				CEBB00FD1CA982E8005BB8DB /* EditListHeaderCell.swift */,
 				CEB5854B1C5300DB00A39746 /* LPRTableView.swift */,
 				F3B7F7311C4583D900C364F0 /* GoalieMovementAnimator.swift */,
 				F3CEAC431C4061820047DD78 /* ViewTransformer.swift */,
