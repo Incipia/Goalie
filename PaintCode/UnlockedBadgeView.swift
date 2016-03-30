@@ -23,39 +23,20 @@ class UnlockedBadgeView: UIView
    
    private func _drawBadgeWithFrame(frame: CGRect)
    {
-      //// Color Declarations
-      let color2 = UIColor(priority: .Later, headComponent: .Background)
-      let color3 = UIColor(red: 1.000, green: 0.832, blue: 0.155, alpha: 1.000)
-      
-      //// Polygon Drawing
-      let polygonPath = UIBezierPath()
-      polygonPath.moveToPoint(CGPointMake(frame.minX + 0.50000 * frame.width, frame.minY + 0.86667 * frame.height))
-      polygonPath.addLineToPoint(CGPointMake(frame.minX + 0.00000 * frame.width, frame.minY + 0.99308 * frame.height))
-      polygonPath.addLineToPoint(CGPointMake(frame.minX + 0.00165 * frame.width, frame.minY + 0.00000 * frame.height))
-      polygonPath.addLineToPoint(CGPointMake(frame.minX + 0.99835 * frame.width, frame.minY + 0.00000 * frame.height))
-      polygonPath.addLineToPoint(CGPointMake(frame.minX + 1.00000 * frame.width, frame.minY + 1.00000 * frame.height))
-      polygonPath.addLineToPoint(CGPointMake(frame.minX + 0.50000 * frame.width, frame.minY + 0.86667 * frame.height))
-      polygonPath.closePath()
-      polygonPath.lineJoinStyle = .Round;
-      
-      color2.setFill()
-      polygonPath.fill()
-      
-      
-      //// Star Drawing
-      let starPath = UIBezierPath()
-      starPath.moveToPoint(CGPointMake(frame.minX + 14, frame.maxY - 20.25))
-      starPath.addLineToPoint(CGPointMake(frame.minX + 15.43, frame.maxY - 17.96))
-      starPath.addLineToPoint(CGPointMake(frame.minX + 18.04, frame.maxY - 17.31))
-      starPath.addLineToPoint(CGPointMake(frame.minX + 16.31, frame.maxY - 15.25))
-      starPath.addLineToPoint(CGPointMake(frame.minX + 16.5, frame.maxY - 12.56))
-      starPath.addLineToPoint(CGPointMake(frame.minX + 14, frame.maxY - 13.57))
-      starPath.addLineToPoint(CGPointMake(frame.minX + 11.5, frame.maxY - 12.56))
-      starPath.addLineToPoint(CGPointMake(frame.minX + 11.69, frame.maxY - 15.25))
-      starPath.addLineToPoint(CGPointMake(frame.minX + 9.96, frame.maxY - 17.31))
-      starPath.addLineToPoint(CGPointMake(frame.minX + 12.57, frame.maxY - 17.96))
-      starPath.closePath()
-      color3.setFill()
-      starPath.fill()
+      let fillColor38 = UIColor(priority: .Later, headComponent: .Background)
+
+      //// Bezier Drawing
+      let bezierPath = UIBezierPath()
+      bezierPath.moveToPoint(CGPointMake(frame.minX + 0.97554 * frame.width, frame.minY + 45.96))
+      bezierPath.addLineToPoint(CGPointMake(frame.minX + 0.50000 * frame.width, frame.minY + 35.25))
+      bezierPath.addLineToPoint(CGPointMake(frame.minX + 0.02446 * frame.width, frame.minY + 45.96))
+      bezierPath.addCurveToPoint(CGPointMake(frame.minX + 0.00000 * frame.width, frame.minY + 43.52), controlPoint1: CGPointMake(frame.minX + 0.01175 * frame.width, frame.minY + 46.24), controlPoint2: CGPointMake(frame.minX + 0.00000 * frame.width, frame.minY + 45.07))
+      bezierPath.addLineToPoint(CGPointMake(frame.minX + 0.00000 * frame.width, frame.minY))
+      bezierPath.addLineToPoint(CGPointMake(frame.minX + 1.00000 * frame.width, frame.minY))
+      bezierPath.addLineToPoint(CGPointMake(frame.minX + 1.00000 * frame.width, frame.minY + 43.52))
+      bezierPath.addCurveToPoint(CGPointMake(frame.minX + 0.97554 * frame.width, frame.minY + 45.96), controlPoint1: CGPointMake(frame.minX + 1.00000 * frame.width, frame.minY + 45.07), controlPoint2: CGPointMake(frame.minX + 0.98825 * frame.width, frame.minY + 46.24))
+      bezierPath.closePath()
+      fillColor38.setFill()
+      bezierPath.fill()
    }
 }

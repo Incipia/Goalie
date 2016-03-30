@@ -57,6 +57,7 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
    private var _currentTaskCell: TasksTableViewCell?
    private var _shouldCreateMoreCellsOnReturnKeyPressed = false
    private var _shouldShowCongratulationsDialogWhenKeyboardIsDismissed = false
+   private var _shouldShowUnlockedHomePackDialogWhenKeyboardIsDismissed = false
    
    private var _sourceDraggingIndexPath: NSIndexPath?
    private var _destinationDraggingIndexPath: NSIndexPath?
@@ -95,6 +96,10 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
       if _shouldShowCongratulationsDialogWhenKeyboardIsDismissed {
          _shouldShowCongratulationsDialogWhenKeyboardIsDismissed = false
          GoalieSettingsManager.setUserCreatedFirstTask(true)
+         _showCongratulationsDialog()
+      }
+      else if _shouldShowUnlockedHomePackDialogWhenKeyboardIsDismissed {
+         _shouldShowUnlockedHomePackDialogWhenKeyboardIsDismissed = false
          _showCongratulationsDialog()
       }
       _shouldCreateMoreCellsOnReturnKeyPressed = false
@@ -285,20 +290,13 @@ extension MainTasksViewController: TasksTableViewCellDelegate
             if !GoalieSettingsManager.userCreatedFirstTask {
                self._shouldShowCongratulationsDialogWhenKeyboardIsDismissed = true
             }
+            if GoalieSettingsManager.totalTasksCreated >= 5 {
+               self._shouldShowUnlockedHomePackDialogWhenKeyboardIsDismissed = true
+            }
          }
       }
       _currentTaskCell = nil
       _createEmptyTaskIfNecessary()
-   }
-   
-   private func _showCongratulationsDialog()
-   {
-      let congratsController = UIStoryboard.congratulationsViewController()
-      congratsController.transitioningDelegate = _transitionManager
-      _transitionManager.presenting = true
-      presentViewController(congratsController, animated: true, completion: { finished in
-         self._transitionManager.presenting = false
-      })
    }
    
    // These next two methods are so fucking messy.  They produce the exact behavior that Nico wants though...
@@ -315,6 +313,7 @@ extension MainTasksViewController: TasksTableViewCellDelegate
             }
             else {
                Task.insertEmptyTaskIntoContext(moc)
+               GoalieSettingsManager.incrementTotalTasksCreated()
                _shouldGiveNextCreatedCellFocus = true
             }
          }
@@ -362,6 +361,21 @@ extension MainTasksViewController: TasksTableViewCellDelegate
          }
       }
       _currentTaskCell?.stopEditing()
+   }
+   
+   private func _showCongratulationsDialog()
+   {
+      let congratsController = UIStoryboard.congratulationsViewController()
+      congratsController.transitioningDelegate = _transitionManager
+      congratsController.delegate = self
+      _transitionManager.presenting = true
+      presentViewController(congratsController, animated: true, completion: { finished in
+         self._transitionManager.presenting = false
+      })
+   }
+   
+   private func _showUnlockedHomePackDialog()
+   {
    }
 }
 
@@ -525,5 +539,17 @@ extension MainTasksViewController: KonamiDelegate
       alertController.addAction(action)
       
       presentViewController(alertController, animated: true, completion: nil)
+   }
+}
+
+extension MainTasksViewController: CongratulationsViewControllerDelegate
+{
+   func congratulationsViewControllerDidDismiss(controller: CongratulationsViewController)
+   {
+      if _shouldShowUnlockedHomePackDialogWhenKeyboardIsDismissed {
+         _shouldShowUnlockedHomePackDialogWhenKeyboardIsDismissed = false
+         _showCongratulationsDialog()
+      }
+      print("congrats view controller dismissed")
    }
 }

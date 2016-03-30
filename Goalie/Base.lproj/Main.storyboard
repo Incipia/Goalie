@@ -41,8 +41,12 @@
             <string>NotoSans-Bold</string>
             <string>NotoSans-Bold</string>
             <string>NotoSans-Bold</string>
+            <string>NotoSans-Bold</string>
+            <string>NotoSans-Bold</string>
+            <string>NotoSans-Bold</string>
         </mutableArray>
         <mutableArray key="NotoSans-Regular.ttf">
+            <string>NotoSans</string>
             <string>NotoSans</string>
             <string>NotoSans</string>
             <string>NotoSans</string>
@@ -509,10 +513,10 @@
                                                                                 </constraints>
                                                                             </view>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cio-hu-ajc" customClass="UnlockedBadgeView" customModule="Goalie" customModuleProvider="target">
-                                                                                <rect key="frame" x="12" y="0.0" width="106" height="42"/>
+                                                                                <rect key="frame" x="12" y="0.0" width="106" height="46"/>
                                                                                 <subviews>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UNLOCKED" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tKh-jb-T9b" customClass="GoalieKerningLabel" customModule="Goalie" customModuleProvider="target">
-                                                                                        <rect key="frame" x="33" y="19" width="50" height="12.5"/>
+                                                                                        <rect key="frame" x="33" y="18" width="50" height="12.5"/>
                                                                                         <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="9"/>
                                                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                                         <nil key="highlightedColor"/>
@@ -520,9 +524,9 @@
                                                                                 </subviews>
                                                                                 <color key="backgroundColor" red="0.20392156859999999" green="0.52941176469999995" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 <constraints>
-                                                                                    <constraint firstItem="tKh-jb-T9b" firstAttribute="centerY" secondItem="Cio-hu-ajc" secondAttribute="centerY" constant="4" id="2HC-tC-anb"/>
                                                                                     <constraint firstAttribute="width" constant="106" id="A2z-Te-w4T"/>
-                                                                                    <constraint firstAttribute="height" constant="42" id="cMu-9g-Lbm"/>
+                                                                                    <constraint firstItem="tKh-jb-T9b" firstAttribute="top" secondItem="Cio-hu-ajc" secondAttribute="top" constant="18" id="HTw-ba-Jf2"/>
+                                                                                    <constraint firstAttribute="height" constant="46" id="cMu-9g-Lbm"/>
                                                                                     <constraint firstItem="tKh-jb-T9b" firstAttribute="centerX" secondItem="Cio-hu-ajc" secondAttribute="centerX" constant="5" id="yN5-1D-Qfk"/>
                                                                                 </constraints>
                                                                             </view>
@@ -534,6 +538,7 @@
                                                                         <constraint firstAttribute="trailing" secondItem="1hI-gs-djK" secondAttribute="trailing" constant="3" id="6Hm-uz-Yeb"/>
                                                                         <constraint firstItem="2pV-6g-rXg" firstAttribute="centerX" secondItem="otv-71-CUJ" secondAttribute="centerX" id="BQH-za-5jk"/>
                                                                         <constraint firstItem="Cio-hu-ajc" firstAttribute="top" secondItem="otv-71-CUJ" secondAttribute="top" id="Csx-Lg-aOI"/>
+                                                                        <constraint firstItem="Cio-hu-ajc" firstAttribute="top" secondItem="otv-71-CUJ" secondAttribute="top" id="DQm-Bc-0wu"/>
                                                                         <constraint firstItem="1hI-gs-djK" firstAttribute="top" secondItem="gj2-j4-GIF" secondAttribute="bottom" constant="4" id="FBr-Op-UtI"/>
                                                                         <constraint firstItem="1hI-gs-djK" firstAttribute="leading" secondItem="otv-71-CUJ" secondAttribute="leading" constant="3" id="HLt-dn-pmm"/>
                                                                         <constraint firstAttribute="bottom" secondItem="1hI-gs-djK" secondAttribute="bottom" constant="13" id="JsZ-61-vOW"/>
@@ -744,10 +749,10 @@
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xSo-Rk-y8g" customClass="UnlockedBadgeView" customModule="Goalie" customModuleProvider="target">
-                                                                                <rect key="frame" x="17" y="0.0" width="106" height="42"/>
+                                                                                <rect key="frame" x="17" y="0.0" width="106" height="46"/>
                                                                                 <subviews>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UNLOCKED" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zzC-so-7dE" customClass="GoalieKerningLabel" customModule="Goalie" customModuleProvider="target">
-                                                                                        <rect key="frame" x="33" y="19" width="50" height="12.5"/>
+                                                                                        <rect key="frame" x="33" y="18" width="50" height="12.5"/>
                                                                                         <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="9"/>
                                                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                                         <nil key="highlightedColor"/>
@@ -756,8 +761,8 @@
                                                                                 <color key="backgroundColor" red="0.20392156859999999" green="0.52941176469999995" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 <constraints>
                                                                                     <constraint firstItem="zzC-so-7dE" firstAttribute="centerX" secondItem="xSo-Rk-y8g" secondAttribute="centerX" constant="5" id="0HB-jy-bWq"/>
-                                                                                    <constraint firstItem="zzC-so-7dE" firstAttribute="centerY" secondItem="xSo-Rk-y8g" secondAttribute="centerY" constant="4" id="TCf-1K-sA6"/>
-                                                                                    <constraint firstAttribute="height" constant="42" id="wWn-rn-uWr"/>
+                                                                                    <constraint firstItem="zzC-so-7dE" firstAttribute="top" secondItem="xSo-Rk-y8g" secondAttribute="top" constant="18" id="kbM-ad-OTN"/>
+                                                                                    <constraint firstAttribute="height" constant="46" id="wWn-rn-uWr"/>
                                                                                 </constraints>
                                                                             </view>
                                                                         </subviews>
@@ -912,13 +917,13 @@
                                                 <action selector="_deleteButtonPressed" destination="EZY-Nk-o6p" eventType="touchUpInside" id="TUh-Mt-tHU"/>
                                             </connections>
                                         </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Edit task" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lq8-di-iwY">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit task" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lq8-di-iwY">
                                             <rect key="frame" x="20" y="30" width="96" height="30"/>
                                             <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="22"/>
                                             <color key="textColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xeH-au-Ics">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xeH-au-Ics">
                                             <rect key="frame" x="0.0" y="74" width="338" height="262"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="TITLE" adjustsFontSizeToFit="NO" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="lPJ-ET-lfq" customClass="JVFloatLabeledTextField">
@@ -949,10 +954,10 @@
                                                         <constraint firstAttribute="height" constant="2" id="ZXH-m0-EaZ"/>
                                                     </constraints>
                                                 </view>
-                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ype-g1-Uyi" userLabel="Priority Selector Container">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ype-g1-Uyi" userLabel="Priority Selector Container">
                                                     <rect key="frame" x="0.0" y="86" width="338" height="176"/>
                                                     <subviews>
-                                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qvn-x0-2DS">
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qvn-x0-2DS">
                                                             <rect key="frame" x="20" y="50" width="298" height="16"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cLY-LI-7Cl" userLabel="ASAP">
@@ -993,7 +998,7 @@
                                                                 <constraint firstItem="ixo-In-mII" firstAttribute="leading" secondItem="cLY-LI-7Cl" secondAttribute="trailing" constant="2" id="xLK-Jf-XHa"/>
                                                             </constraints>
                                                         </view>
-                                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0er-6a-GVP" customClass="GoalieKerningButton" customModule="Goalie" customModuleProvider="target">
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0er-6a-GVP" customClass="GoalieKerningButton" customModule="Goalie" customModuleProvider="target">
                                                             <rect key="frame" x="245" y="50" width="73" height="59"/>
                                                             <color key="backgroundColor" red="1" green="0.39581620065789475" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                                                             <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="12"/>
@@ -1006,13 +1011,13 @@
                                                                 <action selector="_agesButtonPressed" destination="EZY-Nk-o6p" eventType="touchDown" id="DVU-62-VTg"/>
                                                             </connections>
                                                         </button>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="PRIORITY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Zq-7d-cZ0" customClass="GoalieKerningHeaderLabel" customModule="Goalie" customModuleProvider="target">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PRIORITY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Zq-7d-cZ0" customClass="GoalieKerningHeaderLabel" customModule="Goalie" customModuleProvider="target">
                                                             <rect key="frame" x="20" y="24" width="62" height="18"/>
                                                             <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="13"/>
                                                             <color key="textColor" red="0.3411764706" green="0.4823529412" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XVU-Ul-3zk" customClass="GoalieKerningButton" customModule="Goalie" customModuleProvider="target">
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XVU-Ul-3zk" customClass="GoalieKerningButton" customModule="Goalie" customModuleProvider="target">
                                                             <rect key="frame" x="20" y="50" width="73" height="59"/>
                                                             <color key="backgroundColor" red="1" green="0.39581620065789475" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                                                             <constraints>
@@ -1028,7 +1033,7 @@
                                                                 <action selector="_asapButtonPressed" destination="EZY-Nk-o6p" eventType="touchDown" id="ECN-v6-ohw"/>
                                                             </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bsh-dq-nQb" customClass="GoalieKerningButton" customModule="Goalie" customModuleProvider="target">
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bsh-dq-nQb" customClass="GoalieKerningButton" customModule="Goalie" customModuleProvider="target">
                                                             <rect key="frame" x="95" y="50" width="73" height="59"/>
                                                             <color key="backgroundColor" red="1" green="0.39581620065789475" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                                                             <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="12"/>
@@ -1041,7 +1046,7 @@
                                                                 <action selector="_soonButtonPressed" destination="EZY-Nk-o6p" eventType="touchDown" id="PUm-za-q0K"/>
                                                             </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FtY-4A-yur" customClass="GoalieKerningButton" customModule="Goalie" customModuleProvider="target">
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FtY-4A-yur" customClass="GoalieKerningButton" customModule="Goalie" customModuleProvider="target">
                                                             <rect key="frame" x="170" y="50" width="73" height="59"/>
                                                             <color key="backgroundColor" red="1" green="0.39581620065789475" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                                                             <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="12"/>
@@ -1077,14 +1082,14 @@
                                                         <constraint firstAttribute="trailing" secondItem="qvn-x0-2DS" secondAttribute="trailing" constant="20" id="zKW-ky-0q5"/>
                                                     </constraints>
                                                 </view>
-                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cF0-TP-VJp" userLabel="PriorityIndicator">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cF0-TP-VJp" userLabel="PriorityIndicator">
                                                     <rect key="frame" x="20" y="193" width="73" height="4"/>
                                                     <color key="backgroundColor" red="0.76470588240000004" green="0.84705882349999995" blue="0.88235294119999996" alpha="1" colorSpace="deviceRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="4" id="gos-Vn-KjD"/>
                                                     </constraints>
                                                 </view>
-                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fyg-rT-Xik" userLabel="Separator">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fyg-rT-Xik" userLabel="Separator">
                                                     <rect key="frame" x="20" y="197" width="318" height="2"/>
                                                     <color key="backgroundColor" red="0.76470588240000004" green="0.84705882349999995" blue="0.88235294119999996" alpha="1" colorSpace="deviceRGB"/>
                                                     <constraints>
@@ -1842,6 +1847,111 @@ Goalie's happy.</string>
             </objects>
             <point key="canvasLocation" x="-10" y="-411"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="1hD-78-KPT">
+            <objects>
+                <viewController storyboardIdentifier="UnlockedAccessoryPackViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3oa-VV-gtc" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2Lt-Pm-pRL"/>
+                        <viewControllerLayoutGuide type="bottom" id="AMt-0Q-iwq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="f4f-ao-TTn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1vU-9o-gnr">
+                                <rect key="frame" x="29" y="146" width="318" height="376"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="V12-Ye-jlf">
+                                    <rect key="frame" x="0.0" y="0.0" width="318" height="376"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You've unlocked your first accessory pack!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zhi-rc-EYq">
+                                            <rect key="frame" x="20" y="30" width="278" height="49.5"/>
+                                            <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="18"/>
+                                            <color key="textColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unlock-home-badge" translatesAutoresizingMaskIntoConstraints="NO" id="iD0-3c-LV4">
+                                            <rect key="frame" x="119" y="104" width="80" height="80"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="80" id="GfP-DU-zat"/>
+                                                <constraint firstAttribute="height" constant="80" id="SeF-6b-qaL"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Y7-zA-bui">
+                                            <rect key="frame" x="15" y="204" width="288" height="82"/>
+                                            <string key="text">You've created five tasks! Now furnish your pad with the Home accessory pack. You can change and add furniture in the edit menu.</string>
+                                            <fontDescription key="fontDescription" name="NotoSans" family="Noto Sans" pointSize="15"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="39y-4h-R1j" customClass="GoalieKerningButton" customModule="Goalie" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="316" width="158" height="60"/>
+                                            <color key="backgroundColor" red="0.76470588240000004" green="0.84705882349999995" blue="0.88235294119999996" alpha="1" colorSpace="deviceRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="60" id="Vdj-mg-ajC"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="16"/>
+                                            <state key="normal" title="IGNORE">
+                                                <color key="titleColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="_gotItButtonPressed" destination="3oa-VV-gtc" eventType="touchUpInside" id="6Xg-qu-tqa"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ahy-Vd-TKF" customClass="GoalieKerningButton" customModule="Goalie" customModuleProvider="target">
+                                            <rect key="frame" x="160" y="316" width="158" height="60"/>
+                                            <color key="backgroundColor" red="0.76470588240000004" green="0.84705882349999995" blue="0.88235294119999996" alpha="1" colorSpace="deviceRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="60" id="AJb-wp-tvi"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="16"/>
+                                            <state key="normal" title="UNLOCK">
+                                                <color key="titleColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="_gotItButtonPressed" destination="3oa-VV-gtc" eventType="touchUpInside" id="YoL-F5-R9v"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="6Y7-zA-bui" firstAttribute="leading" secondItem="V12-Ye-jlf" secondAttribute="leading" constant="15" id="05A-f5-lhM"/>
+                                        <constraint firstAttribute="bottom" secondItem="39y-4h-R1j" secondAttribute="bottom" id="6Lt-AW-rEs"/>
+                                        <constraint firstAttribute="trailing" secondItem="ahy-Vd-TKF" secondAttribute="trailing" id="9me-qF-7lV"/>
+                                        <constraint firstItem="39y-4h-R1j" firstAttribute="width" secondItem="V12-Ye-jlf" secondAttribute="width" multiplier="0.5" constant="-1" id="A2N-0t-k3r"/>
+                                        <constraint firstItem="Zhi-rc-EYq" firstAttribute="top" secondItem="V12-Ye-jlf" secondAttribute="top" constant="30" id="DU0-jd-GQz"/>
+                                        <constraint firstItem="39y-4h-R1j" firstAttribute="top" secondItem="6Y7-zA-bui" secondAttribute="bottom" constant="30" id="DVF-zH-bQa"/>
+                                        <constraint firstAttribute="trailing" secondItem="6Y7-zA-bui" secondAttribute="trailing" constant="15" id="E9X-1f-Wcu"/>
+                                        <constraint firstItem="39y-4h-R1j" firstAttribute="leading" secondItem="V12-Ye-jlf" secondAttribute="leading" id="Gw7-eg-uBr"/>
+                                        <constraint firstItem="iD0-3c-LV4" firstAttribute="centerX" secondItem="V12-Ye-jlf" secondAttribute="centerX" id="Jvj-UX-Y0n"/>
+                                        <constraint firstItem="iD0-3c-LV4" firstAttribute="top" secondItem="Zhi-rc-EYq" secondAttribute="bottom" constant="25" id="V6D-dj-Z6j"/>
+                                        <constraint firstItem="ahy-Vd-TKF" firstAttribute="width" secondItem="39y-4h-R1j" secondAttribute="width" id="aUX-Xv-V0H"/>
+                                        <constraint firstAttribute="bottom" secondItem="ahy-Vd-TKF" secondAttribute="bottom" id="ioe-9X-WEz"/>
+                                        <constraint firstItem="Zhi-rc-EYq" firstAttribute="leading" secondItem="V12-Ye-jlf" secondAttribute="leading" constant="20" id="pHS-5E-o0a"/>
+                                        <constraint firstItem="6Y7-zA-bui" firstAttribute="top" secondItem="iD0-3c-LV4" secondAttribute="bottom" constant="20" id="r7j-mc-MwQ"/>
+                                        <constraint firstAttribute="trailing" secondItem="Zhi-rc-EYq" secondAttribute="trailing" constant="20" id="rfD-tU-eik"/>
+                                    </constraints>
+                                </view>
+                                <blurEffect style="extraLight"/>
+                            </visualEffectView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="1vU-9o-gnr" firstAttribute="centerY" secondItem="f4f-ao-TTn" secondAttribute="centerY" id="hj5-YV-kzb"/>
+                            <constraint firstItem="1vU-9o-gnr" firstAttribute="centerX" secondItem="f4f-ao-TTn" secondAttribute="centerX" id="qjK-Nx-UtJ"/>
+                            <constraint firstItem="1vU-9o-gnr" firstAttribute="width" secondItem="f4f-ao-TTn" secondAttribute="width" multiplier="0.85" id="scS-Kv-paZ"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="_containerView" destination="1vU-9o-gnr" id="f0H-wM-Qra"/>
+                        <outlet property="_textLabel" destination="6Y7-zA-bui" id="3UN-uS-fa5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qaB-p2-CkO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2179.5" y="137.5"/>
+        </scene>
     </scenes>
     <resources>
         <image name="arrow" width="6" height="10"/>
@@ -1854,5 +1964,6 @@ Goalie's happy.</string>
         <image name="onboarding-empty-arrow" width="60" height="66"/>
         <image name="onboarding-phone" width="260" height="296"/>
         <image name="settings-gear-new" width="20" height="20"/>
+        <image name="unlock-home-badge" width="40" height="40"/>
     </resources>
 </document>

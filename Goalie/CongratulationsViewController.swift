@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol CongratulationsViewControllerDelegate: class
+{
+   func congratulationsViewControllerDidDismiss(controller: CongratulationsViewController)
+}
+
 class CongratulationsViewController: UIViewController, MenuController
 {
    @IBOutlet private weak var _containerView: UIVisualEffectView!
@@ -21,8 +26,12 @@ class CongratulationsViewController: UIViewController, MenuController
       return _containerView
    }
    
+   weak var delegate: CongratulationsViewControllerDelegate?
+   
    @IBAction private func _gotItButtonPressed()
    {
-      dismissViewControllerAnimated(true, completion: nil)
+      dismissViewControllerAnimated(true) { () -> Void in
+         self.delegate?.congratulationsViewControllerDidDismiss(self)
+      }
    }
 }

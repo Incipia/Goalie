@@ -12,11 +12,13 @@ private let ShowCompletedTasksKey = "GoalieShowCompletedTasksKey"
 private let ManuallySwitchPriorityKey = "GoalieManuallySwitchPriorityKey"
 private let UserHasOnboardedKey = "GoalieUserHasOnboarded"
 private let UserCreatedFirstTaskKey = "GoalieUserCompletedFirstTaskKey"
+private let TotalTasksCreatedKey = "GoalieTotalTasksCreatedKey"
 
 private let defaultShowCompletedTasksValue = true
 private let defaultManuallySwitchPriorityValue = false
 private let defaultUserHasOnboardedValue = false
 private let defaultUserCompletedFirstTask = false
+private let defaultTotalTasksCreatedValue = 0
 
 struct GoalieSettingsManager
 {
@@ -50,6 +52,14 @@ struct GoalieSettingsManager
          copmletedFirst = NSUserDefaults.standardUserDefaults().boolForKey(UserCreatedFirstTaskKey)
       }
       return copmletedFirst
+   }
+   
+   static var totalTasksCreated: Int {
+      var total = defaultTotalTasksCreatedValue
+      if let _ = NSUserDefaults.standardUserDefaults().objectForKey(TotalTasksCreatedKey) {
+         total = NSUserDefaults.standardUserDefaults().integerForKey(TotalTasksCreatedKey)
+      }
+      return total
    }
    
    static func setShowCompletedTasks(show: Bool) -> Bool
@@ -88,5 +98,20 @@ struct GoalieSettingsManager
          didSet = true
       }
       return didSet
+   }
+   
+   static func setTotalTasksCreated(total: Int) -> Bool {
+      var didSet = false
+      if total != totalTasksCreated {
+         NSUserDefaults.standardUserDefaults().setInteger(total, forKey: TotalTasksCreatedKey)
+         didSet = true
+      }
+      return didSet
+   }
+   
+   static func incrementTotalTasksCreated()
+   {
+      let newTotal = totalTasksCreated + 1
+      setTotalTasksCreated(newTotal)
    }
 }
