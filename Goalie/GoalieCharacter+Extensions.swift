@@ -8,6 +8,9 @@
 
 import Foundation
 
+private let FoxPurchaseID = "com.Incipia.Goalie.FoxCharacter"
+private let ChecklistorPurchaseID = "com.Incipia.Goalie.SeaCreatureCharacter"
+
 extension GoalieCharacter
 {
    var name: String {
@@ -29,14 +32,6 @@ extension GoalieCharacter
       case .Checklistor: return "Lovable, clumsy oaf of a sea slug"
       }
    }
-   
-   var storeIdentifier: String? {
-      switch self {
-      case .Fox: return "com.Incipia.Goalie.FoxCharacter"
-      case .Checklistor: return "com.Incipia.Goalie.SeaCreatureCharacter"
-      default: return nil
-      }
-   }
 }
 
 extension GoalieCharacter
@@ -44,7 +39,17 @@ extension GoalieCharacter
    var unlockAction: UnlockAction? {
       switch self {
       case .BizeeBee: return .RateApp
-      case .Fox, .Checklistor: return .Purchase(value: 0.99)
+      case .Fox: return .Purchase(value: 0.99, id: FoxPurchaseID)
+      case .Checklistor: return .Purchase(value: 0.99, id: ChecklistorPurchaseID)
+      default: return nil
+      }
+   }
+   
+   static func characterForPurchaseID(id: String) -> GoalieCharacter?
+   {
+      switch id {
+      case FoxPurchaseID: return .Fox
+      case ChecklistorPurchaseID: return .Checklistor
       default: return nil
       }
    }

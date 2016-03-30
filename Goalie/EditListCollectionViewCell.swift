@@ -13,11 +13,21 @@ class EditListCollectionViewCell: UICollectionViewCell
    @IBOutlet private weak var _collectionView: UICollectionView!
    private var _option: EditListOption = .Characters
    
+   deinit {
+      NSNotificationCenter.defaultCenter().removeObserver(self)
+   }
+   
    override func awakeFromNib()
    {
       super.awakeFromNib()
       _collectionView.dataSource = self
       _collectionView.delegate = self
+      
+      let notificationName = kMKStoreKitProductPurchasedNotification
+      NSNotificationCenter.defaultCenter().addObserverForName(notificationName,
+         object: nil, queue: NSOperationQueue.mainQueue()) { (note) -> Void in
+            self._collectionView.reloadData()
+      }
    }
    
    func configureWithOption(option: EditListOption)
@@ -118,11 +128,23 @@ extension EditListCollectionViewCell: EditListCharacterCellDelegate
 {
    func actionButtonPressedForCharacter(character: GoalieCharacter)
    {
-      guard let storeID = character.storeIdentifier else { return }
-      MKStoreKit.sharedKit().initiatePaymentRequestForProductWithIdentifier(storeID)
-      
-//      CharacterManager.unlockCharacter(character)
-//      _collectionView.reloadData()
+      if let action = character.unlockAction {
+         switch action {
+         case .Purchase(_, let id):
+            MKStoreKit.sharedKit().initiatePaymentRequestForProductWithIdentifier(id)
+         case .RateApp:
+            _rateApp()
+            CharacterManager.unlockCharacter(character)
+         default: break
+         }
+      }
+      _collectionView.reloadData()
+   }
+   
+   private func _rateApp()
+   {
+      let appID = "1076725605"
+      UIApplication.sharedApplication().openURL(NSURL(string : "itms-apps://itunes.apple.com/app/id\(appID)")!);
    }
 }
 
@@ -130,7 +152,13 @@ extension EditListCollectionViewCell: AccessoryPackCollectionViewCellDelegate
 {
    func actionButtonPressedForAccessoryPack(pack: AccessoryPack)
    {
-      AccessoryPackManager.unlockAccessoryPack(pack)
+      if let action = pack.unlockAction {
+         switch action {
+         case .Purchase(_, let id):
+            MKStoreKit.sharedKit().initiatePaymentRequestForProductWithIdentifier(id)
+         default: break
+         }
+      }
       _collectionView.reloadData()
    }
 }

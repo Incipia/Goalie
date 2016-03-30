@@ -124,6 +124,12 @@ class GoalieTableView: LPRTableView
       _swap()
    }
    
+   func updateCharacter(character: GoalieCharacter)
+   {
+      _goalieFaceView.updateCharacter(character)
+      _goalieFaceView.animateFace()
+   }
+   
    // MARK: - Setup
    private func _setupKeyboardObserving()
    {

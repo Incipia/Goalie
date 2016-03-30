@@ -36,9 +36,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate
       Fabric.with([Crashlytics.self])
       _setupStoreKit()
       
-//      CharacterManager.lockAllCharactersExceptForGoalie()
-//      CharacterManager.updateCurrentCharacter(.Goalie)
-//      AccessoryPackManager.lockAllAccessoryPacks()
+      CharacterManager.lockAllCharactersExceptForGoalie()
+      CharacterManager.updateCurrentCharacter(.Goalie)
+      AccessoryPackManager.lockAllAccessoryPacks()
       
       _moc = createGoalieMainContext()
       _setupMainTasksViewControllerWithMOC(_moc)
@@ -96,7 +96,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate
          object: nil, queue: NSOperationQueue.mainQueue()) { (note) -> Void in
             
             for product in MKStoreKit.sharedKit().availableProducts {
-               
                if let item = product as? SKProduct {
                   print("Available: \(item.productIdentifier) - purchased: \(MKStoreKit.sharedKit().isProductPurchased(item.productIdentifier))")
                }
@@ -109,7 +108,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate
       NSNotificationCenter.defaultCenter().addObserverForName(notificationName,
          object: nil, queue: NSOperationQueue.mainQueue()) { (note) -> Void in
             
-            print("Purchased product: \(note.object), \(note)")
+            guard let id = note.object as? String else { return }
+            if let character = GoalieCharacter.characterForPurchaseID(id) {
+               CharacterManager.unlockCharacter(character)
+            }
+            else if let accessoryPack = AccessoryPack.accessoryPackForPurchaseID(id) {
+               AccessoryPackManager.unlockAccessoryPack(accessoryPack)
+            }
       }
    }
    

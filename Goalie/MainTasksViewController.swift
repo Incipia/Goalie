@@ -113,6 +113,7 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
       _createEmptyTaskIfNecessary()
       _updateTableViewFooter()
       
+      _goalieTableView.updateCharacter(CharacterManager.currentCharacter)
       _goalieTableView.stopGoalieMovement()
       _goalieTableView.startGoalieMovement()
    }
