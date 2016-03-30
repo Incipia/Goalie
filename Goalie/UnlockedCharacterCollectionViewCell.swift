@@ -1,30 +1,24 @@
 //
-//  CharacterCollectionViewCell.swift
+//  UnlockedCharacterCollectionViewCell.swift
 //  Goalie
 //
-//  Created by Gregory Klein on 3/28/16.
+//  Created by Gregory Klein on 3/29/16.
 //  Copyright © 2016 Incipia. All rights reserved.
 //
 
 import UIKit
 
-protocol EditListCharacterCellDelegate: class
-{
-   func actionButtonPressedForCharacter(character: GoalieCharacter)
-}
-
-class CharacterCollectionViewCell: UICollectionViewCell
+class UnlockedCharacterCollectionViewCell: UICollectionViewCell
 {
    @IBOutlet private weak var _characterView: CharacterView!
    
    @IBOutlet private weak var _nameLabel: GoalieKerningLabel!
    @IBOutlet private weak var _subtitleLabel: UILabel!
-   @IBOutlet private weak var _actionButton: GoalieKerningButton!
+   @IBOutlet private weak var _unlockedBadgeView: UnlockedBadgeView!
    
    private var _movementAnimator: GoalieMovementAnimator!
-   private var _character: GoalieCharacter = .Unknown
    
-   weak var delegate: EditListCharacterCellDelegate?
+   private var _character: GoalieCharacter = .Unknown
    
    override func awakeFromNib()
    {
@@ -34,10 +28,6 @@ class CharacterCollectionViewCell: UICollectionViewCell
       layer.borderColor = UIColor(white: 0.9, alpha: 1).CGColor
       layer.borderWidth = 1
       layer.cornerRadius = 5.0
-      
-      _actionButton.updateKerningValue(1.5)
-      _actionButton.layer.cornerRadius = _actionButton.bounds.height * 0.5
-      _actionButton.backgroundColor = UIColor(priority: .Later)
       
       _characterView.containerView.transform = CGAffineTransformMakeScale(0.8, 0.8)
       
@@ -54,17 +44,14 @@ class CharacterCollectionViewCell: UICollectionViewCell
       _characterView.updateCharacter(c)
       _characterView.updateWithPriority(.Later)
       
-      if let action = c.unlockAction {
-         _actionButton.updateText(action.text.uppercaseString)
-      }
-      
       _nameLabel.updateText(c.name.uppercaseString)
       _nameLabel.updateKerningValue(1.5)
       
       _subtitleLabel.text = c.subtitle
       
-      if c == .Goalie {
+      if c == CharacterManager.currentCharacter {
          updateUIForSelectedState()
+         _characterView.animateFace()
       }
       else {
          updateUIForDeselectedState()
@@ -73,11 +60,7 @@ class CharacterCollectionViewCell: UICollectionViewCell
    
    func updateUIForDeselectedState()
    {
-      _characterView.containerView.alpha = 0.5
-      _nameLabel.alpha = 0.5
-      _subtitleLabel.alpha = 0.5
-      _actionButton.hidden = false
-      
+      _unlockedBadgeView.alpha = 0.3
       _nameLabel.updateTextColor(UIColor(rgbValues: (55.0, 76.0, 86.0)))
       _subtitleLabel.textColor = UIColor(rgbValues: (87.0, 123.0, 137.0))
       
@@ -86,19 +69,10 @@ class CharacterCollectionViewCell: UICollectionViewCell
    
    func updateUIForSelectedState()
    {
-      _characterView.containerView.alpha = 1
-      _nameLabel.alpha = 1
-      _subtitleLabel.alpha = 1
-      _actionButton.hidden = true
-      
+      _unlockedBadgeView.alpha = 1
       _nameLabel.updateTextColor(UIColor.whiteColor())
       _subtitleLabel.textColor = UIColor.whiteColor()
       
       backgroundColor = UIColor(priority: .Later)
-   }
-   
-   @IBAction private func _actionButtonPressed()
-   {
-      delegate?.actionButtonPressedForCharacter(_character)
    }
 }

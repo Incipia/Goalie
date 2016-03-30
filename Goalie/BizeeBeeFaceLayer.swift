@@ -30,10 +30,20 @@ class BizeeBeeFaceLayer: CharacterFaceLayer
    override var backingContainerLayer: CALayer? {
       didSet {
          backingContainerLayer?.insertSublayer(_wingsLayer, atIndex: 0)
-         
-         let backingContainerBounds = backingContainerLayer?.bounds ?? CGRect.zero
-         _wingsLayer.position = CGPointMake(backingContainerBounds.midX, backingContainerBounds.midY)
+         _updateWingsPosition()
       }
+   }
+   
+   private func _updateWingsPosition()
+   {
+      let backingContainerBounds = backingContainerLayer?.bounds ?? CGRect.zero
+      _wingsLayer.position = CGPointMake(backingContainerBounds.midX - 4, backingContainerBounds.midY)
+   }
+   
+   override func layoutSublayers()
+   {
+      super.layoutSublayers()
+      _updateWingsPosition()
    }
    
    override func reset()

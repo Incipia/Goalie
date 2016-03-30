@@ -76,7 +76,6 @@ class GoalieTableView: LPRTableView
    {
       let newCharacter = _goalieFaceView.character.next
       
-      SFXPlayer.updateCurrentCharacter(newCharacter)
       _goalieFaceView.updateCharacter(newCharacter)
       _goalieFaceView.animateFace()
    }
@@ -122,7 +121,7 @@ class GoalieTableView: LPRTableView
    
    func goalieTapped()
    {
-//      _swap()
+      _swap()
    }
    
    // MARK: - Setup

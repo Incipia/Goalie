@@ -38,10 +38,10 @@ class GoalieKerningButton: UIButton
       let attributedString = NSAttributedString(string: label.text ?? "", attributes: attributes)
       let highlightedAttributedString = NSAttributedString(string: label.text ?? "", attributes: highlightedAttributes)
       
-      UIView.setAnimationsEnabled(false)
-      setAttributedTitle(attributedString, forState: .Normal)
-      setAttributedTitle(highlightedAttributedString, forState: .Highlighted)
-      UIView.setAnimationsEnabled(true)
+      UIView.performWithoutAnimation { () -> Void in
+         self.setAttributedTitle(attributedString, forState: .Normal)
+         self.setAttributedTitle(highlightedAttributedString, forState: .Highlighted)
+      }
    }
    
    func updateText(text: String, color: UIColor)
@@ -62,10 +62,11 @@ class GoalieKerningButton: UIButton
       let attributedString = NSAttributedString(string: text, attributes: attributes)
       let highlightedAttributedString = NSAttributedString(string: text, attributes: highlightedAttributes)
       
-      UIView.setAnimationsEnabled(false)
-      setAttributedTitle(attributedString, forState: .Normal)
-      setAttributedTitle(highlightedAttributedString, forState: .Highlighted)
-      UIView.setAnimationsEnabled(true)
+      UIView.performWithoutAnimation { () -> Void in
+         self.setAttributedTitle(attributedString, forState: .Normal)
+         self.setAttributedTitle(highlightedAttributedString, forState: .Highlighted)
+         self.layoutIfNeeded()
+      }
    }
    
    func updateText(text: String)
@@ -86,10 +87,11 @@ class GoalieKerningButton: UIButton
       let attributedString = NSAttributedString(string: text, attributes: attributes)
       let highlightedAttributedString = NSAttributedString(string: text, attributes: highlightedAttributes)
       
-      UIView.setAnimationsEnabled(false)
-      setAttributedTitle(attributedString, forState: .Normal)
-      setAttributedTitle(highlightedAttributedString, forState: .Highlighted)
-      UIView.setAnimationsEnabled(true)
+      UIView.performWithoutAnimation { () -> Void in
+         self.setAttributedTitle(attributedString, forState: .Normal)
+         self.setAttributedTitle(highlightedAttributedString, forState: .Highlighted)
+         self.layoutIfNeeded()
+      }
    }
    
    func updateTextColor(color: UIColor)
@@ -112,10 +114,11 @@ class GoalieKerningButton: UIButton
       let attributedString = NSAttributedString(string: text, attributes: attributes)
       let highlightedAttributedString = NSAttributedString(string: text, attributes: highlightedAttributes)
       
-      UIView.setAnimationsEnabled(false)
-      setAttributedTitle(attributedString, forState: .Normal)
-      setAttributedTitle(highlightedAttributedString, forState: .Highlighted)
-      UIView.setAnimationsEnabled(true)
+      UIView.performWithoutAnimation { () -> Void in
+         self.setAttributedTitle(attributedString, forState: .Normal)
+         self.setAttributedTitle(highlightedAttributedString, forState: .Highlighted)
+         self.layoutIfNeeded()
+      }
    }
    
    func updateKerningValue(value: CGFloat)
@@ -138,9 +141,10 @@ class GoalieKerningButton: UIButton
       let attributedString = NSAttributedString(string: text, attributes: attributes)
       let highlightedAttributedString = NSAttributedString(string: text, attributes: highlightedAttributes)
       
-      UIView.setAnimationsEnabled(false)
-      setAttributedTitle(attributedString, forState: .Normal)
-      setAttributedTitle(highlightedAttributedString, forState: .Highlighted)
-      UIView.setAnimationsEnabled(true)
+      UIView.performWithoutAnimation { () -> Void in
+         self.setAttributedTitle(attributedString, forState: .Normal)
+         self.setAttributedTitle(highlightedAttributedString, forState: .Highlighted)
+         self.layoutIfNeeded()
+      }
    }
 }

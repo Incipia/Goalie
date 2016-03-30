@@ -35,6 +35,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate
       Fabric.with([Crashlytics.self])
       _setupStoreKit()
       
+//      CharacterManager.lockAllCharactersExceptForGoalie()
+//      CharacterManager.updateCurrentCharacter(.Goalie)
+      
       _moc = createGoalieMainContext()
       _setupMainTasksViewControllerWithMOC(_moc)
       

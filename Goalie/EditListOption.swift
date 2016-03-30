@@ -35,7 +35,7 @@ enum EditListOption
    
    var accessoryPacks: [AccessoryPack] {
       switch self {
-      case .AccessoryPacks: return [.None, .Gym, .Home, .Work]
+      case .AccessoryPacks: return [.None, .Home, .Work, .Gym]
       default: return []
       }
    }

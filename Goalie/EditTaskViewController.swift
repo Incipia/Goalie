@@ -51,7 +51,7 @@ class EditTaskViewController: UIViewController, ManagedObjectContextSettable, Me
       _currentPriority = _task.priority
       _updateButtonTextColorsForPriority(_currentPriority)
       
-      _detailsContainerView.layer.cornerRadius = 8.0
+      _detailsContainerView.layer.cornerRadius = 4.0
       _detailsContainerView.layer.masksToBounds = true
    }
    
