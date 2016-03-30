@@ -151,7 +151,7 @@ extension EditListCollectionViewCell: EditListCharacterCellDelegate
 extension EditListCollectionViewCell: AccessoryPackCollectionViewCellDelegate
 {
    func actionButtonPressedForAccessoryPack(pack: AccessoryPack)
-   {
+   {      
       if let action = pack.unlockAction {
          switch action {
          case .Purchase(_, let id):

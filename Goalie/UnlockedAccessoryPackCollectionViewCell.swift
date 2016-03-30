@@ -53,6 +53,7 @@ class UnlockedAccessoryPackCollectionViewCell: UICollectionViewCell
    func updateUIForSelectedState()
    {
       _unlockedBadgeView.alpha = 1
+      _accessoryBackgroundView.alpha = 1
 
       _nameLabel.updateTextColor(UIColor.whiteColor())
       _subtitleLabel.textColor = UIColor.whiteColor()
@@ -64,11 +65,12 @@ class UnlockedAccessoryPackCollectionViewCell: UICollectionViewCell
    func updateUIForDeselectedState()
    {
       _unlockedBadgeView.alpha = 0.3
+      _accessoryBackgroundView.alpha = 0.5
       
       _nameLabel.updateTextColor(UIColor(rgbValues: (55.0, 76.0, 86.0)))
       _subtitleLabel.textColor = UIColor(rgbValues: (87.0, 123.0, 137.0))
       
       backgroundColor = UIColor.whiteColor()
-      _accessoryBackgroundView.backgroundColor = UIColor(priority: .Later)
+      _accessoryBackgroundView.backgroundColor = _accessoryPack.backgroundColor
    }
 }

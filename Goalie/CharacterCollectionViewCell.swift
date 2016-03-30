@@ -62,13 +62,8 @@ class CharacterCollectionViewCell: UICollectionViewCell
       _nameLabel.updateKerningValue(1.5)
       
       _subtitleLabel.text = c.subtitle
-      
-      if c == .Goalie {
-         updateUIForSelectedState()
-      }
-      else {
-         updateUIForDeselectedState()
-      }
+ 
+      updateUIForDeselectedState()
    }
    
    func updateUIForDeselectedState()

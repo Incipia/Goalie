@@ -517,7 +517,11 @@ extension MainTasksViewController: KonamiDelegate
    {
       let alertController = UIAlertController(title: "Konami Code Entered", message: "Enjoy all of the free characters and accessory packs.", preferredStyle: .Alert)
       
-      let action = UIAlertAction(title: "Thank You", style: UIAlertActionStyle.Default, handler: nil)
+      let action = UIAlertAction(title: "Thank You", style: .Default) { (action) -> Void in
+         CharacterManager.unlockAllCharacters()
+         AccessoryPackManager.unlockAllAccessoryPacks()
+      }
+      
       alertController.addAction(action)
       
       presentViewController(alertController, animated: true, completion: nil)

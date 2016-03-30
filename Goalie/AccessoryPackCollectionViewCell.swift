@@ -52,12 +52,7 @@ class AccessoryPackCollectionViewCell: UICollectionViewCell
       _updateActionButtonAndLabelWithAccessoryPack(a)
       _updateNameAndSubtitleWithAccessoryPack(a)
       
-      if a == .None {
-         updateUIForUnlockedState()
-      }
-      else {
-         updateUIForLockedState()
-      }
+      updateUIForLockedState()
    }
    
    func updateUIForLockedState()
@@ -72,16 +67,6 @@ class AccessoryPackCollectionViewCell: UICollectionViewCell
       backgroundColor = UIColor.whiteColor()
    }
    
-   func updateUIForUnlockedState()
-   {
-      _nameLabel.alpha = 1
-      _subtitleLabel.alpha = 1
-      _accessoryBackgroundView.alpha = 1
-      
-      _nameLabel.updateTextColor(UIColor.whiteColor())
-      _subtitleLabel.textColor = UIColor.whiteColor()
-   }
-   
    @IBAction private func _actionButtonPressed()
    {
       delegate?.actionButtonPressedForAccessoryPack(_accessoryPack)
@@ -94,9 +79,11 @@ class AccessoryPackCollectionViewCell: UICollectionViewCell
          switch action {
          case .Purchase(_), .RateApp:
             _actionButton.updateText(action.text.uppercaseString)
+            _actionButton.hidden = false
             _actionLabel.hidden = true
          default:
             _actionLabel.updateText(action.text.uppercaseString)
+            _actionLabel.hidden = false
             _actionButton.hidden = true
          }
          _actionButton.updateKerningValue(1.5)
