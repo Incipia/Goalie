@@ -45,8 +45,8 @@ class SettingsViewController: UIViewController, ManagedObjectContextSettable, Me
       super.viewDidLoad()
       _setupShadow()
       
-      _containerView.layer.cornerRadius = 4.0
-      _containerView.layer.masksToBounds = true
+//      _containerView.layer.cornerRadius = 4.0
+//      _containerView.layer.masksToBounds = true
    }
    
    override func viewWillAppear(animated: Bool)

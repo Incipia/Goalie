@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum AccessoryPack
+enum AccessoryPack: Int
 {
    case Gym, Home, Work, None
    

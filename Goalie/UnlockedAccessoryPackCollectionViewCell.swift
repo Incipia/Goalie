@@ -42,7 +42,7 @@ class UnlockedAccessoryPackCollectionViewCell: UICollectionViewCell
       _subtitleLabel.text = a.subtitle
       _unlockedBadgeView.hidden = a == .None
       
-      if a == .None {
+      if a == AccessoryPackManager.currentAccessoryPack {
          updateUIForSelectedState()
       }
       else {

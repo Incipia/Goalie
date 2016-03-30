@@ -11,8 +11,8 @@ import Foundation
 private let CurrentCharacterKey = "GoalieCurrentCharacterKey"
 private let UnlockedCharactersKey = "GoalieUnlockedCharactersKey"
 
-private let defaultCurrentCharacterValue = 0
-private let defaultUnlockedCharacterRawValues: [Int] = [0]
+private let defaultCurrentCharacterValue = GoalieCharacter.Goalie.rawValue
+private let defaultUnlockedCharacterRawValues: [Int] = [GoalieCharacter.Goalie.rawValue]
 
 struct CharacterManager
 {

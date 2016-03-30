@@ -37,6 +37,7 @@
 		CEA3730D1CAB498B00697BBD /* UnlockedCharacterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA3730C1CAB498B00697BBD /* UnlockedCharacterCollectionViewCell.swift */; };
 		CEAA5A811C6ADEFA0061BFA8 /* BizeeBeeCharacterKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAA5A801C6ADEFA0061BFA8 /* BizeeBeeCharacterKit.swift */; };
 		CEAC1EB81C6BE2E600969E04 /* BusyBeeCompleted.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CEAC1EB71C6BE2E600969E04 /* BusyBeeCompleted.mp3 */; };
+		CEB0BE7A1CAB5C2E005CF72A /* AccessoryPackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB0BE791CAB5C2E005CF72A /* AccessoryPackManager.swift */; };
 		CEB15B981CA5F5EC002B8C66 /* FoxCharacterKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB15B971CA5F5EC002B8C66 /* FoxCharacterKit.swift */; };
 		CEB15B9B1CA5FB58002B8C66 /* FoxFaceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB15B9A1CA5FB58002B8C66 /* FoxFaceLayer.swift */; };
 		CEB15B9D1CA5FCA6002B8C66 /* FoxFacePathProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB15B9C1CA5FCA6002B8C66 /* FoxFacePathProvider.swift */; };
@@ -161,6 +162,7 @@
 		CEA3730C1CAB498B00697BBD /* UnlockedCharacterCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UnlockedCharacterCollectionViewCell.swift; path = Goalie/UnlockedCharacterCollectionViewCell.swift; sourceTree = "<group>"; };
 		CEAA5A801C6ADEFA0061BFA8 /* BizeeBeeCharacterKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BizeeBeeCharacterKit.swift; path = PaintCode/BizeeBeeCharacterKit.swift; sourceTree = "<group>"; };
 		CEAC1EB71C6BE2E600969E04 /* BusyBeeCompleted.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = BusyBeeCompleted.mp3; path = Sounds/BusyBeeCompleted.mp3; sourceTree = "<group>"; };
+		CEB0BE791CAB5C2E005CF72A /* AccessoryPackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccessoryPackManager.swift; path = Goalie/AccessoryPackManager.swift; sourceTree = "<group>"; };
 		CEB15B971CA5F5EC002B8C66 /* FoxCharacterKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FoxCharacterKit.swift; path = PaintCode/FoxCharacterKit.swift; sourceTree = "<group>"; };
 		CEB15B9A1CA5FB58002B8C66 /* FoxFaceLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FoxFaceLayer.swift; path = Goalie/FoxFaceLayer.swift; sourceTree = "<group>"; };
 		CEB15B9C1CA5FCA6002B8C66 /* FoxFacePathProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FoxFacePathProvider.swift; path = Goalie/FoxFacePathProvider.swift; sourceTree = "<group>"; };
@@ -412,6 +414,7 @@
 				F38A0F5B1C42EBA40034DCE4 /* MenuTransitionManager.swift */,
 				F342D1D41C473679006D758A /* OnboardingTransitionManager.swift */,
 				CEA3730A1CAB1A6E00697BBD /* CharacterManager.swift */,
+				CEB0BE791CAB5C2E005CF72A /* AccessoryPackManager.swift */,
 			);
 			name = "Managers and Updaters";
 			sourceTree = "<group>";
@@ -768,6 +771,7 @@
 				F3CEAC581C4061B10047DD78 /* NSString+TextDirectionality.m in Sources */,
 				F3CEAC571C4061B10047DD78 /* JVFloatLabeledTextView.m in Sources */,
 				CEA3730B1CAB1A6E00697BBD /* CharacterManager.swift in Sources */,
+				CEB0BE7A1CAB5C2E005CF72A /* AccessoryPackManager.swift in Sources */,
 				F322EB131C34C9D4001B8C44 /* UIButton+Extensions.swift in Sources */,
 				CE86B8621CA9A55F004B2895 /* WaterBottleAccessoryKit.swift in Sources */,
 				CEA372FF1CA9D04700697BBD /* AccessoryPackCollectionViewCell.swift in Sources */,

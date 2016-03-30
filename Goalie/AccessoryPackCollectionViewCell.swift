@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol AccessoryPackCollectionViewCellDelegate: class
+{
+   func actionButtonPressedForAccessoryPack(pack: AccessoryPack)
+}
+
 class AccessoryPackCollectionViewCell: UICollectionViewCell
 {
    private var _accessoryPack: AccessoryPack = .None
@@ -19,6 +24,8 @@ class AccessoryPackCollectionViewCell: UICollectionViewCell
    
    @IBOutlet private weak var _accessoryBackgroundView: UIView!
    @IBOutlet private weak var _accessoryView: AccessoryView!
+   
+   weak var delegate: AccessoryPackCollectionViewCellDelegate?
    
    override func awakeFromNib()
    {
@@ -42,7 +49,6 @@ class AccessoryPackCollectionViewCell: UICollectionViewCell
       _accessoryPack = a
       _accessoryBackgroundView.backgroundColor = a.backgroundColor
       
-      print(a.unlockAction?.text)
       _updateActionButtonAndLabelWithAccessoryPack(a)
       _updateNameAndSubtitleWithAccessoryPack(a)
       
@@ -74,6 +80,11 @@ class AccessoryPackCollectionViewCell: UICollectionViewCell
       
       _nameLabel.updateTextColor(UIColor.whiteColor())
       _subtitleLabel.textColor = UIColor.whiteColor()
+   }
+   
+   @IBAction private func _actionButtonPressed()
+   {
+      delegate?.actionButtonPressedForAccessoryPack(_accessoryPack)
    }
    
    // MARK: - Private

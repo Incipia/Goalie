@@ -29,6 +29,14 @@ extension GoalieCharacter
       case .Checklistor: return "Lovable, clumsy oaf of a sea slug"
       }
    }
+   
+   var storeIdentifier: String? {
+      switch self {
+      case .Fox: return "com.Incipia.Goalie.FoxCharacter"
+      case .Checklistor: return "com.Incipia.Goalie.SeaCreatureCharacter"
+      default: return nil
+      }
+   }
 }
 
 extension GoalieCharacter

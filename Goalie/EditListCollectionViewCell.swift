@@ -51,18 +51,20 @@ extension EditListCollectionViewCell: UICollectionViewDataSource
    
    private func _cellForAccessoryPack(pack: AccessoryPack, indexPath: NSIndexPath) -> UICollectionViewCell
    {
-      if pack != .None {
-         let identifier = "AccessoryPackCellID"
-         let cell = _collectionView.dequeueReusableCellWithReuseIdentifier(identifier, forIndexPath: indexPath) as! AccessoryPackCollectionViewCell
+      if AccessoryPackManager.accessoryPackUnlocked(pack) {
+         let identifier = "UnlockedAccessoryPackCellID"
+         let cell = _collectionView.dequeueReusableCellWithReuseIdentifier(identifier, forIndexPath: indexPath) as! UnlockedAccessoryPackCollectionViewCell
          let accessoryPack = _option.accessoryPacks[indexPath.row]
          cell.configureWithAccessoryPack(accessoryPack)
          
          return cell
       }
       else {
-         let identifier = "UnlockedAccessoryPackCellID"
-         let cell = _collectionView.dequeueReusableCellWithReuseIdentifier(identifier, forIndexPath: indexPath) as! UnlockedAccessoryPackCollectionViewCell
+         let identifier = "AccessoryPackCellID"
+         let cell = _collectionView.dequeueReusableCellWithReuseIdentifier(identifier, forIndexPath: indexPath) as! AccessoryPackCollectionViewCell
          let accessoryPack = _option.accessoryPacks[indexPath.row]
+         
+         cell.delegate = self
          cell.configureWithAccessoryPack(accessoryPack)
          
          return cell
@@ -95,14 +97,20 @@ extension EditListCollectionViewCell: UICollectionViewDelegate
       switch _option {
       case .Characters:
          let character = _option.characters[indexPath.row]
-         guard CharacterManager.characterUnlocked(character) else { return }
+         guard CharacterManager.characterUnlocked(character) else { break }
          
          if CharacterManager.updateCurrentCharacter(character) {
-            _collectionView.scrollToItemAtIndexPath(indexPath, atScrollPosition: .CenteredHorizontally, animated: true)
             _collectionView.reloadData()
          }
-      case .AccessoryPacks: break
+      case .AccessoryPacks:
+         let pack = _option.accessoryPacks[indexPath.row]
+         guard AccessoryPackManager.accessoryPackUnlocked(pack) else { break }
+         
+         if AccessoryPackManager.updateCurrentAccessoryPack(pack) {
+            _collectionView.reloadData()
+         }
       }
+      _collectionView.scrollToItemAtIndexPath(indexPath, atScrollPosition: .CenteredHorizontally, animated: true)
    }
 }
 
@@ -110,9 +118,19 @@ extension EditListCollectionViewCell: EditListCharacterCellDelegate
 {
    func actionButtonPressedForCharacter(character: GoalieCharacter)
    {
-      print("Action button pressed for: \(character.name)")
+      guard let storeID = character.storeIdentifier else { return }
+      MKStoreKit.sharedKit().initiatePaymentRequestForProductWithIdentifier(storeID)
       
-      CharacterManager.unlockCharacter(character)
+//      CharacterManager.unlockCharacter(character)
+//      _collectionView.reloadData()
+   }
+}
+
+extension EditListCollectionViewCell: AccessoryPackCollectionViewCellDelegate
+{
+   func actionButtonPressedForAccessoryPack(pack: AccessoryPack)
+   {
+      AccessoryPackManager.unlockAccessoryPack(pack)
       _collectionView.reloadData()
    }
 }

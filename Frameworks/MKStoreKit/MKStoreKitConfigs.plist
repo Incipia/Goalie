@@ -7,6 +7,8 @@
 	<key>Others</key>
 	<array>
 		<string>com.Incipia.Goalie.FoxCharacter</string>
+		<string>com.Incipia.Goalie.GymAccessoryPack</string>
+		<string>com.Incipia.Goalie.SeaCreatureCharacter</string>
 	</array>
 	<key>SharedSecret</key>
 	<string>abbba54184614474aa73a396eff96b82</string>

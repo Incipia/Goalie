@@ -11,6 +11,7 @@ import CoreData
 import Fabric
 import Crashlytics
 import AVFoundation
+import StoreKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate
@@ -37,6 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
       
 //      CharacterManager.lockAllCharactersExceptForGoalie()
 //      CharacterManager.updateCurrentCharacter(.Goalie)
+//      AccessoryPackManager.lockAllAccessoryPacks()
       
       _moc = createGoalieMainContext()
       _setupMainTasksViewControllerWithMOC(_moc)
@@ -53,7 +55,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate
                
                self._startTimers()
                self._mainTasksViewController.showSpeechBubble()
-//               self._mainTasksViewController.startGoalieMovement()
                GoalieSettingsManager.setUserHasOnboarded(true)
             })
          }
@@ -90,21 +91,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate
    
    private func _setupStoreKit()
    {
-      MKStoreKit.sharedKit().startProductRequest()
-      
+      MKStoreKit.sharedKit().startProductRequest()      
       NSNotificationCenter.defaultCenter().addObserverForName(kMKStoreKitProductsAvailableNotification,
          object: nil, queue: NSOperationQueue.mainQueue()) { (note) -> Void in
             
             for product in MKStoreKit.sharedKit().availableProducts {
-               print(product.localizedTitle)
+               
+               if let item = product as? SKProduct {
+                  print("Available: \(item.productIdentifier) - purchased: \(MKStoreKit.sharedKit().isProductPurchased(item.productIdentifier))")
+               }
             }
+            
+//            MKStoreKit.sharedKit().refreshAppStoreReceipt()
       }
       
       let notificationName = kMKStoreKitProductPurchasedNotification
       NSNotificationCenter.defaultCenter().addObserverForName(notificationName,
          object: nil, queue: NSOperationQueue.mainQueue()) { (note) -> Void in
             
-            print ("Purchased product: \(note.object)")
+            print("Purchased product: \(note.object), \(note)")
       }
    }
    
