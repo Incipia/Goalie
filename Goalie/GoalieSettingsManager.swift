@@ -13,12 +13,14 @@ private let ManuallySwitchPriorityKey = "GoalieManuallySwitchPriorityKey"
 private let UserHasOnboardedKey = "GoalieUserHasOnboarded"
 private let UserCreatedFirstTaskKey = "GoalieUserCompletedFirstTaskKey"
 private let TotalTasksCreatedKey = "GoalieTotalTasksCreatedKey"
+private let FirstTimeAppOpenedDateKey = "GoalieFirstTimeAppOpenedDateKey"
 
 private let defaultShowCompletedTasksValue = true
 private let defaultManuallySwitchPriorityValue = false
 private let defaultUserHasOnboardedValue = false
 private let defaultUserCompletedFirstTask = false
 private let defaultTotalTasksCreatedValue = 0
+private let defaultFirstTimeAppOpenedDateValue = NSDate().timeIntervalSince1970
 
 struct GoalieSettingsManager
 {
@@ -60,6 +62,16 @@ struct GoalieSettingsManager
          total = NSUserDefaults.standardUserDefaults().integerForKey(TotalTasksCreatedKey)
       }
       return total
+   }
+   
+   
+   static var firstTimeAppOpened: NSDate {
+      var date = defaultFirstTimeAppOpenedDateValue
+      if let _ = NSUserDefaults.standardUserDefaults().objectForKey(FirstTimeAppOpenedDateKey) {
+         date = NSUserDefaults.standardUserDefaults().doubleForKey(FirstTimeAppOpenedDateKey)
+      }
+      
+      return NSDate(timeIntervalSince1970: date)
    }
    
    static func setShowCompletedTasks(show: Bool) -> Bool
@@ -107,6 +119,13 @@ struct GoalieSettingsManager
          didSet = true
       }
       return didSet
+   }
+   
+   static func setFirstTimeAppOpenedIfNecessary(date: NSDate)
+   {
+      if NSUserDefaults.standardUserDefaults().objectForKey(FirstTimeAppOpenedDateKey) == nil {
+         NSUserDefaults.standardUserDefaults().setDouble(date.timeIntervalSince1970, forKey: FirstTimeAppOpenedDateKey)
+      }
    }
    
    static func incrementTotalTasksCreated()

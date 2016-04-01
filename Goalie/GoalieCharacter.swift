@@ -44,8 +44,9 @@ enum GoalieCharacter: Int
       let bgColor = UIColor(priority: priority, headComponent: .Background)
       let cheekColor = UIColor.bizeeBeeCheeckColor(priority)
       let stripeColor = UIColor.bizeeBeeStripeColor(priority)
+      let bowtieColor = UIColor.eyeColorForPriority(priority)
       
-      BizeeBeeCharacterKit.drawBody(bgColor, cheekColor: cheekColor, stripeColor: stripeColor)
+      BizeeBeeCharacterKit.drawBody(bgColor, cheekColor: cheekColor, stripeColor: stripeColor, bowtieColor: bowtieColor)
       BizeeBeeCharacterKit.drawAccessoriesForPriority(priority)
    }
    

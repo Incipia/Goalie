@@ -77,7 +77,7 @@ extension AccessoryPack
       switch self {
       case .Home: return "You've unlocked the Home accessory pack!"
       case .Work: return "Happy one week anniversary!"
-      case .Gym: return "You've unlocked the Gym accessory pack!"
+      case .Gym: return "Work it!"
       case .None: return ""
       }
    }
@@ -86,8 +86,16 @@ extension AccessoryPack
       switch self {
       case .Home: return "You've created five tasks! Now furnish your pad with the Home accessory pack. You can change and add furniture in the edit menu."
       case .Work: return "Way to keep at it. Stay energized with the Work accessory pack. You can change an add furniture in the edit menu."
-      case .Gym: return "You've used Goalie for 2 weeks! That's enough time to realize that your character is severely out of shape. Perfect timing to unlock the gym!"
+      case .Gym: return "Breaking a sweat getting things done? Refuel with the Gym accessory pack. You can change an add furniture in the edit menu."
       case .None: return "Fuck this shit."
+      }
+   }
+   
+   var useToUnlockDurationInSeconds: Int? {
+      switch self {
+      case .Work: return 60 * 60 * 24 * 7
+      case .Gym: return 60 * 60 * 24 * 14
+      default: return nil
       }
    }
    

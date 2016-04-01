@@ -29,6 +29,8 @@
 		CE86B86D1CA9ABB6004B2895 /* HomeWindowAccessoryKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE86B86C1CA9ABB6004B2895 /* HomeWindowAccessoryKit.swift */; };
 		CE86B86F1CA9ACEE004B2895 /* GymViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE86B86E1CA9ACEE004B2895 /* GymViews.swift */; };
 		CE86B8731CA9AD20004B2895 /* HomeViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE86B8721CA9AD20004B2895 /* HomeViews.swift */; };
+		CE8FA85C1CAE08F8001BEFC0 /* AlienSoundMstr.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE8FA85A1CAE08F8001BEFC0 /* AlienSoundMstr.mp3 */; };
+		CE8FA85D1CAE08F8001BEFC0 /* FoxSoundMstr.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE8FA85B1CAE08F8001BEFC0 /* FoxSoundMstr.mp3 */; };
 		CEA372FD1CA9D03B00697BBD /* CharacterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA372FC1CA9D03B00697BBD /* CharacterCollectionViewCell.swift */; };
 		CEA372FF1CA9D04700697BBD /* AccessoryPackCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA372FE1CA9D04700697BBD /* AccessoryPackCollectionViewCell.swift */; };
 		CEA373011CA9EE2800697BBD /* UnlockedBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA373001CA9EE2800697BBD /* UnlockedBadgeView.swift */; };
@@ -156,6 +158,8 @@
 		CE86B86C1CA9ABB6004B2895 /* HomeWindowAccessoryKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeWindowAccessoryKit.swift; path = PaintCode/HomeWindowAccessoryKit.swift; sourceTree = "<group>"; };
 		CE86B86E1CA9ACEE004B2895 /* GymViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GymViews.swift; path = Goalie/GymViews.swift; sourceTree = "<group>"; };
 		CE86B8721CA9AD20004B2895 /* HomeViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViews.swift; path = Goalie/HomeViews.swift; sourceTree = "<group>"; };
+		CE8FA85A1CAE08F8001BEFC0 /* AlienSoundMstr.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = AlienSoundMstr.mp3; sourceTree = "<group>"; };
+		CE8FA85B1CAE08F8001BEFC0 /* FoxSoundMstr.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = FoxSoundMstr.mp3; sourceTree = "<group>"; };
 		CEA372FC1CA9D03B00697BBD /* CharacterCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CharacterCollectionViewCell.swift; path = Goalie/CharacterCollectionViewCell.swift; sourceTree = "<group>"; };
 		CEA372FE1CA9D04700697BBD /* AccessoryPackCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccessoryPackCollectionViewCell.swift; path = Goalie/AccessoryPackCollectionViewCell.swift; sourceTree = "<group>"; };
 		CEA373001CA9EE2800697BBD /* UnlockedBadgeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UnlockedBadgeView.swift; path = PaintCode/UnlockedBadgeView.swift; sourceTree = "<group>"; };
@@ -606,6 +610,8 @@
 		F3B7F7351C460E8B00C364F0 /* SFX */ = {
 			isa = PBXGroup;
 			children = (
+				CE8FA85A1CAE08F8001BEFC0 /* AlienSoundMstr.mp3 */,
+				CE8FA85B1CAE08F8001BEFC0 /* FoxSoundMstr.mp3 */,
 				CEAC1EB71C6BE2E600969E04 /* BusyBeeCompleted.mp3 */,
 				CEC1C84B1C5C90CB0074290A /* ChangePriorityRight.mp3 */,
 				F3B7F7541C4617F500C364F0 /* Delete.mp3 */,
@@ -705,9 +711,11 @@
 			files = (
 				CEE5410A1C6A9DA5008BEC7C /* MKStoreKitConfigs.plist in Resources */,
 				F38B55151C3851190022453F /* NotoSans-Bold.ttf in Resources */,
+				CE8FA85C1CAE08F8001BEFC0 /* AlienSoundMstr.mp3 in Resources */,
 				CEC1C84C1C5C90CB0074290A /* ChangePriorityRight.mp3 in Resources */,
 				F38318DB1C2F343600C36ACB /* LaunchScreen.storyboard in Resources */,
 				F38B55161C3851190022453F /* NotoSans-Regular.ttf in Resources */,
+				CE8FA85D1CAE08F8001BEFC0 /* FoxSoundMstr.mp3 in Resources */,
 				F38318D61C2F343600C36ACB /* Main.storyboard in Resources */,
 				F3B7F7551C4617F500C364F0 /* Delete.mp3 in Resources */,
 				F3B7F74E1C460EB500C364F0 /* Kalimba.mp3 in Resources */,

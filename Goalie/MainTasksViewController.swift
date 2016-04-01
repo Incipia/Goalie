@@ -101,6 +101,8 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
       else if _shouldShowUnlockedHomePackDialogWhenKeyboardIsDismissed {
          _shouldShowUnlockedHomePackDialogWhenKeyboardIsDismissed = false
          
+         guard !AccessoryPackManager.accessoryPackUnlocked(.Home) else { return }
+         
          AccessoryPackManager.unlockAccessoryPack(.Home)
          _showUnlockedAccessoryPackViewController(.Home)
       }
@@ -111,6 +113,24 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
    {
       super.viewDidAppear(animated)
       _updateTaskCellsLeftBar()
+      
+      let secondsSinceFirstOpen = NSDate().secondsFrom(GoalieSettingsManager.firstTimeAppOpened)
+      
+      if !_tryToUnlockDurationBasedAccessoryPack(.Work, withSecondsSinceFirstAppUse: secondsSinceFirstOpen) {
+         _tryToUnlockDurationBasedAccessoryPack(.Gym, withSecondsSinceFirstAppUse: secondsSinceFirstOpen)
+      }
+   }
+   
+   private func _tryToUnlockDurationBasedAccessoryPack(pack: AccessoryPack, withSecondsSinceFirstAppUse seconds: Int) -> Bool
+   {
+      guard !AccessoryPackManager.accessoryPackUnlocked(pack) else { return false }
+      guard let duration = pack.useToUnlockDurationInSeconds else { return false }
+      guard seconds >= duration else { return false }
+      
+      AccessoryPackManager.unlockAccessoryPack(pack)
+      _showUnlockedAccessoryPackViewController(pack)
+      
+      return true
    }
    
    override func viewWillAppear(animated: Bool)
@@ -558,6 +578,8 @@ extension MainTasksViewController: CongratulationsViewControllerDelegate
       if _shouldShowUnlockedHomePackDialogWhenKeyboardIsDismissed {
          _shouldShowUnlockedHomePackDialogWhenKeyboardIsDismissed = false
          
+         guard !AccessoryPackManager.accessoryPackUnlocked(.Home) else { return }
+         
          AccessoryPackManager.unlockAccessoryPack(.Home)
          _showUnlockedAccessoryPackViewController(.Home)
       }
@@ -574,6 +596,8 @@ extension MainTasksViewController: UnlockedAccessoryPackViewControllerDelegate
    
    func unlockedAccessoryPackViewControllerUnlockButtonPressed(controller: UnlockedAccessoryPackViewController)
    {
+      AccessoryPackManager.updateCurrentAccessoryPack(controller.accessoryPack)
+      
       _transitionManager.presenting = false
       controller.dismissViewControllerAnimated(true) { () -> Void in
          dispatch_async(dispatch_get_main_queue(), { () -> Void in

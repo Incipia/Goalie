@@ -36,9 +36,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate
       Fabric.with([Crashlytics.self])
       _setupStoreKit()
       
-      CharacterManager.lockAllCharactersExceptForGoalie()
-      CharacterManager.updateCurrentCharacter(.Goalie)
-      AccessoryPackManager.lockAllAccessoryPacks()
+      GoalieSettingsManager.setFirstTimeAppOpenedIfNecessary(NSDate())
+      
+//      CharacterManager.lockAllCharactersExceptForGoalie()
+//      CharacterManager.updateCurrentCharacter(.Goalie)
+//      AccessoryPackManager.lockAllAccessoryPacks()
       
       _moc = createGoalieMainContext()
       _setupMainTasksViewControllerWithMOC(_moc)
@@ -111,6 +113,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
             guard let id = note.object as? String else { return }
             if let character = GoalieCharacter.characterForPurchaseID(id) {
                CharacterManager.unlockCharacter(character)
+               CharacterManager.updateCurrentCharacter(character)
             }
             else if let accessoryPack = AccessoryPack.accessoryPackForPurchaseID(id) {
                AccessoryPackManager.unlockAccessoryPack(accessoryPack)

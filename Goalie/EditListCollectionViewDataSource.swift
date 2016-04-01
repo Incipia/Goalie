@@ -32,6 +32,14 @@ class EditListCollectionViewDataSource: NSObject
       _collectionView.dataSource = self
       _collectionView.delegate = self
    }
+   
+   func updateScrollPositionsForCurrentCharacterAndAccessoryPack()
+   {
+      for cell in _collectionView.visibleCells() {
+         guard let editListCell = cell as? EditListCollectionViewCell else { continue }
+         editListCell.scrollToOption()
+      }
+   }
 }
 
 extension EditListCollectionViewDataSource: UICollectionViewDataSource
@@ -55,6 +63,27 @@ extension EditListCollectionViewDataSource: UICollectionViewDataSource
       
       return cell
    }
+   
+//   func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath)
+//   {
+//      let cell = collectionView.dequeueReusableCellWithReuseIdentifier(EditListCellIdentifier, forIndexPath: indexPath) as! EditListCollectionViewCell
+//      
+//      let option = _editListOptions[indexPath.section]
+//      switch option {
+//      case .Characters:
+//         let current = CharacterManager.currentCharacter
+//         if let index = option.characters.indexOf(current) {
+//            let indexPath = NSIndexPath(forRow: index, inSection: 0)
+//            cell.scrollToItemAtIndexPath(indexPath)
+//         }
+//      case .AccessoryPacks:
+//         let current = AccessoryPackManager.currentAccessoryPack
+//         if let index = option.accessoryPacks.indexOf(current) {
+//            let indexPath = NSIndexPath(forRow: index, inSection: 0)
+//            cell.scrollToItemAtIndexPath(indexPath)
+//         }
+//      }
+//   }
    
    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView
    {

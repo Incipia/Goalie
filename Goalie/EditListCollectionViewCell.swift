@@ -11,7 +11,9 @@ import UIKit
 class EditListCollectionViewCell: UICollectionViewCell
 {
    @IBOutlet private weak var _collectionView: UICollectionView!
+   
    private var _option: EditListOption = .Characters
+   private var _initialPositionSetFlag = false
    
    deinit {
       NSNotificationCenter.defaultCenter().removeObserver(self)
@@ -28,12 +30,36 @@ class EditListCollectionViewCell: UICollectionViewCell
          object: nil, queue: NSOperationQueue.mainQueue()) { (note) -> Void in
             self._collectionView.reloadData()
       }
+      
+      // Ran out of options... I'll figure out a better way to make this happen at some point or another.
+      let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(0.01 * Double(NSEC_PER_SEC)))
+      dispatch_after(delayTime, dispatch_get_main_queue()) {
+         self.scrollToOption()
+      }
    }
    
    func configureWithOption(option: EditListOption)
    {
       _option = option
       _collectionView.reloadData()
+   }
+   
+   func scrollToOption()
+   {
+      switch _option {
+      case .Characters:
+         let current = CharacterManager.currentCharacter
+         if let index = _option.characters.indexOf(current) {
+            let indexPath = NSIndexPath(forRow: index, inSection: 0)
+            _collectionView.scrollToItemAtIndexPath(indexPath, atScrollPosition: .CenteredHorizontally, animated: false)
+         }
+      case .AccessoryPacks:
+         let current = AccessoryPackManager.currentAccessoryPack
+         if let index = _option.accessoryPacks.indexOf(current) {
+            let indexPath = NSIndexPath(forRow: index, inSection: 0)
+            _collectionView.scrollToItemAtIndexPath(indexPath, atScrollPosition: .CenteredHorizontally, animated: false)
+         }
+      }
    }
 }
 

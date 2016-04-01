@@ -25,6 +25,12 @@ class BizeeBeeFaceLayer: CharacterFaceLayer
       let wingColor = UIColor(red: 0.965, green: 0.753, blue: 0.843, alpha: 0.302)
       _wingsLayer.backgroundColor = wingColor.CGColor
       _wingsLayer.cornerRadius = wingsSize.height * 0.5
+      
+      let layersToBeAdjusted = [_mouthLayer, _leftEyeLayer, _rightEyeLayer]
+      for layer in layersToBeAdjusted {
+         layer.frame.origin.y += 5
+         layer.frame.origin.x += 4
+      }
    }
    
    override var backingContainerLayer: CALayer? {
@@ -37,7 +43,7 @@ class BizeeBeeFaceLayer: CharacterFaceLayer
    private func _updateWingsPosition()
    {
       let backingContainerBounds = backingContainerLayer?.bounds ?? CGRect.zero
-      _wingsLayer.position = CGPointMake(backingContainerBounds.midX - 4, backingContainerBounds.midY)
+      _wingsLayer.position = CGPointMake(backingContainerBounds.midX, backingContainerBounds.midY)
    }
    
    override func layoutSublayers()
