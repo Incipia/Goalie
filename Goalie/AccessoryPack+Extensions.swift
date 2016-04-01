@@ -8,8 +8,6 @@
 
 import Foundation
 
-private let GymPurchaseID = "com.Incipia.Goalie.GymAccessoryPack"
-
 extension AccessoryPack
 {
    var subtitle: String {
@@ -95,14 +93,6 @@ extension AccessoryPack
       switch self {
       case .Work: return 60 * 60 * 24 * 7
       case .Gym: return 60 * 60 * 24 * 14
-      default: return nil
-      }
-   }
-   
-   static func accessoryPackForPurchaseID(id: String) -> AccessoryPack?
-   {
-      switch id {
-      case GymPurchaseID: return .Gym
       default: return nil
       }
    }

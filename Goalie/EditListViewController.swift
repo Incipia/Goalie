@@ -32,4 +32,9 @@ class EditListViewController: UIViewController
       dismissViewControllerAnimated(true, completion: nil)
       setNeedsStatusBarAppearanceUpdate()
    }
+   
+   @IBAction private func _restoreButtonPressed()
+   {
+      MKStoreKit.sharedKit().restorePurchases()
+   }
 }

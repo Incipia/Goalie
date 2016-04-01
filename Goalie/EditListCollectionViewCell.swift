@@ -161,10 +161,13 @@ extension EditListCollectionViewCell: EditListCharacterCellDelegate
          case .RateApp:
             _rateApp()
             CharacterManager.unlockCharacter(character)
+            let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(Double(2) * Double(NSEC_PER_SEC)))
+            dispatch_after(delayTime, dispatch_get_main_queue()) {
+               self._collectionView.reloadData()
+            }
          default: break
          }
       }
-      _collectionView.reloadData()
    }
    
    private func _rateApp()

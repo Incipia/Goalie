@@ -44,6 +44,7 @@
             <string>NotoSans-Bold</string>
             <string>NotoSans-Bold</string>
             <string>NotoSans-Bold</string>
+            <string>NotoSans-Bold</string>
         </mutableArray>
         <mutableArray key="NotoSans-Regular.ttf">
             <string>NotoSans</string>
@@ -696,13 +697,13 @@
                                                                                     <constraint firstAttribute="trailing" secondItem="eS1-E3-5go" secondAttribute="trailing" id="tJD-wA-dCC"/>
                                                                                 </constraints>
                                                                             </view>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Silly, kind, and ready for adventure" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l0O-Xz-ip9">
-                                                                                <rect key="frame" x="8" y="161.5" width="124" height="25"/>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Silly, kind, and ready for adventure" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l0O-Xz-ip9">
+                                                                                <rect key="frame" x="8" y="161" width="124" height="25"/>
                                                                                 <fontDescription key="fontDescription" name="NotoSans" family="Noto Sans" pointSize="9"/>
                                                                                 <color key="textColor" red="0.3411764706" green="0.4823529412" blue="0.53725490200000003" alpha="0.60359480570000001" colorSpace="calibratedRGB"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GOALIE" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vfO-oP-QuH" customClass="GoalieKerningLabel" customModule="Goalie" customModuleProvider="target">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="GOALIE" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vfO-oP-QuH" customClass="GoalieKerningLabel" customModule="Goalie" customModuleProvider="target">
                                                                                 <rect key="frame" x="47" y="141" width="45" height="16.5"/>
                                                                                 <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="12"/>
                                                                                 <color key="textColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
@@ -895,6 +896,16 @@
                                     <constraint firstItem="Dse-Od-M3C" firstAttribute="top" secondItem="zDE-g6-BTR" secondAttribute="top" id="zNP-7A-1iu"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wpN-rx-xK4" customClass="GoalieKerningButton" customModule="Goalie" customModuleProvider="target">
+                                <rect key="frame" x="14" y="29.5" width="53" height="29"/>
+                                <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="12"/>
+                                <state key="normal" title="RESTORE">
+                                    <color key="titleColor" red="0.20392156859999999" green="0.52941176469999995" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="_restoreButtonPressed" destination="rpO-UU-QpH" eventType="touchUpInside" id="WQA-Vq-xpU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -903,6 +914,8 @@
                             <constraint firstItem="q1I-wU-WUb" firstAttribute="top" secondItem="xrV-2Y-NMG" secondAttribute="bottom" constant="10" id="IKQ-pu-vOR"/>
                             <constraint firstItem="q1I-wU-WUb" firstAttribute="centerX" secondItem="BX5-ci-vbt" secondAttribute="centerX" id="OQS-ns-yFL"/>
                             <constraint firstItem="zDE-g6-BTR" firstAttribute="top" secondItem="wdQ-Sz-ntk" secondAttribute="bottom" constant="8" id="P80-HN-8A4"/>
+                            <constraint firstItem="wpN-rx-xK4" firstAttribute="centerY" secondItem="wdQ-Sz-ntk" secondAttribute="centerY" id="Wna-5v-g47"/>
+                            <constraint firstItem="wpN-rx-xK4" firstAttribute="leading" secondItem="BX5-ci-vbt" secondAttribute="leading" constant="14" id="X4L-pj-TNe"/>
                             <constraint firstItem="wdQ-Sz-ntk" firstAttribute="centerY" secondItem="q1I-wU-WUb" secondAttribute="centerY" id="aV6-gf-n8k"/>
                             <constraint firstItem="5cW-6r-7BM" firstAttribute="top" secondItem="zDE-g6-BTR" secondAttribute="bottom" id="lil-ei-TsS"/>
                             <constraint firstItem="zDE-g6-BTR" firstAttribute="leading" secondItem="BX5-ci-vbt" secondAttribute="leading" id="ylx-ha-4Bs"/>

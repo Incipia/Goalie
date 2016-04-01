@@ -111,12 +111,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate
          object: nil, queue: NSOperationQueue.mainQueue()) { (note) -> Void in
             
             guard let id = note.object as? String else { return }
+            
             if let character = GoalieCharacter.characterForPurchaseID(id) {
                CharacterManager.unlockCharacter(character)
                CharacterManager.updateCurrentCharacter(character)
-            }
-            else if let accessoryPack = AccessoryPack.accessoryPackForPurchaseID(id) {
-               AccessoryPackManager.unlockAccessoryPack(accessoryPack)
             }
       }
    }
