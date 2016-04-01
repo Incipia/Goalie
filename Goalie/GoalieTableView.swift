@@ -97,7 +97,7 @@ class GoalieTableView: LPRTableView
       
       let recognizer = PlopixKonamiGesture(target: self, action: "_konamiRecognized:")
       recognizer.cancelsTouchesInView = false
-      _goalieHeaderView.addGestureRecognizer(recognizer)
+      _accessoryContainer.addGestureRecognizer(recognizer)
    }
    
    internal func _konamiRecognized(recognizer: UIGestureRecognizer)

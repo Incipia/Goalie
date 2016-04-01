@@ -42,6 +42,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 //      CharacterManager.updateCurrentCharacter(.Goalie)
 //      AccessoryPackManager.lockAllAccessoryPacks()
       
+      CharacterManager.unlockAllCharacters()
+      AccessoryPackManager.unlockAllAccessoryPacks()
+      
       _moc = createGoalieMainContext()
       _setupMainTasksViewControllerWithMOC(_moc)
       

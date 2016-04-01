@@ -60,7 +60,7 @@ class UnlockedCharacterCollectionViewCell: UICollectionViewCell
    
    func updateUIForDeselectedState()
    {
-      _unlockedBadgeView.alpha = 0.3
+      _unlockedBadgeView.selected = false
       _nameLabel.updateTextColor(UIColor(rgbValues: (55.0, 76.0, 86.0)))
       _subtitleLabel.textColor = UIColor(rgbValues: (87.0, 123.0, 137.0))
       
@@ -69,7 +69,7 @@ class UnlockedCharacterCollectionViewCell: UICollectionViewCell
    
    func updateUIForSelectedState()
    {
-      _unlockedBadgeView.alpha = 1
+      _unlockedBadgeView.selected = true
       _nameLabel.updateTextColor(UIColor.whiteColor())
       _subtitleLabel.textColor = UIColor.whiteColor()
       

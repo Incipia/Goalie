@@ -28,6 +28,8 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
          let _ = _editTaskViewController.view
       }
    }
+   
+   @IBOutlet private weak var _wakeGoalieBackUpLabel: UILabel!
    @IBOutlet private weak var _goalieTableView: GoalieTableView!
    private var _shouldGiveNextCreatedCellFocus = false
    
@@ -139,11 +141,17 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
       _goalieTableView.reloadData()
       _createEmptyTaskIfNecessary()
       _updateTableViewFooter()
+      _wakeGoalieBackUpLabel.text = _wakeCharacterBackUpText()
       
       _accessoriesViewController.updateAccessoryPack(AccessoryPackManager.currentAccessoryPack)
       _goalieTableView.updateCharacter(CharacterManager.currentCharacter)
       _goalieTableView.stopGoalieMovement()
       _goalieTableView.startGoalieMovement()
+   }
+   
+   private func _wakeCharacterBackUpText() -> String
+   {
+      return "Add some new tasks to wake \(CharacterManager.currentCharacter.name) back up."
    }
    
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)

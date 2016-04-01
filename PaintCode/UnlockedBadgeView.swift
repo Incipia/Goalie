@@ -10,6 +10,12 @@ import UIKit
 
 class UnlockedBadgeView: UIView
 {
+   var selected: Bool = false {
+      didSet {
+         setNeedsDisplay()
+      }
+   }
+   
    override func awakeFromNib()
    {
       super.awakeFromNib()
@@ -23,7 +29,10 @@ class UnlockedBadgeView: UIView
    
    private func _drawBadgeWithFrame(frame: CGRect)
    {
-      let fillColor38 = UIColor(priority: .Later, headComponent: .Background)
+      var fillColor38 = UIColor(priority: .Later)//, headComponent: .Background)
+      if selected {
+         fillColor38 = UIColor(priority: .Later, headComponent: .Background)
+      }
 
       //// Bezier Drawing
       let bezierPath = UIBezierPath()

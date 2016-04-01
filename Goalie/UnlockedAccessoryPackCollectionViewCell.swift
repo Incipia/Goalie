@@ -53,6 +53,7 @@ class UnlockedAccessoryPackCollectionViewCell: UICollectionViewCell
    
    func updateUIForSelectedState()
    {
+      _unlockedBadgeView.selected = true
       _accessoryPackBadgeView.selected = true
       _unlockedBadgeView.alpha = 1
       _accessoryBackgroundView.alpha = 1
@@ -66,8 +67,8 @@ class UnlockedAccessoryPackCollectionViewCell: UICollectionViewCell
    
    func updateUIForDeselectedState()
    {
+      _unlockedBadgeView.selected = false
       _accessoryPackBadgeView.selected = false
-      _unlockedBadgeView.alpha = 0.3
       _accessoryBackgroundView.alpha = 0.5
       
       _nameLabel.updateTextColor(UIColor(rgbValues: (55.0, 76.0, 86.0)))

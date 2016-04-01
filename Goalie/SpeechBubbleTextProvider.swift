@@ -123,7 +123,7 @@ extension GoalieCharacter
       switch self {
       case .Unknown: return []
       case .Goalie: return ["STAY CALM!", "BURNIN' UP", "WOAH BUDDY", "SEND HELP", "TOO HOT", "I NEED ICE", "!!!!!!!!!!!!"]
-      case .BizeeBee: return ["it’s fine", "just go", "#fail", "sigh", "k", "meh", "really?"]
+      case .BizeeBee: return ["it’s fine", "just go", "#fail", "sigh", "...k", "meh", "really?"]
       case .Fox: return ["devastating", "disastrous", "good grief", "poor form", "inconceivable!", "foolish", "guilty"]
       case .Checklistor: return ["um, wat", "help", "i’m scared", "what stinks?", "i’ll go hide", "but why?", "come back"]
       }

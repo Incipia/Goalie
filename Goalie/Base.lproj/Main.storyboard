@@ -347,6 +347,7 @@
                     </view>
                     <connections>
                         <outlet property="_goalieTableView" destination="arb-Tb-vJa" id="mVd-MK-yYL"/>
+                        <outlet property="_wakeGoalieBackUpLabel" destination="bMi-hs-HLY" id="mAl-IJ-OJb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Ld-vh-x0i" userLabel="First Responder" sceneMemberID="firstResponder"/>
