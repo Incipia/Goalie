@@ -249,6 +249,11 @@ extension UIColor
       return UIColor(colorLiteralRed: 228/255.0, green: 229/255.0, blue: 231/255.0, alpha: 1)
    }
    
+   static func lightGoalieGrayColor() -> UIColor
+   {
+      return UIColor(colorLiteralRed: 228/255.0, green: 229/255.0, blue: 231/255.0, alpha: 0.6)
+   }
+   
    static func eyeColorForPriority(priority: TaskPriority) -> UIColor
    {
       switch priority

@@ -23,7 +23,7 @@ class AccessoryPackCollectionViewCell: UICollectionViewCell
    @IBOutlet private weak var _actionButton: GoalieKerningButton!
    
    @IBOutlet private weak var _accessoryBackgroundView: UIView!
-   @IBOutlet private weak var _accessoryView: AccessoryView!
+   @IBOutlet private weak var _accessoryPackBadgeView: AccessoryPackBadgeView!
    
    weak var delegate: AccessoryPackCollectionViewCellDelegate?
    
@@ -47,6 +47,7 @@ class AccessoryPackCollectionViewCell: UICollectionViewCell
    func configureWithAccessoryPack(a: AccessoryPack)
    {
       _accessoryPack = a
+      _accessoryPackBadgeView.accessory = a
       _accessoryBackgroundView.backgroundColor = a.backgroundColor
       
       _updateActionButtonAndLabelWithAccessoryPack(a)

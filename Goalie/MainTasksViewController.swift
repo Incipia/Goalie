@@ -100,7 +100,9 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
       }
       else if _shouldShowUnlockedHomePackDialogWhenKeyboardIsDismissed {
          _shouldShowUnlockedHomePackDialogWhenKeyboardIsDismissed = false
-         _showCongratulationsDialog()
+         
+         AccessoryPackManager.unlockAccessoryPack(.Home)
+         _showUnlockedAccessoryPackViewController(.Home)
       }
       _shouldCreateMoreCellsOnReturnKeyPressed = false
    }
@@ -118,6 +120,7 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
       _createEmptyTaskIfNecessary()
       _updateTableViewFooter()
       
+      _accessoriesViewController.updateAccessoryPack(AccessoryPackManager.currentAccessoryPack)
       _goalieTableView.updateCharacter(CharacterManager.currentCharacter)
       _goalieTableView.stopGoalieMovement()
       _goalieTableView.startGoalieMovement()
@@ -139,9 +142,6 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
    @IBAction private func _tableHeaderViewTapped(recognizer: UIGestureRecognizer)
    {
       _currentTaskCell?.stopEditing()
-      
-      let nextAccessoryPack = _accessoriesViewController.currentAccessoryPack.next
-      _accessoriesViewController.updateAccessoryPack(nextAccessoryPack)
    }
    
    // MARK: - Public
@@ -374,8 +374,17 @@ extension MainTasksViewController: TasksTableViewCellDelegate
       })
    }
    
-   private func _showUnlockedHomePackDialog()
+   private func _showUnlockedAccessoryPackViewController(pack: AccessoryPack)
    {
+      let controller = UIStoryboard.unlockedAccessoryPackViewController()
+      controller.transitioningDelegate = _transitionManager
+      controller.accessoryPack = pack
+      controller.delegate = self
+      
+      _transitionManager.presenting = true
+      presentViewController(controller, animated: true) { () -> Void in
+         self._transitionManager.presenting = false
+      }
    }
 }
 
@@ -548,8 +557,28 @@ extension MainTasksViewController: CongratulationsViewControllerDelegate
    {
       if _shouldShowUnlockedHomePackDialogWhenKeyboardIsDismissed {
          _shouldShowUnlockedHomePackDialogWhenKeyboardIsDismissed = false
-         _showCongratulationsDialog()
+         
+         AccessoryPackManager.unlockAccessoryPack(.Home)
+         _showUnlockedAccessoryPackViewController(.Home)
       }
-      print("congrats view controller dismissed")
+   }
+}
+
+extension MainTasksViewController: UnlockedAccessoryPackViewControllerDelegate
+{
+   func unlockedAccessoryPackViewControllerIgnoreButtonPressed(controller: UnlockedAccessoryPackViewController)
+   {
+      _transitionManager.presenting = false
+      controller.dismissViewControllerAnimated(true, completion: nil)
+   }
+   
+   func unlockedAccessoryPackViewControllerUnlockButtonPressed(controller: UnlockedAccessoryPackViewController)
+   {
+      _transitionManager.presenting = false
+      controller.dismissViewControllerAnimated(true) { () -> Void in
+         dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            self._editListButtonPressed()
+         })
+      }
    }
 }

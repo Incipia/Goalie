@@ -33,6 +33,14 @@ extension UIStoryboard
       return controller
    }
    
+   static func unlockedAccessoryPackViewController() -> UnlockedAccessoryPackViewController
+   {
+      let storyboard = UIStoryboard(name: "Main", bundle: nil)
+      let controller = storyboard.instantiateViewControllerWithIdentifier("UnlockedAccessoryPackViewControllerID") as! UnlockedAccessoryPackViewController
+      controller.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
+      return controller
+   }
+   
    static func editTaskViewController(managedObjectContext: NSManagedObjectContext) -> EditTaskViewController
    {
       let storyboard = UIStoryboard(name: "Main", bundle: nil)

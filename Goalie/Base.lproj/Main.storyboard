@@ -492,23 +492,39 @@
                                                                         <rect key="frame" x="0.0" y="0.0" width="130" height="200"/>
                                                                         <autoresizingMask key="autoresizingMask"/>
                                                                         <subviews>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Silly, kind, and ready for adventure" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1hI-gs-djK">
-                                                                                <rect key="frame" x="3" y="161.5" width="124" height="25"/>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Silly, kind, and ready for adventure" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1hI-gs-djK">
+                                                                                <rect key="frame" x="3" y="161" width="124" height="25"/>
                                                                                 <fontDescription key="fontDescription" name="NotoSans" family="Noto Sans" pointSize="9"/>
                                                                                 <color key="textColor" red="0.3411764706" green="0.4823529412" blue="0.53725490200000003" alpha="0.60359480570000001" colorSpace="calibratedRGB"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GOALIE" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gj2-j4-GIF" customClass="GoalieKerningLabel" customModule="Goalie" customModuleProvider="target">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="GOALIE" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gj2-j4-GIF" customClass="GoalieKerningLabel" customModule="Goalie" customModuleProvider="target">
                                                                                 <rect key="frame" x="43" y="141" width="45" height="16.5"/>
                                                                                 <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="12"/>
                                                                                 <color key="textColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2pV-6g-rXg">
-                                                                                <rect key="frame" x="30" y="57" width="70" height="70"/>
+                                                                                <rect key="frame" x="30" y="58" width="70" height="70"/>
+                                                                                <subviews>
+                                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f9J-0p-tPz" customClass="AccessoryPackBadgeView" customModule="Goalie" customModuleProvider="target">
+                                                                                        <rect key="frame" x="12" y="17" width="45" height="37"/>
+                                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="width" constant="45" id="avs-58-HEu"/>
+                                                                                            <constraint firstAttribute="height" constant="37" id="b5M-7z-z52"/>
+                                                                                        </constraints>
+                                                                                        <connections>
+                                                                                            <outlet property="_heightConstraint" destination="b5M-7z-z52" id="mfe-1W-bnw"/>
+                                                                                            <outlet property="_widthConstraint" destination="avs-58-HEu" id="NQh-hO-3YM"/>
+                                                                                        </connections>
+                                                                                    </view>
+                                                                                </subviews>
                                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" constant="70" id="5HA-9J-NQ2"/>
+                                                                                    <constraint firstItem="f9J-0p-tPz" firstAttribute="centerY" secondItem="2pV-6g-rXg" secondAttribute="centerY" id="8Ca-ar-0Wx"/>
+                                                                                    <constraint firstItem="f9J-0p-tPz" firstAttribute="centerX" secondItem="2pV-6g-rXg" secondAttribute="centerX" id="CJQ-tK-gd0"/>
                                                                                     <constraint firstAttribute="width" secondItem="2pV-6g-rXg" secondAttribute="height" multiplier="1:1" id="MF6-pD-5bE"/>
                                                                                 </constraints>
                                                                             </view>
@@ -521,12 +537,17 @@
                                                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
+                                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="ZgA-qu-EzC">
+                                                                                        <rect key="frame" x="20" y="22" width="5" height="5"/>
+                                                                                    </imageView>
                                                                                 </subviews>
                                                                                 <color key="backgroundColor" red="0.20392156859999999" green="0.52941176469999995" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 <constraints>
+                                                                                    <constraint firstItem="tKh-jb-T9b" firstAttribute="leading" secondItem="ZgA-qu-EzC" secondAttribute="trailing" constant="8" id="8pB-uw-h4W"/>
                                                                                     <constraint firstAttribute="width" constant="106" id="A2z-Te-w4T"/>
                                                                                     <constraint firstItem="tKh-jb-T9b" firstAttribute="top" secondItem="Cio-hu-ajc" secondAttribute="top" constant="18" id="HTw-ba-Jf2"/>
                                                                                     <constraint firstAttribute="height" constant="46" id="cMu-9g-Lbm"/>
+                                                                                    <constraint firstItem="ZgA-qu-EzC" firstAttribute="centerY" secondItem="tKh-jb-T9b" secondAttribute="centerY" id="xrR-PQ-Q36"/>
                                                                                     <constraint firstItem="tKh-jb-T9b" firstAttribute="centerX" secondItem="Cio-hu-ajc" secondAttribute="centerX" constant="5" id="yN5-1D-Qfk"/>
                                                                                 </constraints>
                                                                             </view>
@@ -548,6 +569,7 @@
                                                                     <size key="customSize" width="130" height="200"/>
                                                                     <connections>
                                                                         <outlet property="_accessoryBackgroundView" destination="2pV-6g-rXg" id="wZd-Le-CkJ"/>
+                                                                        <outlet property="_accessoryPackBadgeView" destination="f9J-0p-tPz" id="oI4-hg-pcb"/>
                                                                         <outlet property="_nameLabel" destination="gj2-j4-GIF" id="Zii-dC-xuI"/>
                                                                         <outlet property="_subtitleLabel" destination="1hI-gs-djK" id="BEf-hL-yDT"/>
                                                                         <outlet property="_unlockedBadgeView" destination="Cio-hu-ajc" id="aq2-oe-Qx3"/>
@@ -560,13 +582,13 @@
                                                                         <rect key="frame" x="0.0" y="0.0" width="140" height="200"/>
                                                                         <autoresizingMask key="autoresizingMask"/>
                                                                         <subviews>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Silly, kind, and ready for adventure" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gUk-Zp-wxy">
-                                                                                <rect key="frame" x="8" y="161.5" width="124" height="25"/>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Silly, kind, and ready for adventure" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gUk-Zp-wxy">
+                                                                                <rect key="frame" x="8" y="161" width="124" height="25"/>
                                                                                 <fontDescription key="fontDescription" name="NotoSans" family="Noto Sans" pointSize="9"/>
                                                                                 <color key="textColor" red="0.3411764706" green="0.4823529412" blue="0.53725490200000003" alpha="0.60359480570000001" colorSpace="calibratedRGB"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GOALIE" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HEW-RD-LD8" customClass="GoalieKerningLabel" customModule="Goalie" customModuleProvider="target">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="GOALIE" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HEW-RD-LD8" customClass="GoalieKerningLabel" customModule="Goalie" customModuleProvider="target">
                                                                                 <rect key="frame" x="47" y="141" width="45" height="16.5"/>
                                                                                 <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="12"/>
                                                                                 <color key="textColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
@@ -593,12 +615,28 @@
                                                                                     <action selector="_actionButtonPressed" destination="bNs-1U-vUC" eventType="touchUpInside" id="rcn-ix-ZCX"/>
                                                                                 </connections>
                                                                             </button>
-                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="grt-T2-quw">
+                                                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="grt-T2-quw">
                                                                                 <rect key="frame" x="35" y="57" width="70" height="70"/>
+                                                                                <subviews>
+                                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T77-wV-uGO" customClass="AccessoryPackBadgeView" customModule="Goalie" customModuleProvider="target">
+                                                                                        <rect key="frame" x="12" y="17" width="45" height="37"/>
+                                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="height" constant="37" id="763-B3-bzg"/>
+                                                                                            <constraint firstAttribute="width" constant="45" id="pdF-QZ-ady"/>
+                                                                                        </constraints>
+                                                                                        <connections>
+                                                                                            <outlet property="_heightConstraint" destination="763-B3-bzg" id="09J-pl-ObO"/>
+                                                                                            <outlet property="_widthConstraint" destination="pdF-QZ-ady" id="FbL-Ji-3k6"/>
+                                                                                        </connections>
+                                                                                    </view>
+                                                                                </subviews>
                                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 <constraints>
+                                                                                    <constraint firstItem="T77-wV-uGO" firstAttribute="centerX" secondItem="grt-T2-quw" secondAttribute="centerX" id="DCb-85-Rq8"/>
                                                                                     <constraint firstAttribute="width" constant="70" id="GCf-xH-7A9"/>
                                                                                     <constraint firstAttribute="width" secondItem="grt-T2-quw" secondAttribute="height" multiplier="1:1" id="s0p-94-W7g"/>
+                                                                                    <constraint firstItem="T77-wV-uGO" firstAttribute="centerY" secondItem="grt-T2-quw" secondAttribute="centerY" id="sSR-Pm-bP6"/>
                                                                                 </constraints>
                                                                             </view>
                                                                         </subviews>
@@ -620,6 +658,7 @@
                                                                     </constraints>
                                                                     <connections>
                                                                         <outlet property="_accessoryBackgroundView" destination="grt-T2-quw" id="NKO-ha-Bap"/>
+                                                                        <outlet property="_accessoryPackBadgeView" destination="T77-wV-uGO" id="5VL-EV-j1u"/>
                                                                         <outlet property="_actionButton" destination="eRy-LX-FUp" id="s4r-kw-I8e"/>
                                                                         <outlet property="_actionLabel" destination="nbU-FI-0U6" id="Eqa-jq-r46"/>
                                                                         <outlet property="_nameLabel" destination="HEW-RD-LD8" id="qGV-Tr-fLZ"/>
@@ -736,13 +775,13 @@
                                                                                     <constraint firstItem="zGo-ZA-yxN" firstAttribute="leading" secondItem="LSr-5d-GkC" secondAttribute="leading" id="l8g-7D-9Fn"/>
                                                                                 </constraints>
                                                                             </view>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Silly, kind, and ready for adventure" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fub-ua-qjl">
-                                                                                <rect key="frame" x="8" y="161.5" width="124" height="25"/>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Silly, kind, and ready for adventure" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fub-ua-qjl">
+                                                                                <rect key="frame" x="8" y="161" width="124" height="25"/>
                                                                                 <fontDescription key="fontDescription" name="NotoSans" family="Noto Sans" pointSize="9"/>
                                                                                 <color key="textColor" red="0.3411764706" green="0.4823529412" blue="0.53725490200000003" alpha="0.60359480570000001" colorSpace="calibratedRGB"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GOALIE" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ovh-ie-2Bc" customClass="GoalieKerningLabel" customModule="Goalie" customModuleProvider="target">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="GOALIE" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ovh-ie-2Bc" customClass="GoalieKerningLabel" customModule="Goalie" customModuleProvider="target">
                                                                                 <rect key="frame" x="47" y="141" width="45" height="16.5"/>
                                                                                 <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="12"/>
                                                                                 <color key="textColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
@@ -757,11 +796,16 @@
                                                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
+                                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="sZS-q6-bbZ">
+                                                                                        <rect key="frame" x="20" y="22" width="5" height="5"/>
+                                                                                    </imageView>
                                                                                 </subviews>
                                                                                 <color key="backgroundColor" red="0.20392156859999999" green="0.52941176469999995" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 <constraints>
                                                                                     <constraint firstItem="zzC-so-7dE" firstAttribute="centerX" secondItem="xSo-Rk-y8g" secondAttribute="centerX" constant="5" id="0HB-jy-bWq"/>
+                                                                                    <constraint firstItem="sZS-q6-bbZ" firstAttribute="centerY" secondItem="zzC-so-7dE" secondAttribute="centerY" id="SeB-Lt-PLm"/>
                                                                                     <constraint firstItem="zzC-so-7dE" firstAttribute="top" secondItem="xSo-Rk-y8g" secondAttribute="top" constant="18" id="kbM-ad-OTN"/>
+                                                                                    <constraint firstItem="zzC-so-7dE" firstAttribute="leading" secondItem="sZS-q6-bbZ" secondAttribute="trailing" constant="8" id="ljr-hP-sUZ"/>
                                                                                     <constraint firstAttribute="height" constant="46" id="wWn-rn-uWr"/>
                                                                                 </constraints>
                                                                             </view>
@@ -1847,10 +1891,10 @@ Goalie's happy.</string>
             </objects>
             <point key="canvasLocation" x="-10" y="-411"/>
         </scene>
-        <!--View Controller-->
+        <!--Unlocked Accessory Pack View Controller-->
         <scene sceneID="1hD-78-KPT">
             <objects>
-                <viewController storyboardIdentifier="UnlockedAccessoryPackViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3oa-VV-gtc" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UnlockedAccessoryPackViewControllerID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3oa-VV-gtc" customClass="UnlockedAccessoryPackViewController" customModule="Goalie" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2Lt-Pm-pRL"/>
                         <viewControllerLayoutGuide type="bottom" id="AMt-0Q-iwq"/>
@@ -1871,13 +1915,6 @@ Goalie's happy.</string>
                                             <color key="textColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unlock-home-badge" translatesAutoresizingMaskIntoConstraints="NO" id="iD0-3c-LV4">
-                                            <rect key="frame" x="119" y="104" width="80" height="80"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="80" id="GfP-DU-zat"/>
-                                                <constraint firstAttribute="height" constant="80" id="SeF-6b-qaL"/>
-                                            </constraints>
-                                        </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Y7-zA-bui">
                                             <rect key="frame" x="15" y="204" width="288" height="82"/>
                                             <string key="text">You've created five tasks! Now furnish your pad with the Home accessory pack. You can change and add furniture in the edit menu.</string>
@@ -1896,7 +1933,7 @@ Goalie's happy.</string>
                                                 <color key="titleColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
                                             </state>
                                             <connections>
-                                                <action selector="_gotItButtonPressed" destination="3oa-VV-gtc" eventType="touchUpInside" id="6Xg-qu-tqa"/>
+                                                <action selector="_ignoreButtonPressed" destination="3oa-VV-gtc" eventType="touchUpInside" id="dTj-1d-GTe"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ahy-Vd-TKF" customClass="GoalieKerningButton" customModule="Goalie" customModuleProvider="target">
@@ -1910,12 +1947,37 @@ Goalie's happy.</string>
                                                 <color key="titleColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
                                             </state>
                                             <connections>
-                                                <action selector="_gotItButtonPressed" destination="3oa-VV-gtc" eventType="touchUpInside" id="YoL-F5-R9v"/>
+                                                <action selector="_unlockButtonPressed" destination="3oa-VV-gtc" eventType="touchUpInside" id="w9B-0M-CS6"/>
                                             </connections>
                                         </button>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mw0-VP-3ms" customClass="CongratulatingUnlockedAccessoryPackBackgroundView" customModule="Goalie" customModuleProvider="target">
+                                            <rect key="frame" x="117" y="100" width="85" height="85"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rsf-O9-z7W" customClass="AccessoryPackBadgeView" customModule="Goalie" customModuleProvider="target">
+                                                    <rect key="frame" x="28" y="28" width="29" height="29"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="29" id="ODH-wD-VRm"/>
+                                                        <constraint firstAttribute="height" constant="29" id="U1B-jI-cgH"/>
+                                                    </constraints>
+                                                    <connections>
+                                                        <outlet property="_heightConstraint" destination="U1B-jI-cgH" id="2aR-CT-VLN"/>
+                                                        <outlet property="_widthConstraint" destination="ODH-wD-VRm" id="JcD-oB-2lV"/>
+                                                    </connections>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="85" id="6GF-Fw-EZX"/>
+                                                <constraint firstItem="rsf-O9-z7W" firstAttribute="centerY" secondItem="mw0-VP-3ms" secondAttribute="centerY" id="OId-Pz-i4d"/>
+                                                <constraint firstItem="rsf-O9-z7W" firstAttribute="centerX" secondItem="mw0-VP-3ms" secondAttribute="centerX" id="iXu-fD-hpV"/>
+                                                <constraint firstAttribute="width" constant="85" id="q9Q-fc-tYc"/>
+                                            </constraints>
+                                        </view>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="6Y7-zA-bui" firstAttribute="leading" secondItem="V12-Ye-jlf" secondAttribute="leading" constant="15" id="05A-f5-lhM"/>
+                                        <constraint firstItem="6Y7-zA-bui" firstAttribute="top" secondItem="mw0-VP-3ms" secondAttribute="bottom" constant="19" id="0p4-gW-ZSE"/>
                                         <constraint firstAttribute="bottom" secondItem="39y-4h-R1j" secondAttribute="bottom" id="6Lt-AW-rEs"/>
                                         <constraint firstAttribute="trailing" secondItem="ahy-Vd-TKF" secondAttribute="trailing" id="9me-qF-7lV"/>
                                         <constraint firstItem="39y-4h-R1j" firstAttribute="width" secondItem="V12-Ye-jlf" secondAttribute="width" multiplier="0.5" constant="-1" id="A2N-0t-k3r"/>
@@ -1923,32 +1985,43 @@ Goalie's happy.</string>
                                         <constraint firstItem="39y-4h-R1j" firstAttribute="top" secondItem="6Y7-zA-bui" secondAttribute="bottom" constant="30" id="DVF-zH-bQa"/>
                                         <constraint firstAttribute="trailing" secondItem="6Y7-zA-bui" secondAttribute="trailing" constant="15" id="E9X-1f-Wcu"/>
                                         <constraint firstItem="39y-4h-R1j" firstAttribute="leading" secondItem="V12-Ye-jlf" secondAttribute="leading" id="Gw7-eg-uBr"/>
-                                        <constraint firstItem="iD0-3c-LV4" firstAttribute="centerX" secondItem="V12-Ye-jlf" secondAttribute="centerX" id="Jvj-UX-Y0n"/>
-                                        <constraint firstItem="iD0-3c-LV4" firstAttribute="top" secondItem="Zhi-rc-EYq" secondAttribute="bottom" constant="25" id="V6D-dj-Z6j"/>
+                                        <constraint firstItem="mw0-VP-3ms" firstAttribute="top" secondItem="Zhi-rc-EYq" secondAttribute="bottom" constant="20.5" id="Jm2-lC-MUC"/>
                                         <constraint firstItem="ahy-Vd-TKF" firstAttribute="width" secondItem="39y-4h-R1j" secondAttribute="width" id="aUX-Xv-V0H"/>
                                         <constraint firstAttribute="bottom" secondItem="ahy-Vd-TKF" secondAttribute="bottom" id="ioe-9X-WEz"/>
                                         <constraint firstItem="Zhi-rc-EYq" firstAttribute="leading" secondItem="V12-Ye-jlf" secondAttribute="leading" constant="20" id="pHS-5E-o0a"/>
-                                        <constraint firstItem="6Y7-zA-bui" firstAttribute="top" secondItem="iD0-3c-LV4" secondAttribute="bottom" constant="20" id="r7j-mc-MwQ"/>
                                         <constraint firstAttribute="trailing" secondItem="Zhi-rc-EYq" secondAttribute="trailing" constant="20" id="rfD-tU-eik"/>
+                                        <constraint firstItem="mw0-VP-3ms" firstAttribute="centerX" secondItem="V12-Ye-jlf" secondAttribute="centerX" id="uqZ-Xf-eke"/>
                                     </constraints>
                                 </view>
                                 <blurEffect style="extraLight"/>
                             </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="1vU-9o-gnr" firstAttribute="centerY" secondItem="f4f-ao-TTn" secondAttribute="centerY" id="hj5-YV-kzb"/>
                             <constraint firstItem="1vU-9o-gnr" firstAttribute="centerX" secondItem="f4f-ao-TTn" secondAttribute="centerX" id="qjK-Nx-UtJ"/>
                             <constraint firstItem="1vU-9o-gnr" firstAttribute="width" secondItem="f4f-ao-TTn" secondAttribute="width" multiplier="0.85" id="scS-Kv-paZ"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="LQM-gZ-y2x" appends="YES" id="OGf-so-uCS"/>
+                        </connections>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="_accessoryPackBackgroundView" destination="mw0-VP-3ms" id="cds-ix-YBr"/>
+                        <outlet property="_accessoryPackBadgeView" destination="rsf-O9-z7W" id="SOv-MD-05b"/>
                         <outlet property="_containerView" destination="1vU-9o-gnr" id="f0H-wM-Qra"/>
-                        <outlet property="_textLabel" destination="6Y7-zA-bui" id="3UN-uS-fa5"/>
+                        <outlet property="_messageLabel" destination="6Y7-zA-bui" id="suE-9E-2RK"/>
+                        <outlet property="_titleLabel" destination="Zhi-rc-EYq" id="FpH-TA-hwO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qaB-p2-CkO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="LQM-gZ-y2x">
+                    <connections>
+                        <action selector="_viewTapped:" destination="3oa-VV-gtc" id="26h-x4-orj"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2179.5" y="137.5"/>
         </scene>
@@ -1964,6 +2037,6 @@ Goalie's happy.</string>
         <image name="onboarding-empty-arrow" width="60" height="66"/>
         <image name="onboarding-phone" width="260" height="296"/>
         <image name="settings-gear-new" width="20" height="20"/>
-        <image name="unlock-home-badge" width="40" height="40"/>
+        <image name="star" width="5" height="5"/>
     </resources>
 </document>

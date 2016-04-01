@@ -54,9 +54,40 @@ extension AccessoryPack
    var unlockAction: UnlockAction? {
       switch self {
       case .Home: return .CreateTasks(count: 5)
-      case .Work: return .CompleteList
-      case .Gym: return .Purchase(value: 0.99, id: GymPurchaseID)
+      case .Work: return .UseAppForWeeks(weeks: 1)
+      case .Gym: return .UseAppForWeeks(weeks: 2)
       default: return nil
+      }
+   }
+   
+   var name: String {
+      switch self {
+      case .Home: return "Home"
+      case .Work: return "Work"
+      case .Gym: return "Gym"
+      case .None: return "None"
+      }
+   }
+   
+   var unlockedTitleText: String {
+      return "You've unlocked the \(name) accessory pack!"
+   }
+   
+   var congratulationsTitleText: String {
+      switch self {
+      case .Home: return "You've unlocked the Home accessory pack!"
+      case .Work: return "Happy one week anniversary!"
+      case .Gym: return "You've unlocked the Gym accessory pack!"
+      case .None: return ""
+      }
+   }
+   
+   var unlockedMessageText: String {
+      switch self {
+      case .Home: return "You've created five tasks! Now furnish your pad with the Home accessory pack. You can change and add furniture in the edit menu."
+      case .Work: return "Way to keep at it. Stay energized with the Work accessory pack. You can change an add furniture in the edit menu."
+      case .Gym: return "You've used Goalie for 2 weeks! That's enough time to realize that your character is severely out of shape. Perfect timing to unlock the gym!"
+      case .None: return "Fuck this shit."
       }
    }
    

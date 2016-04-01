@@ -35,6 +35,7 @@
 		CEA373091CAA3EFD00697BBD /* PlopixKonamiGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA373081CAA3EFD00697BBD /* PlopixKonamiGesture.swift */; };
 		CEA3730B1CAB1A6E00697BBD /* CharacterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA3730A1CAB1A6E00697BBD /* CharacterManager.swift */; };
 		CEA3730D1CAB498B00697BBD /* UnlockedCharacterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA3730C1CAB498B00697BBD /* UnlockedCharacterCollectionViewCell.swift */; };
+		CEA5A6FD1CADD68E007E8580 /* AccessoryPackUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA5A6FC1CADD68E007E8580 /* AccessoryPackUtils.swift */; };
 		CEAA5A811C6ADEFA0061BFA8 /* BizeeBeeCharacterKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAA5A801C6ADEFA0061BFA8 /* BizeeBeeCharacterKit.swift */; };
 		CEAC1EB81C6BE2E600969E04 /* BusyBeeCompleted.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CEAC1EB71C6BE2E600969E04 /* BusyBeeCompleted.mp3 */; };
 		CEB0BE7A1CAB5C2E005CF72A /* AccessoryPackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB0BE791CAB5C2E005CF72A /* AccessoryPackManager.swift */; };
@@ -56,6 +57,7 @@
 		CEBB01081CA9887E005BB8DB /* BricksAccessoryKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBB01071CA9887E005BB8DB /* BricksAccessoryKit.swift */; };
 		CEBB010A1CA99044005BB8DB /* AccessoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBB01091CA99044005BB8DB /* AccessoriesViewController.swift */; };
 		CEC1C84C1C5C90CB0074290A /* ChangePriorityRight.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CEC1C84B1C5C90CB0074290A /* ChangePriorityRight.mp3 */; };
+		CED045F01CADEAF400ABA50A /* UnlockedAccessoryPackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED045EF1CADEAF400ABA50A /* UnlockedAccessoryPackViewController.swift */; };
 		CEE541011C6A7380008BEC7C /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE541001C6A7380008BEC7C /* AdSupport.framework */; };
 		CEE541041C6A73AD008BEC7C /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE541021C6A73AD008BEC7C /* Crashlytics.framework */; };
 		CEE541051C6A73AD008BEC7C /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE541031C6A73AD008BEC7C /* Fabric.framework */; };
@@ -160,6 +162,7 @@
 		CEA373081CAA3EFD00697BBD /* PlopixKonamiGesture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlopixKonamiGesture.swift; sourceTree = "<group>"; };
 		CEA3730A1CAB1A6E00697BBD /* CharacterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CharacterManager.swift; path = Goalie/CharacterManager.swift; sourceTree = "<group>"; };
 		CEA3730C1CAB498B00697BBD /* UnlockedCharacterCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UnlockedCharacterCollectionViewCell.swift; path = Goalie/UnlockedCharacterCollectionViewCell.swift; sourceTree = "<group>"; };
+		CEA5A6FC1CADD68E007E8580 /* AccessoryPackUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccessoryPackUtils.swift; path = Goalie/AccessoryPackUtils.swift; sourceTree = "<group>"; };
 		CEAA5A801C6ADEFA0061BFA8 /* BizeeBeeCharacterKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BizeeBeeCharacterKit.swift; path = PaintCode/BizeeBeeCharacterKit.swift; sourceTree = "<group>"; };
 		CEAC1EB71C6BE2E600969E04 /* BusyBeeCompleted.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = BusyBeeCompleted.mp3; path = Sounds/BusyBeeCompleted.mp3; sourceTree = "<group>"; };
 		CEB0BE791CAB5C2E005CF72A /* AccessoryPackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccessoryPackManager.swift; path = Goalie/AccessoryPackManager.swift; sourceTree = "<group>"; };
@@ -181,6 +184,7 @@
 		CEBB01071CA9887E005BB8DB /* BricksAccessoryKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BricksAccessoryKit.swift; path = PaintCode/BricksAccessoryKit.swift; sourceTree = "<group>"; };
 		CEBB01091CA99044005BB8DB /* AccessoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccessoriesViewController.swift; path = Goalie/AccessoriesViewController.swift; sourceTree = "<group>"; };
 		CEC1C84B1C5C90CB0074290A /* ChangePriorityRight.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = ChangePriorityRight.mp3; path = Sounds/ChangePriorityRight.mp3; sourceTree = "<group>"; };
+		CED045EF1CADEAF400ABA50A /* UnlockedAccessoryPackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UnlockedAccessoryPackViewController.swift; path = Goalie/UnlockedAccessoryPackViewController.swift; sourceTree = "<group>"; };
 		CEE541001C6A7380008BEC7C /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		CEE541021C6A73AD008BEC7C /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = Frameworks/Crashlytics.framework; sourceTree = "<group>"; };
 		CEE541031C6A73AD008BEC7C /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fabric.framework; path = Frameworks/Fabric.framework; sourceTree = "<group>"; };
@@ -572,6 +576,7 @@
 				CEBB00FB1CA982D1005BB8DB /* EditListCollectionViewCell.swift */,
 				CEBB00FF1CA98382005BB8DB /* EditListOption.swift */,
 				CEBB01091CA99044005BB8DB /* AccessoriesViewController.swift */,
+				CED045EF1CADEAF400ABA50A /* UnlockedAccessoryPackViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -593,6 +598,7 @@
 				CE6F6F0C1CAB5137003ED45A /* UnlockedAccessoryPackCollectionViewCell.swift */,
 				CEA373001CA9EE2800697BBD /* UnlockedBadgeView.swift */,
 				CEA3730C1CAB498B00697BBD /* UnlockedCharacterCollectionViewCell.swift */,
+				CEA5A6FC1CADD68E007E8580 /* AccessoryPackUtils.swift */,
 			);
 			name = "Custom UI";
 			sourceTree = "<group>";
@@ -747,6 +753,7 @@
 				CEBB01001CA98382005BB8DB /* EditListOption.swift in Sources */,
 				CE01007A1CA9C49100DFE513 /* WorkWindowAccessoryKit.swift in Sources */,
 				CEA3730D1CAB498B00697BBD /* UnlockedCharacterCollectionViewCell.swift in Sources */,
+				CED045F01CADEAF400ABA50A /* UnlockedAccessoryPackViewController.swift in Sources */,
 				F38319311C31A72D00C36ACB /* NSURL+Extensions.swift in Sources */,
 				F3A820011C441B490048237F /* GoalieFacePathProvider.swift in Sources */,
 				CEBB010A1CA99044005BB8DB /* AccessoriesViewController.swift in Sources */,
@@ -836,6 +843,7 @@
 				CE86B8691CA9AB8D004B2895 /* PlantAccessoryKit.swift in Sources */,
 				CE7F61FF1C6AF2D800C2C0A2 /* CharacterFacePathProvider.swift in Sources */,
 				CE86B8671CA9AB65004B2895 /* ClockAccessoryKit.swift in Sources */,
+				CEA5A6FD1CADD68E007E8580 /* AccessoryPackUtils.swift in Sources */,
 				CEA373091CAA3EFD00697BBD /* PlopixKonamiGesture.swift in Sources */,
 				F38B551A1C3859050022453F /* GoalieKerningButton.swift in Sources */,
 				F38B551C1C3863000022453F /* TaskPriorityUpdater.swift in Sources */,

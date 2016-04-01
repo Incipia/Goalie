@@ -17,7 +17,7 @@ class UnlockedAccessoryPackCollectionViewCell: UICollectionViewCell
    @IBOutlet private weak var _unlockedBadgeView: UnlockedBadgeView!
    
    @IBOutlet private weak var _accessoryBackgroundView: UIView!
-   @IBOutlet private weak var _accessoryView: AccessoryView!
+   @IBOutlet private weak var _accessoryPackBadgeView: AccessoryPackBadgeView!
    
    override func awakeFromNib()
    {
@@ -34,6 +34,7 @@ class UnlockedAccessoryPackCollectionViewCell: UICollectionViewCell
    func configureWithAccessoryPack(a: AccessoryPack)
    {
       _accessoryPack = a
+      _accessoryPackBadgeView.accessory = a
       _accessoryBackgroundView.backgroundColor = a.backgroundColor
       
       _nameLabel.updateText(a.title.uppercaseString)
@@ -52,6 +53,7 @@ class UnlockedAccessoryPackCollectionViewCell: UICollectionViewCell
    
    func updateUIForSelectedState()
    {
+      _accessoryPackBadgeView.selected = true
       _unlockedBadgeView.alpha = 1
       _accessoryBackgroundView.alpha = 1
 
@@ -64,6 +66,7 @@ class UnlockedAccessoryPackCollectionViewCell: UICollectionViewCell
    
    func updateUIForDeselectedState()
    {
+      _accessoryPackBadgeView.selected = false
       _unlockedBadgeView.alpha = 0.3
       _accessoryBackgroundView.alpha = 0.5
       

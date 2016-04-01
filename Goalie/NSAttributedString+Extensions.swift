@@ -78,6 +78,23 @@ extension NSAttributedString
       return NSAttributedString(string: text, attributes: attributes)
    }
    
+   
+   static func unlockedAccessoryPackAttributedString(pack: AccessoryPack) -> NSAttributedString
+   {
+      let font = UIFont(name: "NotoSans", size: 15)!
+      let paragraphStyle: NSMutableParagraphStyle = NSParagraphStyle.defaultParagraphStyle().mutableCopy() as! NSMutableParagraphStyle
+      paragraphStyle.alignment = NSTextAlignment.Center
+      paragraphStyle.lineHeightMultiple = 1.5
+      
+      let attributes = [
+         NSForegroundColorAttributeName : UIColor.blackColor(),
+         NSFontAttributeName : font,
+         NSParagraphStyleAttributeName : paragraphStyle
+      ]
+      
+      return NSAttributedString(string: pack.unlockedMessageText, attributes: attributes)
+   }
+   
    private static func _mainTextForPageNumber(number: Int) -> String?
    {
       switch number
