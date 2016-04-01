@@ -18,7 +18,7 @@ extension GoalieCharacter
       case .Unknown: return "None"
       case .Goalie: return "Goalie"
       case .BizeeBee: return "Bizeebee"
-      case .Fox: return "Taskington"
+      case .Fox: return "Sir Jobton"
       case .Checklistor: return "Listor"
       }
    }

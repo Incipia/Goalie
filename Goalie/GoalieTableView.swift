@@ -35,23 +35,11 @@ class GoalieTableView: LPRTableView
    @IBOutlet private var _firstTaskFooterViewArrow: UIImageView!
    @IBOutlet private var _firstTaskFooterView: UIView!
    @IBOutlet private var _normalGoalieFooterView: UIView!
-   
-   @IBOutlet private var _accessoryContainerViewHeightConstraint: NSLayoutConstraint!
-   @IBOutlet private var _currentCompletedSoundName: GoalieKerningLabel!
-   @IBAction private func _advanceCompletedSound()
-   {
-      SFXPlayer.advanceCompletedSound()
-      SFXPlayer.playCurrentCompletedSound()
-      _currentCompletedSoundName.updateText(SFXPlayer.currentCompletedSoundName()!)
-   }
-   @IBAction private func _decrementCompletedSound()
-   {
-      SFXPlayer.decrementCompletedSound()
-      SFXPlayer.playCurrentCompletedSound()
-      _currentCompletedSoundName.updateText(SFXPlayer.currentCompletedSoundName()!)
-   }
-   
+   @IBOutlet private weak var _accessoryContainer: UIView!
    @IBOutlet private var _goalieHeaderView: UIView!
+   
+   private var _speechBubbleTimer: NSTimer?
+   
    
    private var _goalieMovementAnimator: GoalieMovementAnimator!
    
@@ -121,7 +109,11 @@ class GoalieTableView: LPRTableView
    
    func goalieTapped()
    {
-      _swap()
+      if _speechBubbleTimer == nil {
+         _startTimerForSpeechBubble()
+      }
+      
+      showSpeechBubble()
    }
    
    func updateCharacter(character: GoalieCharacter)
@@ -153,8 +145,9 @@ class GoalieTableView: LPRTableView
    {
       // Needs refactor
       let priority = TaskPriority.Unknown
+      let character = CharacterManager.currentCharacter
       
-      let text = SpeechBubbleTextProvider.textForPriority(priority)
+      let text = SpeechBubbleTextProvider.textForCharacter(character, priority: priority)
       _leftSpeechBubble.updateWithText(text, priority: priority)
       _rightSpeechBubble.updateWithText(text, priority: priority)
       _goalieHeaderView.backgroundColor = UIColor.goalieHeaderBackgroundColor(priority)
@@ -189,7 +182,7 @@ class GoalieTableView: LPRTableView
       _goalieFaceView.updateWithPriority(priority)
       _goalieFaceView.animateFace()
       
-      let text = SpeechBubbleTextProvider.textForPriority(priority)
+      let text = SpeechBubbleTextProvider.textForCharacter(CharacterManager.currentCharacter, priority: priority)
       _leftSpeechBubble.updateWithText(text, priority: priority)
       _rightSpeechBubble.updateWithText(text, priority: priority)
       
@@ -205,7 +198,7 @@ class GoalieTableView: LPRTableView
    {
       _shouldShowSpeechBubble = true
       
-      let text = SpeechBubbleTextProvider.textForPriority(_currentPriority)
+      let text = SpeechBubbleTextProvider.textForCharacter(CharacterManager.currentCharacter, priority: _currentPriority)
       _leftSpeechBubble.updateWithText(text, priority: _currentPriority)
       _rightSpeechBubble.updateWithText(text, priority: _currentPriority)
       _showOnlyLeftOrRightSpeechBubble()
@@ -216,6 +209,8 @@ class GoalieTableView: LPRTableView
       _shouldShowSpeechBubble = false
       _animateViewOut(_leftSpeechBubble)
       _animateViewOut(_rightSpeechBubble)
+      
+      _killSpeechBubbleTimer()
    }
    
    func animateGoalie()
@@ -255,12 +250,8 @@ extension GoalieTableView
    // MARK: - Private
    private func _showOnlyLeftOrRightSpeechBubble()
    {
-      // The magic '12' is to account for the padding on the sides of the speech bubble
-//      let rightSpeechBubbleMaxX = _rightSpeechBubble.frame.origin.x + _rightSpeechBubble.actualWidth - 12
-////      let shouldShowLeft = _settingsButton.frame.minX < rightSpeechBubbleMaxX
       let oneOrZero = Int.randRange(0, upper: 1)
-      
-      if oneOrZero == 0 {// || shouldShowLeft {
+      if oneOrZero == 0 {
          if _leftSpeechBubble.hidden == true {
             _animateViewIn(_leftSpeechBubble, completion: nil)
             _rightSpeechBubble.hidden = true
@@ -313,9 +304,38 @@ extension GoalieTableView
       super.layoutSubviews()
       _updateHeaderViewFrame()
       
+      _updateAccessoryViewAlpha()
+      _updateAccessoryViewScale()
+      
       // only allow scrolling past bottom a certain amount
       if contentOffset.y < -_maximumHeaderHeight {
          contentOffset = CGPoint(x: 0, y: -_maximumHeaderHeight)
+      }
+   }
+   
+   private func _updateAccessoryViewAlpha()
+   {
+      let currentHeaderHeight = _goalieHeaderView.frame.height
+      let difference = _defaultHeaderHeight - currentHeaderHeight
+      var alpha: CGFloat = 1.0
+      
+      if difference > 1 {
+         var percentage = difference / (_defaultHeaderHeight - _minimumHeaderHeight)
+         if percentage < 0.02 {
+            percentage = 0
+         }
+         
+         alpha = 1 - percentage
+      }
+      
+      _accessoryContainer.alpha = alpha
+   }
+   
+   private func _updateAccessoryViewScale()
+   {
+      if contentOffset.y >= -_maximumHeaderHeight && contentOffset.y <= -_defaultHeaderHeight {
+         let alphaPercentage = (contentOffset.y + _defaultHeaderHeight) / (_maximumHeaderHeight - _defaultHeaderHeight) * -0.4
+         _accessoryContainer.transform = CGAffineTransformMakeScale(1 + alphaPercentage * 0.5, 1 + alphaPercentage)
       }
    }
    
@@ -346,5 +366,29 @@ extension GoalieTableView
          }
       }
       return height
+   }
+}
+
+extension GoalieTableView
+{
+   private func _startTimerForSpeechBubble()
+   {
+      guard _speechBubbleTimer == nil else {return}
+      
+      _speechBubbleTimer = NSTimer(fireDate: NSDate().dateByAddingTimeInterval(10), interval: 0, target: self, selector: "_hideSpeechBubble:", userInfo: nil, repeats: false)
+      NSRunLoop.mainRunLoop().addTimer(_speechBubbleTimer!, forMode: NSDefaultRunLoopMode)
+   }
+   
+   private func _killSpeechBubbleTimer()
+   {
+      _speechBubbleTimer?.invalidate()
+      _speechBubbleTimer = nil
+   }
+   
+   
+   internal func _hideSpeechBubble(timer: NSTimer)
+   {
+      _killSpeechBubbleTimer()
+      hideSpeechBubble()
    }
 }

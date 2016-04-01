@@ -48,10 +48,22 @@ class ChecklistorFaceLayer: CharacterFaceLayer
          _currentlyAnimating = true
          switch priority
          {
-         case .Ages: break
-         case .Later: _animateEyeWithPath(_eyePathProvider.gushyEyePath)
-         case .Soon: break
-         case .ASAP: break
+         case .Ages: _animateEyeWithPath(_eyePathProvider.bigEyePath)
+         case .Later:
+            if Int.randRange(0, upper: 1) == 1 {
+               _animateEyeWithPath(_eyePathProvider.gushyEyePath)
+            }
+            else {
+               _animateEyeWithPath(_eyePathProvider.bigEyePath)
+            }
+         case .Soon:
+            if Int.randRange(0, upper: 1) == 1 {
+               _animateEyeWithPath(_eyePathProvider.bigVerticalEyePath)
+            }
+            else {
+               _animateEyeWithPath(_eyePathProvider.lookingDownEyePath)
+            }
+         case .ASAP: _animateEyeWithPath(_eyePathProvider.thinHorizontalEyePath)
          case .Unknown:
             _currentlyAnimating = false
          }

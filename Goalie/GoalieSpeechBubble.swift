@@ -84,7 +84,7 @@ class GoalieSpeechBubble: UIView
    func updateWithText(text: String, priority: TaskPriority)
    {
       _currentPriority = priority
-      _updateTextLabelWithText(text, priority: priority)
+      _updateTextLabelWithText(text.uppercaseString, priority: priority)
       setNeedsDisplay()
    }
    

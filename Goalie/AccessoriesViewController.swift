@@ -30,6 +30,8 @@ class AccessoriesViewController: UIViewController
    @IBOutlet private weak var _homeView: HomeView!
    @IBOutlet private weak var _workView: WorkView!
    
+   private var _viewTransformer: ViewTransformer!
+   
    private(set) var currentAccessoryPack: AccessoryPack = .None
    
    override func viewDidLoad()
@@ -40,12 +42,16 @@ class AccessoriesViewController: UIViewController
       view.addSubview(_homeView)
       view.addSubview(_workView)
       
+      _viewTransformer = ViewTransformer(view: view)
+      _viewTransformer.takeItEasy = true
+      
       _updateUIWithAccessoryPack(currentAccessoryPack)
    }
    
    override func viewDidLayoutSubviews()
    {
       super.viewDidLayoutSubviews()
+      
       for view in _accessoryPacksViews {
          view.frame = self.view.bounds
       }
@@ -84,6 +90,37 @@ class AccessoriesViewController: UIViewController
       case .Work: _workView.hidden = false
       case .None: break
       }
+   }
+   
+   override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?)
+   {
+      super.touchesBegan(touches, withEvent: event)
+      _viewTransformer.touchesBegan(touches)
+   }
+   
+   override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?)
+   {
+      super.touchesMoved(touches, withEvent: event)
+      
+      guard let point = touches.first?.locationInView(nil) where
+         view.bounds.contains(point) else {
+            _viewTransformer.resetViewWithDuration(0.5)
+            return
+      }
+      
+      _viewTransformer.touchesMoved(touches)
+   }
+   
+   override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?)
+   {
+      super.touchesEnded(touches, withEvent: event)
+      _viewTransformer.resetViewWithDuration(0.5)
+   }
+   
+   override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?)
+   {
+      super.touchesCancelled(touches, withEvent: event)
+      _viewTransformer.resetViewWithDuration(0.5)
    }
 }
 

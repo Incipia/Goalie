@@ -305,6 +305,7 @@
                                                     </tableViewCell>
                                                 </prototypes>
                                                 <connections>
+                                                    <outlet property="_accessoryContainer" destination="sjJ-e5-7DA" id="MGX-8h-sUe"/>
                                                     <outlet property="_firstTaskFooterView" destination="ZpZ-fK-L3y" id="fZS-di-9r3"/>
                                                     <outlet property="_firstTaskFooterViewArrow" destination="rSD-oe-3Jr" id="msZ-1f-Sdh"/>
                                                     <outlet property="_goalieFaceContainerView" destination="SEI-SD-L9z" id="A9W-Ag-zQH"/>
@@ -442,6 +443,7 @@
                                     <constraint firstAttribute="width" constant="60" id="aUi-Oi-Nfc"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="12"/>
+                                <inset key="contentEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="DONE">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
