@@ -8,8 +8,9 @@
 
 import Foundation
 
-private let FoxPurchaseID = "com.Incipia.Goalie.FoxCharacter"
-private let ChecklistorPurchaseID = "com.Incipia.Goalie.SeaCreatureCharacter"
+private let FoxPurchaseID = "com.Incipia.Goalie.SirJobton"
+private let ChecklistorPurchaseID = "com.Incipia.Goalie.Listor"
+private let BizeeBeePurchaseID = "com.Incipia.Goalie.BizeeBee"
 
 extension GoalieCharacter
 {
@@ -27,7 +28,7 @@ extension GoalieCharacter
       switch self {
       case .Unknown: return "None"
       case .Goalie: return "Silly, kind, and ready for adventure"
-      case .BizeeBee: return "Wild, dramatic, and a bit passive agressive"
+      case .BizeeBee: return "Wild, dramatic, and a bit passive aggressive"
       case .Fox: return "Proper, elegant, and cool as a cucumber"
       case .Checklistor: return "Lovable, clumsy oaf of a sea slug"
       }
@@ -38,7 +39,7 @@ extension GoalieCharacter
 {
    var unlockAction: UnlockAction? {
       switch self {
-      case .BizeeBee: return .RateApp
+      case .BizeeBee: return .Purchase(value: 0.99, id: BizeeBeePurchaseID)
       case .Fox: return .Purchase(value: 0.99, id: FoxPurchaseID)
       case .Checklistor: return .Purchase(value: 0.99, id: ChecklistorPurchaseID)
       default: return nil
@@ -50,6 +51,7 @@ extension GoalieCharacter
       switch id {
       case FoxPurchaseID: return .Fox
       case ChecklistorPurchaseID: return .Checklistor
+      case BizeeBeePurchaseID: return .BizeeBee
       default: return nil
       }
    }

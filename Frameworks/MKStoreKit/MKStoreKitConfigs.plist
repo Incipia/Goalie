@@ -6,8 +6,9 @@
 	<dict/>
 	<key>Others</key>
 	<array>
-		<string>com.Incipia.Goalie.FoxCharacter</string>
-		<string>com.Incipia.Goalie.SeaCreatureCharacter</string>
+		<string>com.Incipia.Goalie.SirJobton</string>
+		<string>com.Incipia.Goalie.Listor</string>
+		<string>com.Incipia.Goalie.BizeeBee</string>
 	</array>
 	<key>SharedSecret</key>
 	<string>abbba54184614474aa73a396eff96b82</string>
