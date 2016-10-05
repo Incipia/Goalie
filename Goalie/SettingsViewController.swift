@@ -48,6 +48,13 @@ class SettingsViewController: UIViewController, ManagedObjectContextSettable, Me
 //      _containerView.layer.cornerRadius = 4.0
 //      _containerView.layer.masksToBounds = true
    }
+	
+	override func viewDidLayoutSubviews() {
+		super.viewDidLayoutSubviews()
+		
+		let shadowPath = UIBezierPath(rect: _containerView.bounds)
+		_containerView.layer.shadowPath = shadowPath.CGPath
+	}
    
    override func viewWillAppear(animated: Bool)
    {
@@ -64,9 +71,6 @@ class SettingsViewController: UIViewController, ManagedObjectContextSettable, Me
    // Mark: - Private
    private func _setupShadow()
 	{
-		let shadowPath = UIBezierPath(rect: _containerView.bounds)
-		
-		_containerView.layer.shadowPath = shadowPath.CGPath
       _containerView.layer.shadowColor = UIColor.blackColor().CGColor
       _containerView.layer.shadowOpacity = 0.2
       _containerView.layer.shadowOffset = CGSize(width: 0, height: 4)

@@ -62,8 +62,11 @@ class EditTaskViewController: UIViewController, ManagedObjectContextSettable, Me
       _asapPriorityBlock.roundCorners(.Left)
       _agesPriorityBlock.roundCorners(.Right)
       _updatePriorityIndicatorViewFrameAnimated(false)
+		
+		let shadowPath = UIBezierPath(rect: _detailsContainerView.bounds)
+		_detailsContainerView.layer.shadowPath = shadowPath.CGPath
    }
-   
+	
    override func preferredStatusBarStyle() -> UIStatusBarStyle
    {
       return .LightContent
@@ -202,9 +205,6 @@ extension EditTaskViewController
 {
    private func _setupShadow()
    {
-      let shadowPath = UIBezierPath(rect: _detailsContainerView.bounds)
-      
-      _detailsContainerView.layer.shadowPath = shadowPath.CGPath
       _detailsContainerView.layer.shadowColor = UIColor.blackColor().CGColor
       _detailsContainerView.layer.shadowOpacity = 0.2
       _detailsContainerView.layer.shadowOffset = CGSize(width: 0, height: 4)
