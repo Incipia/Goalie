@@ -121,11 +121,11 @@ class BizeeBeeCharacterKit
       bodyOutlinePath.closePath()
       bodyOutlinePath.miterLimit = 4;
       
-      CGContextSaveGState(context)
-      CGContextSetShadowWithColor(context, shadow.shadowOffset, shadow.shadowBlurRadius, (shadow.shadowColor as! UIColor).CGColor)
+      CGContextSaveGState(context!)
+      CGContextSetShadowWithColor(context!, shadow.shadowOffset, shadow.shadowBlurRadius, (shadow.shadowColor as! UIColor).CGColor)
       bodyColor.setFill()
       bodyOutlinePath.fill()
-      CGContextRestoreGState(context)
+      CGContextRestoreGState(context!)
       
       
       

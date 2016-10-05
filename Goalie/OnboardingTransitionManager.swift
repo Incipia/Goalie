@@ -13,7 +13,7 @@ class OnboardingTransitionManager: NSObject, UIViewControllerAnimatedTransitioni
    // MARK: - UIViewControllerAnimatedTransitioning protocol methods
    func animateTransition(transitionContext: UIViewControllerContextTransitioning)
    {
-      let container = transitionContext.containerView()!
+      let container = transitionContext.containerView()
       
       let fromController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey) as! OnboardingViewController
       let toController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey) as! MainTasksViewController

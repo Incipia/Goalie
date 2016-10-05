@@ -158,11 +158,11 @@ class FoxCharacterKit
       bezier2Path.addCurveToPoint(CGPointMake(67.72, 26.91), controlPoint1: CGPointMake(84.39, 49.66), controlPoint2: CGPointMake(80.85, 33.58))
       bezier2Path.addCurveToPoint(CGPointMake(47.09, 26.57), controlPoint1: CGPointMake(61.07, 23.48), controlPoint2: CGPointMake(53.51, 23.63))
       bezier2Path.closePath()
-      CGContextSaveGState(context)
-      CGContextSetShadowWithColor(context, shadow.shadowOffset, shadow.shadowBlurRadius, (shadow.shadowColor as! UIColor).CGColor)
+      CGContextSaveGState(context!)
+      CGContextSetShadowWithColor(context!, shadow.shadowOffset, shadow.shadowBlurRadius, (shadow.shadowColor as! UIColor).CGColor)
       fillColor19.setFill()
       bezier2Path.fill()
-      CGContextRestoreGState(context)
+      CGContextRestoreGState(context!)
       
       
       

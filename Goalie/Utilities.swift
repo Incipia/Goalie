@@ -80,7 +80,7 @@ extension Int
    static func randRange(lower : Int , upper : Int) -> Int
    {
       let difference = upper - lower
-      return Int(Float(rand())/Float(RAND_MAX) * Float(difference + 1)) + lower
+      return Int(Float(arc4random())/Float(RAND_MAX) * Float(difference + 1)) + lower
    }
 }
 
@@ -89,7 +89,7 @@ extension CGFloat
    static func randRange(lower : CGFloat , upper : CGFloat) -> CGFloat
    {
       let difference = upper - lower
-      return CGFloat(rand())/CGFloat(RAND_MAX) * CGFloat(difference + 1) + lower
+      return CGFloat(arc4random())/CGFloat(RAND_MAX) * CGFloat(difference + 1) + lower
    }
 }
 

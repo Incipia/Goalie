@@ -51,9 +51,9 @@ class ComputerAccessoryKit: AccessoryItemDrawing
       
       
       //// Group 2
-      CGContextSaveGState(context)
-      CGContextSetAlpha(context, 0.4)
-      CGContextBeginTransparencyLayer(context, nil)
+      CGContextSaveGState(context!)
+      CGContextSetAlpha(context!, 0.4)
+      CGContextBeginTransparencyLayer(context!, nil)
       
       
       //// Bezier Drawing
@@ -100,7 +100,7 @@ class ComputerAccessoryKit: AccessoryItemDrawing
       bezier3Path.fill()
       
       
-      CGContextEndTransparencyLayer(context)
-      CGContextRestoreGState(context)
+      CGContextEndTransparencyLayer(context!)
+      CGContextRestoreGState(context!)
    }
 }

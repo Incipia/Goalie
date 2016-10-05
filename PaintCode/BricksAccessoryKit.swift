@@ -29,9 +29,9 @@ class BricksAccessoryKit: AccessoryItemDrawing
       
       //// bricks-blue Group
       //// Group 2
-      CGContextSaveGState(context)
-      CGContextSetAlpha(context, 0.4)
-      CGContextBeginTransparencyLayer(context, nil)
+      CGContextSaveGState(context!)
+      CGContextSetAlpha(context!, 0.4)
+      CGContextBeginTransparencyLayer(context!, nil)
       
       
       //// Bezier Drawing
@@ -50,8 +50,8 @@ class BricksAccessoryKit: AccessoryItemDrawing
       bezierPath.fill()
       
       
-      CGContextEndTransparencyLayer(context)
-      CGContextRestoreGState(context)
+      CGContextEndTransparencyLayer(context!)
+      CGContextRestoreGState(context!)
       
       
       //// Rectangle Drawing

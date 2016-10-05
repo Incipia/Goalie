@@ -153,9 +153,9 @@ class GoalieTableView: LPRTableView
       _goalieHeaderView.backgroundColor = UIColor.goalieHeaderBackgroundColor(priority)
       
       let newAnchorPoint = CGPoint(x: 0.5, y: 1)
-      _goalieFaceView.adjustAnchorPoint(newAnchorPoint)
-      _leftSpeechBubble.adjustAnchorPoint(newAnchorPoint)
-      _rightSpeechBubble.adjustAnchorPoint(newAnchorPoint)
+//      _goalieFaceView.adjustAnchorPoint(newAnchorPoint)
+//      _leftSpeechBubble.adjustAnchorPoint(newAnchorPoint)
+//      _rightSpeechBubble.adjustAnchorPoint(newAnchorPoint)
    }
    
    // MARK: - Public

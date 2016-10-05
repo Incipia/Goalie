@@ -26,9 +26,8 @@ class UnlockedAccessoryPackCollectionViewCell: UICollectionViewCell
       backgroundColor = UIColor.whiteColor()
       layer.borderColor = UIColor(white: 0.9, alpha: 1).CGColor
       layer.borderWidth = 1
-      layer.cornerRadius = 3.0
-      
-      _accessoryBackgroundView.layer.cornerRadius = _accessoryBackgroundView.bounds.width * 0.5
+		layer.cornerRadius = 3.0
+		_accessoryBackgroundView.layer.cornerRadius = 35
    }
    
    func configureWithAccessoryPack(a: AccessoryPack)

@@ -51,7 +51,7 @@ class MenuTransitionManager: NSObject, UIViewControllerAnimatedTransitioning, UI
    private func _presentWithTransitionContext(transitionContext: UIViewControllerContextTransitioning)
    {
       // get reference to our fromView, toView and the container view that we should perform the transition in
-      let container = transitionContext.containerView()!
+      let container = transitionContext.containerView()
       
       guard let toController = transitionContext.toViewController as? MenuController else {
          transitionContext.completeTransition(true)
@@ -91,7 +91,7 @@ class MenuTransitionManager: NSObject, UIViewControllerAnimatedTransitioning, UI
    private func _dismissWithTransitionContext(transitionContext: UIViewControllerContextTransitioning)
    {
       // get reference to our fromView, toView and the container view that we should perform the transition in
-      let container = transitionContext.containerView()!
+      let container = transitionContext.containerView()
       guard let fromController = transitionContext.fromViewController as? MenuController else {
          transitionContext.completeTransition(true)
          return

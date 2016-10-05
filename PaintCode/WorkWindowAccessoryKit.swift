@@ -25,9 +25,9 @@ class WorkWindowAccessoryKit: AccessoryItemDrawing
       
       //// Group 2
       //// Group
-      CGContextSaveGState(context)
-      CGContextSetAlpha(context, 0.4)
-      CGContextBeginTransparencyLayer(context, nil)
+      CGContextSaveGState(context!)
+      CGContextSetAlpha(context!, 0.4)
+      CGContextBeginTransparencyLayer(context!, nil)
       
       
       //// Bezier Drawing
@@ -82,8 +82,8 @@ class WorkWindowAccessoryKit: AccessoryItemDrawing
       bezierPath.fill()
       
       
-      CGContextEndTransparencyLayer(context)
-      CGContextRestoreGState(context)
+      CGContextEndTransparencyLayer(context!)
+      CGContextRestoreGState(context!)
       
       
       //// Bezier 2 Drawing

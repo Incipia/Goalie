@@ -8,7 +8,7 @@
 
 import Foundation
 
-class CharacterFaceLayer: CALayer
+class CharacterFaceLayer: CALayer, CAAnimationDelegate
 {
    var backingContainerLayer: CALayer?
    
@@ -287,7 +287,7 @@ class CharacterFaceLayer: CALayer
       _mouthLayer.addAnimation(animationGroup, forKey: "scaredMouthShrink")
    }
    
-   internal override func animationDidStop(anim: CAAnimation, finished flag: Bool)
+   func animationDidStop(anim: CAAnimation, finished flag: Bool)
    {
       self._currentlyAnimating = false
    }

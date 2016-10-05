@@ -46,11 +46,11 @@ struct GoalieSpeechBubbleKit
       bezierPath.closePath()
       bezierPath.miterLimit = 4;
       
-      CGContextSaveGState(context)
-      CGContextSetShadowWithColor(context, speechBubbleShadow.shadowOffset, speechBubbleShadow.shadowBlurRadius, (speechBubbleShadow.shadowColor as! UIColor).CGColor)
+      CGContextSaveGState(context!)
+      CGContextSetShadowWithColor(context!, speechBubbleShadow.shadowOffset, speechBubbleShadow.shadowBlurRadius, (speechBubbleShadow.shadowColor as! UIColor).CGColor)
       color.setFill()
       bezierPath.fill()
-      CGContextRestoreGState(context)
+      CGContextRestoreGState(context!)
    }
    
    private static func _drawBubblePointingRight(frame frame: CGRect = CGRectMake(0, 0, 180, 87), withColor color: UIColor) {
@@ -81,10 +81,10 @@ struct GoalieSpeechBubbleKit
       bezierPath.closePath()
       bezierPath.miterLimit = 4;
       
-      CGContextSaveGState(context)
-      CGContextSetShadowWithColor(context, speechBubbleShadow.shadowOffset, speechBubbleShadow.shadowBlurRadius, (speechBubbleShadow.shadowColor as! UIColor).CGColor)
+      CGContextSaveGState(context!)
+      CGContextSetShadowWithColor(context!, speechBubbleShadow.shadowOffset, speechBubbleShadow.shadowBlurRadius, (speechBubbleShadow.shadowColor as! UIColor).CGColor)
       color.setFill()
       bezierPath.fill()
-      CGContextRestoreGState(context)
+      CGContextRestoreGState(context!)
    }
 }

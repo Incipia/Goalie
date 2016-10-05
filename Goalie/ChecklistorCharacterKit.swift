@@ -247,11 +247,11 @@ class ChecklistorCharacterKit
       bodyPath.addCurveToPoint(CGPointMake(11, 38.2), controlPoint1: CGPointMake(30.71, 6.08), controlPoint2: CGPointMake(11, 18.12))
       bodyPath.addCurveToPoint(CGPointMake(21.34, 60.12), controlPoint1: CGPointMake(11, 46.88), controlPoint2: CGPointMake(15.04, 54.78))
       bodyPath.closePath()
-      CGContextSaveGState(context)
-      CGContextSetShadowWithColor(context, shadow.shadowOffset, shadow.shadowBlurRadius, (shadow.shadowColor as! UIColor).CGColor)
+      CGContextSaveGState(context!)
+      CGContextSetShadowWithColor(context!, shadow.shadowOffset, shadow.shadowBlurRadius, (shadow.shadowColor as! UIColor).CGColor)
       bodyColor.setFill()
       bodyPath.fill()
-      CGContextRestoreGState(context)
+      CGContextRestoreGState(context!)
       
       //// Right Cheek Drawing
       let rightCheekPath = UIBezierPath(ovalInRect: CGRectMake(55.1, 37.52, 5.5, 5.5))

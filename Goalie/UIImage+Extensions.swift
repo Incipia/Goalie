@@ -18,7 +18,7 @@ extension UIImage
       color.setFill()
       UIRectFill(rect)
       
-      let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()
+      let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
       UIGraphicsEndImageContext()
       
       return image
@@ -39,7 +39,7 @@ extension UIImage
       let image = UIGraphicsGetImageFromCurrentImageContext()
       UIGraphicsEndImageContext()
       
-      return image
+      return image!
    }
    
    class func alternateImageWithWidth(width: CGFloat, height: CGFloat, topPadding: CGFloat) -> UIImage
@@ -63,7 +63,7 @@ extension UIImage
       let image = UIGraphicsGetImageFromCurrentImageContext()
       UIGraphicsEndImageContext()
       
-      return image
+      return image!
    }
    
    class func patternImageForFrames(frames: [CGRect], width: CGFloat, firstColor: UIColor, secondColor: UIColor, extraRows: Int, defaultHeight: CGFloat) -> UIImage
@@ -109,7 +109,7 @@ extension UIImage
       let image = UIGraphicsGetImageFromCurrentImageContext()
       UIGraphicsEndImageContext()
       
-      return image
+      return image!
    }
    
    // Meant for tiling

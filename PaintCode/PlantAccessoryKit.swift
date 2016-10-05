@@ -41,9 +41,9 @@ class PlantAccessoryKit: AccessoryItemDrawing
       
       
       //// Group 2
-      CGContextSaveGState(context)
-      CGContextSetAlpha(context, 0.4)
-      CGContextBeginTransparencyLayer(context, nil)
+      CGContextSaveGState(context!)
+      CGContextSetAlpha(context!, 0.4)
+      CGContextBeginTransparencyLayer(context!, nil)
       
       
       //// Bezier 2 Drawing
@@ -72,7 +72,7 @@ class PlantAccessoryKit: AccessoryItemDrawing
       bezier2Path.fill()
       
       
-      CGContextEndTransparencyLayer(context)
-      CGContextRestoreGState(context)
+      CGContextEndTransparencyLayer(context!)
+      CGContextRestoreGState(context!)
    }
 }

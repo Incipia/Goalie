@@ -1,64 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8kc-U2-rbB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="8kc-U2-rbB">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <mutableArray key="NotoSans-Bold.ttf">
+        <array key="NotoSans-Bold.ttf">
             <string>NotoSans-Bold</string>
-            <string>NotoSans-Bold</string>
-            <string>NotoSans-Bold</string>
-            <string>NotoSans-Bold</string>
-            <string>NotoSans-Bold</string>
-            <string>NotoSans-Bold</string>
-            <string>NotoSans-Bold</string>
-            <string>NotoSans-Bold</string>
-            <string>NotoSans-Bold</string>
-            <string>NotoSans-Bold</string>
-            <string>NotoSans-Bold</string>
-            <string>NotoSans-Bold</string>
-            <string>NotoSans-Bold</string>
-            <string>NotoSans-Bold</string>
-            <string>NotoSans-Bold</string>
-            <string>NotoSans-Bold</string>
-            <string>NotoSans-Bold</string>
-            <string>NotoSans-Bold</string>
-            <string>NotoSans-Bold</string>
-            <string>NotoSans-Bold</string>
-            <string>NotoSans-Bold</string>
-            <string>NotoSans-Bold</string>
-            <string>NotoSans-Bold</string>
-            <string>NotoSans-Bold</string>
-            <string>NotoSans-Bold</string>
-            <string>NotoSans-Bold</string>
-            <string>NotoSans-Bold</string>
-            <string>NotoSans-Bold</string>
-            <string>NotoSans-Bold</string>
-            <string>NotoSans-Bold</string>
-            <string>NotoSans-Bold</string>
-            <string>NotoSans-Bold</string>
-            <string>NotoSans-Bold</string>
-            <string>NotoSans-Bold</string>
-            <string>NotoSans-Bold</string>
-            <string>NotoSans-Bold</string>
-        </mutableArray>
-        <mutableArray key="NotoSans-Regular.ttf">
+        </array>
+        <array key="NotoSans-Regular.ttf">
             <string>NotoSans</string>
-            <string>NotoSans</string>
-            <string>NotoSans</string>
-            <string>NotoSans</string>
-            <string>NotoSans</string>
-            <string>NotoSans</string>
-            <string>NotoSans</string>
-            <string>NotoSans</string>
-            <string>NotoSans</string>
-            <string>NotoSans</string>
-            <string>NotoSans</string>
-        </mutableArray>
+        </array>
     </customFonts>
     <scenes>
         <!--Main Tasks View Controller-->
@@ -70,36 +26,30 @@
                         <viewControllerLayoutGuide type="bottom" id="Apd-gi-Xig"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="XC8-un-M2Z">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ign-zm-qCD">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bfn-18-ygh" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                         <subviews>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="arb-Tb-vJa" customClass="GoalieTableView" customModule="Goalie" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <color key="separatorColor" red="0.86506504023840902" green="0.87334130994485826" blue="0.92240767044646466" alpha="1" colorSpace="calibratedRGB"/>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="arb-Tb-vJa" customClass="GoalieTableView" customModule="Goalie" customModuleProvider="target">
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="separatorColor" red="0.86506504023840902" green="0.87334130994485826" blue="0.92240767044646466" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <inset key="separatorInset" minX="40" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <view key="tableHeaderView" contentMode="scaleToFill" id="8fz-02-pSg">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="300"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
                                                         <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sjJ-e5-7DA">
-                                                            <rect key="frame" x="0.0" y="0.0" width="320" height="300"/>
                                                             <connections>
                                                                 <segue destination="RgJ-Kh-zb7" kind="embed" id="fff-1F-f6C"/>
                                                             </connections>
                                                         </containerView>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SEI-SD-L9z" userLabel="Character View Container">
-                                                            <rect key="frame" x="120" y="115" width="80" height="100"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EtT-D2-vub" customClass="CharacterView" customModule="Goalie" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="100"/>
-                                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.39882535460992907" colorSpace="calibratedRGB"/>
+                                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.39882535460992907" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <connections>
                                                                         <outlet property="centerYConstraint" destination="q4P-GY-u0N" id="1Tq-t5-0FK"/>
                                                                         <outlet property="containerView" destination="SEI-SD-L9z" id="vhp-H8-Fn8"/>
@@ -108,7 +58,7 @@
                                                                     </connections>
                                                                 </view>
                                                             </subviews>
-                                                            <color key="backgroundColor" red="1" green="0.60022615131578949" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                                            <color key="backgroundColor" red="1" green="0.60022615131578949" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="bottom" secondItem="EtT-D2-vub" secondAttribute="bottom" id="2dG-qB-LJr"/>
                                                                 <constraint firstAttribute="trailing" secondItem="EtT-D2-vub" secondAttribute="trailing" id="JFw-th-FZH"/>
@@ -119,8 +69,7 @@
                                                             </constraints>
                                                         </view>
                                                         <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f7d-lu-WBo" customClass="GoalieSpeechBubble" customModule="Goalie" customModuleProvider="target">
-                                                            <rect key="frame" x="180" y="113" width="120" height="62"/>
-                                                            <color key="backgroundColor" white="1" alpha="0.6138091216216216" colorSpace="calibratedWhite"/>
+                                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.6138091216216216" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="120" id="VEj-fB-9PJ"/>
                                                                 <constraint firstAttribute="height" constant="62" id="hKq-xJ-ucU"/>
@@ -131,8 +80,7 @@
                                                             </connections>
                                                         </view>
                                                         <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cmf-hr-XMs" customClass="GoalieSpeechBubble" customModule="Goalie" customModuleProvider="target">
-                                                            <rect key="frame" x="20" y="113" width="120" height="62"/>
-                                                            <color key="backgroundColor" white="1" alpha="0.61380912160000001" colorSpace="calibratedWhite"/>
+                                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.61380912160000001" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="120" id="8aW-CL-ZBs"/>
                                                                 <constraint firstAttribute="height" constant="62" id="wIO-yu-x6O"/>
@@ -143,7 +91,6 @@
                                                             </connections>
                                                         </view>
                                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DfY-8z-K5t" customClass="GoalieKerningButton" customModule="Goalie" customModuleProvider="target">
-                                                            <rect key="frame" x="16" y="26" width="43" height="33"/>
                                                             <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="15"/>
                                                             <state key="normal" title="SWAP"/>
                                                             <connections>
@@ -151,31 +98,29 @@
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="11J-Y1-OrL">
-                                                            <rect key="frame" x="230" y="22" width="40" height="40"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="11J-Y1-OrL" secondAttribute="height" multiplier="1:1" id="1Lk-nk-PrN"/>
                                                                 <constraint firstAttribute="width" constant="40" id="O22-wG-jJ0"/>
                                                             </constraints>
-                                                            <color key="tintColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="deviceRGB"/>
+                                                            <color key="tintColor" red="0.94097667932510376" green="0.940948486328125" blue="0.9409644603729248" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <state key="normal" image="edit-pencil-icon"/>
                                                             <connections>
                                                                 <action selector="_editListButtonPressed" destination="8kc-U2-rbB" eventType="touchUpInside" id="xMm-tv-6bC"/>
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="451-cQ-ISH">
-                                                            <rect key="frame" x="270" y="22" width="40" height="40"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="451-cQ-ISH" secondAttribute="height" multiplier="1:1" id="uEP-wK-wv6"/>
                                                                 <constraint firstAttribute="width" constant="40" id="wG2-wP-MiH"/>
                                                             </constraints>
-                                                            <color key="tintColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="deviceRGB"/>
+                                                            <color key="tintColor" red="0.94097667932510376" green="0.940948486328125" blue="0.9409644603729248" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <state key="normal" image="settings-gear-new"/>
                                                             <connections>
                                                                 <action selector="_settingsButtonPressed" destination="8kc-U2-rbB" eventType="touchUpInside" id="8u6-SS-P1t"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="0.070588235289999995" green="0.64313725489999995" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                                                    <color key="backgroundColor" red="0.092910058796405792" green="0.56427377462387085" blue="0.99851632118225098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <gestureRecognizers/>
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="451-cQ-ISH" secondAttribute="trailing" constant="10" id="2VE-DG-Zcn"/>
@@ -202,45 +147,41 @@
                                                 </view>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TasksTableViewCell" rowHeight="50" id="0U4-ke-0VQ" customClass="TasksTableViewCell" customModule="Goalie" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="328" width="320" height="50"/>
+                                                        <rect key="frame" x="0.0" y="328" width="375" height="50"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0U4-ke-0VQ" id="EMJ-Nu-7yC">
-                                                            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                                                            <frame key="frameInset" width="375" height="50"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CYa-Pq-pB0">
-                                                                    <rect key="frame" x="22" y="1" width="12" height="48"/>
-                                                                    <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="deviceRGB"/>
+                                                                    <color key="backgroundColor" red="0.94097667932510376" green="0.940948486328125" blue="0.9409644603729248" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="48" id="DdX-qD-maM"/>
                                                                         <constraint firstAttribute="width" constant="12" id="heP-wt-HSv"/>
                                                                     </constraints>
                                                                 </view>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aNQ-9u-4An" userLabel="Plus Button">
-                                                                    <rect key="frame" x="44" y="0.0" width="58" height="50"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="58" id="vpP-Nd-gbn"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
-                                                                    <color key="tintColor" red="0.89411764705882346" green="0.89803921568627454" blue="0.90588235294117647" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <color key="tintColor" red="0.89411764705882346" green="0.89803921568627454" blue="0.90588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <state key="normal" title="+"/>
                                                                 </button>
                                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="261" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1w8-iD-MBV">
-                                                                    <rect key="frame" x="102" y="10" width="175" height="30"/>
-                                                                    <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="30" id="sV9-Yd-OlO"/>
                                                                     </constraints>
-                                                                    <color key="textColor" red="0.24700414417379299" green="0.25129465517053251" blue="0.27128708964646464" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <color key="textColor" red="0.24700414417379299" green="0.25129465517053251" blue="0.27128708964646464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <fontDescription key="fontDescription" name="NotoSans" family="Noto Sans" pointSize="13"/>
                                                                     <textInputTraits key="textInputTraits"/>
                                                                 </textField>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MD8-uu-bom">
-                                                                    <rect key="frame" x="285" y="2" width="35" height="48"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="35" id="PXA-ot-Pvs"/>
                                                                     </constraints>
-                                                                    <color key="tintColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="deviceRGB"/>
+                                                                    <color key="tintColor" red="0.94097667932510376" green="0.940948486328125" blue="0.9409644603729248" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="8" maxY="0.0"/>
                                                                     <state key="normal" image="arrow"/>
                                                                     <connections>
@@ -248,22 +189,20 @@
                                                                     </connections>
                                                                 </button>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gAh-as-43A" userLabel="Top Separator">
-                                                                    <rect key="frame" x="34" y="0.0" width="286" height="1"/>
-                                                                    <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="0.69964632601351351" colorSpace="deviceRGB"/>
+                                                                    <color key="backgroundColor" red="0.94097667932510376" green="0.940948486328125" blue="0.9409644603729248" alpha="0.69964632601351351" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="1" id="7gb-pd-qL3"/>
                                                                     </constraints>
                                                                 </view>
                                                                 <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mot-yK-vev" userLabel="Bottom Separator">
-                                                                    <rect key="frame" x="1080" y="49" width="8" height="1"/>
-                                                                    <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="0.69964632601351351" colorSpace="deviceRGB"/>
+                                                                    <frame key="frameInset" minX="1080" minY="49" width="8" height="1"/>
+                                                                    <color key="backgroundColor" red="0.94097667932510376" green="0.940948486328125" blue="0.9409644603729248" alpha="0.69964632601351351" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="1" id="Onu-bI-yLZ"/>
                                                                     </constraints>
                                                                 </view>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8jh-q0-rn5">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="44" height="50"/>
-                                                                    <color key="tintColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="deviceRGB"/>
+                                                                    <color key="tintColor" red="0.94097667932510376" green="0.940948486328125" blue="0.9409644603729248" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="8" maxY="0.0"/>
                                                                     <connections>
                                                                         <action selector="_disclosureButtonPressed" destination="0U4-ke-0VQ" eventType="touchUpInside" id="GEc-lm-exi"/>
@@ -318,7 +257,7 @@
                                                 </connections>
                                             </tableView>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="arb-Tb-vJa" secondAttribute="bottom" id="PES-HQ-2BS"/>
                                             <constraint firstItem="arb-Tb-vJa" firstAttribute="leading" secondItem="Bfn-18-ygh" secondAttribute="leading" id="srB-OV-6yk"/>
@@ -337,7 +276,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Apd-gi-Xig" firstAttribute="top" secondItem="Ign-zm-qCD" secondAttribute="bottom" id="HQv-fj-6Eg"/>
                             <constraint firstItem="Ign-zm-qCD" firstAttribute="top" secondItem="XC8-un-M2Z" secondAttribute="top" id="K6j-K4-bzr"/>
@@ -356,26 +295,23 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a task above to start your first list!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Th9-mE-cIz">
-                            <rect key="frame" x="52" y="86" width="217" height="17"/>
                             <fontDescription key="fontDescription" name="NotoSans" family="Noto Sans" pointSize="12"/>
-                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Give Goalie something to do." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PTI-pk-8go">
-                            <rect key="frame" x="38" y="45" width="244" height="24"/>
                             <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="17"/>
-                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding-empty-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="rSD-oe-3Jr">
-                            <rect key="frame" x="97" y="-34" width="60" height="66"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="60" id="28d-a1-6eE"/>
                                 <constraint firstAttribute="height" constant="66" id="Gih-uH-Lcn"/>
                             </constraints>
                         </imageView>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="rSD-oe-3Jr" firstAttribute="leading" secondItem="ZpZ-fK-L3y" secondAttribute="leading" constant="97" id="A3M-n9-1Fn"/>
                         <constraint firstItem="Th9-mE-cIz" firstAttribute="centerX" secondItem="PTI-pk-8go" secondAttribute="centerX" id="Aat-Ee-F9O"/>
@@ -390,19 +326,17 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add some new tasks to wake Goalie back up." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bMi-hs-HLY">
-                            <rect key="frame" x="34" y="67" width="252" height="17"/>
                             <fontDescription key="fontDescription" name="NotoSans" family="Noto Sans" pointSize="12"/>
-                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nailed it." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GFO-TT-Bl9">
-                            <rect key="frame" x="121" y="26" width="78" height="24"/>
                             <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="17"/>
-                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="bMi-hs-HLY" firstAttribute="centerX" secondItem="GFO-TT-Bl9" secondAttribute="centerX" id="7nx-m0-wHt"/>
                         <constraint firstItem="GFO-TT-Bl9" firstAttribute="top" secondItem="fI9-At-V7G" secondAttribute="top" constant="26" id="f6J-TJ-Ztt"/>
@@ -431,14 +365,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit list" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q1I-wU-WUb">
-                                <rect key="frame" x="212" y="30" width="75" height="27.5"/>
                                 <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="20"/>
-                                <color key="textColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="textColor" red="0.16495420038700104" green="0.23226518929004669" blue="0.26715320348739624" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wdQ-Sz-ntk" customClass="GoalieKerningButton" customModule="Goalie" customModuleProvider="target">
-                                <rect key="frame" x="420" y="29" width="60" height="30"/>
-                                <color key="backgroundColor" red="0.20392156859999999" green="0.52941176469999995" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.20392156859999999" green="0.52941176469999995" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="QHs-wq-UbY"/>
                                     <constraint firstAttribute="width" constant="60" id="aUi-Oi-Nfc"/>
@@ -446,25 +378,22 @@
                                 <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="12"/>
                                 <inset key="contentEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="DONE">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="_doneButtonPressed" destination="rpO-UU-QpH" eventType="touchUpInside" id="ppw-Ka-trA"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zDE-g6-BTR" userLabel="Collection View Container">
-                                <rect key="frame" x="0.0" y="67" width="500" height="501"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rLa-G5-3xk" userLabel="Separator View">
-                                        <rect key="frame" x="0.0" y="0.0" width="500" height="1"/>
-                                        <color key="backgroundColor" white="0.85861376570000003" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.85861378908157349" green="0.85861378908157349" blue="0.85861378908157349" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="cVL-LU-iqy"/>
                                         </constraints>
                                     </view>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Dse-Od-M3C">
-                                        <rect key="frame" x="0.0" y="0.0" width="500" height="501"/>
-                                        <color key="backgroundColor" white="0.85861376570000003" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.85861378908157349" green="0.85861378908157349" blue="0.85861378908157349" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="yDM-Qm-Rlt">
                                             <size key="itemSize" width="500" height="200"/>
                                             <size key="headerReferenceSize" width="50" height="80"/>
@@ -480,8 +409,7 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="uzH-tm-RDZ">
-                                                            <rect key="frame" x="0.0" y="0.0" width="500" height="200"/>
-                                                            <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xJm-Fe-Bkt">
                                                                 <size key="itemSize" width="140" height="200"/>
                                                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -497,23 +425,21 @@
                                                                         <autoresizingMask key="autoresizingMask"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Silly, kind, and ready for adventure" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1hI-gs-djK">
-                                                                                <rect key="frame" x="3" y="161" width="124" height="25"/>
+                                                                                <frame key="frameInset" minX="3" minY="161" width="124" height="25"/>
                                                                                 <fontDescription key="fontDescription" name="NotoSans" family="Noto Sans" pointSize="9"/>
-                                                                                <color key="textColor" red="0.3411764706" green="0.4823529412" blue="0.53725490200000003" alpha="0.60359480570000001" colorSpace="calibratedRGB"/>
+                                                                                <color key="textColor" red="0.3411764706" green="0.4823529412" blue="0.53725490200000003" alpha="0.60359480570000001" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="GOALIE" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gj2-j4-GIF" customClass="GoalieKerningLabel" customModule="Goalie" customModuleProvider="target">
-                                                                                <rect key="frame" x="43" y="141" width="45" height="16.5"/>
+                                                                                <frame key="frameInset" minX="43" minY="141" width="45" height="16.5"/>
                                                                                 <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="12"/>
-                                                                                <color key="textColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
+                                                                                <color key="textColor" red="0.16495420038700104" green="0.23226518929004669" blue="0.26715320348739624" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2pV-6g-rXg">
-                                                                                <rect key="frame" x="30" y="58" width="70" height="70"/>
                                                                                 <subviews>
                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f9J-0p-tPz" customClass="AccessoryPackBadgeView" customModule="Goalie" customModuleProvider="target">
-                                                                                        <rect key="frame" x="12" y="17" width="45" height="37"/>
-                                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="width" constant="45" id="avs-58-HEu"/>
                                                                                             <constraint firstAttribute="height" constant="37" id="b5M-7z-z52"/>
@@ -524,7 +450,7 @@
                                                                                         </connections>
                                                                                     </view>
                                                                                 </subviews>
-                                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" constant="70" id="5HA-9J-NQ2"/>
                                                                                     <constraint firstItem="f9J-0p-tPz" firstAttribute="centerY" secondItem="2pV-6g-rXg" secondAttribute="centerY" id="8Ca-ar-0Wx"/>
@@ -533,19 +459,15 @@
                                                                                 </constraints>
                                                                             </view>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cio-hu-ajc" customClass="UnlockedBadgeView" customModule="Goalie" customModuleProvider="target">
-                                                                                <rect key="frame" x="12" y="0.0" width="106" height="46"/>
                                                                                 <subviews>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UNLOCKED" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tKh-jb-T9b" customClass="GoalieKerningLabel" customModule="Goalie" customModuleProvider="target">
-                                                                                        <rect key="frame" x="33" y="18" width="50" height="12.5"/>
                                                                                         <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="9"/>
-                                                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
-                                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="ZgA-qu-EzC">
-                                                                                        <rect key="frame" x="20" y="22" width="5" height="5"/>
-                                                                                    </imageView>
+                                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="ZgA-qu-EzC"/>
                                                                                 </subviews>
-                                                                                <color key="backgroundColor" red="0.20392156859999999" green="0.52941176469999995" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                <color key="backgroundColor" red="0.20392156859999999" green="0.52941176469999995" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                 <constraints>
                                                                                     <constraint firstItem="tKh-jb-T9b" firstAttribute="leading" secondItem="ZgA-qu-EzC" secondAttribute="trailing" constant="8" id="8pB-uw-h4W"/>
                                                                                     <constraint firstAttribute="width" constant="106" id="A2z-Te-w4T"/>
@@ -556,7 +478,6 @@
                                                                                 </constraints>
                                                                             </view>
                                                                         </subviews>
-                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                     </view>
                                                                     <constraints>
                                                                         <constraint firstItem="gj2-j4-GIF" firstAttribute="top" secondItem="2pV-6g-rXg" secondAttribute="bottom" constant="14" id="1Mb-3x-UD6"/>
@@ -587,44 +508,41 @@
                                                                         <autoresizingMask key="autoresizingMask"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Silly, kind, and ready for adventure" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gUk-Zp-wxy">
-                                                                                <rect key="frame" x="8" y="161" width="124" height="25"/>
+                                                                                <frame key="frameInset" minX="8" minY="161" width="124" height="25"/>
                                                                                 <fontDescription key="fontDescription" name="NotoSans" family="Noto Sans" pointSize="9"/>
-                                                                                <color key="textColor" red="0.3411764706" green="0.4823529412" blue="0.53725490200000003" alpha="0.60359480570000001" colorSpace="calibratedRGB"/>
+                                                                                <color key="textColor" red="0.3411764706" green="0.4823529412" blue="0.53725490200000003" alpha="0.60359480570000001" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="GOALIE" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HEW-RD-LD8" customClass="GoalieKerningLabel" customModule="Goalie" customModuleProvider="target">
-                                                                                <rect key="frame" x="47" y="141" width="45" height="16.5"/>
+                                                                                <frame key="frameInset" minX="47" minY="141" width="45" height="16.5"/>
                                                                                 <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="12"/>
-                                                                                <color key="textColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
+                                                                                <color key="textColor" red="0.16495420038700104" green="0.23226518929004669" blue="0.26715320348739624" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COMPLETE A LIST TO UNLOCK" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nbU-FI-0U6" customClass="GoalieKerningLabel" customModule="Goalie" customModuleProvider="target">
-                                                                                <rect key="frame" x="16" y="16" width="108" height="25"/>
                                                                                 <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="9"/>
-                                                                                <color key="textColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
+                                                                                <color key="textColor" red="0.16495420038700104" green="0.23226518929004669" blue="0.26715320348739624" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eRy-LX-FUp" customClass="GoalieKerningButton" customModule="Goalie" customModuleProvider="target">
-                                                                                <rect key="frame" x="35" y="16" width="70" height="20"/>
-                                                                                <color key="backgroundColor" red="0.20392156859999999" green="0.52941176469999995" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                <color key="backgroundColor" red="0.20392156859999999" green="0.52941176469999995" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="20" id="t5I-pt-ZXc"/>
                                                                                     <constraint firstAttribute="width" constant="70" id="yQ7-Ar-Uak"/>
                                                                                 </constraints>
                                                                                 <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="9"/>
                                                                                 <state key="normal" title="RATE APP">
-                                                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                 </state>
                                                                                 <connections>
                                                                                     <action selector="_actionButtonPressed" destination="bNs-1U-vUC" eventType="touchUpInside" id="rcn-ix-ZCX"/>
                                                                                 </connections>
                                                                             </button>
                                                                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="grt-T2-quw">
-                                                                                <rect key="frame" x="35" y="57" width="70" height="70"/>
+                                                                                <frame key="frameInset" minX="35" minY="57" width="70" height="70"/>
                                                                                 <subviews>
                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T77-wV-uGO" customClass="AccessoryPackBadgeView" customModule="Goalie" customModuleProvider="target">
-                                                                                        <rect key="frame" x="12" y="17" width="45" height="37"/>
-                                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="height" constant="37" id="763-B3-bzg"/>
                                                                                             <constraint firstAttribute="width" constant="45" id="pdF-QZ-ady"/>
@@ -635,7 +553,7 @@
                                                                                         </connections>
                                                                                     </view>
                                                                                 </subviews>
-                                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                 <constraints>
                                                                                     <constraint firstItem="T77-wV-uGO" firstAttribute="centerX" secondItem="grt-T2-quw" secondAttribute="centerX" id="DCb-85-Rq8"/>
                                                                                     <constraint firstAttribute="width" constant="70" id="GCf-xH-7A9"/>
@@ -644,7 +562,6 @@
                                                                                 </constraints>
                                                                             </view>
                                                                         </subviews>
-                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                     </view>
                                                                     <constraints>
                                                                         <constraint firstItem="gUk-Zp-wxy" firstAttribute="trailing" secondItem="bNs-1U-vUC" secondAttribute="trailingMargin" id="1Tl-nC-ggK"/>
@@ -677,11 +594,9 @@
                                                                         <autoresizingMask key="autoresizingMask"/>
                                                                         <subviews>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4s3-Ky-ktA" userLabel="Character View Container">
-                                                                                <rect key="frame" x="30" y="50" width="80" height="100"/>
                                                                                 <subviews>
                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eS1-E3-5go" customClass="CharacterView" customModule="Goalie" customModuleProvider="target">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="80" height="100"/>
-                                                                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.39882535460000001" colorSpace="calibratedRGB"/>
+                                                                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.39882535460000001" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                         <connections>
                                                                                             <outlet property="centerYConstraint" destination="q4P-GY-u0N" id="VS5-qL-oVX"/>
                                                                                             <outlet property="containerView" destination="4s3-Ky-ktA" id="XZ0-jZ-hhP"/>
@@ -690,7 +605,7 @@
                                                                                         </connections>
                                                                                     </view>
                                                                                 </subviews>
-                                                                                <color key="backgroundColor" red="1" green="0.60022615130000001" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                                                                <color key="backgroundColor" red="1" green="0.60022615130000001" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                 <constraints>
                                                                                     <constraint firstItem="eS1-E3-5go" firstAttribute="top" secondItem="4s3-Ky-ktA" secondAttribute="top" id="0q4-P7-dOl"/>
                                                                                     <constraint firstItem="eS1-E3-5go" firstAttribute="leading" secondItem="4s3-Ky-ktA" secondAttribute="leading" id="b0g-vx-IvL"/>
@@ -701,34 +616,32 @@
                                                                                 </constraints>
                                                                             </view>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Silly, kind, and ready for adventure" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l0O-Xz-ip9">
-                                                                                <rect key="frame" x="8" y="161" width="124" height="25"/>
+                                                                                <frame key="frameInset" minX="8" minY="161" width="124" height="25"/>
                                                                                 <fontDescription key="fontDescription" name="NotoSans" family="Noto Sans" pointSize="9"/>
-                                                                                <color key="textColor" red="0.3411764706" green="0.4823529412" blue="0.53725490200000003" alpha="0.60359480570000001" colorSpace="calibratedRGB"/>
+                                                                                <color key="textColor" red="0.3411764706" green="0.4823529412" blue="0.53725490200000003" alpha="0.60359480570000001" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="GOALIE" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vfO-oP-QuH" customClass="GoalieKerningLabel" customModule="Goalie" customModuleProvider="target">
-                                                                                <rect key="frame" x="47" y="141" width="45" height="16.5"/>
+                                                                                <frame key="frameInset" minX="47" minY="141" width="45" height="16.5"/>
                                                                                 <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="12"/>
-                                                                                <color key="textColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
+                                                                                <color key="textColor" red="0.16495420038700104" green="0.23226518929004669" blue="0.26715320348739624" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uuh-Qz-bUl" customClass="GoalieKerningButton" customModule="Goalie" customModuleProvider="target">
-                                                                                <rect key="frame" x="35" y="16" width="70" height="20"/>
-                                                                                <color key="backgroundColor" red="0.20392156859999999" green="0.52941176469999995" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                <color key="backgroundColor" red="0.20392156859999999" green="0.52941176469999995" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" constant="70" id="6o7-rN-Ayu"/>
                                                                                     <constraint firstAttribute="height" constant="20" id="7W8-ut-zgf"/>
                                                                                 </constraints>
                                                                                 <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="9"/>
                                                                                 <state key="normal" title="RATE APP">
-                                                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                 </state>
                                                                                 <connections>
                                                                                     <action selector="_actionButtonPressed" destination="GZO-bv-KD2" eventType="touchUpInside" id="zOl-HG-ZvH"/>
                                                                                 </connections>
                                                                             </button>
                                                                         </subviews>
-                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                     </view>
                                                                     <constraints>
                                                                         <constraint firstItem="l0O-Xz-ip9" firstAttribute="top" secondItem="vfO-oP-QuH" secondAttribute="bottom" constant="4" id="0c0-xA-j83"/>
@@ -756,11 +669,9 @@
                                                                         <autoresizingMask key="autoresizingMask"/>
                                                                         <subviews>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LSr-5d-GkC" userLabel="Character View Container">
-                                                                                <rect key="frame" x="30" y="50" width="80" height="100"/>
                                                                                 <subviews>
                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zGo-ZA-yxN" customClass="CharacterView" customModule="Goalie" customModuleProvider="target">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="80" height="100"/>
-                                                                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.39882535460000001" colorSpace="calibratedRGB"/>
+                                                                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.39882535460000001" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                         <connections>
                                                                                             <outlet property="centerYConstraint" destination="q4P-GY-u0N" id="Xq6-Zr-sAz"/>
                                                                                             <outlet property="containerView" destination="LSr-5d-GkC" id="n5U-NK-Hr1"/>
@@ -769,7 +680,7 @@
                                                                                         </connections>
                                                                                     </view>
                                                                                 </subviews>
-                                                                                <color key="backgroundColor" red="1" green="0.60022615130000001" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                                                                <color key="backgroundColor" red="1" green="0.60022615130000001" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                 <constraints>
                                                                                     <constraint firstItem="zGo-ZA-yxN" firstAttribute="top" secondItem="LSr-5d-GkC" secondAttribute="top" id="0T2-sg-M5A"/>
                                                                                     <constraint firstAttribute="width" constant="80" id="9QT-Ya-ubT"/>
@@ -780,31 +691,27 @@
                                                                                 </constraints>
                                                                             </view>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Silly, kind, and ready for adventure" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fub-ua-qjl">
-                                                                                <rect key="frame" x="8" y="161" width="124" height="25"/>
+                                                                                <frame key="frameInset" minX="8" minY="161" width="124" height="25"/>
                                                                                 <fontDescription key="fontDescription" name="NotoSans" family="Noto Sans" pointSize="9"/>
-                                                                                <color key="textColor" red="0.3411764706" green="0.4823529412" blue="0.53725490200000003" alpha="0.60359480570000001" colorSpace="calibratedRGB"/>
+                                                                                <color key="textColor" red="0.3411764706" green="0.4823529412" blue="0.53725490200000003" alpha="0.60359480570000001" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="GOALIE" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ovh-ie-2Bc" customClass="GoalieKerningLabel" customModule="Goalie" customModuleProvider="target">
-                                                                                <rect key="frame" x="47" y="141" width="45" height="16.5"/>
+                                                                                <frame key="frameInset" minX="47" minY="141" width="45" height="16.5"/>
                                                                                 <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="12"/>
-                                                                                <color key="textColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
+                                                                                <color key="textColor" red="0.16495420038700104" green="0.23226518929004669" blue="0.26715320348739624" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xSo-Rk-y8g" customClass="UnlockedBadgeView" customModule="Goalie" customModuleProvider="target">
-                                                                                <rect key="frame" x="17" y="0.0" width="106" height="46"/>
                                                                                 <subviews>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UNLOCKED" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zzC-so-7dE" customClass="GoalieKerningLabel" customModule="Goalie" customModuleProvider="target">
-                                                                                        <rect key="frame" x="33" y="18" width="50" height="12.5"/>
                                                                                         <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="9"/>
-                                                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
-                                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="sZS-q6-bbZ">
-                                                                                        <rect key="frame" x="20" y="22" width="5" height="5"/>
-                                                                                    </imageView>
+                                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="sZS-q6-bbZ"/>
                                                                                 </subviews>
-                                                                                <color key="backgroundColor" red="0.20392156859999999" green="0.52941176469999995" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                <color key="backgroundColor" red="0.20392156859999999" green="0.52941176469999995" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                 <constraints>
                                                                                     <constraint firstItem="zzC-so-7dE" firstAttribute="centerX" secondItem="xSo-Rk-y8g" secondAttribute="centerX" constant="5" id="0HB-jy-bWq"/>
                                                                                     <constraint firstItem="sZS-q6-bbZ" firstAttribute="centerY" secondItem="zzC-so-7dE" secondAttribute="centerY" id="SeB-Lt-PLm"/>
@@ -814,7 +721,6 @@
                                                                                 </constraints>
                                                                             </view>
                                                                         </subviews>
-                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                     </view>
                                                                     <constraints>
                                                                         <constraint firstItem="xSo-Rk-y8g" firstAttribute="width" secondItem="2Lt-07-Iwb" secondAttribute="width" multiplier="0.75" constant="1" id="8dS-XA-oqS"/>
@@ -838,7 +744,6 @@
                                                             </cells>
                                                         </collectionView>
                                                     </subviews>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </view>
                                                 <constraints>
                                                     <constraint firstItem="uzH-tm-RDZ" firstAttribute="top" secondItem="Dob-ZP-rRw" secondAttribute="top" id="8SM-xv-agH"/>
@@ -856,18 +761,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Characters" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nkb-iQ-Pn6">
-                                                    <rect key="frame" x="15" y="0.0" width="82" height="20.5"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="15"/>
-                                                    <color key="textColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
+                                                    <color key="textColor" red="0.16495420038700104" green="0.23226518929004669" blue="0.26715320348739624" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pick a character to chat with and help keep you motivated and entiertained" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m1q-AU-GHR">
-                                                    <rect key="frame" x="15" y="28" width="278" height="33"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="278" id="LuO-LR-7rZ"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="NotoSans" family="Noto Sans" pointSize="12"/>
-                                                    <color key="textColor" red="0.3411764706" green="0.4823529412" blue="0.53725490200000003" alpha="0.60359480570000001" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.3411764706" green="0.4823529412" blue="0.53725490200000003" alpha="0.60359480570000001" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -888,7 +791,7 @@
                                         </collectionReusableView>
                                     </collectionView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="Dse-Od-M3C" secondAttribute="bottom" id="6AE-fd-WNj"/>
                                     <constraint firstItem="rLa-G5-3xk" firstAttribute="leading" secondItem="zDE-g6-BTR" secondAttribute="leading" id="Ltf-tk-kUW"/>
@@ -900,17 +803,16 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wpN-rx-xK4" customClass="GoalieKerningButton" customModule="Goalie" customModuleProvider="target">
-                                <rect key="frame" x="14" y="29.5" width="53" height="29"/>
                                 <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="12"/>
                                 <state key="normal" title="RESTORE">
-                                    <color key="titleColor" red="0.20392156859999999" green="0.52941176469999995" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.20392156859999999" green="0.52941176469999995" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="_restoreButtonPressed" destination="rpO-UU-QpH" eventType="touchUpInside" id="WQA-Vq-xpU"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="wdQ-Sz-ntk" firstAttribute="trailing" secondItem="BX5-ci-vbt" secondAttribute="trailingMargin" id="3Da-Ih-vTY"/>
                             <constraint firstAttribute="trailing" secondItem="zDE-g6-BTR" secondAttribute="trailing" id="ETc-8L-X3c"/>
@@ -948,47 +850,41 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oFK-D8-eOM">
-                                <rect key="frame" x="18" y="134" width="338" height="400"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="0QK-XL-YBG">
-                                    <rect key="frame" x="0.0" y="0.0" width="338" height="400"/>
+                                    <frame key="frameInset"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="as6-6u-hEN">
-                                            <rect key="frame" x="278" y="15" width="60" height="60"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="as6-6u-hEN" secondAttribute="height" multiplier="1:1" id="THj-qd-jYp"/>
                                                 <constraint firstAttribute="height" constant="60" id="YXc-Hu-1DF"/>
                                             </constraints>
-                                            <color key="tintColor" red="0.76262589203789044" green="0.77218981765036554" blue="0.81713620577777779" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="tintColor" red="0.76262589203789044" green="0.77218981765036554" blue="0.81713620577777779" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <state key="normal" image="cancel"/>
                                             <connections>
                                                 <action selector="_closeButtonPressed" destination="EZY-Nk-o6p" eventType="touchUpInside" id="WxC-hA-D0c"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KJR-xx-ki4" customClass="GoalieKerningButton" customModule="Goalie" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="336" width="168" height="64"/>
-                                            <color key="backgroundColor" red="0.76470588235294112" green="0.84705882352941175" blue="0.88235294117647056" alpha="1" colorSpace="deviceRGB"/>
+                                            <color key="backgroundColor" red="0.71676403284072876" green="0.81188255548477173" blue="0.85385775566101074" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="16"/>
-                                            <color key="tintColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
+                                            <color key="tintColor" red="0.16495420038700104" green="0.23226518929004669" blue="0.26715320348739624" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <state key="normal" title="DELETE">
-                                                <color key="titleColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
+                                                <color key="titleColor" red="0.16495420038700104" green="0.23226518929004669" blue="0.26715320348739624" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                             <connections>
                                                 <action selector="_deleteButtonPressed" destination="EZY-Nk-o6p" eventType="touchUpInside" id="TUh-Mt-tHU"/>
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit task" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lq8-di-iwY">
-                                            <rect key="frame" x="20" y="30" width="96" height="30"/>
                                             <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="22"/>
-                                            <color key="textColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
+                                            <color key="textColor" red="0.16495420038700104" green="0.23226518929004669" blue="0.26715320348739624" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xeH-au-Ics">
-                                            <rect key="frame" x="0.0" y="74" width="338" height="262"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="TITLE" adjustsFontSizeToFit="NO" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="lPJ-ET-lfq" customClass="JVFloatLabeledTextField">
-                                                    <rect key="frame" x="20" y="30" width="308" height="50"/>
-                                                    <color key="tintColor" red="0.070588235289999995" green="0.64313725489999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="tintColor" red="0.070588235289999995" green="0.64313725489999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="dEf-hI-FdV"/>
                                                         <constraint firstAttribute="height" constant="50" id="vCO-Z6-lBB"/>
@@ -997,10 +893,10 @@
                                                     <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="color" keyPath="floatingLabelActiveTextColor">
-                                                            <color key="value" red="0.3411764706" green="0.4823529412" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="value" red="0.3411764706" green="0.4823529412" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </userDefinedRuntimeAttribute>
                                                         <userDefinedRuntimeAttribute type="color" keyPath="floatingLabelTextColor">
-                                                            <color key="value" red="0.3411764706" green="0.4823529412" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="value" red="0.3411764706" green="0.4823529412" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </userDefinedRuntimeAttribute>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="floatingLabelYPadding">
                                                             <real key="value" value="0.0"/>
@@ -1008,36 +904,29 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </textField>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ska-ou-SBC" userLabel="Separator">
-                                                    <rect key="frame" x="20" y="84" width="318" height="2"/>
-                                                    <color key="backgroundColor" red="0.76470588240000004" green="0.84705882349999995" blue="0.88235294119999996" alpha="1" colorSpace="deviceRGB"/>
+                                                    <color key="backgroundColor" red="0.71676403284072876" green="0.81188255548477173" blue="0.85385775566101074" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="2" id="ZXH-m0-EaZ"/>
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ype-g1-Uyi" userLabel="Priority Selector Container">
-                                                    <rect key="frame" x="0.0" y="86" width="338" height="176"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qvn-x0-2DS">
-                                                            <rect key="frame" x="20" y="50" width="298" height="16"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cLY-LI-7Cl" userLabel="ASAP">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="73" height="16"/>
-                                                                    <color key="backgroundColor" red="1" green="0.31372549019607843" blue="0.39215686274509803" alpha="1" colorSpace="deviceRGB"/>
+                                                                    <color key="backgroundColor" red="0.98702472448348999" green="0.20987586677074432" blue="0.32030856609344482" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </view>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ixo-In-mII" userLabel="Soon">
-                                                                    <rect key="frame" x="75" y="0.0" width="73" height="16"/>
-                                                                    <color key="backgroundColor" red="1" green="0.78431372549019607" blue="0.12156862745098039" alpha="1" colorSpace="deviceRGB"/>
+                                                                    <color key="backgroundColor" red="0.99476301670074463" green="0.74479919672012329" blue="0.10136821866035461" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </view>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eWW-3T-u4E" userLabel="Later">
-                                                                    <rect key="frame" x="150" y="0.0" width="73" height="16"/>
-                                                                    <color key="backgroundColor" red="0.070588235289999995" green="0.64313725489999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <color key="backgroundColor" red="0.070588235289999995" green="0.64313725489999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </view>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pru-Tn-6Md" userLabel="Ages">
-                                                                    <rect key="frame" x="225" y="0.0" width="73" height="16"/>
-                                                                    <color key="backgroundColor" red="0.070588235294117646" green="0.88235294117647056" blue="0.6588235294117647" alpha="1" colorSpace="deviceRGB"/>
+                                                                    <color key="backgroundColor" red="0.13057148456573486" green="0.87120771408081055" blue="0.59391927719116211" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </view>
                                                             </subviews>
-                                                            <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstItem="ixo-In-mII" firstAttribute="height" secondItem="cLY-LI-7Cl" secondAttribute="height" id="5KR-za-iIt"/>
                                                                 <constraint firstItem="Pru-Tn-6Md" firstAttribute="width" secondItem="eWW-3T-u4E" secondAttribute="width" id="6gp-kc-NY2"/>
@@ -1059,68 +948,63 @@
                                                             </constraints>
                                                         </view>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0er-6a-GVP" customClass="GoalieKerningButton" customModule="Goalie" customModuleProvider="target">
-                                                            <rect key="frame" x="245" y="50" width="73" height="59"/>
-                                                            <color key="backgroundColor" red="1" green="0.39581620065789475" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                                                            <color key="backgroundColor" red="1" green="0.39581620065789475" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="12"/>
-                                                            <color key="tintColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="tintColor" red="0.089511200785636902" green="0.089508526027202606" blue="0.089510053396224976" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <inset key="contentEdgeInsets" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
                                                             <state key="normal" title="AGES">
-                                                                <color key="titleColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
+                                                                <color key="titleColor" red="0.16495420038700104" green="0.23226518929004669" blue="0.26715320348739624" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </state>
                                                             <connections>
                                                                 <action selector="_agesButtonPressed" destination="EZY-Nk-o6p" eventType="touchDown" id="DVU-62-VTg"/>
                                                             </connections>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PRIORITY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Zq-7d-cZ0" customClass="GoalieKerningHeaderLabel" customModule="Goalie" customModuleProvider="target">
-                                                            <rect key="frame" x="20" y="24" width="62" height="18"/>
                                                             <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="13"/>
-                                                            <color key="textColor" red="0.3411764706" green="0.4823529412" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="textColor" red="0.3411764706" green="0.4823529412" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XVU-Ul-3zk" customClass="GoalieKerningButton" customModule="Goalie" customModuleProvider="target">
-                                                            <rect key="frame" x="20" y="50" width="73" height="59"/>
-                                                            <color key="backgroundColor" red="1" green="0.39581620065789475" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                                                            <color key="backgroundColor" red="1" green="0.39581620065789475" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="XVU-Ul-3zk" secondAttribute="height" multiplier="1:0.8" id="nef-ue-Dbq"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="12"/>
-                                                            <color key="tintColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="tintColor" red="0.089511200785636902" green="0.089508526027202606" blue="0.089510053396224976" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <inset key="contentEdgeInsets" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
                                                             <state key="normal" title="ASAP">
-                                                                <color key="titleColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
+                                                                <color key="titleColor" red="0.16495420038700104" green="0.23226518929004669" blue="0.26715320348739624" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </state>
                                                             <connections>
                                                                 <action selector="_asapButtonPressed" destination="EZY-Nk-o6p" eventType="touchDown" id="ECN-v6-ohw"/>
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bsh-dq-nQb" customClass="GoalieKerningButton" customModule="Goalie" customModuleProvider="target">
-                                                            <rect key="frame" x="95" y="50" width="73" height="59"/>
-                                                            <color key="backgroundColor" red="1" green="0.39581620065789475" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                                                            <color key="backgroundColor" red="1" green="0.39581620065789475" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="12"/>
-                                                            <color key="tintColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="tintColor" red="0.089511200785636902" green="0.089508526027202606" blue="0.089510053396224976" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <inset key="contentEdgeInsets" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
                                                             <state key="normal" title="SOON">
-                                                                <color key="titleColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
+                                                                <color key="titleColor" red="0.16495420038700104" green="0.23226518929004669" blue="0.26715320348739624" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </state>
                                                             <connections>
                                                                 <action selector="_soonButtonPressed" destination="EZY-Nk-o6p" eventType="touchDown" id="PUm-za-q0K"/>
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FtY-4A-yur" customClass="GoalieKerningButton" customModule="Goalie" customModuleProvider="target">
-                                                            <rect key="frame" x="170" y="50" width="73" height="59"/>
-                                                            <color key="backgroundColor" red="1" green="0.39581620065789475" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                                                            <color key="backgroundColor" red="1" green="0.39581620065789475" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="12"/>
-                                                            <color key="tintColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="tintColor" red="0.089511200785636902" green="0.089508526027202606" blue="0.089510053396224976" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <inset key="contentEdgeInsets" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
                                                             <state key="normal" title="LATER">
-                                                                <color key="titleColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
+                                                                <color key="titleColor" red="0.16495420038700104" green="0.23226518929004669" blue="0.26715320348739624" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </state>
                                                             <connections>
                                                                 <action selector="_laterButtonPressed" destination="EZY-Nk-o6p" eventType="touchDown" id="sbz-Xj-ABV"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>
-                                                    <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstItem="0er-6a-GVP" firstAttribute="height" secondItem="FtY-4A-yur" secondAttribute="height" id="7RM-Zj-8tL"/>
                                                         <constraint firstItem="bsh-dq-nQb" firstAttribute="width" secondItem="XVU-Ul-3zk" secondAttribute="width" id="9D4-v0-3tx"/>
@@ -1143,21 +1027,19 @@
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cF0-TP-VJp" userLabel="PriorityIndicator">
-                                                    <rect key="frame" x="20" y="193" width="73" height="4"/>
-                                                    <color key="backgroundColor" red="0.76470588240000004" green="0.84705882349999995" blue="0.88235294119999996" alpha="1" colorSpace="deviceRGB"/>
+                                                    <color key="backgroundColor" red="0.71676403284072876" green="0.81188255548477173" blue="0.85385775566101074" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="4" id="gos-Vn-KjD"/>
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fyg-rT-Xik" userLabel="Separator">
-                                                    <rect key="frame" x="20" y="197" width="318" height="2"/>
-                                                    <color key="backgroundColor" red="0.76470588240000004" green="0.84705882349999995" blue="0.88235294119999996" alpha="1" colorSpace="deviceRGB"/>
+                                                    <color key="backgroundColor" red="0.71676403284072876" green="0.81188255548477173" blue="0.85385775566101074" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="2" id="may-Oe-tXT"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.21960784310000001" green="0.23529411759999999" blue="0.34509803919999998" alpha="0.0" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" red="0.21960784310000001" green="0.23529411759999999" blue="0.34509803919999998" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="Ska-ou-SBC" secondAttribute="trailing" id="6nL-me-l4K"/>
                                                 <constraint firstAttribute="bottom" secondItem="Ype-g1-Uyi" secondAttribute="bottom" id="Aub-K0-su9"/>
@@ -1180,15 +1062,14 @@
                                             </constraints>
                                         </view>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GhU-SJ-iKm" customClass="GoalieKerningButton" customModule="Goalie" customModuleProvider="target">
-                                            <rect key="frame" x="170" y="336" width="168" height="64"/>
-                                            <color key="backgroundColor" red="0.76470588235294112" green="0.84705882352941175" blue="0.88235294117647056" alpha="1" colorSpace="deviceRGB"/>
+                                            <color key="backgroundColor" red="0.71676403284072876" green="0.81188255548477173" blue="0.85385775566101074" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="64" id="GDZ-bl-t1h"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="16"/>
-                                            <color key="tintColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
+                                            <color key="tintColor" red="0.16495420038700104" green="0.23226518929004669" blue="0.26715320348739624" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <state key="normal" title="DONE">
-                                                <color key="titleColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
+                                                <color key="titleColor" red="0.16495420038700104" green="0.23226518929004669" blue="0.26715320348739624" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                             <connections>
                                                 <action selector="_closeButtonPressed" destination="EZY-Nk-o6p" eventType="touchUpInside" id="Ow9-vl-RmG"/>
@@ -1219,7 +1100,7 @@
                                 <blurEffect style="extraLight"/>
                             </visualEffectView>
                         </subviews>
-                        <color key="backgroundColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.089511200785636902" green="0.089508526027202606" blue="0.089510053396224976" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="oFK-D8-eOM" firstAttribute="height" secondItem="Hp4-Py-Nfe" secondAttribute="height" multiplier="0.6" priority="999" id="BbU-tw-azU"/>
@@ -1231,7 +1112,6 @@
                             <outletCollection property="gestureRecognizers" destination="iuX-Y6-JSo" appends="YES" id="Wyh-VW-FKs"/>
                         </connections>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="_agesButton" destination="0er-6a-GVP" id="lBG-cY-zy5"/>
                         <outlet property="_agesPriorityBlock" destination="Pru-Tn-6Md" id="Lht-sY-bhR"/>
@@ -1266,38 +1146,34 @@
                         <viewControllerLayoutGuide type="bottom" id="m0P-1V-1ps"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="bhf-ub-OlU">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding-phone" translatesAutoresizingMaskIntoConstraints="NO" id="Bux-Tt-g3m">
-                                <rect key="frame" x="32" y="206" width="256" height="292"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Bux-Tt-g3m" secondAttribute="height" multiplier="65:74" id="Ckm-ki-qIv"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding-1" translatesAutoresizingMaskIntoConstraints="NO" id="aRS-AB-up1">
-                                <rect key="frame" x="48" y="284" width="224" height="214"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="aRS-AB-up1" secondAttribute="height" multiplier="227:216" id="FR4-aT-Klp"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LdQ-he-PWO">
-                                <rect key="frame" x="49" y="108" width="222" height="55"/>
-                                <color key="tintColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="tintColor" red="0.94097667932510376" green="0.940948486328125" blue="0.9409644603729248" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <string key="text">Meet Goalie.
 He really likes tasks....</string>
                                 <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="20"/>
-                                <color key="textColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="textColor" red="0.94097667932510376" green="0.940948486328125" blue="0.9409644603729248" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wfC-QU-hO3">
-                                <rect key="frame" x="260" y="15" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="1li-BO-2PN"/>
                                     <constraint firstAttribute="width" secondItem="wfC-QU-hO3" secondAttribute="height" multiplier="1:1" id="FfV-Tt-PAX"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" image="onboarding-cancel"/>
                                 <connections>
                                     <action selector="_closeButtonPressed" destination="EZY-Nk-o6p" eventType="touchUpInside" id="FIV-vO-Tcs"/>
@@ -1305,25 +1181,22 @@ He really likes tasks....</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tf9-Iw-fHf" customClass="GoalieKerningButton" customModule="Goalie" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="498" width="320" height="70"/>
-                                <color key="backgroundColor" red="0.12156862745098039" green="0.30588235294117649" blue="0.42352941176470588" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.12156862745098039" green="0.30588235294117649" blue="0.42352941176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="FF8-FK-pUp"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="17"/>
-                                <color key="tintColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="tintColor" red="0.94097667932510376" green="0.940948486328125" blue="0.9409644603729248" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="NEXT">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="titleColor" red="1" green="0.99997437000274658" blue="0.99999129772186279" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="_nextButtonPressed" destination="MHe-2g-aey" eventType="touchUpInside" id="wZf-6d-3pr"/>
                                 </connections>
                             </button>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="UoL-U7-vTN">
-                                <rect key="frame" x="133" y="58" width="55" height="37"/>
-                            </pageControl>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="UoL-U7-vTN"/>
                         </subviews>
-                        <color key="backgroundColor" red="0.14117647058823529" green="0.65098039215686276" blue="0.9882352941176471" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.14117647058823529" green="0.65098039215686276" blue="0.9882352941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Bux-Tt-g3m" firstAttribute="top" secondItem="LdQ-he-PWO" secondAttribute="bottom" constant="43" id="2xv-cs-Nkt"/>
                             <constraint firstItem="Bux-Tt-g3m" firstAttribute="centerX" secondItem="bhf-ub-OlU" secondAttribute="centerX" id="8Nc-B0-gr3"/>
@@ -1362,23 +1235,23 @@ He really likes tasks....</string>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="onboarding-4" translatesAutoresizingMaskIntoConstraints="NO" id="XwH-6r-Y4k">
-                            <rect key="frame" x="34" y="0.0" width="193" height="229"/>
+                            <frame key="frameInset" minX="34" width="193" height="229"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="229" id="Hi6-DD-hYx"/>
                                 <constraint firstAttribute="width" constant="193" id="nP6-jw-sGy"/>
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HmC-Y4-xmo">
-                            <rect key="frame" x="32" y="258" width="198" height="82"/>
+                            <frame key="frameInset" minX="32" minY="258" width="198" height="82"/>
                             <string key="text">So get to it.
 When you're happy,
 Goalie's happy.</string>
                             <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="20"/>
-                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="HmC-Y4-xmo" firstAttribute="top" secondItem="XwH-6r-Y4k" secondAttribute="bottom" constant="14" id="agl-vd-6nU"/>
                         <constraint firstItem="HmC-Y4-xmo" firstAttribute="centerX" secondItem="XwH-6r-Y4k" secondAttribute="centerX" id="axA-2q-4ZL"/>
@@ -1402,53 +1275,45 @@ Goalie's happy.</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mzx-uK-MIU">
-                                <rect key="frame" x="19" y="174" width="337" height="319"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="KBr-Zv-qva">
-                                    <rect key="frame" x="0.0" y="0.0" width="337" height="319"/>
+                                    <frame key="frameInset"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IJK-co-R7s">
-                                            <rect key="frame" x="277" y="15" width="60" height="60"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="IJK-co-R7s" secondAttribute="height" multiplier="1:1" id="QgO-hH-j4n"/>
                                                 <constraint firstAttribute="height" constant="60" id="fFC-Td-qgE"/>
                                             </constraints>
-                                            <color key="tintColor" red="0.76262589199999997" green="0.77218981769999995" blue="0.81713620580000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="tintColor" red="0.76262589199999997" green="0.77218981769999995" blue="0.81713620580000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <state key="normal" image="cancel"/>
                                             <connections>
                                                 <action selector="_closeButtonPressed" destination="ga5-Uq-fC8" eventType="touchUpInside" id="KBH-pH-j9o"/>
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ug8-L9-t1w">
-                                            <rect key="frame" x="20" y="30" width="91" height="30"/>
                                             <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="22"/>
-                                            <color key="textColor" red="0.21568627450980393" green="0.29803921568627451" blue="0.33725490196078434" alpha="1" colorSpace="deviceRGB"/>
+                                            <color key="textColor" red="0.16495420038700104" green="0.23226518929004669" blue="0.26715320348739624" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SHOW COMPLETED TASKS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CeK-wk-LkK" customClass="GoalieKerningHeaderLabel" customModule="Goalie" customModuleProvider="target">
-                                            <rect key="frame" x="20" y="110" width="152" height="17"/>
                                             <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="12"/>
-                                            <color key="textColor" red="0.3411764705882353" green="0.4823529411764706" blue="0.53725490196078429" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.3411764705882353" green="0.4823529411764706" blue="0.53725490196078429" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Elq-nd-LiQ">
-                                            <rect key="frame" x="20" y="135" width="51" height="31"/>
-                                            <color key="onTintColor" red="0.070588235289999995" green="0.64313725489999995" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                                            <color key="onTintColor" red="0.092910058796405792" green="0.56427377462387085" blue="0.99851632118225098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </switch>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MANUALLY SWITCH PRIORITY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2LN-x7-CSb" customClass="GoalieKerningHeaderLabel" customModule="Goalie" customModuleProvider="target">
-                                            <rect key="frame" x="20" y="199" width="177" height="16"/>
                                             <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="12"/>
-                                            <color key="textColor" red="0.3411764705882353" green="0.4823529411764706" blue="0.53725490196078429" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.3411764705882353" green="0.4823529411764706" blue="0.53725490196078429" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Yr-sT-wBA">
-                                            <rect key="frame" x="20" y="264" width="51" height="31"/>
-                                            <color key="onTintColor" red="0.070588235289999995" green="0.64313725489999995" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                                            <color key="onTintColor" red="0.092910058796405792" green="0.56427377462387085" blue="0.99851632118225098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </switch>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(TASKS WILL ALWAYS STAY AT THE PRIORITY YOU SET THEM AS)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e3k-GH-Iqu" customClass="GoalieKerningLabel" customModule="Goalie" customModuleProvider="target">
-                                            <rect key="frame" x="20" y="223" width="270" height="33"/>
                                             <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="12"/>
-                                            <color key="textColor" red="0.3411764706" green="0.4823529412" blue="0.53725490200000003" alpha="0.6035948057432432" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.3411764706" green="0.4823529412" blue="0.53725490200000003" alpha="0.6035948057432432" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -1474,7 +1339,7 @@ Goalie's happy.</string>
                                 <blurEffect style="extraLight"/>
                             </visualEffectView>
                         </subviews>
-                        <color key="backgroundColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.089511200785636902" green="0.089508526027202606" blue="0.089510053396224976" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="Mzx-uK-MIU" firstAttribute="width" secondItem="IdI-Hb-G9P" secondAttribute="width" multiplier="0.9" id="6o0-51-iw5"/>
@@ -1485,7 +1350,6 @@ Goalie's happy.</string>
                             <outletCollection property="gestureRecognizers" destination="aLw-fY-XDE" appends="YES" id="zX0-3V-gCp"/>
                         </connections>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="_containerView" destination="Mzx-uK-MIU" id="k29-lN-vQL"/>
                         <outlet property="_manuallySwitchPrioritySwitch" destination="0Yr-sT-wBA" id="MqE-u9-lzb"/>
@@ -1514,34 +1378,29 @@ Goalie's happy.</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8b6-MW-4s1">
-                                <rect key="frame" x="29" y="154" width="318" height="360"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Tzx-1w-9xE">
-                                    <rect key="frame" x="0.0" y="0.0" width="318" height="360"/>
+                                    <frame key="frameInset"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congrats on your first task!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6oZ-rU-niv">
-                                            <rect key="frame" x="20" y="30" width="278" height="25"/>
                                             <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="18"/>
-                                            <color key="textColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
+                                            <color key="textColor" red="0.16495420038700104" green="0.23226518929004669" blue="0.26715320348739624" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="first-task-graphic" translatesAutoresizingMaskIntoConstraints="NO" id="cBg-Aj-kvT">
-                                            <rect key="frame" x="151" y="80" width="16" height="88"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="16" id="McQ-a5-5J8"/>
                                                 <constraint firstAttribute="height" constant="88" id="XeR-Nn-7Lk"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IXd-B5-TkF">
-                                            <rect key="frame" x="15" y="188" width="288" height="82"/>
                                             <string key="text">Tasks you add will be given the "Later" priority by default, and will heat up over time. Complete tasks before they get hot to keep Goalie cool, calm, and collected.</string>
                                             <fontDescription key="fontDescription" name="NotoSans" family="Noto Sans" pointSize="15"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="05x-ay-3Sx" customClass="GoalieKerningButton" customModule="Goalie" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="300" width="318" height="60"/>
-                                            <color key="backgroundColor" red="0.14117647059999999" green="0.65098039220000004" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" red="0.14117647059999999" green="0.65098039220000004" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="60" id="7d8-zR-0Ud"/>
                                             </constraints>
@@ -1570,14 +1429,13 @@ Goalie's happy.</string>
                                 <blurEffect style="extraLight"/>
                             </visualEffectView>
                         </subviews>
-                        <color key="backgroundColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.089511200785636902" green="0.089508526027202606" blue="0.089510053396224976" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="8b6-MW-4s1" firstAttribute="centerY" secondItem="rwC-hJ-9nT" secondAttribute="centerY" id="2Qd-SS-whR"/>
                             <constraint firstItem="8b6-MW-4s1" firstAttribute="centerX" secondItem="rwC-hJ-9nT" secondAttribute="centerX" id="6rK-nk-Is2"/>
                             <constraint firstItem="8b6-MW-4s1" firstAttribute="width" secondItem="rwC-hJ-9nT" secondAttribute="width" multiplier="0.85" id="kUv-90-wlG"/>
                         </constraints>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="_containerView" destination="8b6-MW-4s1" id="Jdy-pq-i8I"/>
                         <outlet property="_textLabel" destination="IXd-B5-TkF" id="CF6-r3-5Xj"/>
@@ -1596,9 +1454,9 @@ Goalie's happy.</string>
                         <viewControllerLayoutGuide type="bottom" id="vel-YZ-qy0"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="QsC-dn-mc9">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
                         <outlet property="_gymView" destination="mi6-U5-qwL" id="ZUT-jK-PFI"/>
@@ -1615,11 +1473,9 @@ Goalie's happy.</string>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YgY-oQ-IFq" userLabel="Character View Container">
-                            <rect key="frame" x="179" y="81" width="80" height="100"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Jc-ps-KJ0" customClass="CharacterView" customModule="Goalie" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="80" height="100"/>
-                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.39882535460000001" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.39882535460000001" colorSpace="custom" customColorSpace="sRGB"/>
                                     <connections>
                                         <outlet property="centerYConstraint" destination="q4P-GY-u0N" id="Sgi-dU-9CP"/>
                                         <outlet property="containerView" destination="YgY-oQ-IFq" id="uIc-3v-mB1"/>
@@ -1628,7 +1484,7 @@ Goalie's happy.</string>
                                     </connections>
                                 </view>
                             </subviews>
-                            <color key="backgroundColor" red="1" green="0.60022615130000001" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="1" green="0.60022615130000001" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="bottom" secondItem="4Jc-ps-KJ0" secondAttribute="bottom" id="2ln-MN-opA"/>
                                 <constraint firstItem="4Jc-ps-KJ0" firstAttribute="top" secondItem="YgY-oQ-IFq" secondAttribute="top" id="E1A-uh-rMj"/>
@@ -1639,8 +1495,7 @@ Goalie's happy.</string>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lac-iW-K8c" userLabel="Bricks View" customClass="BricksView" customModule="Goalie" customModuleProvider="target">
-                            <rect key="frame" x="19" y="15" width="91" height="64"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="64" id="BOZ-7B-O8a"/>
                                 <constraint firstAttribute="width" constant="91" id="nrW-qQ-QND"/>
@@ -1651,8 +1506,7 @@ Goalie's happy.</string>
                             </connections>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SlN-2b-Ijy" userLabel="Bricks View" customClass="WeightView" customModule="Goalie" customModuleProvider="target">
-                            <rect key="frame" x="58" y="107" width="91" height="64"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="91" id="hqX-Ya-nbp"/>
                                 <constraint firstAttribute="height" constant="64" id="jyi-pe-QZ3"/>
@@ -1663,8 +1517,7 @@ Goalie's happy.</string>
                             </connections>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ylE-Or-s1F" customClass="JumpropeView" customModule="Goalie" customModuleProvider="target">
-                            <rect key="frame" x="289" y="69" width="58" height="64"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="64" id="91n-sg-7RP"/>
                                 <constraint firstAttribute="width" constant="58" id="ktF-7P-Df5"/>
@@ -1675,8 +1528,7 @@ Goalie's happy.</string>
                             </connections>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Bf-4x-aQZ" customClass="WaterBottleView" customModule="Goalie" customModuleProvider="target">
-                            <rect key="frame" x="367" y="107" width="58" height="64"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="64" id="2SM-Qf-a0R"/>
                                 <constraint firstAttribute="width" constant="58" id="64f-9Y-9Ru"/>
@@ -1687,7 +1539,7 @@ Goalie's happy.</string>
                             </connections>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="8Bf-4x-aQZ" firstAttribute="leading" secondItem="ylE-Or-s1F" secondAttribute="trailing" constant="20" id="9Fh-ms-f6X"/>
                         <constraint firstItem="8Bf-4x-aQZ" firstAttribute="bottom" secondItem="SlN-2b-Ijy" secondAttribute="bottom" id="9kw-jK-FDI"/>
@@ -1713,11 +1565,9 @@ Goalie's happy.</string>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Kz-Ch-dtk" userLabel="Character View Container">
-                            <rect key="frame" x="179" y="81" width="80" height="100"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H6E-eL-P1q" customClass="CharacterView" customModule="Goalie" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="80" height="100"/>
-                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.39882535460000001" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.39882535460000001" colorSpace="custom" customColorSpace="sRGB"/>
                                     <connections>
                                         <outlet property="centerYConstraint" destination="q4P-GY-u0N" id="Gz1-7d-IqM"/>
                                         <outlet property="containerView" destination="7Kz-Ch-dtk" id="R1c-42-OPg"/>
@@ -1726,7 +1576,7 @@ Goalie's happy.</string>
                                     </connections>
                                 </view>
                             </subviews>
-                            <color key="backgroundColor" red="1" green="0.60022615130000001" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="1" green="0.60022615130000001" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="bottom" secondItem="H6E-eL-P1q" secondAttribute="bottom" id="3yW-dQ-Gv6"/>
                                 <constraint firstAttribute="trailing" secondItem="H6E-eL-P1q" secondAttribute="trailing" id="5Hf-l8-w2C"/>
@@ -1737,8 +1587,7 @@ Goalie's happy.</string>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hJQ-Ka-j56" userLabel="Window View" customClass="HomeWindowView" customModule="Goalie" customModuleProvider="target">
-                            <rect key="frame" x="-13" y="37" width="91" height="64"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="64" id="D6W-6o-Jeh"/>
                                 <constraint firstAttribute="width" constant="91" id="y9N-V4-XT2"/>
@@ -1749,8 +1598,7 @@ Goalie's happy.</string>
                             </connections>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="brx-qI-YIE" customClass="ClockView" customModule="Goalie" customModuleProvider="target">
-                            <rect key="frame" x="58" y="107" width="91" height="64"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="91" id="UCR-T3-mzk"/>
                                 <constraint firstAttribute="height" constant="64" id="WBy-HQ-A4v"/>
@@ -1761,8 +1609,7 @@ Goalie's happy.</string>
                             </connections>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6BF-WZ-Wm1" customClass="PlantView" customModule="Goalie" customModuleProvider="target">
-                            <rect key="frame" x="289" y="107" width="58" height="64"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="58" id="7Q9-P8-fH6"/>
                                 <constraint firstAttribute="height" constant="64" id="cGb-Kx-vm5"/>
@@ -1773,8 +1620,7 @@ Goalie's happy.</string>
                             </connections>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rhG-9Z-baw" customClass="SodaView" customModule="Goalie" customModuleProvider="target">
-                            <rect key="frame" x="367" y="107" width="58" height="64"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="64" id="ABz-1K-Ulv"/>
                                 <constraint firstAttribute="width" constant="58" id="uBP-Wn-J9G"/>
@@ -1785,7 +1631,7 @@ Goalie's happy.</string>
                             </connections>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="rhG-9Z-baw" firstAttribute="leading" secondItem="6BF-WZ-Wm1" secondAttribute="trailing" constant="20" id="E4l-vK-BJi"/>
                         <constraint firstItem="H6E-eL-P1q" firstAttribute="leading" secondItem="brx-qI-YIE" secondAttribute="trailing" constant="30" id="RxF-88-wBC"/>
@@ -1811,11 +1657,9 @@ Goalie's happy.</string>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BVP-RW-MvV" userLabel="Character View Container">
-                            <rect key="frame" x="179" y="81" width="80" height="100"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lei-ch-0cx" customClass="CharacterView" customModule="Goalie" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="80" height="100"/>
-                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.39882535460000001" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.39882535460000001" colorSpace="custom" customColorSpace="sRGB"/>
                                     <connections>
                                         <outlet property="centerYConstraint" destination="q4P-GY-u0N" id="A6D-8N-ubq"/>
                                         <outlet property="containerView" destination="BVP-RW-MvV" id="0Kp-9w-b7V"/>
@@ -1824,7 +1668,7 @@ Goalie's happy.</string>
                                     </connections>
                                 </view>
                             </subviews>
-                            <color key="backgroundColor" red="1" green="0.60022615130000001" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="1" green="0.60022615130000001" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="bottom" secondItem="lei-ch-0cx" secondAttribute="bottom" id="DKY-n4-HjE"/>
                                 <constraint firstAttribute="height" constant="100" id="Kda-tz-MxT"/>
@@ -1835,8 +1679,7 @@ Goalie's happy.</string>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gb2-7d-bV3" customClass="ComputerView" customModule="Goalie" customModuleProvider="target">
-                            <rect key="frame" x="58" y="107" width="91" height="64"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="64" id="bZN-XR-i0X"/>
                                 <constraint firstAttribute="width" constant="91" id="kdy-ue-gi0"/>
@@ -1847,8 +1690,7 @@ Goalie's happy.</string>
                             </connections>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="84B-2h-dXY" customClass="WorkClockView" customModule="Goalie" customModuleProvider="target">
-                            <rect key="frame" x="289" y="80" width="42" height="42"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="42" id="PTY-Pd-Vme"/>
                                 <constraint firstAttribute="height" constant="42" id="qKp-6R-aVe"/>
@@ -1859,8 +1701,7 @@ Goalie's happy.</string>
                             </connections>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QGR-9U-f6p" customClass="LampView" customModule="Goalie" customModuleProvider="target">
-                            <rect key="frame" x="331" y="107" width="42" height="64"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="64" id="RMh-hb-cwz"/>
                                 <constraint firstAttribute="width" constant="42" id="mql-gt-pS6"/>
@@ -1871,8 +1712,7 @@ Goalie's happy.</string>
                             </connections>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gzt-V3-kS9" userLabel="Window View" customClass="WorkWindowView" customModule="Goalie" customModuleProvider="target">
-                            <rect key="frame" x="19" y="37" width="91" height="64"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="64" id="6Jq-y1-bvo"/>
                                 <constraint firstAttribute="width" constant="91" id="gzn-xS-qVm"/>
@@ -1883,7 +1723,7 @@ Goalie's happy.</string>
                             </connections>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="BVP-RW-MvV" firstAttribute="centerY" secondItem="pUu-1p-Pnx" secondAttribute="centerY" constant="15" id="7Hc-Xy-LZt"/>
                         <constraint firstItem="84B-2h-dXY" firstAttribute="centerY" secondItem="lei-ch-0cx" secondAttribute="centerY" constant="-30" id="Ao3-4S-hrz"/>
@@ -1920,58 +1760,51 @@ Goalie's happy.</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1vU-9o-gnr">
-                                <rect key="frame" x="29" y="146" width="318" height="376"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="V12-Ye-jlf">
-                                    <rect key="frame" x="0.0" y="0.0" width="318" height="376"/>
+                                    <frame key="frameInset"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You've unlocked your first accessory pack!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zhi-rc-EYq">
-                                            <rect key="frame" x="20" y="30" width="278" height="49.5"/>
                                             <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="18"/>
-                                            <color key="textColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
+                                            <color key="textColor" red="0.16495420038700104" green="0.23226518929004669" blue="0.26715320348739624" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Y7-zA-bui">
-                                            <rect key="frame" x="15" y="204" width="288" height="82"/>
                                             <string key="text">You've created five tasks! Now furnish your pad with the Home accessory pack. You can change and add furniture in the edit menu.</string>
                                             <fontDescription key="fontDescription" name="NotoSans" family="Noto Sans" pointSize="15"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="39y-4h-R1j" customClass="GoalieKerningButton" customModule="Goalie" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="316" width="158" height="60"/>
-                                            <color key="backgroundColor" red="0.76470588240000004" green="0.84705882349999995" blue="0.88235294119999996" alpha="1" colorSpace="deviceRGB"/>
+                                            <color key="backgroundColor" red="0.71676403284072876" green="0.81188255548477173" blue="0.85385775566101074" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="60" id="Vdj-mg-ajC"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="16"/>
                                             <state key="normal" title="IGNORE">
-                                                <color key="titleColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
+                                                <color key="titleColor" red="0.16495420038700104" green="0.23226518929004669" blue="0.26715320348739624" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                             <connections>
                                                 <action selector="_ignoreButtonPressed" destination="3oa-VV-gtc" eventType="touchUpInside" id="dTj-1d-GTe"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ahy-Vd-TKF" customClass="GoalieKerningButton" customModule="Goalie" customModuleProvider="target">
-                                            <rect key="frame" x="160" y="316" width="158" height="60"/>
-                                            <color key="backgroundColor" red="0.76470588240000004" green="0.84705882349999995" blue="0.88235294119999996" alpha="1" colorSpace="deviceRGB"/>
+                                            <color key="backgroundColor" red="0.71676403284072876" green="0.81188255548477173" blue="0.85385775566101074" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="60" id="AJb-wp-tvi"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="16"/>
                                             <state key="normal" title="UNLOCK">
-                                                <color key="titleColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
+                                                <color key="titleColor" red="0.16495420038700104" green="0.23226518929004669" blue="0.26715320348739624" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                             <connections>
                                                 <action selector="_unlockButtonPressed" destination="3oa-VV-gtc" eventType="touchUpInside" id="w9B-0M-CS6"/>
                                             </connections>
                                         </button>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mw0-VP-3ms" customClass="CongratulatingUnlockedAccessoryPackBackgroundView" customModule="Goalie" customModuleProvider="target">
-                                            <rect key="frame" x="117" y="100" width="85" height="85"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rsf-O9-z7W" customClass="AccessoryPackBadgeView" customModule="Goalie" customModuleProvider="target">
-                                                    <rect key="frame" x="28" y="28" width="29" height="29"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="29" id="ODH-wD-VRm"/>
                                                         <constraint firstAttribute="height" constant="29" id="U1B-jI-cgH"/>
@@ -1982,7 +1815,7 @@ Goalie's happy.</string>
                                                     </connections>
                                                 </view>
                                             </subviews>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="85" id="6GF-Fw-EZX"/>
                                                 <constraint firstItem="rsf-O9-z7W" firstAttribute="centerY" secondItem="mw0-VP-3ms" secondAttribute="centerY" id="OId-Pz-i4d"/>
@@ -2012,7 +1845,7 @@ Goalie's happy.</string>
                                 <blurEffect style="extraLight"/>
                             </visualEffectView>
                         </subviews>
-                        <color key="backgroundColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.089511200785636902" green="0.089508526027202606" blue="0.089510053396224976" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="1vU-9o-gnr" firstAttribute="centerY" secondItem="f4f-ao-TTn" secondAttribute="centerY" id="hj5-YV-kzb"/>
@@ -2023,7 +1856,6 @@ Goalie's happy.</string>
                             <outletCollection property="gestureRecognizers" destination="LQM-gZ-y2x" appends="YES" id="OGf-so-uCS"/>
                         </connections>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="_accessoryPackBackgroundView" destination="mw0-VP-3ms" id="cds-ix-YBr"/>
                         <outlet property="_accessoryPackBadgeView" destination="rsf-O9-z7W" id="SOv-MD-05b"/>
@@ -2055,4 +1887,9 @@ Goalie's happy.</string>
         <image name="settings-gear-new" width="20" height="20"/>
         <image name="star" width="5" height="5"/>
     </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
+    </simulatedMetricsContainer>
 </document>

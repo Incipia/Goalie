@@ -63,7 +63,10 @@ class SettingsViewController: UIViewController, ManagedObjectContextSettable, Me
    
    // Mark: - Private
    private func _setupShadow()
-   {
+	{
+		let shadowPath = UIBezierPath(rect: _containerView.bounds)
+		
+		_containerView.layer.shadowPath = shadowPath.CGPath
       _containerView.layer.shadowColor = UIColor.blackColor().CGColor
       _containerView.layer.shadowOpacity = 0.2
       _containerView.layer.shadowOffset = CGSize(width: 0, height: 4)

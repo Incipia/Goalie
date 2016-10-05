@@ -54,11 +54,11 @@ class GoalieCharacterKit
       bezierPath.closePath()
       bezierPath.miterLimit = 4;
       
-      CGContextSaveGState(context)
-      CGContextSetShadowWithColor(context, shadow.shadowOffset, shadow.shadowBlurRadius, (shadow.shadowColor as! UIColor).CGColor)
+      CGContextSaveGState(context!)
+      CGContextSetShadowWithColor(context!, shadow.shadowOffset, shadow.shadowBlurRadius, (shadow.shadowColor as! UIColor).CGColor)
       backgroundColor.setFill()
       bezierPath.fill()
-      CGContextRestoreGState(context)
+      CGContextRestoreGState(context!)
       
       
       
@@ -268,8 +268,8 @@ extension GoalieCharacterKit
       
       
       //// Group 15
-      CGContextSaveGState(context)
-      CGContextBeginTransparencyLayer(context, nil)
+      CGContextSaveGState(context!)
+      CGContextBeginTransparencyLayer(context!, nil)
       
       //// Clip Bezier 11
       let bezier11Path = UIBezierPath()
@@ -300,7 +300,7 @@ extension GoalieCharacterKit
       rectanglePath.fill()
       
       
-      CGContextEndTransparencyLayer(context)
-      CGContextRestoreGState(context)
+      CGContextEndTransparencyLayer(context!)
+      CGContextRestoreGState(context!)
    }
 }
