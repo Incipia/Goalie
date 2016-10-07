@@ -85,9 +85,9 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
       _updateTableViewHeaderDisplay()
       
       NSNotificationCenter.defaultCenter().addObserver(self,
-         selector: Selector("keyboardDidHide"),
-         name: UIKeyboardDidHideNotification,
-         object: nil)
+                                                       selector: #selector(MainTasksViewController.keyboardDidHide),
+                                                       name: UIKeyboardDidHideNotification,
+                                                       object: nil)
       
       _goalieTableView.longPressReorderDelegate = self
       _goalieTableView.konamiDelegate = self
