@@ -11,11 +11,11 @@ import CoreData
 
 public final class Task: ManagedObject
 {
-   @NSManaged public private(set) var uuid: String
+   @NSManaged public fileprivate(set) var uuid: String
    @NSManaged public var title: String
-   @NSManaged public var creationDate: NSDate
-   @NSManaged public private(set) var lastPriorityChangeDate: NSDate
-   @NSManaged public private(set) var priorityValue: Int16
+   @NSManaged public var creationDate: Date
+   @NSManaged public fileprivate(set) var lastPriorityChangeDate: Date
+   @NSManaged public fileprivate(set) var priorityValue: Int16
    @NSManaged public var completed: Bool
    
    var priority: TaskPriority {
@@ -26,26 +26,26 @@ public final class Task: ManagedObject
          let newPriorityValue = Int16(newValue.rawValue)
          if priorityValue != newPriorityValue {
             priorityValue = newPriorityValue
-            lastPriorityChangeDate = NSDate()
+            lastPriorityChangeDate = Date()
          }
       }
    }
    
    func resetLastPriorityChangeDate()
    {
-      lastPriorityChangeDate = NSDate()
+      lastPriorityChangeDate = Date()
    }
    
-   func updateForPriorityAdvanceInSeconds(seconds: Int)
+   func updateForPriorityAdvanceInSeconds(_ seconds: Int)
    {
       if let priorityDuration = priority.duration {
-         var newLastPriorityChangeDate = NSDate().dateByAddingTimeInterval(-priorityDuration)
-         newLastPriorityChangeDate = newLastPriorityChangeDate.dateByAddingTimeInterval(Double(seconds))
+         var newLastPriorityChangeDate = Date().addingTimeInterval(-priorityDuration)
+         newLastPriorityChangeDate = newLastPriorityChangeDate.addingTimeInterval(Double(seconds))
          lastPriorityChangeDate = newLastPriorityChangeDate
       }
    }
    
-   public static func insertEmptyTaskIntoContext(moc: NSManagedObjectContext) -> Task
+   public static func insertEmptyTaskIntoContext(_ moc: NSManagedObjectContext) -> Task
    {
       let task: Task = moc.insertObject()
       return task
@@ -54,15 +54,15 @@ public final class Task: ManagedObject
    public override func awakeFromInsert()
    {
       title = ""
-      priority = .Unknown
-      creationDate = NSDate()
-      lastPriorityChangeDate = NSDate()
-      uuid = NSUUID().UUIDString
+      priority = .unknown
+      creationDate = Date()
+      lastPriorityChangeDate = Date()
+      uuid = UUID().uuidString
    }
    
-   public func swapWithTask(task: Task)
+   public func swapWithTask(_ task: Task)
    {
-      managedObjectContext?.performBlock({ () -> Void in
+      managedObjectContext?.perform({ () -> Void in
          
          let newUUID = task.uuid
          let newTitle = task.title
@@ -102,14 +102,14 @@ extension Task: ManagedObjectType
    public func delete()
    {
       managedObjectContext?.performChanges({ () -> () in
-         self.managedObjectContext?.deleteObject(self)
+         self.managedObjectContext?.delete(self)
       })
    }
    
-   public func deleteWithCompletion(completion: (() -> Void)?)
+   public func deleteWithCompletion(_ completion: (() -> Void)?)
    {
       managedObjectContext?.performChanges({ () -> () in
-         self.managedObjectContext?.deleteObject(self)
+         self.managedObjectContext?.delete(self)
          completion?()
       })
    }

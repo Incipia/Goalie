@@ -10,13 +10,13 @@ import UIKit
 
 class EditListCollectionViewCell: UICollectionViewCell
 {
-   @IBOutlet private weak var _collectionView: UICollectionView!
+   @IBOutlet fileprivate weak var _collectionView: UICollectionView!
    
-   private var _option: EditListOption = .Characters
-   private var _initialPositionSetFlag = false
+   fileprivate var _option: EditListOption = .Characters
+   fileprivate var _initialPositionSetFlag = false
    
    deinit {
-      NSNotificationCenter.defaultCenter().removeObserver(self)
+      NotificationCenter.default.removeObserver(self)
    }
    
    override func awakeFromNib()
@@ -25,20 +25,20 @@ class EditListCollectionViewCell: UICollectionViewCell
       _collectionView.dataSource = self
       _collectionView.delegate = self
       
-      let notificationName = kMKStoreKitProductPurchasedNotification
-      NSNotificationCenter.defaultCenter().addObserverForName(notificationName,
-         object: nil, queue: NSOperationQueue.mainQueue()) { (note) -> Void in
+      let notificationName = NSNotification.Name.mkStoreKitProductPurchased
+      NotificationCenter.default.addObserver(forName: notificationName,
+         object: nil, queue: OperationQueue.main) { (note) -> Void in
             self._collectionView.reloadData()
       }
       
       // Ran out of options... I'll figure out a better way to make this happen at some point or another.
-      let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(0.01 * Double(NSEC_PER_SEC)))
-      dispatch_after(delayTime, dispatch_get_main_queue()) {
+      let delayTime = DispatchTime.now() + Double(Int64(0.01 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
+      DispatchQueue.main.asyncAfter(deadline: delayTime) {
          self.scrollToOption()
       }
    }
    
-   func configureWithOption(option: EditListOption)
+   func configureWithOption(_ option: EditListOption)
    {
       _option = option
       _collectionView.reloadData()
@@ -49,15 +49,15 @@ class EditListCollectionViewCell: UICollectionViewCell
       switch _option {
       case .Characters:
          let current = CharacterManager.currentCharacter
-         if let index = _option.characters.indexOf(current) {
-            let indexPath = NSIndexPath(forRow: index, inSection: 0)
-            _collectionView.scrollToItemAtIndexPath(indexPath, atScrollPosition: .CenteredHorizontally, animated: false)
+         if let index = _option.characters.index(of: current) {
+            let indexPath = IndexPath(row: index, section: 0)
+            _collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
          }
       case .AccessoryPacks:
          let current = AccessoryPackManager.currentAccessoryPack
-         if let index = _option.accessoryPacks.indexOf(current) {
-            let indexPath = NSIndexPath(forRow: index, inSection: 0)
-            _collectionView.scrollToItemAtIndexPath(indexPath, atScrollPosition: .CenteredHorizontally, animated: false)
+         if let index = _option.accessoryPacks.index(of: current) {
+            let indexPath = IndexPath(row: index, section: 0)
+            _collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
          }
       }
    }
@@ -65,7 +65,7 @@ class EditListCollectionViewCell: UICollectionViewCell
 
 extension EditListCollectionViewCell: UICollectionViewDataSource
 {
-   func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
+   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
    {
       switch _option {
       case .Characters: return _option.characters.count
@@ -73,7 +73,7 @@ extension EditListCollectionViewCell: UICollectionViewDataSource
       }
    }
    
-   func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell
+   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
    {
       switch _option {
       case .Characters:
@@ -85,11 +85,11 @@ extension EditListCollectionViewCell: UICollectionViewDataSource
       }
    }
    
-   private func _cellForAccessoryPack(pack: AccessoryPack, indexPath: NSIndexPath) -> UICollectionViewCell
+   fileprivate func _cellForAccessoryPack(_ pack: AccessoryPack, indexPath: IndexPath) -> UICollectionViewCell
    {
       if AccessoryPackManager.accessoryPackUnlocked(pack) {
          let identifier = "UnlockedAccessoryPackCellID"
-         let cell = _collectionView.dequeueReusableCellWithReuseIdentifier(identifier, forIndexPath: indexPath) as! UnlockedAccessoryPackCollectionViewCell
+         let cell = _collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! UnlockedAccessoryPackCollectionViewCell
          let accessoryPack = _option.accessoryPacks[indexPath.row]
          cell.configureWithAccessoryPack(accessoryPack)
          
@@ -97,7 +97,7 @@ extension EditListCollectionViewCell: UICollectionViewDataSource
       }
       else {
          let identifier = "AccessoryPackCellID"
-         let cell = _collectionView.dequeueReusableCellWithReuseIdentifier(identifier, forIndexPath: indexPath) as! AccessoryPackCollectionViewCell
+         let cell = _collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! AccessoryPackCollectionViewCell
          let accessoryPack = _option.accessoryPacks[indexPath.row]
          
          cell.delegate = self
@@ -107,17 +107,17 @@ extension EditListCollectionViewCell: UICollectionViewDataSource
       }
    }
    
-   private func _cellForCharacter(character: GoalieCharacter, indexPath: NSIndexPath) -> UICollectionViewCell
+   fileprivate func _cellForCharacter(_ character: GoalieCharacter, indexPath: IndexPath) -> UICollectionViewCell
    {
       if CharacterManager.characterUnlocked(character) {
          let identifier = "UnlockedCharacterCellID"
-         let cell = _collectionView.dequeueReusableCellWithReuseIdentifier(identifier, forIndexPath: indexPath) as! UnlockedCharacterCollectionViewCell
+         let cell = _collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! UnlockedCharacterCollectionViewCell
          cell.configureWithCharacter(character)
          return cell
       }
       else {
          let identifier = "CharacterCellID"
-         let cell = _collectionView.dequeueReusableCellWithReuseIdentifier(identifier, forIndexPath: indexPath) as! CharacterCollectionViewCell
+         let cell = _collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! CharacterCollectionViewCell
          
          cell.delegate = self
          cell.configureWithCharacter(character)
@@ -128,7 +128,7 @@ extension EditListCollectionViewCell: UICollectionViewDataSource
 
 extension EditListCollectionViewCell: UICollectionViewDelegate
 {
-   func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath)
+   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
    {
       switch _option {
       case .Characters:
@@ -146,23 +146,23 @@ extension EditListCollectionViewCell: UICollectionViewDelegate
             _collectionView.reloadData()
          }
       }
-      _collectionView.scrollToItemAtIndexPath(indexPath, atScrollPosition: .CenteredHorizontally, animated: true)
+      _collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
    }
 }
 
 extension EditListCollectionViewCell: EditListCharacterCellDelegate
 {
-   func actionButtonPressedForCharacter(character: GoalieCharacter)
+   func actionButtonPressedForCharacter(_ character: GoalieCharacter)
    {
       if let action = character.unlockAction {
          switch action {
-         case .Purchase(_, let id):
-            MKStoreKit.sharedKit().initiatePaymentRequestForProductWithIdentifier(id)
-         case .RateApp:
+         case .purchase(_, let id):
+            MKStoreKit.shared().initiatePaymentRequestForProduct(withIdentifier: id)
+         case .rateApp:
             _rateApp()
             CharacterManager.unlockCharacter(character)
-            let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(Double(2) * Double(NSEC_PER_SEC)))
-            dispatch_after(delayTime, dispatch_get_main_queue()) {
+            let delayTime = DispatchTime.now() + Double(Int64(Double(2) * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
+            DispatchQueue.main.asyncAfter(deadline: delayTime) {
                self._collectionView.reloadData()
             }
          default: break
@@ -170,21 +170,21 @@ extension EditListCollectionViewCell: EditListCharacterCellDelegate
       }
    }
    
-   private func _rateApp()
+   fileprivate func _rateApp()
    {
       let appID = "1076725605"
-      UIApplication.sharedApplication().openURL(NSURL(string : "itms-apps://itunes.apple.com/app/id\(appID)")!);
+      UIApplication.shared.openURL(URL(string : "itms-apps://itunes.apple.com/app/id\(appID)")!);
    }
 }
 
 extension EditListCollectionViewCell: AccessoryPackCollectionViewCellDelegate
 {
-   func actionButtonPressedForAccessoryPack(pack: AccessoryPack)
+   func actionButtonPressedForAccessoryPack(_ pack: AccessoryPack)
    {      
       if let action = pack.unlockAction {
          switch action {
-         case .Purchase(_, let id):
-            MKStoreKit.sharedKit().initiatePaymentRequestForProductWithIdentifier(id)
+         case .purchase(_, let id):
+            MKStoreKit.shared().initiatePaymentRequestForProduct(withIdentifier: id)
          default: break
          }
       }

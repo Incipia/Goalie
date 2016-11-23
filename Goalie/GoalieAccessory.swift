@@ -10,30 +10,30 @@ import Foundation
 
 enum GoalieAccessory
 {
-   case Bricks, Weight, Jumprope, WaterBottle, Clock, Plant, Soda, HomeWindow, WorkClock, Computer, Lamp, WorkWindow, Unknown
+   case bricks, weight, jumprope, waterBottle, clock, plant, soda, homeWindow, workClock, computer, lamp, workWindow, unknown
    
-   func drawRect(frame: CGRect, priority: TaskPriority)
+   func drawRect(_ frame: CGRect, priority: TaskPriority)
    {
       switch self {
-      case Bricks: BricksAccessoryKit.drawWithFrame(frame, priority: priority)
-      case Weight: WeightAccessoryKit.drawWithFrame(frame, priority: priority)
-      case Jumprope: JumpropeAccessoryKit.drawWithFrame(frame, priority: priority)
-      case WaterBottle: WaterBottleAccessoryKit.drawWithFrame(frame, priority: priority)
-      case Clock: ClockAccessoryKit.drawWithFrame(frame, priority: priority)
-      case Plant: PlantAccessoryKit.drawWithFrame(frame, priority: priority)
-      case Soda: SodaAccessoryKit.drawWithFrame(frame, priority: priority)
-      case HomeWindow: HomeWindowAccessoryKit.drawWithFrame(frame, priority: priority)
-      case WorkClock: WorkClockAccessoryKit.drawWithFrame(frame, priority: priority)
-      case Computer: ComputerAccessoryKit.drawWithFrame(frame, priority: priority)
-      case Lamp: LampAccessoryKit.drawWithFrame(frame, priority: priority)
-      case WorkWindow: WorkWindowAccessoryKit.drawWithFrame(frame, priority: priority)
-      case Unknown: _drawPurpleRect(frame)
+      case .bricks: BricksAccessoryKit.drawWithFrame(frame, priority: priority)
+      case .weight: WeightAccessoryKit.drawWithFrame(frame, priority: priority)
+      case .jumprope: JumpropeAccessoryKit.drawWithFrame(frame, priority: priority)
+      case .waterBottle: WaterBottleAccessoryKit.drawWithFrame(frame, priority: priority)
+      case .clock: ClockAccessoryKit.drawWithFrame(frame, priority: priority)
+      case .plant: PlantAccessoryKit.drawWithFrame(frame, priority: priority)
+      case .soda: SodaAccessoryKit.drawWithFrame(frame, priority: priority)
+      case .homeWindow: HomeWindowAccessoryKit.drawWithFrame(frame, priority: priority)
+      case .workClock: WorkClockAccessoryKit.drawWithFrame(frame, priority: priority)
+      case .computer: ComputerAccessoryKit.drawWithFrame(frame, priority: priority)
+      case .lamp: LampAccessoryKit.drawWithFrame(frame, priority: priority)
+      case .workWindow: WorkWindowAccessoryKit.drawWithFrame(frame, priority: priority)
+      case .unknown: _drawPurpleRect(frame)
       }
    }
    
-   private func _drawPurpleRect(rect: CGRect)
+   fileprivate func _drawPurpleRect(_ rect: CGRect)
    {
-      UIColor.purpleColor().setFill()
+      UIColor.purple.setFill()
       UIRectFill(rect)
    }
 }
@@ -45,19 +45,19 @@ extension CGSize
       var size: (w: Int, h: Int)
       switch accessory
       {
-      case .Bricks: size = (79, 40)
-      case .Weight: size = (60, 30)
-      case .Jumprope: size = (36, 58)
-      case .WaterBottle: size = (22, 40)
-      case .Clock: size = (42, 44)
-      case .Plant: size = (26, 54)
-      case .Soda: size = (22, 36)
-      case .HomeWindow: size = (58, 56)
-      case .WorkClock: size = (42, 42)
-      case .Computer: size = (70, 39)
-      case .Lamp: size = (42, 48)
-      case .WorkWindow: size = (77, 50)
-      case .Unknown: size = (100, 100)
+      case .bricks: size = (79, 40)
+      case .weight: size = (60, 30)
+      case .jumprope: size = (36, 58)
+      case .waterBottle: size = (22, 40)
+      case .clock: size = (42, 44)
+      case .plant: size = (26, 54)
+      case .soda: size = (22, 36)
+      case .homeWindow: size = (58, 56)
+      case .workClock: size = (42, 42)
+      case .computer: size = (70, 39)
+      case .lamp: size = (42, 48)
+      case .workWindow: size = (77, 50)
+      case .unknown: size = (100, 100)
       }
       self.init(width: size.w, height: size.h)
    }

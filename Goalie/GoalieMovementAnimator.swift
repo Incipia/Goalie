@@ -23,11 +23,11 @@ let TotalDuration: Double = 6
 
 class GoalieMovementAnimator
 {
-   private var _startingCenter: CGPoint
-   private let _goalieView: UIView
-   private var _isAnimating = false
+   fileprivate var _startingCenter: CGPoint
+   fileprivate let _goalieView: UIView
+   fileprivate var _isAnimating = false
    
-   private var _initialScale: (x: CGFloat, y: CGFloat) = (1, 1)
+   fileprivate var _initialScale: (x: CGFloat, y: CGFloat) = (1, 1)
    
    init(view: UIView)
    {
@@ -61,39 +61,39 @@ class GoalieMovementAnimator
       _isAnimating = false
    }
    
-   private func _startTranslateAndRotationAnimations()
+   fileprivate func _startTranslateAndRotationAnimations()
    {
       let delay = 0.0
-      let raw = UIViewKeyframeAnimationOptions.Repeat.rawValue |
-         UIViewAnimationOptions.CurveLinear.rawValue |
-         UIViewKeyframeAnimationOptions.AllowUserInteraction.rawValue
+      let raw = UIViewKeyframeAnimationOptions.repeat.rawValue |
+         UIViewAnimationOptions.curveLinear.rawValue |
+         UIViewKeyframeAnimationOptions.allowUserInteraction.rawValue
       let options = UIViewKeyframeAnimationOptions(rawValue: raw)
       let rotation: CGFloat = 0.0872665
       
-      UIView.animateKeyframesWithDuration(TotalDuration, delay: delay, options: options, animations: {
-         UIView.addKeyframeWithRelativeStartTime(0, relativeDuration: 0.25, animations: {
+      UIView.animateKeyframes(withDuration: TotalDuration, delay: delay, options: options, animations: {
+         UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.25, animations: {
             
-            let rotatedTransform = CGAffineTransformMakeRotation(rotation)
-            let translatedTransform = CGAffineTransformMakeTranslation(5, 0)
-            self._goalieView.transform = CGAffineTransformConcat(rotatedTransform, translatedTransform)
+            let rotatedTransform = CGAffineTransform(rotationAngle: rotation)
+            let translatedTransform = CGAffineTransform(translationX: 5, y: 0)
+            self._goalieView.transform = rotatedTransform.concatenating(translatedTransform)
          })
-         UIView.addKeyframeWithRelativeStartTime(0.25, relativeDuration: 0.5, animations: {
+         UIView.addKeyframe(withRelativeStartTime: 0.25, relativeDuration: 0.5, animations: {
             
-            let rotatedTransform = CGAffineTransformMakeRotation(-rotation)
-            let translatedTransform = CGAffineTransformMakeTranslation(-5, 0)
-            self._goalieView.transform = CGAffineTransformConcat(rotatedTransform, translatedTransform)
+            let rotatedTransform = CGAffineTransform(rotationAngle: -rotation)
+            let translatedTransform = CGAffineTransform(translationX: -5, y: 0)
+            self._goalieView.transform = rotatedTransform.concatenating(translatedTransform)
          })
-         UIView.addKeyframeWithRelativeStartTime(0.75, relativeDuration: 0.25, animations: {
+         UIView.addKeyframe(withRelativeStartTime: 0.75, relativeDuration: 0.25, animations: {
             
-            let rotatedTransform = CGAffineTransformMakeRotation(0)
-            let translatedTransform = CGAffineTransformMakeTranslation(0, 0)
-            self._goalieView.transform = CGAffineTransformConcat(rotatedTransform, translatedTransform)
+            let rotatedTransform = CGAffineTransform(rotationAngle: 0)
+            let translatedTransform = CGAffineTransform(translationX: 0, y: 0)
+            self._goalieView.transform = rotatedTransform.concatenating(translatedTransform)
          })
          
          }, completion: nil)
    }
    
-   private func _startScalingAnimations()
+   fileprivate func _startScalingAnimations()
    {
       let scaleYAnimation = CAKeyframeAnimation(keyPath: "transform.scale.y")
       scaleYAnimation.values = [_initialScale.y, _initialScale.y * 0.95, _initialScale.y]
@@ -112,6 +112,6 @@ class GoalieMovementAnimator
       group.duration = TotalDuration
       group.repeatCount = Float.infinity
       
-      _goalieView.layer.addAnimation(group, forKey: "goalieAnimation")
+      _goalieView.layer.add(group, forKey: "goalieAnimation")
    }
 }

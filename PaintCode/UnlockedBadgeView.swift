@@ -19,32 +19,32 @@ class UnlockedBadgeView: UIView
    override func awakeFromNib()
    {
       super.awakeFromNib()
-      backgroundColor = UIColor.clearColor()
+      backgroundColor = UIColor.clear
    }
    
-   override func drawRect(rect: CGRect)
+   override func draw(_ rect: CGRect)
    {
       _drawBadgeWithFrame(rect)
    }
    
-   private func _drawBadgeWithFrame(frame: CGRect)
+   fileprivate func _drawBadgeWithFrame(_ frame: CGRect)
    {
-      var fillColor38 = UIColor(priority: .Later)//, headComponent: .Background)
+      var fillColor38 = UIColor(priority: .later)//, headComponent: .Background)
       if selected {
-         fillColor38 = UIColor(priority: .Later, headComponent: .Background)
+         fillColor38 = UIColor(priority: .later, headComponent: .background)
       }
 
       //// Bezier Drawing
       let bezierPath = UIBezierPath()
-      bezierPath.moveToPoint(CGPointMake(frame.minX + 0.97554 * frame.width, frame.minY + 45.96))
-      bezierPath.addLineToPoint(CGPointMake(frame.minX + 0.50000 * frame.width, frame.minY + 35.25))
-      bezierPath.addLineToPoint(CGPointMake(frame.minX + 0.02446 * frame.width, frame.minY + 45.96))
-      bezierPath.addCurveToPoint(CGPointMake(frame.minX + 0.00000 * frame.width, frame.minY + 43.52), controlPoint1: CGPointMake(frame.minX + 0.01175 * frame.width, frame.minY + 46.24), controlPoint2: CGPointMake(frame.minX + 0.00000 * frame.width, frame.minY + 45.07))
-      bezierPath.addLineToPoint(CGPointMake(frame.minX + 0.00000 * frame.width, frame.minY))
-      bezierPath.addLineToPoint(CGPointMake(frame.minX + 1.00000 * frame.width, frame.minY))
-      bezierPath.addLineToPoint(CGPointMake(frame.minX + 1.00000 * frame.width, frame.minY + 43.52))
-      bezierPath.addCurveToPoint(CGPointMake(frame.minX + 0.97554 * frame.width, frame.minY + 45.96), controlPoint1: CGPointMake(frame.minX + 1.00000 * frame.width, frame.minY + 45.07), controlPoint2: CGPointMake(frame.minX + 0.98825 * frame.width, frame.minY + 46.24))
-      bezierPath.closePath()
+      bezierPath.move(to: CGPoint(x: frame.minX + 0.97554 * frame.width, y: frame.minY + 45.96))
+      bezierPath.addLine(to: CGPoint(x: frame.minX + 0.50000 * frame.width, y: frame.minY + 35.25))
+      bezierPath.addLine(to: CGPoint(x: frame.minX + 0.02446 * frame.width, y: frame.minY + 45.96))
+      bezierPath.addCurve(to: CGPoint(x: frame.minX + 0.00000 * frame.width, y: frame.minY + 43.52), controlPoint1: CGPoint(x: frame.minX + 0.01175 * frame.width, y: frame.minY + 46.24), controlPoint2: CGPoint(x: frame.minX + 0.00000 * frame.width, y: frame.minY + 45.07))
+      bezierPath.addLine(to: CGPoint(x: frame.minX + 0.00000 * frame.width, y: frame.minY))
+      bezierPath.addLine(to: CGPoint(x: frame.minX + 1.00000 * frame.width, y: frame.minY))
+      bezierPath.addLine(to: CGPoint(x: frame.minX + 1.00000 * frame.width, y: frame.minY + 43.52))
+      bezierPath.addCurve(to: CGPoint(x: frame.minX + 0.97554 * frame.width, y: frame.minY + 45.96), controlPoint1: CGPoint(x: frame.minX + 1.00000 * frame.width, y: frame.minY + 45.07), controlPoint2: CGPoint(x: frame.minX + 0.98825 * frame.width, y: frame.minY + 46.24))
+      bezierPath.close()
       fillColor38.setFill()
       bezierPath.fill()
    }

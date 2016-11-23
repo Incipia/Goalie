@@ -9,17 +9,17 @@
 import UIKit
 
 enum TaskCellComponent {
-   case LeftBar, LeftButton, TextField, DisclosureButton
+   case leftBar, leftButton, textField, disclosureButton
 }
 
 enum TaskCellAppearanceProperty {
-   case Alpha, Hidden, Color
+   case alpha, hidden, color
 }
 
 struct TaskCellAppearanceUpdater
 {
-   private weak var _task: Task?
-   private var _delegate: TaskCellAppearanceDelegate
+   fileprivate weak var _task: Task?
+   fileprivate var _delegate: TaskCellAppearanceDelegate
    
    // Mark: - Init
    init(delegate: TaskCellAppearanceDelegate)
@@ -28,23 +28,23 @@ struct TaskCellAppearanceUpdater
    }
    
    // Mark: - Public
-   mutating func updateTask(task: Task)
+   mutating func updateTask(_ task: Task)
    {
       _task = task
    }
    
-   func updateProperty(property: TaskCellAppearanceProperty, forComponents components: [TaskCellComponent])
+   func updateProperty(_ property: TaskCellAppearanceProperty, forComponents components: [TaskCellComponent])
    {
       for component in components
       {
          switch property {
-         case .Alpha:
+         case .alpha:
             _updateAlphaForComponent(component)
             break
-         case .Hidden:
+         case .hidden:
             _updateHiddenPropertyForComponent(component)
             break
-         case .Color:
+         case .color:
             _updateColorForComponent(component)
             break
          }
@@ -52,16 +52,16 @@ struct TaskCellAppearanceUpdater
    }
    
    // Mark: - Private
-   func _updateColorForComponent(component: TaskCellComponent)
+   func _updateColorForComponent(_ component: TaskCellComponent)
    {
       switch component {
-      case .LeftBar:
+      case .leftBar:
          if let view = _delegate.viewForComponent(component), let task = _task {
             let color = task.title == "" ? UIColor.goalieGrayColor() : UIColor(priority: task.priority)
             view.backgroundColor = color
          }
          break
-      case .LeftButton:
+      case .leftButton:
          if let button = _delegate.viewForComponent(component) as? UIButton, let task = _task {
             var color = task.completed ? UIColor(priority: task.priority) : UIColor.goalieGrayColor()
             if task.title == "" {
@@ -74,23 +74,23 @@ struct TaskCellAppearanceUpdater
       }
    }
    
-   func _updateAlphaForComponent(component: TaskCellComponent)
+   func _updateAlphaForComponent(_ component: TaskCellComponent)
    {
       if let control = _delegate.viewForComponent(component), let task = _task {
          control.alpha = task.completed ? 0.4 : 1.0
       }
    }
    
-   func _updateHiddenPropertyForComponent(component: TaskCellComponent)
+   func _updateHiddenPropertyForComponent(_ component: TaskCellComponent)
    {
       if let view = _delegate.viewForComponent(component),
-         let task = _task where component == .DisclosureButton {
-         view.hidden = task.title == ""
+         let task = _task, component == .disclosureButton {
+         view.isHidden = task.title == ""
       }
    }
 }
 
 protocol TaskCellAppearanceDelegate
 {
-   func viewForComponent(component: TaskCellComponent) -> UIView?
+   func viewForComponent(_ component: TaskCellComponent) -> UIView?
 }

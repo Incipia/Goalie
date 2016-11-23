@@ -19,16 +19,16 @@ extension CATransform3D
 
 protocol ViewTransformerProtocol
 {
-   func touchesBegan(touches: Set<NSObject>)
-   func touchesMoved(touches: Set<NSObject>)
-   func resetViewWithDuration(duraiton: NSTimeInterval)
+   func touchesBegan(_ touches: Set<NSObject>)
+   func touchesMoved(_ touches: Set<NSObject>)
+   func resetViewWithDuration(_ duraiton: TimeInterval)
 }
 
 class ViewTransformer: ViewTransformerProtocol
 {
    var view: UIView
-   private var initialViewCenter = CGPoint.zero
-   private var firstTouchLocation = CGPoint.zero
+   fileprivate var initialViewCenter = CGPoint.zero
+   fileprivate var firstTouchLocation = CGPoint.zero
    
    var maxY: CGFloat?
    
@@ -39,20 +39,20 @@ class ViewTransformer: ViewTransformerProtocol
       self.view = view
    }
    
-   func touchesBegan(touches: Set<NSObject>)
+   func touchesBegan(_ touches: Set<NSObject>)
    {
-      if let touch = touches.first as? UITouch where self.firstTouchLocation == CGPoint.zero
+      if let touch = touches.first as? UITouch, self.firstTouchLocation == CGPoint.zero
       {
          self.initialViewCenter = self.view.center
-         self.firstTouchLocation = touch.locationInView(nil)
+         self.firstTouchLocation = touch.location(in: nil)
       }
    }
    
-   func touchesMoved(touches: Set<NSObject>)
+   func touchesMoved(_ touches: Set<NSObject>)
    {
       if let touch = touches.first as? UITouch
       {
-         var currentTouchLocation = touch.locationInView(nil)
+         var currentTouchLocation = touch.location(in: nil)
          let dx = self.firstTouchLocation.x - currentTouchLocation.x
          
          let currentTouchY = currentTouchLocation.y
@@ -76,13 +76,13 @@ class ViewTransformer: ViewTransformerProtocol
       }
    }
    
-   func resetViewWithDuration(duration: NSTimeInterval)
+   func resetViewWithDuration(_ duration: TimeInterval)
    {
-      UIView.animateWithDuration(duration / 1.5, animations: { () -> Void in
+      UIView.animate(withDuration: duration / 1.5, animations: { () -> Void in
          self.view.center = self.initialViewCenter
       })
       
-      UIView.animateWithDuration(duration / 1.5, delay: duration / 3, options: [], animations: { () -> Void in
+      UIView.animate(withDuration: duration / 1.5, delay: duration / 3, options: [], animations: { () -> Void in
          self.view.layer.transform = CATransform3DIdentity
          }, completion: nil)
       
@@ -90,14 +90,14 @@ class ViewTransformer: ViewTransformerProtocol
    }
    
    // MARK: - Private
-   private func rotateTransform(inout transform: CATransform3D, withDeltaVector deltaVector: CGVector)
+   fileprivate func rotateTransform(_ transform: inout CATransform3D, withDeltaVector deltaVector: CGVector)
    {
       let scale: CGFloat = takeItEasy ? 750 : 500
       transform = CATransform3DRotate(transform, -deltaVector.dx / scale, 0, 1, 0)
       transform = CATransform3DRotate(transform, deltaVector.dy / scale, 1, 0, 0)
    }
    
-   private func scaleTransform(inout transform: CATransform3D, withDeltaVector deltaVector: CGVector)
+   fileprivate func scaleTransform(_ transform: inout CATransform3D, withDeltaVector deltaVector: CGVector)
    {
       let xScale = scaleForDeltaValue(deltaVector.dy)
       let yScale = scaleForDeltaValue(deltaVector.dx)
@@ -106,7 +106,7 @@ class ViewTransformer: ViewTransformerProtocol
       transform = CATransform3DScale(transform, xScale, yScale, zScale)
    }
    
-   private func scaleForDeltaValue(value: CGFloat) -> CGFloat
+   fileprivate func scaleForDeltaValue(_ value: CGFloat) -> CGFloat
    {
       return max(log(abs(value * 0.012) + 1) * 0.8, 1.0)
    }

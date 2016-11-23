@@ -13,8 +13,8 @@ private let EditListHeaderCellID = "EditListHeaderCellID"
 
 class EditListCollectionViewDataSource: NSObject
 {
-   private let _collectionView: UICollectionView
-   private let _editListOptions: [EditListOption] = [.Characters, .AccessoryPacks]
+   fileprivate let _collectionView: UICollectionView
+   fileprivate let _editListOptions: [EditListOption] = [.Characters, .AccessoryPacks]
    
    init(collectionView: UICollectionView)
    {
@@ -22,11 +22,11 @@ class EditListCollectionViewDataSource: NSObject
       super.init()
       
       let layout = UICollectionViewFlowLayout()
-      layout.itemSize = CGSize(width: UIScreen.mainScreen().bounds.width, height: 200)
+      layout.itemSize = CGSize(width: UIScreen.main.bounds.width, height: 200)
       layout.minimumInteritemSpacing = 0
       layout.minimumLineSpacing = 0
-      layout.headerReferenceSize = CGSize(width: UIScreen.mainScreen().bounds.width, height: 80)
-      layout.footerReferenceSize = CGSize(width: UIScreen.mainScreen().bounds.width, height: 30)
+      layout.headerReferenceSize = CGSize(width: UIScreen.main.bounds.width, height: 80)
+      layout.footerReferenceSize = CGSize(width: UIScreen.main.bounds.width, height: 30)
       
       _collectionView.collectionViewLayout = layout
       _collectionView.dataSource = self
@@ -35,7 +35,7 @@ class EditListCollectionViewDataSource: NSObject
    
    func updateScrollPositionsForCurrentCharacterAndAccessoryPack()
    {
-      for cell in _collectionView.visibleCells() {
+      for cell in _collectionView.visibleCells {
          guard let editListCell = cell as? EditListCollectionViewCell else { continue }
          editListCell.scrollToOption()
       }
@@ -44,19 +44,19 @@ class EditListCollectionViewDataSource: NSObject
 
 extension EditListCollectionViewDataSource: UICollectionViewDataSource
 {
-   func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int
+   func numberOfSections(in collectionView: UICollectionView) -> Int
    {
       return _editListOptions.count
    }
    
-   func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
+   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
    {
       return 1
    }
    
-   func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell
+   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
    {
-      let cell = collectionView.dequeueReusableCellWithReuseIdentifier(EditListCellIdentifier, forIndexPath: indexPath) as! EditListCollectionViewCell
+      let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EditListCellIdentifier, for: indexPath) as! EditListCollectionViewCell
       
       let option = _editListOptions[indexPath.section]
       cell.configureWithOption(option)
@@ -85,16 +85,16 @@ extension EditListCollectionViewDataSource: UICollectionViewDataSource
 //      }
 //   }
    
-   func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView
+   func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView
    {
       switch kind {
          //2
       case UICollectionElementKindSectionHeader:
          //3
          let headerView =
-         collectionView.dequeueReusableSupplementaryViewOfKind(kind,
+         collectionView.dequeueReusableSupplementaryView(ofKind: kind,
             withReuseIdentifier: EditListHeaderCellID,
-            forIndexPath: indexPath) as! EditListHeaderCell
+            for: indexPath) as! EditListHeaderCell
          
          let option = _editListOptions[indexPath.section]
          headerView.configureWithOption(option)
@@ -104,9 +104,9 @@ extension EditListCollectionViewDataSource: UICollectionViewDataSource
       case UICollectionElementKindSectionFooter:
          //3
          let headerView =
-         collectionView.dequeueReusableSupplementaryViewOfKind(kind,
+         collectionView.dequeueReusableSupplementaryView(ofKind: kind,
             withReuseIdentifier: "EditListFooterCellID",
-            forIndexPath: indexPath)
+            for: indexPath)
          return headerView
          
          
@@ -116,15 +116,15 @@ extension EditListCollectionViewDataSource: UICollectionViewDataSource
       }
       
       // This should not happen
-      return collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "INVALID", forIndexPath: indexPath)
+      return collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "INVALID", for: indexPath)
    }
 }
 
 extension EditListCollectionViewDataSource: UICollectionViewDelegate
 {
-   func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize
+   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize
    {
-      let width: CGFloat = UIScreen.mainScreen().bounds.width
+      let width: CGFloat = UIScreen.main.bounds.width
       let height: CGFloat = section == 0 ? 110 : 80
       
       return CGSize(width: width, height: height)

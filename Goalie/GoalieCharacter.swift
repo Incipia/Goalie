@@ -10,38 +10,38 @@ import UIKit
 
 enum GoalieCharacter: Int
 {
-   case Goalie, BizeeBee, Fox, Checklistor, Unknown
+   case goalie, bizeeBee, fox, checklistor, unknown
    
-   func drawRect(rect: CGRect, withPriority priority: TaskPriority)
+   func drawRect(_ rect: CGRect, withPriority priority: TaskPriority)
    {
       switch self {
-      case .Goalie: _drawGoalieCharacterWithPriority(priority)
-      case .BizeeBee: _drawBizeeBeeCharacterWithPriority(priority)
-      case .Fox: _drawFoxCharacterWithPriority(priority)
-      case .Checklistor: _drawChecklistorWithPriority(priority)
-      case .Unknown: _drawPurpleRect(rect)
+      case .goalie: _drawGoalieCharacterWithPriority(priority)
+      case .bizeeBee: _drawBizeeBeeCharacterWithPriority(priority)
+      case .fox: _drawFoxCharacterWithPriority(priority)
+      case .checklistor: _drawChecklistorWithPriority(priority)
+      case .unknown: _drawPurpleRect(rect)
       }
    }
    
-   private func _drawPurpleRect(rect: CGRect)
+   fileprivate func _drawPurpleRect(_ rect: CGRect)
    {
-      UIColor.purpleColor().setFill()
+      UIColor.purple.setFill()
       UIRectFill(rect)
    }
    
-   private func _drawGoalieCharacterWithPriority(priority: TaskPriority)
+   fileprivate func _drawGoalieCharacterWithPriority(_ priority: TaskPriority)
    {
-      let bgColor = UIColor(priority: priority, headComponent: .Background)
-      let cheekColor = UIColor(priority: priority, headComponent: .Cheek)
-      let chinColor = UIColor(priority: priority, headComponent: .Chin)
+      let bgColor = UIColor(priority: priority, headComponent: .background)
+      let cheekColor = UIColor(priority: priority, headComponent: .cheek)
+      let chinColor = UIColor(priority: priority, headComponent: .chin)
       
       GoalieCharacterKit.drawGoalieHead(backgroundColor: bgColor, cheekColor: cheekColor, chinColor: chinColor)
       GoalieCharacterKit.drawAccessoriesForPriority(priority)
    }
    
-   private func _drawBizeeBeeCharacterWithPriority(priority: TaskPriority)
+   fileprivate func _drawBizeeBeeCharacterWithPriority(_ priority: TaskPriority)
    {
-      let bgColor = UIColor(priority: priority, headComponent: .Background)
+      let bgColor = UIColor(priority: priority, headComponent: .background)
       let cheekColor = UIColor.bizeeBeeCheeckColor(priority)
       let stripeColor = UIColor.bizeeBeeStripeColor(priority)
       let bowtieColor = UIColor.eyeColorForPriority(priority)
@@ -50,10 +50,10 @@ enum GoalieCharacter: Int
       BizeeBeeCharacterKit.drawAccessoriesForPriority(priority)
    }
    
-   private func _drawFoxCharacterWithPriority(priority: TaskPriority)
+   fileprivate func _drawFoxCharacterWithPriority(_ priority: TaskPriority)
    {
-      let bgColor = UIColor(priority: priority, headComponent: .Background)
-      let cheekColor = UIColor(priority: priority, headComponent: .Cheek)
+      let bgColor = UIColor(priority: priority, headComponent: .background)
+      let cheekColor = UIColor(priority: priority, headComponent: .cheek)
       let stripeColor = UIColor.bizeeBeeStripeColor(priority)
       let noseColor = UIColor.eyeColorForPriority(priority)
       
@@ -61,10 +61,10 @@ enum GoalieCharacter: Int
       FoxCharacterKit.drawAccessoriesForPriority(priority)
    }
    
-   private func _drawChecklistorWithPriority(priority: TaskPriority)
+   fileprivate func _drawChecklistorWithPriority(_ priority: TaskPriority)
    {
-      let bgColor = UIColor(priority: priority, headComponent: .Background)
-      let cheekColor = UIColor(priority: priority, headComponent: .Cheek)
+      let bgColor = UIColor(priority: priority, headComponent: .background)
+      let cheekColor = UIColor(priority: priority, headComponent: .cheek)
       
       ChecklistorCharacterKit.drawBody(bgColor, cheekColor: cheekColor)
       ChecklistorCharacterKit.drawAccessoriesForPriority(priority)
@@ -78,11 +78,11 @@ extension CGSize
       var size: (w: Int, h: Int)
       switch character
       {
-      case .Unknown: size = (100, 100)
-      case .Goalie: size = (80, 100)
-      case .BizeeBee: size = (90, 100)
-      case .Fox: size = (100, 105)
-      case .Checklistor: size = (100, 100)
+      case .unknown: size = (100, 100)
+      case .goalie: size = (80, 100)
+      case .bizeeBee: size = (90, 100)
+      case .fox: size = (100, 105)
+      case .checklistor: size = (100, 100)
       }
       self.init(width: size.w, height: size.h)
    }

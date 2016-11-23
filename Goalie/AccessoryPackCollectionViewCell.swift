@@ -10,20 +10,20 @@ import UIKit
 
 protocol AccessoryPackCollectionViewCellDelegate: class
 {
-   func actionButtonPressedForAccessoryPack(pack: AccessoryPack)
+   func actionButtonPressedForAccessoryPack(_ pack: AccessoryPack)
 }
 
 class AccessoryPackCollectionViewCell: UICollectionViewCell
 {
-   private var _accessoryPack: AccessoryPack = .None
+   fileprivate var _accessoryPack: AccessoryPack = .none
    
-   @IBOutlet private weak var _actionLabel: GoalieKerningLabel!
-   @IBOutlet private weak var _nameLabel: GoalieKerningLabel!
-   @IBOutlet private weak var _subtitleLabel: UILabel!
-   @IBOutlet private weak var _actionButton: GoalieKerningButton!
+   @IBOutlet fileprivate weak var _actionLabel: GoalieKerningLabel!
+   @IBOutlet fileprivate weak var _nameLabel: GoalieKerningLabel!
+   @IBOutlet fileprivate weak var _subtitleLabel: UILabel!
+   @IBOutlet fileprivate weak var _actionButton: GoalieKerningButton!
    
-   @IBOutlet private weak var _accessoryBackgroundView: UIView!
-   @IBOutlet private weak var _accessoryPackBadgeView: AccessoryPackBadgeView!
+   @IBOutlet fileprivate weak var _accessoryBackgroundView: UIView!
+   @IBOutlet fileprivate weak var _accessoryPackBadgeView: AccessoryPackBadgeView!
    
    weak var delegate: AccessoryPackCollectionViewCellDelegate?
    
@@ -31,20 +31,20 @@ class AccessoryPackCollectionViewCell: UICollectionViewCell
    {
       super.awakeFromNib()
       
-      backgroundColor = UIColor.whiteColor()
-      layer.borderColor = UIColor(white: 0.9, alpha: 1).CGColor
+      backgroundColor = UIColor.white
+      layer.borderColor = UIColor(white: 0.9, alpha: 1).cgColor
       layer.borderWidth = 1
       layer.cornerRadius = 3.0
       
       _actionButton.updateKerningValue(1.5)
       _actionButton.layer.cornerRadius = _actionButton.bounds.height * 0.5
-      _actionButton.backgroundColor = UIColor(priority: .Later)
+      _actionButton.backgroundColor = UIColor(priority: .later)
       
       _accessoryBackgroundView.layer.cornerRadius = _accessoryBackgroundView.bounds.width * 0.5
-      _accessoryBackgroundView.backgroundColor = UIColor(priority: .Later)
+      _accessoryBackgroundView.backgroundColor = UIColor(priority: .later)
    }
    
-   func configureWithAccessoryPack(a: AccessoryPack)
+   func configureWithAccessoryPack(_ a: AccessoryPack)
    {
       _accessoryPack = a
       _accessoryPackBadgeView.accessory = a
@@ -65,36 +65,36 @@ class AccessoryPackCollectionViewCell: UICollectionViewCell
       _nameLabel.updateTextColor(UIColor(rgbValues: (55.0, 76.0, 86.0)))
       _subtitleLabel.textColor = UIColor(rgbValues: (87.0, 123.0, 137.0))
       
-      backgroundColor = UIColor.whiteColor()
+      backgroundColor = UIColor.white
    }
    
-   @IBAction private func _actionButtonPressed()
+   @IBAction fileprivate func _actionButtonPressed()
    {
       delegate?.actionButtonPressedForAccessoryPack(_accessoryPack)
    }
    
    // MARK: - Private
-   private func _updateActionButtonAndLabelWithAccessoryPack(a: AccessoryPack)
+   fileprivate func _updateActionButtonAndLabelWithAccessoryPack(_ a: AccessoryPack)
    {
       if let action = a.unlockAction {
          switch action {
-         case .Purchase(_), .RateApp:
-            _actionButton.updateText(action.text.uppercaseString)
-            _actionButton.hidden = false
-            _actionLabel.hidden = true
+         case .purchase(_), .rateApp:
+            _actionButton.updateText(action.text.uppercased())
+            _actionButton.isHidden = false
+            _actionLabel.isHidden = true
          default:
-            _actionLabel.updateText(action.text.uppercaseString)
-            _actionLabel.hidden = false
-            _actionButton.hidden = true
+            _actionLabel.updateText(action.text.uppercased())
+            _actionLabel.isHidden = false
+            _actionButton.isHidden = true
          }
          _actionButton.updateKerningValue(1.5)
          _actionLabel.updateKerningValue(1)
       }
    }
    
-   private func _updateNameAndSubtitleWithAccessoryPack(a: AccessoryPack)
+   fileprivate func _updateNameAndSubtitleWithAccessoryPack(_ a: AccessoryPack)
    {
-      _nameLabel.updateText(a.title.uppercaseString)
+      _nameLabel.updateText(a.title.uppercased())
       _nameLabel.updateKerningValue(1.5)
       _subtitleLabel.text = a.subtitle
    }

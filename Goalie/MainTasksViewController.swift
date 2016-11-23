@@ -15,7 +15,7 @@ let kFirstCellHeight: CGFloat = 70
 class MainTasksViewController: UIViewController, ManagedObjectContextSettable
 {
    // We use this to get notified when the tasks change (separately from the table view configureCell: stuff)
-   private var _tasksDataProvider: TasksDataProvider!
+   fileprivate var _tasksDataProvider: TasksDataProvider!
    var moc: NSManagedObjectContext! {
       didSet {
          _tasksDataProvider = TasksDataProvider(managedObjectContext: moc)
@@ -29,16 +29,16 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
       }
    }
    
-   @IBOutlet private weak var _wakeGoalieBackUpLabel: UILabel!
-   @IBOutlet private weak var _goalieTableView: GoalieTableView!
-   private var _shouldGiveNextCreatedCellFocus = false
+   @IBOutlet fileprivate weak var _wakeGoalieBackUpLabel: UILabel!
+   @IBOutlet fileprivate weak var _goalieTableView: GoalieTableView!
+   fileprivate var _shouldGiveNextCreatedCellFocus = false
    
-   private typealias DataProvider = FetchedResultsDataProvider<MainTasksViewController>
-   private var _tableViewDataSource: TableViewDataSource<MainTasksViewController, DataProvider, TasksTableViewCell>!
-   private var _tableViewDataProvider: DataProvider!
-   private var _tableViewDelegate: TableViewDelegate<DataProvider, MainTasksViewController>!
+   fileprivate typealias DataProvider = FetchedResultsDataProvider<MainTasksViewController>
+   fileprivate var _tableViewDataSource: TableViewDataSource<MainTasksViewController, DataProvider, TasksTableViewCell>!
+   fileprivate var _tableViewDataProvider: DataProvider!
+   fileprivate var _tableViewDelegate: TableViewDelegate<DataProvider, MainTasksViewController>!
    
-   private var _tableViewTasksFRC: NSFetchedResultsController {
+   fileprivate var _tableViewTasksFRC: NSFetchedResultsController<NSFetchRequestResult> {
       
       let fr = DefaultTasksFetchRequestProvider.fetchRequest
       var predicate: NSPredicate? = nil
@@ -52,17 +52,17 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
          cacheName: nil)
    }
    
-   private var _accessoriesViewController: AccessoriesViewController!
-   private let _transitionManager = MenuTransitionManager()
-   private var _settingsController: SettingsViewController!
-   private var _editTaskViewController: EditTaskViewController!
-   private var _currentTaskCell: TasksTableViewCell?
-   private var _shouldCreateMoreCellsOnReturnKeyPressed = false
-   private var _shouldShowCongratulationsDialogWhenKeyboardIsDismissed = false
-   private var _shouldShowUnlockedHomePackDialogWhenKeyboardIsDismissed = false
+   fileprivate var _accessoriesViewController: AccessoriesViewController!
+   fileprivate let _transitionManager = MenuTransitionManager()
+   fileprivate var _settingsController: SettingsViewController!
+   fileprivate var _editTaskViewController: EditTaskViewController!
+   fileprivate var _currentTaskCell: TasksTableViewCell?
+   fileprivate var _shouldCreateMoreCellsOnReturnKeyPressed = false
+   fileprivate var _shouldShowCongratulationsDialogWhenKeyboardIsDismissed = false
+   fileprivate var _shouldShowUnlockedHomePackDialogWhenKeyboardIsDismissed = false
    
-   private var _sourceDraggingIndexPath: NSIndexPath?
-   private var _destinationDraggingIndexPath: NSIndexPath?
+   fileprivate var _sourceDraggingIndexPath: IndexPath?
+   fileprivate var _destinationDraggingIndexPath: IndexPath?
    
    // Mark: - Lifecycle
    override func viewDidLoad()
@@ -74,7 +74,7 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
       _tasksDataProvider.contentDidChangeBlock = {
          // There is probably a better way to do this.  We need this because when tasks are moved around/created in the table,
          // we may need to update the left bar on the table cells (rounded corners depending on the cells position)
-         dispatch_async(dispatch_get_main_queue(), { () -> Void in
+         DispatchQueue.main.async(execute: { () -> Void in
             self._updateTableViewHeaderDisplay()
             self._updateTaskCellsLeftBar()
             self._updateTableViewFooter()
@@ -84,9 +84,9 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
       _tasksDataProvider.updateFetchRequest()
       _updateTableViewHeaderDisplay()
       
-      NSNotificationCenter.defaultCenter().addObserver(self,
+      NotificationCenter.default.addObserver(self,
                                                        selector: #selector(MainTasksViewController.keyboardDidHide),
-                                                       name: UIKeyboardDidHideNotification,
+                                                       name: NSNotification.Name.UIKeyboardDidHide,
                                                        object: nil)
       
       _goalieTableView.longPressReorderDelegate = self
@@ -103,27 +103,27 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
       else if _shouldShowUnlockedHomePackDialogWhenKeyboardIsDismissed {
          _shouldShowUnlockedHomePackDialogWhenKeyboardIsDismissed = false
          
-         guard !AccessoryPackManager.accessoryPackUnlocked(.Home) else { return }
+         guard !AccessoryPackManager.accessoryPackUnlocked(.home) else { return }
          
-         AccessoryPackManager.unlockAccessoryPack(.Home)
-         _showUnlockedAccessoryPackViewController(.Home)
+         AccessoryPackManager.unlockAccessoryPack(.home)
+         _showUnlockedAccessoryPackViewController(.home)
       }
       _shouldCreateMoreCellsOnReturnKeyPressed = false
    }
    
-   override func viewDidAppear(animated: Bool)
+   override func viewDidAppear(_ animated: Bool)
    {
       super.viewDidAppear(animated)
       _updateTaskCellsLeftBar()
       
-      let secondsSinceFirstOpen = NSDate().secondsFrom(GoalieSettingsManager.firstTimeAppOpened)
+      let secondsSinceFirstOpen = Date().secondsFrom(GoalieSettingsManager.firstTimeAppOpened)
       
-      if !_tryToUnlockDurationBasedAccessoryPack(.Work, withSecondsSinceFirstAppUse: secondsSinceFirstOpen) {
-         _tryToUnlockDurationBasedAccessoryPack(.Gym, withSecondsSinceFirstAppUse: secondsSinceFirstOpen)
+      if !_tryToUnlockDurationBasedAccessoryPack(.work, withSecondsSinceFirstAppUse: secondsSinceFirstOpen) {
+         _tryToUnlockDurationBasedAccessoryPack(.gym, withSecondsSinceFirstAppUse: secondsSinceFirstOpen)
       }
    }
    
-   private func _tryToUnlockDurationBasedAccessoryPack(pack: AccessoryPack, withSecondsSinceFirstAppUse seconds: Int) -> Bool
+   fileprivate func _tryToUnlockDurationBasedAccessoryPack(_ pack: AccessoryPack, withSecondsSinceFirstAppUse seconds: Int) -> Bool
    {
       guard !AccessoryPackManager.accessoryPackUnlocked(pack) else { return false }
       guard let duration = pack.useToUnlockDurationInSeconds else { return false }
@@ -135,7 +135,7 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
       return true
    }
    
-   override func viewWillAppear(animated: Bool)
+   override func viewWillAppear(_ animated: Bool)
    {
       super.viewWillAppear(animated)
       _goalieTableView.reloadData()
@@ -149,25 +149,25 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
       _goalieTableView.startGoalieMovement()
    }
    
-   private func _wakeCharacterBackUpText() -> String
+   fileprivate func _wakeCharacterBackUpText() -> String
    {
       return "Add some new tasks to wake \(CharacterManager.currentCharacter.name) back up."
    }
    
-   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+   override func prepare(for segue: UIStoryboardSegue, sender: Any?)
    {
-      if let childViewController = segue.destinationViewController as? AccessoriesViewController
+      if let childViewController = segue.destination as? AccessoriesViewController
       {
          _accessoriesViewController = childViewController
       }
    }
    
-   override func preferredStatusBarStyle() -> UIStatusBarStyle
+   override var preferredStatusBarStyle : UIStatusBarStyle
    {
-      return .LightContent
+      return .lightContent
    }
    
-   @IBAction private func _tableHeaderViewTapped(recognizer: UIGestureRecognizer)
+   @IBAction fileprivate func _tableHeaderViewTapped(_ recognizer: UIGestureRecognizer)
    {
       _currentTaskCell?.stopEditing()
    }
@@ -199,7 +199,7 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
    }
    
    // MARK: - Private
-   private func _updateTableViewFooter()
+   fileprivate func _updateTableViewFooter()
    {
       if _tasksDataProvider.incompletedTasks().count > 0 {
          _goalieTableView.hideFooterView()
@@ -209,18 +209,18 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
       }
    }
    
-   private func _updateTableViewHeaderDisplay()
+   fileprivate func _updateTableViewHeaderDisplay()
    {
       let priority = _tasksDataProvider.averagePriority()
       _goalieTableView.updateWithPriority(priority)
       _accessoriesViewController.updateWithPriority(priority)
    }
    
-   private func _updateTaskCellsLeftBar()
+   fileprivate func _updateTaskCellsLeftBar()
    {
       if let indexPaths = self._goalieTableView.indexPathsForVisibleRows {
          for ip in indexPaths {
-            if let cell = self._goalieTableView.cellForRowAtIndexPath(ip) as? TasksTableViewCell {
+            if let cell = self._goalieTableView.cellForRow(at: ip) as? TasksTableViewCell {
                let task = self._tableViewDataProvider.objectAtIndexPath(ip)
                cell.updateSeparatorsAndLeftBarLayerMaskWithTask(task, dataProvider: self._tasksDataProvider)
             }
@@ -228,7 +228,7 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
       }
    }
    
-   private func _createEmptyTaskIfNecessary() -> Task?
+   fileprivate func _createEmptyTaskIfNecessary() -> Task?
    {
       var createdTask: Task?
       var emptyTaskAtBottom = true
@@ -236,7 +236,7 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
          let task = _tableViewDataProvider.objectAtIndexPath(lastIndexPath)
          emptyTaskAtBottom = task.title == ""
       }
-      else if _goalieTableView.numberOfRowsInSection(0) == 0 {
+      else if _goalieTableView.numberOfRows(inSection: 0) == 0 {
          emptyTaskAtBottom = false
       }
       
@@ -246,7 +246,7 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
       return createdTask
    }
    
-   private func _setupTableViewDataSourceAndDelegate()
+   fileprivate func _setupTableViewDataSourceAndDelegate()
    {
       _tableViewDataProvider = FetchedResultsDataProvider(fetchedResultsController: _tableViewTasksFRC, delegate: self)
       _tableViewDataSource = TableViewDataSource(tableView: _goalieTableView, dataProvider: _tableViewDataProvider, delegate: self)
@@ -254,24 +254,24 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
       _tableViewDelegate = TableViewDelegate(tableView: _goalieTableView, dataProvider: _tableViewDataProvider, delegate: self)
    }
    
-   private func _advanceCellFocusFromIndexPath(indexPath: NSIndexPath)
+   fileprivate func _advanceCellFocusFromIndexPath(_ indexPath: IndexPath)
    {
       if let nextSubgoalCell = _goalieTableView.taskCellForIndexPath(indexPath.next) {
          nextSubgoalCell.startEditing()
       }
    }
    
-   private func _presentDetailsForTask(task: Task)
+   fileprivate func _presentDetailsForTask(_ task: Task)
    {
       _transitionManager.presenting = true
       _editTaskViewController.configureWithTask(task)
-      presentViewController(_editTaskViewController, animated: true) { () -> Void in
+      present(_editTaskViewController, animated: true) { () -> Void in
          self._transitionManager.presenting = false
       }
    }
    
    // MARK: - IBActions
-   @IBAction private func _settingsButtonPressed()
+   @IBAction fileprivate func _settingsButtonPressed()
    {
       guard _currentTaskCell == nil else {
          _currentTaskCell?.stopEditing()
@@ -279,29 +279,29 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
       }
       
       _transitionManager.presenting = true
-      presentViewController(_settingsController, animated: true) { () -> Void in
+      present(_settingsController, animated: true) { () -> Void in
          self._transitionManager.presenting = false
       }
    }
    
-   @IBAction private func _editListButtonPressed()
+   @IBAction fileprivate func _editListButtonPressed()
    {
       let controller = UIStoryboard.editListViewController()
-      presentViewController(controller, animated: true, completion: nil)
+      present(controller, animated: true, completion: nil)
    }
 }
 
 extension MainTasksViewController: TasksTableViewCellDelegate
 {
-   func textFieldShouldEndEditing(cell: TasksTableViewCell, forTask task: Task?) -> Bool
+   func textFieldShouldEndEditing(_ cell: TasksTableViewCell, forTask task: Task?) -> Bool
    {
-      if let task = task where !_tasksDataProvider.taskIsLast(task) && cell.titleText == "" {
+      if let task = task, !_tasksDataProvider.taskIsLast(task) && cell.titleText == "" {
          cell.titleText = "untitled"
       }
       return true
    }
    
-   func taskCellBeganEditing(cell: TasksTableViewCell, plusButtonPressed: Bool)
+   func taskCellBeganEditing(_ cell: TasksTableViewCell, plusButtonPressed: Bool)
    {
       _currentTaskCell = cell
       if _shouldCreateMoreCellsOnReturnKeyPressed == false && plusButtonPressed {
@@ -309,12 +309,12 @@ extension MainTasksViewController: TasksTableViewCellDelegate
       }
    }
    
-   func taskCellFinishedEditing(cell: TasksTableViewCell, forTask task: Task?)
+   func taskCellFinishedEditing(_ cell: TasksTableViewCell, forTask task: Task?)
    {
       moc.performChanges { () -> () in
-         if task?.priority == .Unknown && cell.titleText != ""
+         if task?.priority == .unknown && cell.titleText != ""
          {
-            task?.priority = .Later
+            task?.priority = .later
             if !GoalieSettingsManager.userCreatedFirstTask {
                self._shouldShowCongratulationsDialogWhenKeyboardIsDismissed = true
             }
@@ -328,11 +328,11 @@ extension MainTasksViewController: TasksTableViewCellDelegate
    }
    
    // These next two methods are so fucking messy.  They produce the exact behavior that Nico wants though...
-   func titleTextFieldShouldReturnForCell(cell: TasksTableViewCell) -> Bool
+   func titleTextFieldShouldReturnForCell(_ cell: TasksTableViewCell) -> Bool
    {
       var shouldReturn = false
       if _shouldCreateMoreCellsOnReturnKeyPressed {
-         guard let cellIndexPath = _goalieTableView.indexPathForCell(cell) else { return shouldReturn }
+         guard let cellIndexPath = _goalieTableView.indexPath(for: cell) else { return shouldReturn }
          if _goalieTableView.indexPathIsLast(cellIndexPath) {
             if cell.titleText == "" {
                shouldReturn = true
@@ -354,20 +354,20 @@ extension MainTasksViewController: TasksTableViewCellDelegate
       return shouldReturn
    }
    
-   func returnKeyTypeForCell(cell: TasksTableViewCell) -> UIReturnKeyType
+   func returnKeyTypeForCell(_ cell: TasksTableViewCell) -> UIReturnKeyType
    {
-      var returnKeyType: UIReturnKeyType = .Next
-      if let cellIndexPath = _goalieTableView.indexPathForCell(cell) where
+      var returnKeyType: UIReturnKeyType = .next
+      if let cellIndexPath = _goalieTableView.indexPath(for: cell),
          _goalieTableView.indexPathIsLast(cellIndexPath) {
-            returnKeyType = .Default
+            returnKeyType = .default
       }
       else if !_shouldCreateMoreCellsOnReturnKeyPressed {
-         returnKeyType = .Done
+         returnKeyType = .done
       }
       return returnKeyType
    }
    
-   func disclosureButtonPressedForTask(task: Task)
+   func disclosureButtonPressedForTask(_ task: Task)
    {
       _currentTaskCell?.stopEditing()
       if !task.title.isEmpty {
@@ -375,7 +375,7 @@ extension MainTasksViewController: TasksTableViewCellDelegate
       }
    }
    
-   func completeButtonPressedForCell(cell: TasksTableViewCell, task: Task)
+   func completeButtonPressedForCell(_ cell: TasksTableViewCell, task: Task)
    {
       if _currentTaskCell == nil {
          moc.performChanges { () -> () in
@@ -391,18 +391,18 @@ extension MainTasksViewController: TasksTableViewCellDelegate
       _currentTaskCell?.stopEditing()
    }
    
-   private func _showCongratulationsDialog()
+   fileprivate func _showCongratulationsDialog()
    {
       let congratsController = UIStoryboard.congratulationsViewController()
       congratsController.transitioningDelegate = _transitionManager
       congratsController.delegate = self
       _transitionManager.presenting = true
-      presentViewController(congratsController, animated: true, completion: { finished in
+      present(congratsController, animated: true, completion: { finished in
          self._transitionManager.presenting = false
       })
    }
    
-   private func _showUnlockedAccessoryPackViewController(pack: AccessoryPack)
+   fileprivate func _showUnlockedAccessoryPackViewController(_ pack: AccessoryPack)
    {
       let controller = UIStoryboard.unlockedAccessoryPackViewController()
       controller.transitioningDelegate = _transitionManager
@@ -410,7 +410,7 @@ extension MainTasksViewController: TasksTableViewCellDelegate
       controller.delegate = self
       
       _transitionManager.presenting = true
-      presentViewController(controller, animated: true) { () -> Void in
+      present(controller, animated: true) { () -> Void in
          self._transitionManager.presenting = false
       }
    }
@@ -422,7 +422,7 @@ extension MainTasksViewController: DataProviderDelegate
    // This is embarrassing.  Basically, all this messy code is here to deal with the keybaord being
    // in the way when a new task is created at the bottom by pressing the return key.  This code will
    // scroll to the new cell as it's created, and then it'll give it focus.  I know it looks crazy
-   func dataProviderDidUpdate(updates: [DataProviderUpdate<Task>]?)
+   func dataProviderDidUpdate(_ updates: [DataProviderUpdate<Task>]?)
    {
       _tableViewDataSource.processUpdates(updates, animationBlock: { () -> Void in
          
@@ -440,8 +440,8 @@ extension MainTasksViewController: DataProviderDelegate
                      guard let updates = updates else { return }
                      for update in updates {
                         switch update {
-                        case .Insert(let indexPath):
-                           if let newSubgoalCell = self._goalieTableView.taskCellForIndexPath(indexPath) where
+                        case .insert(let indexPath):
+                           if let newSubgoalCell = self._goalieTableView.taskCellForIndexPath(indexPath),
                               self._goalieTableView.indexPathIsLast(indexPath) {
                                  newSubgoalCell.startEditing()
                                  return
@@ -459,12 +459,12 @@ extension MainTasksViewController: DataProviderDelegate
 // MARK: - DataSourceDelegate
 extension MainTasksViewController: DataSourceDelegate
 {
-   func cellIdentifierForObject(object: Task) -> String
+   func cellIdentifierForObject(_ object: Task) -> String
    {
       return "TasksTableViewCell"
    }
    
-   func configureCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath)
+   func configureCell(_ cell: UITableViewCell, atIndexPath indexPath: IndexPath)
    {
       if let goalieCell = cell as? TasksTableViewCell {
          goalieCell.delegate = self
@@ -477,11 +477,11 @@ extension MainTasksViewController: DataSourceDelegate
 // MARK: - TableViewDelegateProtocol
 extension MainTasksViewController: TableViewDelegateProtocol
 {
-   func objectSelected(goal: Task)
+   func objectSelected(_ goal: Task)
    {
    }
    
-   func heightForRowAtIndexPath(indexPath: NSIndexPath) -> CGFloat
+   func heightForRowAtIndexPath(_ indexPath: IndexPath) -> CGFloat
    {
       return indexPath.row == 0 ? kFirstCellHeight : kNormalCellHeight
    }
@@ -500,7 +500,7 @@ extension MainTasksViewController: SettingsViewControllerDelegate
 extension MainTasksViewController: LPRTableViewDelegate
 {
    /** Provides the delegate a chance to modify the cell visually before dragging occurs. Defaults to using the cell as-is if not implemented. */
-   func tableView(tableView: UITableView, draggingCell cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) -> UITableViewCell
+   func tableView(_ tableView: UITableView, draggingCell cell: UITableViewCell, atIndexPath indexPath: IndexPath) -> UITableViewCell
    {
       let frame = cell.frame
       let newFrame = CGRect(origin: frame.origin, size: CGSize(width: frame.width, height: kNormalCellHeight))
@@ -509,22 +509,21 @@ extension MainTasksViewController: LPRTableViewDelegate
    }
    
    /** Called within an animation block when the dragging view is about to show. */
-   func tableView(tableView: UITableView, showDraggingView view: UIView, atIndexPath indexPath: NSIndexPath)
+   func tableView(_ tableView: UITableView, showDraggingView view: UIView, atIndexPath indexPath: IndexPath)
    {
       _currentTaskCell?.stopEditing()
       _sourceDraggingIndexPath = indexPath
    }
    
    /** Called within an animation block when the dragging view is about to hide. */
-   func tableView(tableView: UITableView, hideDraggingView view: UIView, atIndexPath indexPath: NSIndexPath)
+   func tableView(_ tableView: UITableView, hideDraggingView view: UIView, atIndexPath indexPath: IndexPath)
    {
       _destinationDraggingIndexPath = indexPath
    }
    
    func performCompletion()
    {
-      guard let sourceIP = _sourceDraggingIndexPath, let destIP = _destinationDraggingIndexPath
-         where sourceIP.row != destIP.row else { return }
+      guard let sourceIP = _sourceDraggingIndexPath, let destIP = _destinationDraggingIndexPath, sourceIP.row != destIP.row else { return }
       
       let sourceTask = _tableViewDataProvider.objectAtIndexPath(sourceIP)
       let destTask = _tableViewDataProvider.objectAtIndexPath(destIP)
@@ -534,14 +533,14 @@ extension MainTasksViewController: LPRTableViewDelegate
       _sourceDraggingIndexPath = nil
       _destinationDraggingIndexPath = nil
       
-      moc.performBlockAndWait { () -> Void in
+      moc.performAndWait { () -> Void in
          
          let movedDown = sourceIP.row < destIP.row
          if movedDown {
             // go backwards and subtract from creation dates
             for task in self._tasksDataProvider.allTasks() {
                if task != sourceTask && task.creationDate <= newCreationDate {
-                  task.creationDate = task.creationDate.dateByAddingTimeInterval(-1)
+                  task.creationDate = task.creationDate.addingTimeInterval(-1)
                }
             }
          }
@@ -549,7 +548,7 @@ extension MainTasksViewController: LPRTableViewDelegate
             // go forwards and subtract from creation dates
             for task in self._tasksDataProvider.allTasks() {
                if task != sourceTask && task.creationDate >= newCreationDate {
-                  task.creationDate = task.creationDate.dateByAddingTimeInterval(1)
+                  task.creationDate = task.creationDate.addingTimeInterval(1)
                }
             }
          }
@@ -566,49 +565,49 @@ extension MainTasksViewController: KonamiDelegate
 {
    func konamiRecognized()
    {
-      let alertController = UIAlertController(title: "Konami Code Entered", message: "Enjoy all of the free characters and accessory packs.", preferredStyle: .Alert)
+      let alertController = UIAlertController(title: "Konami Code Entered", message: "Enjoy all of the free characters and accessory packs.", preferredStyle: .alert)
       
-      let action = UIAlertAction(title: "Thank You", style: .Default) { (action) -> Void in
+      let action = UIAlertAction(title: "Thank You", style: .default) { (action) -> Void in
          CharacterManager.unlockAllCharacters()
          AccessoryPackManager.unlockAllAccessoryPacks()
       }
       
       alertController.addAction(action)
       
-      presentViewController(alertController, animated: true, completion: nil)
+      present(alertController, animated: true, completion: nil)
    }
 }
 
 extension MainTasksViewController: CongratulationsViewControllerDelegate
 {
-   func congratulationsViewControllerDidDismiss(controller: CongratulationsViewController)
+   func congratulationsViewControllerDidDismiss(_ controller: CongratulationsViewController)
    {
       if _shouldShowUnlockedHomePackDialogWhenKeyboardIsDismissed {
          _shouldShowUnlockedHomePackDialogWhenKeyboardIsDismissed = false
          
-         guard !AccessoryPackManager.accessoryPackUnlocked(.Home) else { return }
+         guard !AccessoryPackManager.accessoryPackUnlocked(.home) else { return }
          
-         AccessoryPackManager.unlockAccessoryPack(.Home)
-         _showUnlockedAccessoryPackViewController(.Home)
+         AccessoryPackManager.unlockAccessoryPack(.home)
+         _showUnlockedAccessoryPackViewController(.home)
       }
    }
 }
 
 extension MainTasksViewController: UnlockedAccessoryPackViewControllerDelegate
 {
-   func unlockedAccessoryPackViewControllerIgnoreButtonPressed(controller: UnlockedAccessoryPackViewController)
+   func unlockedAccessoryPackViewControllerIgnoreButtonPressed(_ controller: UnlockedAccessoryPackViewController)
    {
       _transitionManager.presenting = false
-      controller.dismissViewControllerAnimated(true, completion: nil)
+      controller.dismiss(animated: true, completion: nil)
    }
    
-   func unlockedAccessoryPackViewControllerUnlockButtonPressed(controller: UnlockedAccessoryPackViewController)
+   func unlockedAccessoryPackViewControllerUnlockButtonPressed(_ controller: UnlockedAccessoryPackViewController)
    {
       AccessoryPackManager.updateCurrentAccessoryPack(controller.accessoryPack)
       
       _transitionManager.presenting = false
-      controller.dismissViewControllerAnimated(true) { () -> Void in
-         dispatch_async(dispatch_get_main_queue(), { () -> Void in
+      controller.dismiss(animated: true) { () -> Void in
+         DispatchQueue.main.async(execute: { () -> Void in
             self._editListButtonPressed()
          })
       }

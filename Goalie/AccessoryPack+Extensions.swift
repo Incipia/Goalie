@@ -12,37 +12,37 @@ extension AccessoryPack
 {
    var subtitle: String {
       switch self {
-      case .None: return "Sometimes all you need is a clean canvas"
-      case .Home: return "Home, sweet home – nothing like it"
-      case .Work: return "Get more done with an organized workspace"
-      case .Gym: return "Make sure your character is ready to sweat"
+      case .none: return "Sometimes all you need is a clean canvas"
+      case .home: return "Home, sweet home – nothing like it"
+      case .work: return "Get more done with an organized workspace"
+      case .gym: return "Make sure your character is ready to sweat"
       }
    }
    
    var title: String {
       switch self {
-      case .None: return "Default"
-      case .Home: return "Home"
-      case .Work: return "Work"
-      case .Gym: return "Gym"
+      case .none: return "Default"
+      case .home: return "Home"
+      case .work: return "Work"
+      case .gym: return "Gym"
       }
    }
    
    var backgroundColor: UIColor {
       switch self {
-      case .None: return UIColor(priority: .Later)
-      case .Home: return UIColor(priority: .Ages)
-      case .Work: return UIColor(priority: .Later)
-      case .Gym: return UIColor(priority: .Soon)
+      case .none: return UIColor(priority: .later)
+      case .home: return UIColor(priority: .ages)
+      case .work: return UIColor(priority: .later)
+      case .gym: return UIColor(priority: .soon)
       }
    }
    
    var iconColor: UIColor {
       switch self {
-      case .None: return UIColor(priority: .Later, headComponent: .Background)
-      case .Home: return UIColor(priority: .Ages, headComponent: .Background)
-      case .Work: return UIColor(priority: .Later, headComponent: .Background)
-      case .Gym: return UIColor(priority: .Soon, headComponent: .Background)
+      case .none: return UIColor(priority: .later, headComponent: .background)
+      case .home: return UIColor(priority: .ages, headComponent: .background)
+      case .work: return UIColor(priority: .later, headComponent: .background)
+      case .gym: return UIColor(priority: .soon, headComponent: .background)
       }
    }
 }
@@ -51,19 +51,19 @@ extension AccessoryPack
 {
    var unlockAction: UnlockAction? {
       switch self {
-      case .Home: return .CreateTasks(count: 5)
-      case .Work: return .UseAppForWeeks(weeks: 1)
-      case .Gym: return .UseAppForWeeks(weeks: 2)
+      case .home: return .createTasks(count: 5)
+      case .work: return .useAppForWeeks(weeks: 1)
+      case .gym: return .useAppForWeeks(weeks: 2)
       default: return nil
       }
    }
    
    var name: String {
       switch self {
-      case .Home: return "Home"
-      case .Work: return "Work"
-      case .Gym: return "Gym"
-      case .None: return "None"
+      case .home: return "Home"
+      case .work: return "Work"
+      case .gym: return "Gym"
+      case .none: return "None"
       }
    }
    
@@ -73,26 +73,26 @@ extension AccessoryPack
    
    var congratulationsTitleText: String {
       switch self {
-      case .Home: return "You've unlocked the Home accessory pack!"
-      case .Work: return "Happy one week anniversary!"
-      case .Gym: return "Work it!"
-      case .None: return ""
+      case .home: return "You've unlocked the Home accessory pack!"
+      case .work: return "Happy one week anniversary!"
+      case .gym: return "Work it!"
+      case .none: return ""
       }
    }
    
    var unlockedMessageText: String {
       switch self {
-      case .Home: return "You've created five tasks! Now furnish your pad with the Home accessory pack. You can change and add furniture in the edit menu."
-      case .Work: return "Way to keep at it. Stay energized with the Work accessory pack. You can change an add furniture in the edit menu."
-      case .Gym: return "Breaking a sweat getting things done? Refuel with the Gym accessory pack. You can change an add furniture in the edit menu."
-      case .None: return "Fuck this shit."
+      case .home: return "You've created five tasks! Now furnish your pad with the Home accessory pack. You can change and add furniture in the edit menu."
+      case .work: return "Way to keep at it. Stay energized with the Work accessory pack. You can change an add furniture in the edit menu."
+      case .gym: return "Breaking a sweat getting things done? Refuel with the Gym accessory pack. You can change an add furniture in the edit menu."
+      case .none: return "Fuck this shit."
       }
    }
    
    var useToUnlockDurationInSeconds: Int? {
       switch self {
-      case .Work: return 60 * 60 * 24 * 7
-      case .Gym: return 60 * 60 * 24 * 14
+      case .work: return 60 * 60 * 24 * 7
+      case .gym: return 60 * 60 * 24 * 14
       default: return nil
       }
    }

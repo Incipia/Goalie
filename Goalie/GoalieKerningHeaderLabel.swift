@@ -23,7 +23,7 @@ class GoalieKerningHeaderLabel: UILabel
          NSFontAttributeName : font,
          NSForegroundColorAttributeName : textColor,
          NSKernAttributeName : 3
-      ]
+      ] as [String : Any]
       
       let attributedString = NSAttributedString(string: textValue, attributes: attributes)
       

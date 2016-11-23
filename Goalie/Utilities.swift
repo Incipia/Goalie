@@ -9,20 +9,20 @@
 import Foundation
 
 
-extension SequenceType
+extension Sequence
 {   
-   func findFirstOccurence(@noescape block: Generator.Element -> Bool) -> Generator.Element? {
+   func findFirstOccurence(_ block: (Iterator.Element) -> Bool) -> Iterator.Element? {
       for x in self where block(x) {
          return x
       }
       return nil
    }
    
-   func some(@noescape block: Generator.Element -> Bool) -> Bool {
+   func some(_ block: (Iterator.Element) -> Bool) -> Bool {
       return findFirstOccurence(block) != nil
    }
    
-   func all(@noescape block: Generator.Element -> Bool) -> Bool {
+   func all(_ block: (Iterator.Element) -> Bool) -> Bool {
       return findFirstOccurence { !block($0) } == nil
    }
    
@@ -31,14 +31,14 @@ extension SequenceType
    /// func forEach(@noescape body: (Self.Generator.Element) -> ())
    /// ```
    /// but calls the completion block once all blocks have called their completion block. If some of the calls to the block do not call their completion blocks that will result in data leaking.
-   func asyncForEachWithCompletion(completion: () -> (), @noescape block: (Generator.Element, () -> ()) -> ()) {
-      let group = dispatch_group_create()
-      let innerCompletion = { dispatch_group_leave(group) }
+   func asyncForEachWithCompletion(_ completion: @escaping () -> (), block: (Iterator.Element, () -> ()) -> ()) {
+      let group = DispatchGroup()
+      let innerCompletion = { group.leave() }
       for x in self {
-         dispatch_group_enter(group)
+         group.enter()
          block(x, innerCompletion)
       }
-      dispatch_group_notify(group, dispatch_get_main_queue(), completion)
+      group.notify(queue: DispatchQueue.main, execute: completion)
    }
    
    func filterByType<T>() -> [T] {
@@ -46,29 +46,29 @@ extension SequenceType
    }
 }
 
-extension SequenceType where Generator.Element: AnyObject
+extension Sequence where Iterator.Element: AnyObject
 {
-   public func containsObjectIdenticalTo(object: AnyObject) -> Bool {
+   public func containsObjectIdenticalTo(_ object: AnyObject) -> Bool {
       return contains { $0 === object }
    }
 }
 
 extension Array
 {
-   func decompose() -> (Generator.Element, [Generator.Element])? {
+   func decompose() -> (Iterator.Element, [Iterator.Element])? {
       guard let x = first else { return nil }
       return (x, Array(self[1..<count]))
    }
    
-   func slices(size: Int) -> [[Generator.Element]] {
-      var result: [[Generator.Element]] = []
-      for idx in startIndex.stride(to: endIndex, by: size) {
-         let end = min(idx + size, endIndex)
-         result.append(Array(self[idx..<end]))
-      }
-      return result
-   }
-   
+//   func slices(_ size: Int) -> [[Iterator.Element]] {
+//      var result: [[Iterator.Element]] = []
+//      for idx in stride(from: startIndex, to: endIndex, by: size) {
+//         let end = min((idx + size), endIndex)
+//         result.append(Array(self[idx..<end]))
+//      }
+//      return result
+//   }
+//   
    func randomItem() -> Element {
       let index = Int(arc4random_uniform(UInt32(self.count)))
       return self[index]
@@ -77,7 +77,7 @@ extension Array
 
 extension Int
 {
-   static func randRange(lower : Int , upper : Int) -> Int
+   static func randRange(_ lower : Int , upper : Int) -> Int
    {
       let difference = upper - lower
       return Int(Float(arc4random())/Float(RAND_MAX) * Float(difference + 1)) + lower
@@ -86,7 +86,7 @@ extension Int
 
 extension CGFloat
 {
-   static func randRange(lower : CGFloat , upper : CGFloat) -> CGFloat
+   static func randRange(_ lower : CGFloat , upper : CGFloat) -> CGFloat
    {
       let difference = upper - lower
       return CGFloat(arc4random())/CGFloat(RAND_MAX) * CGFloat(difference + 1) + lower
@@ -97,13 +97,13 @@ extension String
 {
    var trimmedString: String {
       get {
-         let whitespaceCharacters = NSCharacterSet.whitespaceAndNewlineCharacterSet()
-         return self.stringByTrimmingCharactersInSet(whitespaceCharacters)
+         let whitespaceCharacters = CharacterSet.whitespacesAndNewlines
+         return self.trimmingCharacters(in: whitespaceCharacters)
       }
    }
    
    subscript (i: Int) -> Character {
-      return self[self.startIndex.advancedBy(i)]
+      return self[self.characters.index(self.startIndex, offsetBy: i)]
    }
    
    subscript (i: Int) -> String {
@@ -111,6 +111,6 @@ extension String
    }
    
    subscript (r: Range<Int>) -> String {
-      return substringWithRange(Range(start: startIndex.advancedBy(r.startIndex), end: startIndex.advancedBy(r.endIndex)))
+      return substring(with: (characters.index(startIndex, offsetBy: r.lowerBound) ..< characters.index(startIndex, offsetBy: r.upperBound)))
    }
 }

@@ -11,34 +11,34 @@ import AVFoundation
 
 class SFXPlayer
 {
-   private static let _sharedInstance = SFXPlayer()
+   fileprivate static let _sharedInstance = SFXPlayer()
    
-   private let _urlNames = ["Celeste", "DrumRoll", "Horns", "Kalimba", "MusicBox", "RockOn", "VSSPiano"]
-   private var _soundURLs: [NSURL] = []
-   private var _currentURLIndex = 0
+   fileprivate let _urlNames = ["Celeste", "DrumRoll", "Horns", "Kalimba", "MusicBox", "RockOn", "VSSPiano"]
+   fileprivate var _soundURLs: [URL] = []
+   fileprivate var _currentURLIndex = 0
    
-   private var _player = AVAudioPlayer()
+   fileprivate var _player = AVAudioPlayer()
    
    init()
    {
       _setupURLs()
    }
    
-   private func _setupURLs()
+   fileprivate func _setupURLs()
    {
       for name in _urlNames {
-         if let url = NSBundle.mainBundle().URLForResource(name, withExtension: "mp3") {
+         if let url = Bundle.main.url(forResource: name, withExtension: "mp3") {
             _soundURLs.append(url)
          }
       }
    }
    
-   private func _playCompleted()
+   fileprivate func _playCompleted()
    {
       let soundName = CharacterManager.currentCharacter.taskCompletedSoundName
-      if let url = NSBundle.mainBundle().URLForResource(soundName, withExtension: "mp3") {
+      if let url = Bundle.main.url(forResource: soundName, withExtension: "mp3") {
          do {
-            _player = try AVAudioPlayer(contentsOfURL: url, fileTypeHint: nil)
+            _player = try AVAudioPlayer(contentsOf: url, fileTypeHint: nil)
          }
          catch let error as NSError {
             print(error.description)
@@ -50,11 +50,11 @@ class SFXPlayer
       }
    }
    
-   private func _playDelete()
+   fileprivate func _playDelete()
    {
-      if let url = NSBundle.mainBundle().URLForResource("Delete", withExtension: "mp3") {
+      if let url = Bundle.main.url(forResource: "Delete", withExtension: "mp3") {
          do {
-            _player = try AVAudioPlayer(contentsOfURL: url, fileTypeHint: nil)
+            _player = try AVAudioPlayer(contentsOf: url, fileTypeHint: nil)
          }
          catch let error as NSError {
             print(error.description)
@@ -64,11 +64,11 @@ class SFXPlayer
       }
    }
    
-   private func _playPriorityChange()
+   fileprivate func _playPriorityChange()
    {
-      if let url = NSBundle.mainBundle().URLForResource("ChangePriorityRight", withExtension: "mp3") {
+      if let url = Bundle.main.url(forResource: "ChangePriorityRight", withExtension: "mp3") {
          do {
-            _player = try AVAudioPlayer(contentsOfURL: url, fileTypeHint: nil)
+            _player = try AVAudioPlayer(contentsOf: url, fileTypeHint: nil)
          }
          catch let error as NSError {
             print(error.description)
@@ -78,17 +78,17 @@ class SFXPlayer
       }
    }
    
-   private func _advanceCompletedSound()
+   fileprivate func _advanceCompletedSound()
    {
-      ++_currentURLIndex
+      _currentURLIndex += 1
       if _currentURLIndex >= _soundURLs.count {
          _currentURLIndex = 0
       }
    }
    
-   private func _decrementCompletedSound()
+   fileprivate func _decrementCompletedSound()
    {
-      --_currentURLIndex
+      _currentURLIndex -= 1
       if _currentURLIndex < 0 {
          _currentURLIndex = _soundURLs.count - 1
       }
@@ -129,11 +129,11 @@ extension GoalieCharacter
 {
    var taskCompletedSoundName: String {
       switch self {
-      case .Goalie: return "Kalimba"
-      case .Fox: return "FoxSoundMstr"
-      case .BizeeBee: return "BusyBeeCompleted"
-      case .Checklistor: return "AlienSoundMstr"
-      case .Unknown: return ""
+      case .goalie: return "Kalimba"
+      case .fox: return "FoxSoundMstr"
+      case .bizeeBee: return "BusyBeeCompleted"
+      case .checklistor: return "AlienSoundMstr"
+      case .unknown: return ""
       }
    }
 }

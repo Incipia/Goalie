@@ -10,16 +10,16 @@ import UIKit
 
 class EditListViewController: UIViewController
 {
-   @IBOutlet private weak var _doneButton: GoalieKerningButton! {
+   @IBOutlet fileprivate weak var _doneButton: GoalieKerningButton! {
       didSet {
          _doneButton.layer.cornerRadius = 2.0
-         _doneButton.backgroundColor = UIColor(priority: .Later)
+         _doneButton.backgroundColor = UIColor(priority: .later)
       }
    }
    
-   @IBOutlet private weak var _collectionView: UICollectionView!
+   @IBOutlet fileprivate weak var _collectionView: UICollectionView!
    
-   private var _collectionViewDataSource: EditListCollectionViewDataSource!
+   fileprivate var _collectionViewDataSource: EditListCollectionViewDataSource!
    
    override func viewDidLoad()
    {
@@ -27,14 +27,14 @@ class EditListViewController: UIViewController
       _collectionViewDataSource = EditListCollectionViewDataSource(collectionView: _collectionView)
    }
    
-   @IBAction private func _doneButtonPressed()
+   @IBAction fileprivate func _doneButtonPressed()
    {
-      dismissViewControllerAnimated(true, completion: nil)
+      dismiss(animated: true, completion: nil)
       setNeedsStatusBarAppearanceUpdate()
    }
    
-   @IBAction private func _restoreButtonPressed()
+   @IBAction fileprivate func _restoreButtonPressed()
    {
-      MKStoreKit.sharedKit().restorePurchases()
+      MKStoreKit.shared().restorePurchases()
    }
 }

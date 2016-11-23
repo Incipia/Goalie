@@ -11,26 +11,26 @@ import Foundation
 private let CurrentCharacterKey = "GoalieCurrentCharacterKey"
 private let UnlockedCharactersKey = "GoalieUnlockedCharactersKey"
 
-private let defaultCurrentCharacterValue = GoalieCharacter.Goalie.rawValue
-private let defaultUnlockedCharacterRawValues: [Int] = [GoalieCharacter.Goalie.rawValue]
+private let defaultCurrentCharacterValue = GoalieCharacter.goalie.rawValue
+private let defaultUnlockedCharacterRawValues: [Int] = [GoalieCharacter.goalie.rawValue]
 
 struct CharacterManager
 {
    static var currentCharacter: GoalieCharacter {
       var current = defaultCurrentCharacterValue
-      if let _ = NSUserDefaults.standardUserDefaults().objectForKey(CurrentCharacterKey) {
-         current = NSUserDefaults.standardUserDefaults().integerForKey(CurrentCharacterKey)
+      if let _ = UserDefaults.standard.object(forKey: CurrentCharacterKey) {
+         current = UserDefaults.standard.integer(forKey: CurrentCharacterKey)
       }
       
       let character = GoalieCharacter(rawValue: current)
-      return character ?? .Goalie
+      return character ?? .goalie
    }
    
-   static func updateCurrentCharacter(character: GoalieCharacter) -> Bool
+   static func updateCurrentCharacter(_ character: GoalieCharacter) -> Bool
    {
       var didSet = false
       if character != currentCharacter {
-         NSUserDefaults.standardUserDefaults().setInteger(character.rawValue, forKey: CurrentCharacterKey)
+         UserDefaults.standard.set(character.rawValue, forKey: CurrentCharacterKey)
          didSet = true
       }
       return didSet
@@ -38,33 +38,33 @@ struct CharacterManager
    
    static var unlockedCharacters: [GoalieCharacter] {
       var unlockedRawValues: [Int]?
-      if let _ = NSUserDefaults.standardUserDefaults().objectForKey(UnlockedCharactersKey) {
-         unlockedRawValues = NSUserDefaults.standardUserDefaults().arrayForKey(UnlockedCharactersKey) as? [Int]
+      if let _ = UserDefaults.standard.object(forKey: UnlockedCharactersKey) {
+         unlockedRawValues = UserDefaults.standard.array(forKey: UnlockedCharactersKey) as? [Int]
       }
       
       let values = unlockedRawValues ?? defaultUnlockedCharacterRawValues
       return GoalieCharacter.charactersWithValues(values)
    }
    
-   private static func _updateUnlockedCharacters(characters: [GoalieCharacter])
+   fileprivate static func _updateUnlockedCharacters(_ characters: [GoalieCharacter])
    {
       // We should never update the unlocked characters to NOT include goalie – that's just wrong.
-      guard characters.contains(.Goalie) else { return }
+      guard characters.contains(.goalie) else { return }
       
       var characterRawValues: [Int] = []
       for character in characters {
          characterRawValues.append(character.rawValue)
       }
       
-      NSUserDefaults.standardUserDefaults().setObject(characterRawValues, forKey: UnlockedCharactersKey)
+      UserDefaults.standard.set(characterRawValues, forKey: UnlockedCharactersKey)
    }
    
-   static func characterUnlocked(character: GoalieCharacter) -> Bool
+   static func characterUnlocked(_ character: GoalieCharacter) -> Bool
    {
       return unlockedCharacters.contains(character)
    }
    
-   static func unlockCharacter(character: GoalieCharacter)
+   static func unlockCharacter(_ character: GoalieCharacter)
    {
       var unlocked = unlockedCharacters
       if !unlocked.contains(character) {
@@ -74,11 +74,11 @@ struct CharacterManager
       _updateUnlockedCharacters(unlocked)
    }
    
-   static func lockCharacter(character: GoalieCharacter)
+   static func lockCharacter(_ character: GoalieCharacter)
    {
       var unlocked = unlockedCharacters
-      if let index = unlocked.indexOf(character) {
-         unlocked.removeAtIndex(index)
+      if let index = unlocked.index(of: character) {
+         unlocked.remove(at: index)
       }
       
       _updateUnlockedCharacters(unlocked)
@@ -91,7 +91,7 @@ struct CharacterManager
    
    static func lockAllCharactersExceptForGoalie()
    {
-      _updateUnlockedCharacters([.Goalie])
+      _updateUnlockedCharacters([.goalie])
    }
    
    static func lockAllCharacters()
@@ -102,7 +102,7 @@ struct CharacterManager
 
 extension GoalieCharacter
 {
-   static func charactersWithValues(values: [Int]) -> [GoalieCharacter]
+   static func charactersWithValues(_ values: [Int]) -> [GoalieCharacter]
    {
       var characters: [GoalieCharacter] = []
       for value in values {
@@ -112,5 +112,5 @@ extension GoalieCharacter
       return characters
    }
    
-   static var activeCharacterArray: [GoalieCharacter] = [.Goalie, .Fox, .BizeeBee, .Checklistor]
+   static var activeCharacterArray: [GoalieCharacter] = [.goalie, .fox, .bizeeBee, .checklistor]
 }

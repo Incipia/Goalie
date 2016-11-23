@@ -13,7 +13,7 @@ class BricksView: AccessoryView
    override func awakeFromNib()
    {
       super.awakeFromNib()
-      updateAccessory(.Bricks)
+      updateAccessory(.bricks)
    }
 }
 
@@ -22,7 +22,7 @@ class WeightView: AccessoryView
    override func awakeFromNib()
    {
       super.awakeFromNib()
-      updateAccessory(.Weight)
+      updateAccessory(.weight)
    }
 }
 
@@ -31,7 +31,7 @@ class JumpropeView: AccessoryView
    override func awakeFromNib()
    {
       super.awakeFromNib()
-      updateAccessory(.Jumprope)
+      updateAccessory(.jumprope)
    }
 }
 
@@ -40,6 +40,6 @@ class WaterBottleView: AccessoryView
    override func awakeFromNib()
    {
       super.awakeFromNib()
-      updateAccessory(.WaterBottle)
+      updateAccessory(.waterBottle)
    }
 }

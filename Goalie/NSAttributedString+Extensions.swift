@@ -10,28 +10,28 @@ import Foundation
 
 extension NSAttributedString
 {
-   static func speechBubbleString(text: String) -> NSAttributedString
+   static func speechBubbleString(_ text: String) -> NSAttributedString
    {
       let font = UIFont(name: "NotoSans-Bold", size: 9)!
       let attributes = [
-         NSForegroundColorAttributeName : UIColor.whiteColor(),
+         NSForegroundColorAttributeName : UIColor.white,
          NSFontAttributeName : font,
          NSKernAttributeName : 2
-      ]
+      ] as [String : Any]
       
       return NSAttributedString(string: text, attributes: attributes)
    }
    
-   static func attributedOnboardingStringForPageNumber(number: Int) -> NSAttributedString
+   static func attributedOnboardingStringForPageNumber(_ number: Int) -> NSAttributedString
    {
       let font = UIFont(name: "NotoSans-Bold", size: 18)!
-      let paragraphStyle: NSMutableParagraphStyle = NSParagraphStyle.defaultParagraphStyle().mutableCopy() as! NSMutableParagraphStyle
-      paragraphStyle.alignment = NSTextAlignment.Center
+      let paragraphStyle: NSMutableParagraphStyle = NSParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
+      paragraphStyle.alignment = NSTextAlignment.center
       paragraphStyle.lineHeightMultiple = 1.5
       
       if number < 3 {
          let attributes = [
-            NSForegroundColorAttributeName : UIColor.whiteColor(),
+            NSForegroundColorAttributeName : UIColor.white,
             NSFontAttributeName : font,
             NSParagraphStyleAttributeName : paragraphStyle
          ]
@@ -41,7 +41,7 @@ extension NSAttributedString
       }
       else {
          let whiteTextAttributes = [
-            NSForegroundColorAttributeName : UIColor.whiteColor(),
+            NSForegroundColorAttributeName : UIColor.white,
             NSFontAttributeName : font,
             NSParagraphStyleAttributeName : paragraphStyle
          ]
@@ -50,13 +50,13 @@ extension NSAttributedString
          let attrString = NSMutableAttributedString(string: beginningText, attributes: whiteTextAttributes)
          
          let yellowTextAttributes = [
-            NSForegroundColorAttributeName : UIColor(priority: .Soon),
+            NSForegroundColorAttributeName : UIColor(priority: .soon),
             NSFontAttributeName : font,
             NSParagraphStyleAttributeName : paragraphStyle
          ]
          let endText = "Goalie's happy."
          let endAttrString = NSAttributedString(string: endText, attributes: yellowTextAttributes)
-         attrString.appendAttributedString(endAttrString)
+         attrString.append(endAttrString)
          return attrString
       }
    }
@@ -64,12 +64,12 @@ extension NSAttributedString
    static func congratulationsAttributedString() -> NSAttributedString
    {
       let font = UIFont(name: "NotoSans", size: 15)!
-      let paragraphStyle: NSMutableParagraphStyle = NSParagraphStyle.defaultParagraphStyle().mutableCopy() as! NSMutableParagraphStyle
-      paragraphStyle.alignment = NSTextAlignment.Center
+      let paragraphStyle: NSMutableParagraphStyle = NSParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
+      paragraphStyle.alignment = NSTextAlignment.center
       paragraphStyle.lineHeightMultiple = 1.5
       
       let attributes = [
-         NSForegroundColorAttributeName : UIColor.blackColor(),
+         NSForegroundColorAttributeName : UIColor.black,
          NSFontAttributeName : font,
          NSParagraphStyleAttributeName : paragraphStyle
       ]
@@ -79,15 +79,15 @@ extension NSAttributedString
    }
    
    
-   static func unlockedAccessoryPackAttributedString(pack: AccessoryPack) -> NSAttributedString
+   static func unlockedAccessoryPackAttributedString(_ pack: AccessoryPack) -> NSAttributedString
    {
       let font = UIFont(name: "NotoSans", size: 15)!
-      let paragraphStyle: NSMutableParagraphStyle = NSParagraphStyle.defaultParagraphStyle().mutableCopy() as! NSMutableParagraphStyle
-      paragraphStyle.alignment = NSTextAlignment.Center
+      let paragraphStyle: NSMutableParagraphStyle = NSParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
+      paragraphStyle.alignment = NSTextAlignment.center
       paragraphStyle.lineHeightMultiple = 1.5
       
       let attributes = [
-         NSForegroundColorAttributeName : UIColor.blackColor(),
+         NSForegroundColorAttributeName : UIColor.black,
          NSFontAttributeName : font,
          NSParagraphStyleAttributeName : paragraphStyle
       ]
@@ -95,7 +95,7 @@ extension NSAttributedString
       return NSAttributedString(string: pack.unlockedMessageText, attributes: attributes)
    }
    
-   private static func _mainTextForPageNumber(number: Int) -> String?
+   fileprivate static func _mainTextForPageNumber(_ number: Int) -> String?
    {
       switch number
       {

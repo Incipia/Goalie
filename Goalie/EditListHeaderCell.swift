@@ -10,10 +10,10 @@ import UIKit
 
 class EditListHeaderCell: UICollectionReusableView
 {
-   @IBOutlet private weak var _titleLabel: UILabel!
-   @IBOutlet private weak var _subtitleLabel: UILabel!
+   @IBOutlet fileprivate weak var _titleLabel: UILabel!
+   @IBOutlet fileprivate weak var _subtitleLabel: UILabel!
    
-   func configureWithOption(option: EditListOption)
+   func configureWithOption(_ option: EditListOption)
    {
       _titleLabel.text = option.title
       _subtitleLabel.text = option.subtitle

@@ -10,41 +10,41 @@ import UIKit
 
 class UnlockedCharacterCollectionViewCell: UICollectionViewCell
 {
-   @IBOutlet private weak var _characterView: CharacterView!
+   @IBOutlet fileprivate weak var _characterView: CharacterView!
    
-   @IBOutlet private weak var _nameLabel: GoalieKerningLabel!
-   @IBOutlet private weak var _subtitleLabel: UILabel!
-   @IBOutlet private weak var _unlockedBadgeView: UnlockedBadgeView!
+   @IBOutlet fileprivate weak var _nameLabel: GoalieKerningLabel!
+   @IBOutlet fileprivate weak var _subtitleLabel: UILabel!
+   @IBOutlet fileprivate weak var _unlockedBadgeView: UnlockedBadgeView!
    
-   private var _movementAnimator: GoalieMovementAnimator!
+   fileprivate var _movementAnimator: GoalieMovementAnimator!
    
-   private var _character: GoalieCharacter = .Unknown
+   fileprivate var _character: GoalieCharacter = .unknown
    
    override func awakeFromNib()
    {
       super.awakeFromNib()
       
-      backgroundColor = UIColor.whiteColor()
-      layer.borderColor = UIColor(white: 0.9, alpha: 1).CGColor
+      backgroundColor = UIColor.white
+      layer.borderColor = UIColor(white: 0.9, alpha: 1).cgColor
       layer.borderWidth = 1
       layer.cornerRadius = 5.0
       
-      _characterView.containerView.transform = CGAffineTransformMakeScale(0.8, 0.8)
+      _characterView.containerView.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
       
       _movementAnimator = GoalieMovementAnimator(view: _characterView.containerView)
-      let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(Double(CGFloat.randRange(0, upper: 0.9)) * Double(NSEC_PER_SEC)))
-      dispatch_after(delayTime, dispatch_get_main_queue()) {
+      let delayTime = DispatchTime.now() + Double(Int64(Double(CGFloat.randRange(0, upper: 0.9)) * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
+      DispatchQueue.main.asyncAfter(deadline: delayTime) {
          self._movementAnimator.startScalingAnimation()
       }
    }
    
-   func configureWithCharacter(c: GoalieCharacter)
+   func configureWithCharacter(_ c: GoalieCharacter)
    {
       _character = c
       _characterView.updateCharacter(c)
-      _characterView.updateWithPriority(.Later)
+      _characterView.updateWithPriority(.later)
       
-      _nameLabel.updateText(c.name.uppercaseString)
+      _nameLabel.updateText(c.name.uppercased())
       _nameLabel.updateKerningValue(1.5)
       
       _subtitleLabel.text = c.subtitle
@@ -64,15 +64,15 @@ class UnlockedCharacterCollectionViewCell: UICollectionViewCell
       _nameLabel.updateTextColor(UIColor(rgbValues: (55.0, 76.0, 86.0)))
       _subtitleLabel.textColor = UIColor(rgbValues: (87.0, 123.0, 137.0))
       
-      backgroundColor = UIColor.whiteColor()
+      backgroundColor = UIColor.white
    }
    
    func updateUIForSelectedState()
    {
       _unlockedBadgeView.selected = true
-      _nameLabel.updateTextColor(UIColor.whiteColor())
-      _subtitleLabel.textColor = UIColor.whiteColor()
+      _nameLabel.updateTextColor(UIColor.white)
+      _subtitleLabel.textColor = UIColor.white
       
-      backgroundColor = UIColor(priority: .Later)
+      backgroundColor = UIColor(priority: .later)
    }
 }

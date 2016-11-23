@@ -13,7 +13,7 @@ class ClockView: AccessoryView
    override func awakeFromNib()
    {
       super.awakeFromNib()
-      updateAccessory(.Clock)
+      updateAccessory(.clock)
    }
 }
 
@@ -22,7 +22,7 @@ class PlantView: AccessoryView
    override func awakeFromNib()
    {
       super.awakeFromNib()
-      updateAccessory(.Plant)
+      updateAccessory(.plant)
    }
 }
 
@@ -31,7 +31,7 @@ class SodaView: AccessoryView
    override func awakeFromNib()
    {
       super.awakeFromNib()
-      updateAccessory(.Soda)
+      updateAccessory(.soda)
    }
 }
 
@@ -40,6 +40,6 @@ class HomeWindowView: AccessoryView
    override func awakeFromNib()
    {
       super.awakeFromNib()
-      updateAccessory(.HomeWindow)
+      updateAccessory(.homeWindow)
    }
 }

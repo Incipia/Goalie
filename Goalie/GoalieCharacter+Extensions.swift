@@ -16,21 +16,21 @@ extension GoalieCharacter
 {
    var name: String {
       switch self {
-      case .Unknown: return "None"
-      case .Goalie: return "Goalie"
-      case .BizeeBee: return "Bizeebee"
-      case .Fox: return "Sir Jobton"
-      case .Checklistor: return "Listor"
+      case .unknown: return "None"
+      case .goalie: return "Goalie"
+      case .bizeeBee: return "Bizeebee"
+      case .fox: return "Sir Jobton"
+      case .checklistor: return "Listor"
       }
    }
    
    var subtitle: String {
       switch self {
-      case .Unknown: return "None"
-      case .Goalie: return "Silly, kind, and ready for adventure"
-      case .BizeeBee: return "Wild, dramatic, and a bit passive aggressive"
-      case .Fox: return "Proper, elegant, and cool as a cucumber"
-      case .Checklistor: return "Lovable, clumsy oaf of a sea slug"
+      case .unknown: return "None"
+      case .goalie: return "Silly, kind, and ready for adventure"
+      case .bizeeBee: return "Wild, dramatic, and a bit passive aggressive"
+      case .fox: return "Proper, elegant, and cool as a cucumber"
+      case .checklistor: return "Lovable, clumsy oaf of a sea slug"
       }
    }
 }
@@ -39,19 +39,19 @@ extension GoalieCharacter
 {
    var unlockAction: UnlockAction? {
       switch self {
-      case .BizeeBee: return .Purchase(value: 0.99, id: BizeeBeePurchaseID)
-      case .Fox: return .Purchase(value: 0.99, id: FoxPurchaseID)
-      case .Checklistor: return .Purchase(value: 0.99, id: ChecklistorPurchaseID)
+      case .bizeeBee: return .purchase(value: 0.99, id: BizeeBeePurchaseID)
+      case .fox: return .purchase(value: 0.99, id: FoxPurchaseID)
+      case .checklistor: return .purchase(value: 0.99, id: ChecklistorPurchaseID)
       default: return nil
       }
    }
    
-   static func characterForPurchaseID(id: String) -> GoalieCharacter?
+   static func characterForPurchaseID(_ id: String) -> GoalieCharacter?
    {
       switch id {
-      case FoxPurchaseID: return .Fox
-      case ChecklistorPurchaseID: return .Checklistor
-      case BizeeBeePurchaseID: return .BizeeBee
+      case FoxPurchaseID: return .fox
+      case ChecklistorPurchaseID: return .checklistor
+      case BizeeBeePurchaseID: return .bizeeBee
       default: return nil
       }
    }

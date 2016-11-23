@@ -9,17 +9,17 @@
 import Foundation
 import CoreData
 
-extension NSDate
+extension Date
 {
-   func secondsFrom(date:NSDate) -> Int{
-      return NSCalendar.currentCalendar().components(.Second, fromDate: date, toDate: self, options: []).second
+   func secondsFrom(_ date:Date) -> Int{
+      return (Calendar.current as NSCalendar).components(.second, from: date, to: self, options: []).second!
    }
 }
 
 class TaskPriorityStateSnapshotter
 {
-   private let _moc: NSManagedObjectContext
-   private let _tasksDataProvider: TasksDataProvider
+   fileprivate let _moc: NSManagedObjectContext
+   fileprivate let _tasksDataProvider: TasksDataProvider
    
    init(moc: NSManagedObjectContext)
    {
@@ -29,14 +29,14 @@ class TaskPriorityStateSnapshotter
    
    func snapshotCurrentState()
    {
-      var secondsUntilAdvanceDictionary: [String : AnyObject] = [:]
-      var lastTaskPriorityDictionary: [String : AnyObject] = [:]
+      var secondsUntilAdvanceDictionary: [String : Any] = [:]
+      var lastTaskPriorityDictionary: [String : Any] = [:]
       
-      let currentDate = NSDate()
+      let currentDate = Date()
       for task in _tasksDataProvider.incompletedTasks()
       {
          if let priorityDuration = task.priority.duration {
-            let nextAdvanceDate = task.lastPriorityChangeDate.dateByAddingTimeInterval(priorityDuration)
+            let nextAdvanceDate = task.lastPriorityChangeDate.addingTimeInterval(priorityDuration)
             let secondsUntilAdvance = nextAdvanceDate.secondsFrom(currentDate)
             secondsUntilAdvanceDictionary[task.uuid] = secondsUntilAdvance
             lastTaskPriorityDictionary[task.uuid] = task.priority.rawValue
@@ -47,19 +47,19 @@ class TaskPriorityStateSnapshotter
       print(secondsUntilAdvanceDictionary)
       print("---------------------")
       
-      let secondsUntilAdvanceData = NSKeyedArchiver.archivedDataWithRootObject(secondsUntilAdvanceDictionary)
-      NSUserDefaults.standardUserDefaults().setObject(secondsUntilAdvanceData, forKey: "TaskPriorityOffsetDictionary")
+      let secondsUntilAdvanceData = NSKeyedArchiver.archivedData(withRootObject: secondsUntilAdvanceDictionary)
+      UserDefaults.standard.set(secondsUntilAdvanceData, forKey: "TaskPriorityOffsetDictionary")
       
-      let lastPriorityData = NSKeyedArchiver.archivedDataWithRootObject(lastTaskPriorityDictionary)
-      NSUserDefaults.standardUserDefaults().setObject(lastPriorityData, forKey: "LastTaskPriorityDictionary")
+      let lastPriorityData = NSKeyedArchiver.archivedData(withRootObject: lastTaskPriorityDictionary)
+      UserDefaults.standard.set(lastPriorityData, forKey: "LastTaskPriorityDictionary")
    }
    
    func applyPreviousSnapshot()
    {
-      if let secondsUntilAdvanceData = NSUserDefaults.standardUserDefaults().objectForKey("TaskPriorityOffsetDictionary") as? NSData,
-         let lastPriorityData = NSUserDefaults.standardUserDefaults().objectForKey("LastTaskPriorityDictionary") as? NSData,
-         let snapshotDictionary = NSKeyedUnarchiver.unarchiveObjectWithData(secondsUntilAdvanceData),
-         let lastPriorityDictionary = NSKeyedUnarchiver.unarchiveObjectWithData(lastPriorityData)
+      if let secondsUntilAdvanceData = UserDefaults.standard.object(forKey: "TaskPriorityOffsetDictionary") as? Data,
+         let lastPriorityData = UserDefaults.standard.object(forKey: "LastTaskPriorityDictionary") as? Data,
+         let snapshotDictionary = NSKeyedUnarchiver.unarchiveObject(with: secondsUntilAdvanceData) as? [String : Any],
+         let lastPriorityDictionary = NSKeyedUnarchiver.unarchiveObject(with: lastPriorityData) as? [String : Any]
       {
             print("-- APPLYING SNAPSHOT --")
             print(snapshotDictionary)
@@ -70,7 +70,7 @@ class TaskPriorityStateSnapshotter
             {
                if let lastPriorityRawValue = lastPriorityDictionary[task.uuid] as? Int {
                   let lastPriority = TaskPriority(rawValue: lastPriorityRawValue)!
-                  if let secondsUntilAdvance = snapshotDictionary[task.uuid] as? Int where task.priority == lastPriority {
+                  if let secondsUntilAdvance = snapshotDictionary[task.uuid] as? Int, task.priority == lastPriority {
                      secondsUntilAdvanceDictionary[task] = secondsUntilAdvance
                   }
                   else {

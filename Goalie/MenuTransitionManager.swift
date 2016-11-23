@@ -11,11 +11,11 @@ import UIKit
 extension UIViewControllerContextTransitioning
 {
    var toViewController: UIViewController? {
-      return viewControllerForKey(UITransitionContextToViewControllerKey)
+      return viewController(forKey: UITransitionContextViewControllerKey.to)
    }
    
    var fromViewController: UIViewController? {
-      return viewControllerForKey(UITransitionContextFromViewControllerKey)
+      return viewController(forKey: UITransitionContextViewControllerKey.from)
    }
 }
 
@@ -24,7 +24,7 @@ class MenuTransitionManager: NSObject, UIViewControllerAnimatedTransitioning, UI
    var presenting = true
    
    // MARK: - UIViewControllerAnimatedTransitioning protocol methods
-   func animateTransition(transitionContext: UIViewControllerContextTransitioning)
+   func animateTransition(using transitionContext: UIViewControllerContextTransitioning)
    {
       if presenting {
          _presentWithTransitionContext(transitionContext)
@@ -34,64 +34,64 @@ class MenuTransitionManager: NSObject, UIViewControllerAnimatedTransitioning, UI
       }
    }
    
-   func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
+   func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
       return 0.5
    }
    
    // MARK: - UIViewControllerTransitioningDelegate protocol methods
-   func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+   func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
       return self
    }
    
-   func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+   func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
       return self
    }
    
    // MARK: - Private
-   private func _presentWithTransitionContext(transitionContext: UIViewControllerContextTransitioning)
+   fileprivate func _presentWithTransitionContext(_ transitionContext: UIViewControllerContextTransitioning)
    {
       // get reference to our fromView, toView and the container view that we should perform the transition in
-      let container = transitionContext.containerView()
+      let container = transitionContext.containerView
       
       guard let toController = transitionContext.toViewController as? MenuController else {
          transitionContext.completeTransition(true)
          return
       }
       
-      let scaledTransform = CGAffineTransformMakeScale(0.4, 0.4)
+      let scaledTransform = CGAffineTransform(scaleX: 0.4, y: 0.4)
       toController.dialogContainer.transform = scaledTransform
       
       toController.view.alpha = 1
-      toController.view.backgroundColor = UIColor.clearColor()
+      toController.view.backgroundColor = UIColor.clear
       
       container.addSubview(toController.view)
       
-      let duration = transitionDuration(transitionContext)
-      UIView.animateWithDuration(duration * 0.4,
+      let duration = transitionDuration(using: transitionContext)
+      UIView.animate(withDuration: duration * 0.4,
          delay: 0,
-         options: UIViewAnimationOptions.CurveEaseIn,
+         options: UIViewAnimationOptions.curveEaseIn,
          animations: { () -> Void in
          
 //         toController.dialogContainer.transform = CGAffineTransformIdentity
-         toController.view.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.5)
+         toController.view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
          
          }, completion: { finished in
 //            transitionContext.completeTransition(true)
       })
       
-      UIView.animateWithDuration(duration, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.3, options: [], animations: { () -> Void in
+      UIView.animate(withDuration: duration, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.3, options: [], animations: { () -> Void in
          
-         toController.dialogContainer.transform = CGAffineTransformIdentity
+         toController.dialogContainer.transform = CGAffineTransform.identity
 //         toController.view.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.5)
          }) { (finished) -> Void in
             transitionContext.completeTransition(true)
       }
    }
    
-   private func _dismissWithTransitionContext(transitionContext: UIViewControllerContextTransitioning)
+   fileprivate func _dismissWithTransitionContext(_ transitionContext: UIViewControllerContextTransitioning)
    {
       // get reference to our fromView, toView and the container view that we should perform the transition in
-      let container = transitionContext.containerView()
+      let container = transitionContext.containerView
       guard let fromController = transitionContext.fromViewController as? MenuController else {
          transitionContext.completeTransition(true)
          return
@@ -100,13 +100,13 @@ class MenuTransitionManager: NSObject, UIViewControllerAnimatedTransitioning, UI
       container.addSubview(fromController.view)
       
 //      let duration = transitionDuration(transitionContext)
-      UIView.animateWithDuration(0.25,
+      UIView.animate(withDuration: 0.25,
          delay: 0,
-         options: UIViewAnimationOptions.CurveEaseOut,
+         options: UIViewAnimationOptions.curveEaseOut,
          animations: { () -> Void in
          
          fromController.view.alpha = 0
-         fromController.dialogContainer.transform = CGAffineTransformMakeScale(0.4, 0.4)
+         fromController.dialogContainer.transform = CGAffineTransform(scaleX: 0.4, y: 0.4)
          
          }, completion: { finished in
             transitionContext.completeTransition(true)

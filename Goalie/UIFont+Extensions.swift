@@ -13,12 +13,12 @@ private let MediumFontName = "AvenirNext-Medium"
 
 extension UIFont
 {
-   static func boldGoalieFontWithSize(size: CGFloat) -> UIFont
+   static func boldGoalieFontWithSize(_ size: CGFloat) -> UIFont
    {
       return UIFont(name: BoldFontName, size: size)!
    }
    
-   static func mediumGoalieFontWithSize(size: CGFloat) -> UIFont
+   static func mediumGoalieFontWithSize(_ size: CGFloat) -> UIFont
    {
       return UIFont(name: MediumFontName, size: size)!
    }

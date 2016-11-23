@@ -12,7 +12,7 @@ class CharacterFaceLayer: CALayer, CAAnimationDelegate
 {
    var backingContainerLayer: CALayer?
    
-   internal var _currentPriority: TaskPriority = .Unknown
+   internal var _currentPriority: TaskPriority = .unknown
    internal var _currentlyAnimating = false
    
    internal var _leftEyeLayer = CAShapeLayer()
@@ -30,7 +30,7 @@ class CharacterFaceLayer: CALayer, CAAnimationDelegate
       addSublayer(_rightEyeLayer)
       addSublayer(_mouthLayer)
       
-      _mouthLayer.fillColor = UIColor.whiteColor().CGColor
+      _mouthLayer.fillColor = UIColor.white.cgColor
    }
    
    required init?(coder aDecoder: NSCoder)
@@ -45,13 +45,13 @@ class CharacterFaceLayer: CALayer, CAAnimationDelegate
       commonInit()
    }
    
-   override init(layer: AnyObject)
+   override init(layer: Any)
    {
       super.init(layer: layer)
       commonInit()
    }
    
-   func updateWithPriority(priority: TaskPriority)
+   func updateWithPriority(_ priority: TaskPriority)
    {
       _currentPriority = priority
       
@@ -63,62 +63,62 @@ class CharacterFaceLayer: CALayer, CAAnimationDelegate
       }
       
       let eyeColor = UIColor.eyeColorForPriority(priority)
-      _leftEyeLayer.fillColor = eyeColor.CGColor
-      _rightEyeLayer.fillColor = eyeColor.CGColor
+      _leftEyeLayer.fillColor = eyeColor.cgColor
+      _rightEyeLayer.fillColor = eyeColor.cgColor
       
-      _leftEyeLayer.path = priority == .ASAP ? _pathProvider.angryLeftEyePath : _pathProvider.normalLeftEyePath
-      _rightEyeLayer.path = priority == .ASAP ? _pathProvider.angryRightEyePath : _pathProvider.normalRightEyePath
+      _leftEyeLayer.path = priority == .asap ? _pathProvider.angryLeftEyePath : _pathProvider.normalLeftEyePath
+      _rightEyeLayer.path = priority == .asap ? _pathProvider.angryRightEyePath : _pathProvider.normalRightEyePath
       
       _mouthLayer.path = _pathProvider.mouthPathForPriority(priority)
       
       performBlockWithoutAnimations { () -> Void in
          switch priority
          {
-         case .Unknown:
-            self._leftEyeLayer.hidden = true
-            self._rightEyeLayer.hidden = true
-            self._mouthLayer.hidden = true
+         case .unknown:
+            self._leftEyeLayer.isHidden = true
+            self._rightEyeLayer.isHidden = true
+            self._mouthLayer.isHidden = true
             break
-         case .Ages:
-            self._leftEyeLayer.hidden = true
-            self._rightEyeLayer.hidden = true
-            self._mouthLayer.hidden = false
+         case .ages:
+            self._leftEyeLayer.isHidden = true
+            self._rightEyeLayer.isHidden = true
+            self._mouthLayer.isHidden = false
             break
-         case .Soon, .Later:
-            self._leftEyeLayer.hidden = false
-            self._rightEyeLayer.hidden = false
-            self._mouthLayer.hidden = false
+         case .soon, .later:
+            self._leftEyeLayer.isHidden = false
+            self._rightEyeLayer.isHidden = false
+            self._mouthLayer.isHidden = false
             break
-         case .ASAP:
-            self._leftEyeLayer.hidden = false
-            self._rightEyeLayer.hidden = false
-            self._mouthLayer.hidden = false
+         case .asap:
+            self._leftEyeLayer.isHidden = false
+            self._rightEyeLayer.isHidden = false
+            self._mouthLayer.isHidden = false
             break
          }
       }
    }
    
-   func animateForPriority(priority: TaskPriority)
+   func animateForPriority(_ priority: TaskPriority)
    {
       if _currentlyAnimating == false {
          _currentlyAnimating = true
          switch priority
          {
-         case .Ages:
+         case .ages:
             animateHappyMouthGrow()
-         case .Later:
+         case .later:
             if Int.randRange(0, upper: 1) == 0 {
                happyWinkEye()
             }
             else {
                happySquint()
             }
-         case .Soon:
+         case .soon:
             surprise()
             animateWorriedMouthShrink()
-         case .ASAP:
+         case .asap:
             angryBlink()
-         case .Unknown:
+         case .unknown:
             _currentlyAnimating = false
          }
       }
@@ -166,9 +166,9 @@ class CharacterFaceLayer: CALayer, CAAnimationDelegate
       _animateRightEyeWithPath(_pathProvider.rightSurprisedEyePath)
    }
    
-   private func _animateLeftEyeWithPath(path: CGPathRef)
+   fileprivate func _animateLeftEyeWithPath(_ path: CGPath)
    {
-      let startingPath = _currentPriority == .ASAP ? _pathProvider.angryLeftEyePath : _pathProvider.normalLeftEyePath
+      let startingPath = _currentPriority == .asap ? _pathProvider.angryLeftEyePath : _pathProvider.normalLeftEyePath
       
       let animationGroup = CAAnimationGroup()
       animationGroup.duration = 1
@@ -176,25 +176,25 @@ class CharacterFaceLayer: CALayer, CAAnimationDelegate
       let closeEyeAnimation = CABasicAnimation(keyPath: "path")
       closeEyeAnimation.duration = 0.2
       closeEyeAnimation.fillMode = kCAFillModeForwards
-      closeEyeAnimation.removedOnCompletion = false
+      closeEyeAnimation.isRemovedOnCompletion = false
       closeEyeAnimation.toValue = path
       
       let openEyeAnimation = CABasicAnimation(keyPath: "path")
       openEyeAnimation.beginTime = 0.9
       openEyeAnimation.duration = 0.1
       openEyeAnimation.fillMode = kCAFillModeForwards
-      openEyeAnimation.removedOnCompletion = false
+      openEyeAnimation.isRemovedOnCompletion = false
       openEyeAnimation.toValue = startingPath
       
       animationGroup.animations = [closeEyeAnimation, openEyeAnimation]
       
       animationGroup.delegate = self
-      _leftEyeLayer.addAnimation(animationGroup, forKey: "blinkLeftEye")
+      _leftEyeLayer.add(animationGroup, forKey: "blinkLeftEye")
    }
    
-   private func _animateRightEyeWithPath(path: CGPathRef)
+   fileprivate func _animateRightEyeWithPath(_ path: CGPath)
    {
-      let startingPath = _currentPriority == .ASAP ? _pathProvider.angryRightEyePath : _pathProvider.normalRightEyePath
+      let startingPath = _currentPriority == .asap ? _pathProvider.angryRightEyePath : _pathProvider.normalRightEyePath
       
       let animationGroup = CAAnimationGroup()
       animationGroup.duration = 1
@@ -202,19 +202,19 @@ class CharacterFaceLayer: CALayer, CAAnimationDelegate
       let closeEyeAnimation = CABasicAnimation(keyPath: "path")
       closeEyeAnimation.duration = 0.2
       closeEyeAnimation.fillMode = kCAFillModeForwards
-      closeEyeAnimation.removedOnCompletion = false
+      closeEyeAnimation.isRemovedOnCompletion = false
       closeEyeAnimation.toValue = path
       
       let openEyeAnimation = CABasicAnimation(keyPath: "path")
       openEyeAnimation.beginTime = 0.9
       openEyeAnimation.duration = 0.1
       openEyeAnimation.fillMode = kCAFillModeForwards
-      openEyeAnimation.removedOnCompletion = false
+      openEyeAnimation.isRemovedOnCompletion = false
       openEyeAnimation.toValue = startingPath
       
       animationGroup.animations = [closeEyeAnimation, openEyeAnimation]
       animationGroup.delegate = self
-      _rightEyeLayer.addAnimation(animationGroup, forKey: "blinkRightEye")
+      _rightEyeLayer.add(animationGroup, forKey: "blinkRightEye")
    }
    
    
@@ -226,19 +226,19 @@ class CharacterFaceLayer: CALayer, CAAnimationDelegate
       let closeEyeAnimation = CABasicAnimation(keyPath: "path")
       closeEyeAnimation.duration = 0.2
       closeEyeAnimation.fillMode = kCAFillModeForwards
-      closeEyeAnimation.removedOnCompletion = false
+      closeEyeAnimation.isRemovedOnCompletion = false
       closeEyeAnimation.toValue = _pathProvider.smallHappyMouthPath
       
       let openEyeAnimation = CABasicAnimation(keyPath: "path")
       openEyeAnimation.beginTime = 0.9
       openEyeAnimation.duration = 0.1
       openEyeAnimation.fillMode = kCAFillModeForwards
-      openEyeAnimation.removedOnCompletion = false
+      openEyeAnimation.isRemovedOnCompletion = false
       openEyeAnimation.toValue = _pathProvider.happyMouthPath
       
       animationGroup.animations = [closeEyeAnimation, openEyeAnimation]
       animationGroup.delegate = self
-      _mouthLayer.addAnimation(animationGroup, forKey: "shrinkMouth")
+      _mouthLayer.add(animationGroup, forKey: "shrinkMouth")
    }
    
    internal func animateHappyMouthGrow()
@@ -249,19 +249,19 @@ class CharacterFaceLayer: CALayer, CAAnimationDelegate
       let closeEyeAnimation = CABasicAnimation(keyPath: "path")
       closeEyeAnimation.duration = 0.2
       closeEyeAnimation.fillMode = kCAFillModeForwards
-      closeEyeAnimation.removedOnCompletion = false
+      closeEyeAnimation.isRemovedOnCompletion = false
       closeEyeAnimation.toValue = _pathProvider.bigHappyMouthPath
       
       let openEyeAnimation = CABasicAnimation(keyPath: "path")
       openEyeAnimation.beginTime = 0.9
       openEyeAnimation.duration = 0.1
       openEyeAnimation.fillMode = kCAFillModeForwards
-      openEyeAnimation.removedOnCompletion = false
+      openEyeAnimation.isRemovedOnCompletion = false
       openEyeAnimation.toValue = _pathProvider.happyMouthPath
       
       animationGroup.animations = [closeEyeAnimation, openEyeAnimation]
       animationGroup.delegate = self
-      _mouthLayer.addAnimation(animationGroup, forKey: "growMouth")
+      _mouthLayer.add(animationGroup, forKey: "growMouth")
    }
    
    internal func animateWorriedMouthShrink()
@@ -272,27 +272,27 @@ class CharacterFaceLayer: CALayer, CAAnimationDelegate
       let closeEyeAnimation = CABasicAnimation(keyPath: "path")
       closeEyeAnimation.duration = 0.2
       closeEyeAnimation.fillMode = kCAFillModeForwards
-      closeEyeAnimation.removedOnCompletion = false
+      closeEyeAnimation.isRemovedOnCompletion = false
       closeEyeAnimation.toValue = _pathProvider.flatScaredMouthPath
       
       let openEyeAnimation = CABasicAnimation(keyPath: "path")
       openEyeAnimation.beginTime = 0.9
       openEyeAnimation.duration = 0.1
       openEyeAnimation.fillMode = kCAFillModeForwards
-      openEyeAnimation.removedOnCompletion = false
+      openEyeAnimation.isRemovedOnCompletion = false
       openEyeAnimation.toValue = _pathProvider.scaredMouthPath
       
       animationGroup.animations = [closeEyeAnimation, openEyeAnimation]
       animationGroup.delegate = self
-      _mouthLayer.addAnimation(animationGroup, forKey: "scaredMouthShrink")
+      _mouthLayer.add(animationGroup, forKey: "scaredMouthShrink")
    }
    
-   func animationDidStop(anim: CAAnimation, finished flag: Bool)
+   func animationDidStop(_ anim: CAAnimation, finished flag: Bool)
    {
       self._currentlyAnimating = false
    }
    
-   internal func performBlockWithoutAnimations(block: (() -> Void))
+   internal func performBlockWithoutAnimations(_ block: (() -> Void))
    {
       CATransaction.begin()
       CATransaction.setValue(kCFBooleanTrue, forKey: kCATransactionDisableActions)

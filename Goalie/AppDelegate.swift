@@ -17,26 +17,26 @@ import StoreKit
 class AppDelegate: UIResponder, UIApplicationDelegate
 {
    var window: UIWindow?
-   private var _moc: NSManagedObjectContext! {
+   fileprivate var _moc: NSManagedObjectContext! {
       didSet {
          _taskPriorityUpdater = TaskPriorityUpdater(managedObjectContext: _moc)
       }
    }
    
-   private var _taskPriorityUpdater: TaskPriorityUpdater!
-   private var _updateTaskPrioritiesTimer: NSTimer?
-   private var _speechBubbleTimer: NSTimer?
-   private var _goalieAnimationTimer: NSTimer?
-   private var _mainTasksViewController: MainTasksViewController!
-   private var _onboardingViewController: OnboardingViewController!
-   private let _onboardingTransitionManager = OnboardingTransitionManager()
+   fileprivate var _taskPriorityUpdater: TaskPriorityUpdater!
+   fileprivate var _updateTaskPrioritiesTimer: Timer?
+   fileprivate var _speechBubbleTimer: Timer?
+   fileprivate var _goalieAnimationTimer: Timer?
+   fileprivate var _mainTasksViewController: MainTasksViewController!
+   fileprivate var _onboardingViewController: OnboardingViewController!
+   fileprivate let _onboardingTransitionManager = OnboardingTransitionManager()
 
-   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
+   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool
    {
       Fabric.with([Crashlytics.self])
       _setupStoreKit()
       
-      GoalieSettingsManager.setFirstTimeAppOpenedIfNecessary(NSDate())
+      GoalieSettingsManager.setFirstTimeAppOpenedIfNecessary(Date())
       
 //      CharacterManager.lockAllCharactersExceptForGoalie()
 //      CharacterManager.updateCurrentCharacter(.Goalie)
@@ -56,7 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
          _mainTasksViewController.transitioningDelegate = _onboardingTransitionManager
          
          _onboardingViewController.onboardingCompletionBlock = {
-            self._onboardingViewController.presentViewController(self._mainTasksViewController, animated: true, completion: { () -> Void in
+            self._onboardingViewController.present(self._mainTasksViewController, animated: true, completion: { () -> Void in
                
                self._startTimers()
                self._mainTasksViewController.showSpeechBubble()
@@ -75,7 +75,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
       return true
    }
    
-   func applicationDidBecomeActive(application: UIApplication)
+   func applicationDidBecomeActive(_ application: UIApplication)
    {
       if GoalieSettingsManager.userHasOnboarded {
          _startTimers()
@@ -84,7 +84,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
       }
    }
    
-   func applicationWillResignActive(application: UIApplication)
+   func applicationWillResignActive(_ application: UIApplication)
    {
       _killTimers()
       
@@ -94,24 +94,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate
       }
    }
    
-   private func _setupStoreKit()
+   fileprivate func _setupStoreKit()
    {
-      MKStoreKit.sharedKit().startProductRequest()      
-      NSNotificationCenter.defaultCenter().addObserverForName(kMKStoreKitProductsAvailableNotification,
-         object: nil, queue: NSOperationQueue.mainQueue()) { (note) -> Void in
+      MKStoreKit.shared().startProductRequest()      
+      NotificationCenter.default.addObserver(forName: NSNotification.Name.mkStoreKitProductsAvailable,
+         object: nil, queue: OperationQueue.main) { (note) -> Void in
             
-            for product in MKStoreKit.sharedKit().availableProducts {
+            for product in MKStoreKit.shared().availableProducts {
                if let item = product as? SKProduct {
-                  print("Available: \(item.productIdentifier) - purchased: \(MKStoreKit.sharedKit().isProductPurchased(item.productIdentifier))")
+                  print("Available: \(item.productIdentifier) - purchased: \(MKStoreKit.shared().isProductPurchased(item.productIdentifier))")
                }
             }
             
 //            MKStoreKit.sharedKit().refreshAppStoreReceipt()
       }
       
-      let notificationName = kMKStoreKitProductPurchasedNotification
-      NSNotificationCenter.defaultCenter().addObserverForName(notificationName,
-         object: nil, queue: NSOperationQueue.mainQueue()) { (note) -> Void in
+      let notificationName = NSNotification.Name.mkStoreKitProductPurchased
+      NotificationCenter.default.addObserver(forName: notificationName,
+         object: nil, queue: OperationQueue.main) { (note) -> Void in
             
             guard let id = note.object as? String else { return }
             
@@ -122,96 +122,96 @@ class AppDelegate: UIResponder, UIApplicationDelegate
       }
    }
    
-   private func _startTimers()
+   fileprivate func _startTimers()
    {
       _startTimerForAutoIncrementingTasksPriorities()
       _startTimerForSpeechBubble()
       _startTimerForGoalieAnimations()
    }
    
-   private func _killTimers()
+   fileprivate func _killTimers()
    {
       _killUpdateTaskPrioritiesTimer()
       _killSpeechBubbleTimer()
       _killGoalieAnimationTimer()
    }
    
-   private func _killUpdateTaskPrioritiesTimer()
+   fileprivate func _killUpdateTaskPrioritiesTimer()
    {
       _updateTaskPrioritiesTimer?.invalidate()
       _updateTaskPrioritiesTimer = nil
    }
    
-   private func _killSpeechBubbleTimer()
+   fileprivate func _killSpeechBubbleTimer()
    {
       _speechBubbleTimer?.invalidate()
       _speechBubbleTimer = nil
    }
    
-   private func _killGoalieAnimationTimer()
+   fileprivate func _killGoalieAnimationTimer()
    {
       _goalieAnimationTimer?.invalidate()
       _goalieAnimationTimer = nil
    }
    
-   private func _setupMainTasksViewControllerWithMOC(moc: NSManagedObjectContext)
+   fileprivate func _setupMainTasksViewControllerWithMOC(_ moc: NSManagedObjectContext)
    {
       _mainTasksViewController = UIStoryboard.mainTasksViewController(moc)
    }
    
-   private func _setupMainWindowWithViewController(controller: UIViewController)
+   fileprivate func _setupMainWindowWithViewController(_ controller: UIViewController)
    {
-      window = UIWindow(frame: UIScreen.mainScreen().bounds)
+      window = UIWindow(frame: UIScreen.main.bounds)
       window?.rootViewController = controller
       window?.makeKeyAndVisible()
    }
 
-   private func _startTimerForAutoIncrementingTasksPriorities()
+   fileprivate func _startTimerForAutoIncrementingTasksPriorities()
    {
       guard _updateTaskPrioritiesTimer == nil else {return}
       
-      let calendar = NSCalendar.autoupdatingCurrentCalendar()
-      let components = calendar.components(.Second, fromDate: NSDate())
+      let calendar = Calendar.autoupdatingCurrent
+      let components = (calendar as NSCalendar).components(.second, from: Date())
       let currentSecond = components.second
       
-      let fireDate = NSDate().dateByAddingTimeInterval(NSTimeInterval(60 - currentSecond + 1))
-      _updateTaskPrioritiesTimer = NSTimer(fireDate: fireDate, interval: 60, target: self, selector: Selector("_updateTaskPriorities:"), userInfo: nil, repeats: true)
+      let fireDate = Date().addingTimeInterval(TimeInterval(60 - currentSecond! + 1))
+      _updateTaskPrioritiesTimer = Timer(fireAt: fireDate, interval: 60, target: self, selector: #selector(AppDelegate._updateTaskPriorities(_:)), userInfo: nil, repeats: true)
       
       // update task priorities manually before timer is added to run loop
       _updateTaskPriorities(_updateTaskPrioritiesTimer!)
-      NSRunLoop.mainRunLoop().addTimer(_updateTaskPrioritiesTimer!, forMode: NSDefaultRunLoopMode)
+      RunLoop.main.add(_updateTaskPrioritiesTimer!, forMode: RunLoopMode.defaultRunLoopMode)
    }
    
-   private func _startTimerForSpeechBubble()
+   fileprivate func _startTimerForSpeechBubble()
    {
       guard _speechBubbleTimer == nil else {return}
       
-      _speechBubbleTimer = NSTimer(fireDate: NSDate().dateByAddingTimeInterval(10), interval: 0, target: self, selector: "_hideSpeechBubble:", userInfo: nil, repeats: false)
-      NSRunLoop.mainRunLoop().addTimer(_speechBubbleTimer!, forMode: NSDefaultRunLoopMode)
+      _speechBubbleTimer = Timer(fireAt: Date().addingTimeInterval(10), interval: 0, target: self, selector: #selector(AppDelegate._hideSpeechBubble(_:)), userInfo: nil, repeats: false)
+      RunLoop.main.add(_speechBubbleTimer!, forMode: RunLoopMode.defaultRunLoopMode)
    }
    
-   private func _startTimerForGoalieAnimations()
+   fileprivate func _startTimerForGoalieAnimations()
    {
       guard _goalieAnimationTimer == nil else {return}
       
-      _goalieAnimationTimer = NSTimer(fireDate: NSDate().dateByAddingTimeInterval(10), interval: 5, target: self, selector: "_animateGoalie:", userInfo: nil, repeats: true)
-      NSRunLoop.mainRunLoop().addTimer(_goalieAnimationTimer!, forMode: NSDefaultRunLoopMode)
+      _goalieAnimationTimer = Timer(fireAt: Date().addingTimeInterval(10), interval: 5, target: self, selector: #selector(AppDelegate._animateGoalie(_:)), userInfo: nil, repeats: true)
+      RunLoop.main.add(_goalieAnimationTimer!, forMode: RunLoopMode.defaultRunLoopMode)
    }
    
-   internal func _hideSpeechBubble(timer: NSTimer)
+   internal func _hideSpeechBubble(_ timer: Timer)
    {
       _killSpeechBubbleTimer()
       _mainTasksViewController.hideSpeechBubble()
    }
    
-   internal func _updateTaskPriorities(timer: NSTimer)
+   internal func _updateTaskPriorities(_ timer: Timer)
    {
       if GoalieSettingsManager.manuallySwitchPriority == false {
          _taskPriorityUpdater.updateTaskPriorities()
       }
    }
    
-   internal func _animateGoalie(timer: NSTimer)
+   internal func _animateGoalie(_ timer: Timer)
    {
       _mainTasksViewController.animateGoalie()
    }

@@ -32,8 +32,8 @@ extension ManagedObjectType
       return NSPredicate(value: true)
    }
    
-   public static var sortedFetchRequest: NSFetchRequest {
-      let request = NSFetchRequest(entityName: entityName)
+   public static var sortedFetchRequest: NSFetchRequest<NSFetchRequestResult> {
+      let request = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
       request.predicate = defaultPredicate
       request.sortDescriptors = defaultSortDescriptors
       return request

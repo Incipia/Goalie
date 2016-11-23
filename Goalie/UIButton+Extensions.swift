@@ -10,19 +10,19 @@ import UIKit
 
 extension UIButton
 {
-   func removeAllActionsForTarget(target: AnyObject)
+   func removeAllActionsForTarget(_ target: AnyObject)
    {
-      let events = UIControlEvents.TouchUpInside
-      if let actions = actionsForTarget(target, forControlEvent: events) {
+      let events = UIControlEvents.touchUpInside
+      if let actions = actions(forTarget: target, forControlEvent: events) {
          for action in actions {
-            removeTarget(target, action: Selector(stringLiteral: action), forControlEvents: events)
+            removeTarget(target, action: Selector(stringLiteral: action), for: events)
          }
       }
    }
    
-   func updateTarget(target: AnyObject, selectorName: String)
+   func updateTarget(_ target: AnyObject, selectorName: String)
    {
       removeAllActionsForTarget(target)
-      addTarget(target, action: Selector(stringLiteral: selectorName), forControlEvents: UIControlEvents.TouchUpInside)
+      addTarget(target, action: Selector(stringLiteral: selectorName), for: UIControlEvents.touchUpInside)
    }
 }

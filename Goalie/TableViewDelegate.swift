@@ -9,17 +9,17 @@
 import UIKit
 import CoreData
 
-class TableViewDelegate<Data: DataProviderProtocol, Delegate: TableViewDelegateProtocol where Data.Object: ManagedObject, Data.Object == Delegate.Object>: NSObject, UITableViewDelegate
+class TableViewDelegate<Data: DataProviderProtocol, Delegate: TableViewDelegateProtocol>: NSObject, UITableViewDelegate where Data.Object: ManagedObject, Data.Object == Delegate.Object
 {
-   private var _tableView: UITableView
-   private var _dataProvider: Data
-   private var _delegate: Delegate
+   fileprivate var _tableView: UITableView
+   fileprivate var _dataProvider: Data
+   fileprivate var _delegate: Delegate
    
-   private var _deleteIndexPath: NSIndexPath?
+   fileprivate var _deleteIndexPath: IndexPath?
    
    var useAutomaticRowHeight = false
    var editActions: [UITableViewRowAction]?
-   var didScrollBlock: ((scrollView: UIScrollView) -> Void)?
+   var didScrollBlock: ((_ scrollView: UIScrollView) -> Void)?
    
    init(tableView: UITableView, dataProvider: Data, delegate: Delegate)
    {
@@ -38,41 +38,41 @@ class TableViewDelegate<Data: DataProviderProtocol, Delegate: TableViewDelegateP
    {
       var rowFrames: [CGRect] = []
       for cellIndex in 0..<_dataProvider.numberOfItemsInSection(0) {
-         let indexPath = NSIndexPath(forRow: cellIndex, inSection: 0)
-         if let cell = _tableView.cellForRowAtIndexPath(indexPath) {
+         let indexPath = IndexPath(row: cellIndex, section: 0)
+         if let cell = _tableView.cellForRow(at: indexPath) {
             cell.layoutIfNeeded()
             rowFrames.append(cell.frame)
          }
       }
       
-      let defaultHeight = _delegate.heightForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0))
-      let patternImage = UIImage.patternImageForFrames(rowFrames, width: _tableView.bounds.width, firstColor: UIColor.redColor(), secondColor: UIColor.blueColor(), extraRows: 10, defaultHeight: defaultHeight)
+      let defaultHeight = _delegate.heightForRowAtIndexPath(IndexPath(row: 0, section: 0))
+      let patternImage = UIImage.patternImageForFrames(rowFrames, width: _tableView.bounds.width, firstColor: UIColor.red, secondColor: UIColor.blue, extraRows: 10, defaultHeight: defaultHeight)
       _tableView.backgroundColor = UIColor(patternImage: patternImage)
    }
    
-   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
    {
       let object = _dataProvider.objectAtIndexPath(indexPath)
-      _tableView.deselectRowAtIndexPath(indexPath, animated: true)
+      _tableView.deselectRow(at: indexPath, animated: true)
       _delegate.objectSelected(object)
    }
    
-   func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+   func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
       return editActions
    }
    
-   func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
+   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
    {
       return useAutomaticRowHeight ? UITableViewAutomaticDimension : _delegate.heightForRowAtIndexPath(indexPath)
    }
    
-   func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
+   func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat
    {
       return useAutomaticRowHeight ? UITableViewAutomaticDimension : _delegate.heightForRowAtIndexPath(indexPath)
    }
    
-   func scrollViewDidScroll(scrollView: UIScrollView)
+   func scrollViewDidScroll(_ scrollView: UIScrollView)
    {
-      didScrollBlock?(scrollView: scrollView)
+      didScrollBlock?(scrollView)
    }
 }

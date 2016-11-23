@@ -23,19 +23,19 @@ class GoalieFaceLayer: CharacterFaceLayer
       addSublayer(_teethLayer)
       
       // HACK FOR NOW! Only show this for ASAP
-      _teethLayer.fillColor = UIColor(red: 0.825, green: 0.803, blue: 0.765, alpha: 0.800).CGColor
+      _teethLayer.fillColor = UIColor(red: 0.825, green: 0.803, blue: 0.765, alpha: 0.800).cgColor
       _teethLayer.path = _pathProvider.angryTeethPath
       
-      updateWithPriority(.Unknown)
+      updateWithPriority(.unknown)
    }
    
    // MARK: - Public
-   override func updateWithPriority(priority: TaskPriority)
+   override func updateWithPriority(_ priority: TaskPriority)
    {
       super.updateWithPriority(priority)
       
       performBlockWithoutAnimations { () -> Void in
-         self._teethLayer.hidden = priority != .ASAP
+         self._teethLayer.isHidden = priority != .asap
       }
    }
 }

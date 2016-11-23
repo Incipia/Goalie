@@ -10,9 +10,9 @@ import UIKit
 
 extension UIImage
 {
-   class func imageWithColor(color: UIColor, size: CGSize) -> UIImage
+   class func imageWithColor(_ color: UIColor, size: CGSize) -> UIImage
    {
-      let rect = CGRectMake(0, 0, size.width, size.height)
+      let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
       UIGraphicsBeginImageContextWithOptions(size, false, 0)
       
       color.setFill()
@@ -24,7 +24,7 @@ extension UIImage
       return image
    }
    
-   class func sampleAlternatingColorImageWithSize(size: CGSize) -> UIImage
+   class func sampleAlternatingColorImageWithSize(_ size: CGSize) -> UIImage
    {
       UIGraphicsBeginImageContextWithOptions(size, false, 0)
       
@@ -42,12 +42,12 @@ extension UIImage
       return image!
    }
    
-   class func alternateImageWithWidth(width: CGFloat, height: CGFloat, topPadding: CGFloat) -> UIImage
+   class func alternateImageWithWidth(_ width: CGFloat, height: CGFloat, topPadding: CGFloat) -> UIImage
    {
       UIGraphicsBeginImageContextWithOptions(CGSize(width: width, height: height + topPadding), false, 0)
       
       let topRect = CGRect(x: 0, y: 0, width: width, height: topPadding)
-      UIColor.orangeColor().setFill()
+      UIColor.orange.setFill()
       UIRectFill(topRect)
       
       let size = CGSize(width: width, height: height)
@@ -66,7 +66,7 @@ extension UIImage
       return image!
    }
    
-   class func patternImageForFrames(frames: [CGRect], width: CGFloat, firstColor: UIColor, secondColor: UIColor, extraRows: Int, defaultHeight: CGFloat) -> UIImage
+   class func patternImageForFrames(_ frames: [CGRect], width: CGFloat, firstColor: UIColor, secondColor: UIColor, extraRows: Int, defaultHeight: CGFloat) -> UIImage
    {
       var imageHeight: CGFloat = 0
       var extraRowHeight = defaultHeight
@@ -113,7 +113,7 @@ extension UIImage
    }
    
    // Meant for tiling
-   class func imageWithColor(color: UIColor) -> UIImage
+   class func imageWithColor(_ color: UIColor) -> UIImage
    {
       return imageWithColor(color, size: CGSize(width: 1, height: 1))
    }

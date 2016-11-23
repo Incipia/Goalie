@@ -11,9 +11,9 @@ import CoreData
 
 class DefaultTasksFetchRequestProvider
 {
-   private static let _sharedProvider = DefaultTasksFetchRequestProvider()
+   fileprivate static let _sharedProvider = DefaultTasksFetchRequestProvider()
    
-   private lazy var fetchRequest: NSFetchRequest = {
+   fileprivate lazy var fetchRequest: NSFetchRequest<NSFetchRequestResult> = {
       let request = Task.sortedFetchRequest
       request.returnsObjectsAsFaults = false
       request.fetchBatchSize = 20
@@ -21,7 +21,7 @@ class DefaultTasksFetchRequestProvider
       return request
    }()
    
-   class var fetchRequest: NSFetchRequest {
+   class var fetchRequest: NSFetchRequest<NSFetchRequestResult> {
       return _sharedProvider.fetchRequest
    }
 }

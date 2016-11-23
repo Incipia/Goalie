@@ -15,7 +15,7 @@ let finalPageNumber = 3
 extension UIScreen {
    
    enum SizeType: CGFloat {
-      case Unknown = 0.0
+      case unknown = 0.0
       case iPhone4 = 960.0
       case iPhone5 = 1136.0
       case iPhone6 = 1334.0
@@ -24,39 +24,39 @@ extension UIScreen {
    
    var sizeType: SizeType {
       let height = nativeBounds.height
-      guard let sizeType = SizeType(rawValue: height) else { return .Unknown }
+      guard let sizeType = SizeType(rawValue: height) else { return .unknown }
       return sizeType
    }
 }
 
 class OnboardingViewController: UIViewController
 {
-   @IBOutlet private weak var _bottomSpacePhoneConstraint: NSLayoutConstraint!
-   @IBOutlet private weak var _phoneFrameImageView: UIImageView!
-   @IBOutlet private weak var _phoneScreenImageView: UIImageView!
-   @IBOutlet private weak var _finalPageContainerView: UIView!
-   @IBOutlet private weak var _finalTextLabel: UILabel!
-   @IBOutlet private weak var _textLabel: UILabel!
+   @IBOutlet fileprivate weak var _bottomSpacePhoneConstraint: NSLayoutConstraint!
+   @IBOutlet fileprivate weak var _phoneFrameImageView: UIImageView!
+   @IBOutlet fileprivate weak var _phoneScreenImageView: UIImageView!
+   @IBOutlet fileprivate weak var _finalPageContainerView: UIView!
+   @IBOutlet fileprivate weak var _finalTextLabel: UILabel!
+   @IBOutlet fileprivate weak var _textLabel: UILabel!
    
-   private let _swipeRightRecognizer = UISwipeGestureRecognizer()
-   private let _swipeLeftRecognizer = UISwipeGestureRecognizer()
+   fileprivate let _swipeRightRecognizer = UISwipeGestureRecognizer()
+   fileprivate let _swipeLeftRecognizer = UISwipeGestureRecognizer()
    
-   @IBOutlet private weak var _pageControlLayoutConstraint: NSLayoutConstraint! {
+   @IBOutlet fileprivate weak var _pageControlLayoutConstraint: NSLayoutConstraint! {
       didSet {
-         if UIScreen.mainScreen().sizeType == .iPhone5 {
+         if UIScreen.main.sizeType == .iPhone5 {
             _pageControlLayoutConstraint.constant = 0
          }
       }
    }
    
-   @IBOutlet private weak var _pageControl: UIPageControl! {
+   @IBOutlet fileprivate weak var _pageControl: UIPageControl! {
       didSet {
-         if UIScreen.mainScreen().sizeType != .iPhone5 {
-            _pageControl.transform = CGAffineTransformMakeScale(2, 2)
+         if UIScreen.main.sizeType != .iPhone5 {
+            _pageControl.transform = CGAffineTransform(scaleX: 2, y: 2)
          }
       }
    }
-   @IBOutlet private weak var _nextButton: GoalieKerningButton!
+   @IBOutlet fileprivate weak var _nextButton: GoalieKerningButton!
    
    var onboardingCompletionBlock: (() -> Void)?
    
@@ -65,15 +65,15 @@ class OnboardingViewController: UIViewController
    {
       super.viewDidLoad()
       
-      _swipeRightRecognizer.addTarget(self, action: "_goBackwards")
+      _swipeRightRecognizer.addTarget(self, action: #selector(OnboardingViewController._goBackwards))
       view.addGestureRecognizer(_swipeRightRecognizer)
       
-      _swipeLeftRecognizer.addTarget(self, action: "_goForwards")
-      _swipeLeftRecognizer.direction = .Left
+      _swipeLeftRecognizer.addTarget(self, action: #selector(OnboardingViewController._goForwards))
+      _swipeLeftRecognizer.direction = .left
       view.addGestureRecognizer(_swipeLeftRecognizer)
       
       // calculate phone height
-      let phoneWidth = UIScreen.mainScreen().bounds.width * phoneScreenWidthPercentage
+      let phoneWidth = UIScreen.main.bounds.width * phoneScreenWidthPercentage
       let phoneHeight = phoneWidth / phoneFrameAspectRatio
       
       _textLabel.alpha = 0
@@ -82,19 +82,19 @@ class OnboardingViewController: UIViewController
       _bottomSpacePhoneConstraint.constant = -phoneHeight
    }
    
-   override func preferredStatusBarStyle() -> UIStatusBarStyle {
-      return .LightContent
+   override var preferredStatusBarStyle : UIStatusBarStyle {
+      return .lightContent
    }
    
-   override func viewDidAppear(animated: Bool)
+   override func viewDidAppear(_ animated: Bool)
    {
       super.viewDidAppear(animated)
       _bottomSpacePhoneConstraint.constant = 0
-      UIView.animateWithDuration(0.5, delay: 0.2, options: [], animations: { () -> Void in
+      UIView.animate(withDuration: 0.5, delay: 0.2, options: [], animations: { () -> Void in
          self.view.layoutIfNeeded()
          }, completion: { finished in
             
-            UIView.animateWithDuration(0.2, animations: { () -> Void in
+            UIView.animate(withDuration: 0.2, animations: { () -> Void in
                self._textLabel.alpha = 1
             })
       })
@@ -104,7 +104,9 @@ class OnboardingViewController: UIViewController
    internal func _goForwards()
    {
       let previousPage = _pageControl.currentPage
-      if _pageControl.currentPage++ == finalPageNumber {
+      let current = _pageControl.currentPage
+      _pageControl.currentPage = _pageControl.currentPage + 1
+      if current == finalPageNumber {
          self.onboardingCompletionBlock?()
       }
       else {
@@ -115,23 +117,24 @@ class OnboardingViewController: UIViewController
    internal func _goBackwards()
    {
       let previousPage = _pageControl.currentPage
-      let currentPage = --_pageControl.currentPage
+      let currentPage = _pageControl.currentPage - 1
+      _pageControl.currentPage = currentPage
       _updateUIFromPageNumber(previousPage, toPageNumber: currentPage)
    }
    
    // MARK: - IBActions
-   @IBAction private func _nextButtonPressed()
+   @IBAction fileprivate func _nextButtonPressed()
    {
       _goForwards()
    }
    
-   @IBAction private func _closeButtonPressed()
+   @IBAction fileprivate func _closeButtonPressed()
    {
       self.onboardingCompletionBlock?()
    }
    
    // MARK: - Private
-   private func _updateUIFromPageNumber(previousPageNumber: Int, toPageNumber currentPageNumber: Int)
+   fileprivate func _updateUIFromPageNumber(_ previousPageNumber: Int, toPageNumber currentPageNumber: Int)
    {
       guard currentPageNumber >= 0 && previousPageNumber != currentPageNumber else { return }
       
@@ -145,7 +148,7 @@ class OnboardingViewController: UIViewController
             self._updateMainTextLabelWithAttributedText(attrText, duration: 0.3)
             
             self._bottomSpacePhoneConstraint.constant = 0
-            UIView.animateWithDuration(0.3, animations: { () -> Void in
+            UIView.animate(withDuration: 0.3, animations: { () -> Void in
                
                self._textLabel.alpha = 1
                self.view.layoutIfNeeded()
@@ -167,60 +170,60 @@ class OnboardingViewController: UIViewController
       }
    }
    
-   private func _updateIPhoneScreenImage(image: UIImage, duration: NSTimeInterval)
+   fileprivate func _updateIPhoneScreenImage(_ image: UIImage, duration: TimeInterval)
    {
-      UIView.transitionWithView(_phoneScreenImageView, duration: duration, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: { () -> Void in
+      UIView.transition(with: _phoneScreenImageView, duration: duration, options: UIViewAnimationOptions.transitionCrossDissolve, animations: { () -> Void in
          self._phoneScreenImageView.image = image
          }, completion: nil)
    }
    
-   private func _updateMainTextLabelWithAttributedText(text: NSAttributedString, duration: NSTimeInterval)
+   fileprivate func _updateMainTextLabelWithAttributedText(_ text: NSAttributedString, duration: TimeInterval)
    {
-      UIView.transitionWithView(_textLabel, duration: duration, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: { () -> Void in
+      UIView.transition(with: _textLabel, duration: duration, options: UIViewAnimationOptions.transitionCrossDissolve, animations: { () -> Void in
          self._textLabel.attributedText = text
          }, completion: nil)
    }
    
-   private func _setupFinalPageContainerView()
+   fileprivate func _setupFinalPageContainerView()
    {
       _finalPageContainerView.alpha = 0
       _finalPageContainerView.center = CGPoint(x: view.center.x, y: view.center.y - 20)
       view.addSubview(_finalPageContainerView)
    }
    
-   private func _removeFinalPageContainerView()
+   fileprivate func _removeFinalPageContainerView()
    {
       _finalPageContainerView.removeFromSuperview()
    }
    
-   private func _animateFinalPageInWithDuration(duration: NSTimeInterval)
+   fileprivate func _animateFinalPageInWithDuration(_ duration: TimeInterval)
    {
       _bottomSpacePhoneConstraint.constant = -_phoneFrameImageView.bounds.height
-      UIView.animateWithDuration(duration * 0.5, animations: { () -> Void in
+      UIView.animate(withDuration: duration * 0.5, animations: { () -> Void in
          
          self._textLabel.alpha = 0
          self.view.layoutIfNeeded()
-         self._nextButton.updateText("LET'S GO", color: UIColor.whiteColor())
+         self._nextButton.updateText("LET'S GO", color: UIColor.white)
          }, completion: { (finished) -> Void in
             
-            UIView.animateWithDuration(duration * 0.5, animations: { () -> Void in
+            UIView.animate(withDuration: duration * 0.5, animations: { () -> Void in
                self._finalPageContainerView.alpha = 1
             })
          }
       )
    }
    
-   private func _animateFinalPageOutWithDuration(duration: NSTimeInterval, completion: ((finished: Bool) -> ())?)
+   fileprivate func _animateFinalPageOutWithDuration(_ duration: TimeInterval, completion: ((_ finished: Bool) -> ())?)
    {
-      UIView.animateWithDuration(duration, animations: { () -> Void in
+      UIView.animate(withDuration: duration, animations: { () -> Void in
          self._finalPageContainerView.alpha = 0
-         }) { (finished) -> Void in
+         }, completion: { (finished) -> Void in
             self._removeFinalPageContainerView()
-            completion?(finished: finished)
-      }
+            completion?(finished)
+      }) 
    }
 
-   private func _mainTextForPageNumber(number: Int) -> String?
+   fileprivate func _mainTextForPageNumber(_ number: Int) -> String?
    {
       switch number
       {
@@ -232,7 +235,7 @@ class OnboardingViewController: UIViewController
       }
    }
    
-   private func _screenImageForPageNumber(number: Int) -> UIImage?
+   fileprivate func _screenImageForPageNumber(_ number: Int) -> UIImage?
    {
       switch number
       {

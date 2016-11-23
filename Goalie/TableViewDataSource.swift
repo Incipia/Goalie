@@ -8,11 +8,11 @@
 
 import UIKit
 
-class TableViewDataSource<Delegate: DataSourceDelegate, Data: DataProviderProtocol, Cell: UITableViewCell where Delegate.Object: ManagedObject, Delegate.Object == Data.Object, Cell: ConfigurableCell, Cell.DataSource == Data.Object>: NSObject, UITableViewDataSource
+class TableViewDataSource<Delegate: DataSourceDelegate, Data: DataProviderProtocol, Cell: UITableViewCell>: NSObject, UITableViewDataSource where Delegate.Object: ManagedObject, Delegate.Object == Data.Object, Cell: ConfigurableCell, Cell.DataSource == Data.Object
 {
-   private let _tableView: UITableView
-   private let _dataProvider: Data
-   private weak var _delegate: Delegate!
+   fileprivate let _tableView: UITableView
+   fileprivate let _dataProvider: Data
+   fileprivate weak var _delegate: Delegate!
    
    var selectedObject: Data.Object? {
       guard let indexPath = _tableView.indexPathForSelectedRow else {
@@ -22,7 +22,7 @@ class TableViewDataSource<Delegate: DataSourceDelegate, Data: DataProviderProtoc
    }
    var saveOnDelete = true
    var allowEditingLast = true
-   private var _isUpdating = false
+   fileprivate var _isUpdating = false
    
    required init(tableView: UITableView, dataProvider: Data, delegate: Delegate)
    {
@@ -35,7 +35,7 @@ class TableViewDataSource<Delegate: DataSourceDelegate, Data: DataProviderProtoc
       tableView.reloadData()
    }
    
-   func processUpdates(updates: [DataProviderUpdate<Data.Object>]?, animationBlock: (Void -> Void)?, completion: (() -> ())?)
+   func processUpdates(_ updates: [DataProviderUpdate<Data.Object>]?, animationBlock: ((Void) -> Void)?, completion: (() -> ())?)
    {
       guard let updates = updates else { return _tableView.reloadData() }
       
@@ -49,18 +49,18 @@ class TableViewDataSource<Delegate: DataSourceDelegate, Data: DataProviderProtoc
       {
          switch update
          {
-         case .Insert(let indexPath):
-            self._tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-         case .Update(let indexPath, let object):
-            guard let cell = self._tableView.cellForRowAtIndexPath(indexPath) as? Cell else {
+         case .insert(let indexPath):
+            self._tableView.insertRows(at: [indexPath], with: .fade)
+         case .update(let indexPath, let object):
+            guard let cell = self._tableView.cellForRow(at: indexPath) as? Cell else {
                break
             }
             cell.configureForObject(object, atIndexPath: indexPath)
-         case .Move(let indexPath, let newIndexPath):
-            self._tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-            self._tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Fade)
-         case .Delete(let indexPath):
-            self._tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+         case .move(let indexPath, let newIndexPath):
+            self._tableView.deleteRows(at: [indexPath], with: .fade)
+            self._tableView.insertRows(at: [newIndexPath], with: .fade)
+         case .delete(let indexPath):
+            self._tableView.deleteRows(at: [indexPath], with: .fade)
          }
       }
       
@@ -70,16 +70,16 @@ class TableViewDataSource<Delegate: DataSourceDelegate, Data: DataProviderProtoc
       CATransaction.commit()
    }
    
-   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
    {
       return _dataProvider.numberOfItemsInSection(section)
    }
    
-   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
    {
       let object = _dataProvider.objectAtIndexPath(indexPath)
       let identifier = _delegate.cellIdentifierForObject(object)
-      guard let cell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath) as? Cell else {
+      guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? Cell else {
          fatalError("Unexpected cell type at \(indexPath)")
       }
       
@@ -88,32 +88,32 @@ class TableViewDataSource<Delegate: DataSourceDelegate, Data: DataProviderProtoc
       return cell
    }
    
-   func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-      if editingStyle == .Delete
+   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+      if editingStyle == .delete
       {
          let goal = _dataProvider.objectAtIndexPath(indexPath)
          if saveOnDelete {
             goal.managedObjectContext?.performChanges({ () -> () in
-               goal.managedObjectContext?.deleteObject(goal)
+               goal.managedObjectContext?.delete(goal)
             })
          }
          else {
-            goal.managedObjectContext?.deleteObject(goal)
+            goal.managedObjectContext?.delete(goal)
          }
          SFXPlayer.playDeleteSound()
       }
    }
    
-   func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool
+   func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool
    {
       var canEdit = true
-      if indexPath.row == tableView.numberOfRowsInSection(indexPath.section) - 1 && !allowEditingLast {
+      if indexPath.row == tableView.numberOfRows(inSection: indexPath.section) - 1 && !allowEditingLast {
          canEdit = false
       }
       return canEdit
    }
    
-   func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool
+   func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool
    {
       var canEdit = true
       if _dataProvider.numberOfItemsInSection(0) - 1 == indexPath.row ||

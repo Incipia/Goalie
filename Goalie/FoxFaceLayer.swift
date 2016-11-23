@@ -18,11 +18,11 @@ class FoxFaceLayer: CharacterFaceLayer
       _pathProvider = FoxFacePathProvider()
       _mouthLayer.removeFromSuperlayer()
       
-      updateWithPriority(.Unknown)
+      updateWithPriority(.unknown)
    }
    
    // MARK: - Public
-   override func updateWithPriority(priority: TaskPriority)
+   override func updateWithPriority(_ priority: TaskPriority)
    {
       super.updateWithPriority(priority)
    }

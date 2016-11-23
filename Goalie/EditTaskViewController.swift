@@ -13,37 +13,37 @@ class EditTaskViewController: UIViewController, ManagedObjectContextSettable, Me
 {
    var moc: NSManagedObjectContext!
    
-   @IBOutlet private weak var _titleTextField: JVFloatLabeledTextField!
-   @IBOutlet private weak var _asapPriorityBlock: UIView!
-   @IBOutlet private weak var _soonPriorityBlock: UIView!
-   @IBOutlet private weak var _laterPriorityBlock: UIView!
-   @IBOutlet private weak var _agesPriorityBlock: UIView!
+   @IBOutlet fileprivate weak var _titleTextField: JVFloatLabeledTextField!
+   @IBOutlet fileprivate weak var _asapPriorityBlock: UIView!
+   @IBOutlet fileprivate weak var _soonPriorityBlock: UIView!
+   @IBOutlet fileprivate weak var _laterPriorityBlock: UIView!
+   @IBOutlet fileprivate weak var _agesPriorityBlock: UIView!
    
-   @IBOutlet private weak var _agesButton: GoalieKerningButton!
-   @IBOutlet private weak var _laterButton: GoalieKerningButton!
-   @IBOutlet private weak var _soonButton: GoalieKerningButton!
-   @IBOutlet private weak var _asapButton: GoalieKerningButton!
+   @IBOutlet fileprivate weak var _agesButton: GoalieKerningButton!
+   @IBOutlet fileprivate weak var _laterButton: GoalieKerningButton!
+   @IBOutlet fileprivate weak var _soonButton: GoalieKerningButton!
+   @IBOutlet fileprivate weak var _asapButton: GoalieKerningButton!
    
-   @IBOutlet private weak var _deleteButton: GoalieKerningButton!
-   @IBOutlet private weak var _doneButton: GoalieKerningButton!
+   @IBOutlet fileprivate weak var _deleteButton: GoalieKerningButton!
+   @IBOutlet fileprivate weak var _doneButton: GoalieKerningButton!
    
-   @IBOutlet private weak var _priorityIndicatorLeadingSpaceConstraint: NSLayoutConstraint!
-   @IBOutlet private weak var _detailsContainerView: UIVisualEffectView! {
+   @IBOutlet fileprivate weak var _priorityIndicatorLeadingSpaceConstraint: NSLayoutConstraint!
+   @IBOutlet fileprivate weak var _detailsContainerView: UIVisualEffectView! {
       didSet {
          _setupShadow()
       }
    }
    
-   private var _keyboardIsShowing = false
-   private var _currentPriority: TaskPriority!
-   private weak var _task: Task!
+   fileprivate var _keyboardIsShowing = false
+   fileprivate var _currentPriority: TaskPriority!
+   fileprivate weak var _task: Task!
    
    var dialogContainer: UIView {
       return _detailsContainerView
    }
    
    // Mark: - Lifecycle
-   override func viewWillAppear(animated: Bool)
+   override func viewWillAppear(_ animated: Bool)
    {
       super.viewWillAppear(animated)
       _setupTitleTextField()
@@ -59,21 +59,21 @@ class EditTaskViewController: UIViewController, ManagedObjectContextSettable, Me
    {
       super.viewDidLayoutSubviews()
       
-      _asapPriorityBlock.roundCorners(.Left)
-      _agesPriorityBlock.roundCorners(.Right)
+      _asapPriorityBlock.roundCorners(.left)
+      _agesPriorityBlock.roundCorners(.right)
       _updatePriorityIndicatorViewFrameAnimated(false)
 		
 		let shadowPath = UIBezierPath(rect: _detailsContainerView.bounds)
-		_detailsContainerView.layer.shadowPath = shadowPath.CGPath
+		_detailsContainerView.layer.shadowPath = shadowPath.cgPath
    }
 	
-   override func preferredStatusBarStyle() -> UIStatusBarStyle
+   override var preferredStatusBarStyle : UIStatusBarStyle
    {
-      return .LightContent
+      return .lightContent
    }
    
    // MARK: - Setup
-   private func _setupTitleTextField()
+   fileprivate func _setupTitleTextField()
    {
       let font = UIFont(name: "NotoSans-Bold", size: 13)!
       let fontColor = _titleTextField.floatingLabelTextColor
@@ -82,34 +82,34 @@ class EditTaskViewController: UIViewController, ManagedObjectContextSettable, Me
          NSFontAttributeName : font,
          NSForegroundColorAttributeName : fontColor,
          NSKernAttributeName : 3
-      ]
+      ] as [String : Any]
       
       _titleTextField.floatingLabel.attributedText = NSAttributedString(string: "TITLE", attributes: attributes)
       _titleTextField.delegate = self
    }
    
    // Mark: - IBActions
-   @IBAction private func _asapButtonPressed()
+   @IBAction fileprivate func _asapButtonPressed()
    {
-      _buttonPressedForPriority(.ASAP)
+      _buttonPressedForPriority(.asap)
    }
    
-   @IBAction private func _soonButtonPressed()
+   @IBAction fileprivate func _soonButtonPressed()
    {
-      _buttonPressedForPriority(.Soon)
+      _buttonPressedForPriority(.soon)
    }
    
-   @IBAction private func _laterButtonPressed()
+   @IBAction fileprivate func _laterButtonPressed()
    {
-      _buttonPressedForPriority(.Later)
+      _buttonPressedForPriority(.later)
    }
    
-   @IBAction private func _agesButtonPressed()
+   @IBAction fileprivate func _agesButtonPressed()
    {
-      _buttonPressedForPriority(.Ages)
+      _buttonPressedForPriority(.ages)
    }
    
-   private func _buttonPressedForPriority(priority: TaskPriority)
+   fileprivate func _buttonPressedForPriority(_ priority: TaskPriority)
    {
       if _currentPriority != priority {
          SFXPlayer.playPriorityChangeSound()
@@ -119,13 +119,13 @@ class EditTaskViewController: UIViewController, ManagedObjectContextSettable, Me
       _updatePriorityIndicatorViewFrameAnimated(true)
    }
    
-   @IBAction private func _closeButtonPressed()
+   @IBAction fileprivate func _closeButtonPressed()
    {
       if _keyboardIsShowing {
          _titleTextField.resignFirstResponder()
       }
       else {
-         dismissViewControllerAnimated(true, completion: { () -> Void in
+         dismiss(animated: true, completion: { () -> Void in
             if self._task.priority != self._currentPriority {
                self._task.priority = self._currentPriority
                self.moc.saveOrRollback()
@@ -134,33 +134,33 @@ class EditTaskViewController: UIViewController, ManagedObjectContextSettable, Me
       }
    }
    
-   @IBAction private func _deleteButtonPressed()
+   @IBAction fileprivate func _deleteButtonPressed()
    {
       SFXPlayer.playDeleteSound()
-      dismissViewControllerAnimated(true) { () -> Void in
+      dismiss(animated: true) { () -> Void in
          self._task.delete()
       }
    }
    
-   @IBAction private func _tapRecognized(gestureRecognizer: UIGestureRecognizer)
+   @IBAction fileprivate func _tapRecognized(_ gestureRecognizer: UIGestureRecognizer)
    {
-      let touchLocation = gestureRecognizer.locationInView(nil)
+      let touchLocation = gestureRecognizer.location(in: nil)
       guard !_detailsContainerView.frame.contains(touchLocation) else { return }
       
       _closeButtonPressed()
    }
 
    // MARK: - Public
-   func configureWithTask(task: Task)
+   func configureWithTask(_ task: Task)
    {
       _task = task
    }
    
    // MARK: - Private
-   private func _updateButtonTextColorsForPriority(priority: TaskPriority)
+   fileprivate func _updateButtonTextColorsForPriority(_ priority: TaskPriority)
    {
       let disabledColor = UIColor(rgbValues: (87, 123, 137))
-      let activeColor = UIColor.blackColor()
+      let activeColor = UIColor.black
       
       var agesColor = disabledColor
       var laterColor = disabledColor
@@ -169,12 +169,12 @@ class EditTaskViewController: UIViewController, ManagedObjectContextSettable, Me
       
       switch priority
       {
-      case .Unknown:
+      case .unknown:
          break
-      case .Ages: agesColor = activeColor
-      case .Later: laterColor = activeColor
-      case .Soon: soonColor = activeColor
-      case .ASAP: asapColor = activeColor
+      case .ages: agesColor = activeColor
+      case .later: laterColor = activeColor
+      case .soon: soonColor = activeColor
+      case .asap: asapColor = activeColor
       }
       
       _agesButton.updateTextColor(agesColor)
@@ -183,52 +183,52 @@ class EditTaskViewController: UIViewController, ManagedObjectContextSettable, Me
       _asapButton.updateTextColor(asapColor)
    }
    
-   private func _updateTitleTextField()
+   fileprivate func _updateTitleTextField()
    {
       _titleTextField.text = _task.title
    }
    
-   private func _updatePriorityIndicatorViewFrameAnimated(animated: Bool)
+   fileprivate func _updatePriorityIndicatorViewFrameAnimated(_ animated: Bool)
    {
       let constant = _leadingSpaceConstantForPriority(_currentPriority)
       _priorityIndicatorLeadingSpaceConstraint.constant = constant
       
       if animated {
-         UIView.animateWithDuration(0.2) { () -> Void in
+         UIView.animate(withDuration: 0.2, animations: { () -> Void in
             self.view.layoutIfNeeded()
-         }
+         }) 
       }
    }
 }
 
 extension EditTaskViewController
 {
-   private func _setupShadow()
+   fileprivate func _setupShadow()
    {
-      _detailsContainerView.layer.shadowColor = UIColor.blackColor().CGColor
+      _detailsContainerView.layer.shadowColor = UIColor.black.cgColor
       _detailsContainerView.layer.shadowOpacity = 0.2
       _detailsContainerView.layer.shadowOffset = CGSize(width: 0, height: 4)
       _detailsContainerView.layer.shadowRadius = 4
    }
    
-   private func _leadingSpaceConstantForPriority(priority: TaskPriority) -> CGFloat
+   fileprivate func _leadingSpaceConstantForPriority(_ priority: TaskPriority) -> CGFloat
    {
       var constant: CGFloat = 0
       switch priority
       {
-      case .Ages:
+      case .ages:
          constant = _agesPriorityBlock.frame.minX
          break
-      case .Later:
+      case .later:
          constant = _laterPriorityBlock.frame.minX
          break
-      case .Soon:
+      case .soon:
          constant = _soonPriorityBlock.frame.minX
          break
-      case .ASAP:
+      case .asap:
          constant = _asapPriorityBlock.frame.minX
          break
-      case .Unknown:
+      case .unknown:
          break
       }
       return constant
@@ -237,18 +237,18 @@ extension EditTaskViewController
 
 extension EditTaskViewController: UITextFieldDelegate
 {
-   func textFieldDidBeginEditing(textField: UITextField)
+   func textFieldDidBeginEditing(_ textField: UITextField)
    {
       _keyboardIsShowing = true
    }
    
-   func textFieldShouldReturn(textField: UITextField) -> Bool
+   func textFieldShouldReturn(_ textField: UITextField) -> Bool
    {
       textField.resignFirstResponder()
       return true
    }
    
-   func textFieldDidEndEditing(textField: UITextField)
+   func textFieldDidEndEditing(_ textField: UITextField)
    {
       var newTitle = textField.text ?? ""
       newTitle = newTitle == "" ? "untitled" : newTitle

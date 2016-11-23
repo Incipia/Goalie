@@ -10,14 +10,14 @@ import Foundation
 
 class FaceLayerFactory
 {
-   static func layerForCharacter(character: GoalieCharacter) -> CharacterFaceLayer
+   static func layerForCharacter(_ character: GoalieCharacter) -> CharacterFaceLayer
    {
       switch character {
-      case .Goalie: return GoalieFaceLayer()
-      case .BizeeBee: return BizeeBeeFaceLayer()
-      case .Fox: return FoxFaceLayer()
-      case .Checklistor: return ChecklistorFaceLayer()
-      case .Unknown: return CharacterFaceLayer()
+      case .goalie: return GoalieFaceLayer()
+      case .bizeeBee: return BizeeBeeFaceLayer()
+      case .fox: return FoxFaceLayer()
+      case .checklistor: return ChecklistorFaceLayer()
+      case .unknown: return CharacterFaceLayer()
       }
    }
 }

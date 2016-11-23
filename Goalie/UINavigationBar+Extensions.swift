@@ -17,9 +17,9 @@ extension UINavigationBar
       set {
          let barButtonItemAttrs = [
             NSFontAttributeName : UIFont.mediumGoalieFontWithSize(16),
-            NSForegroundColorAttributeName : UIColor.whiteColor()
+            NSForegroundColorAttributeName : UIColor.white
          ]
-         newValue?.setTitleTextAttributes(barButtonItemAttrs, forState: .Normal)
+         newValue?.setTitleTextAttributes(barButtonItemAttrs, for: UIControlState())
          self.items?.first?.leftBarButtonItem = newValue
       }
    }
@@ -31,18 +31,18 @@ extension UINavigationBar
    func hideBottomHairline()
    {
       let navigationBarImageView = hairlineImageViewInNavigationBar(self)
-      navigationBarImageView!.hidden = true
+      navigationBarImageView!.isHidden = true
    }
    
    func showBottomHairline()
    {
       let navigationBarImageView = hairlineImageViewInNavigationBar(self)
-      navigationBarImageView!.hidden = false
+      navigationBarImageView!.isHidden = false
    }
    
-   private func hairlineImageViewInNavigationBar(view: UIView) -> UIImageView?
+   fileprivate func hairlineImageViewInNavigationBar(_ view: UIView) -> UIImageView?
    {
-      if view.isKindOfClass(UIImageView) && view.bounds.height <= 1.0 {
+      if view.isKind(of: UIImageView.self) && view.bounds.height <= 1.0 {
          return (view as! UIImageView)
       }
       
@@ -57,8 +57,8 @@ extension UINavigationBar
    
    func makeTransparent()
    {
-      self.setBackgroundImage(UIImage(), forBarMetrics: .Default)
-      self.backgroundColor = UIColor.clearColor()
-      self.translucent = true
+      self.setBackgroundImage(UIImage(), for: .default)
+      self.backgroundColor = UIColor.clear
+      self.isTranslucent = true
    }
 }

@@ -10,13 +10,13 @@ import CoreData
 
 class FetchedResultsDataProvider<Delegate: DataProviderDelegate>: NSObject, NSFetchedResultsControllerDelegate, DataProviderProtocol
 {
-   private weak var _delegate: Delegate!
-   private let _fetchedResultsController: NSFetchedResultsController
-   private var _updates: [DataProviderUpdate<Object>] = []
+   fileprivate weak var _delegate: Delegate!
+   fileprivate let _fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>
+   fileprivate var _updates: [DataProviderUpdate<Object>] = []
    
    typealias Object = Delegate.Object
    
-   init(fetchedResultsController: NSFetchedResultsController, delegate: Delegate)
+   init(fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>, delegate: Delegate)
    {
       _fetchedResultsController = fetchedResultsController
       _delegate = delegate
@@ -28,7 +28,7 @@ class FetchedResultsDataProvider<Delegate: DataProviderDelegate>: NSObject, NSFe
    
    func updateFetchRequest()
    {
-      NSFetchedResultsController.deleteCacheWithName(_fetchedResultsController.cacheName)
+      NSFetchedResultsController<NSFetchRequestResult>.deleteCache(withName: _fetchedResultsController.cacheName)
 
       var predicate: NSPredicate? = nil
       if !GoalieSettingsManager.showCompletedTasks {
@@ -39,45 +39,45 @@ class FetchedResultsDataProvider<Delegate: DataProviderDelegate>: NSObject, NSFe
       try! _fetchedResultsController.performFetch()
    }
    
-   func objectAtIndexPath(indexPath: NSIndexPath) -> Object
+   func objectAtIndexPath(_ indexPath: IndexPath) -> Object
    {
-      guard let result = _fetchedResultsController.objectAtIndexPath(indexPath) as? Object else { fatalError("Unexpected object at \(indexPath)") }
+      guard let result = _fetchedResultsController.object(at: indexPath) as? Object else { fatalError("Unexpected object at \(indexPath)") }
       return result
    }
    
-   func numberOfItemsInSection(section: Int) -> Int
+   func numberOfItemsInSection(_ section: Int) -> Int
    {
       guard let sec = _fetchedResultsController.sections?[section] else { return 0 }
       return sec.numberOfObjects
    }
    
-   func controllerWillChangeContent(controller: NSFetchedResultsController)
+   func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>)
    {
       _updates = []
    }
    
-   func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?)
+   func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?)
    {
       switch type
       {
-      case .Insert:
+      case .insert:
          guard let indexPath = newIndexPath else { fatalError("Index path should be not nil") }
-         _updates.append(.Insert(indexPath))
-      case .Update:
+         _updates.append(.insert(indexPath))
+      case .update:
          guard let indexPath = indexPath else { fatalError("Index path should be not nil") }
          let object = objectAtIndexPath(indexPath)
-         _updates.append(.Update(indexPath, object))
-      case .Move:
+         _updates.append(.update(indexPath, object))
+      case .move:
          guard let indexPath = indexPath else { fatalError("Index path should be not nil") }
          guard let newIndexPath = newIndexPath else { fatalError("New index path should be not nil") }
-         _updates.append(.Move(indexPath, newIndexPath))
-      case .Delete:
+         _updates.append(.move(indexPath, newIndexPath))
+      case .delete:
          guard let indexPath = indexPath else { fatalError("Index path should be not nil") }
-         _updates.append(.Delete(indexPath))
+         _updates.append(.delete(indexPath))
       }
    }
    
-   func controllerDidChangeContent(controller: NSFetchedResultsController)
+   func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>)
    {
       _delegate.dataProviderDidUpdate(_updates)
    }

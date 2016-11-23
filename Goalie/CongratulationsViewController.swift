@@ -10,13 +10,13 @@ import UIKit
 
 protocol CongratulationsViewControllerDelegate: class
 {
-   func congratulationsViewControllerDidDismiss(controller: CongratulationsViewController)
+   func congratulationsViewControllerDidDismiss(_ controller: CongratulationsViewController)
 }
 
 class CongratulationsViewController: UIViewController, MenuController
 {
-   @IBOutlet private weak var _containerView: UIVisualEffectView!
-   @IBOutlet private weak var _textLabel: UILabel! {
+   @IBOutlet fileprivate weak var _containerView: UIVisualEffectView!
+   @IBOutlet fileprivate weak var _textLabel: UILabel! {
       didSet {
          _textLabel.attributedText = NSAttributedString.congratulationsAttributedString()
       }
@@ -28,9 +28,9 @@ class CongratulationsViewController: UIViewController, MenuController
    
    weak var delegate: CongratulationsViewControllerDelegate?
    
-   @IBAction private func _gotItButtonPressed()
+   @IBAction fileprivate func _gotItButtonPressed()
    {
-      dismissViewControllerAnimated(true) { () -> Void in
+      dismiss(animated: true) { () -> Void in
          self.delegate?.congratulationsViewControllerDidDismiss(self)
       }
    }

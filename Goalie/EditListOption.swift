@@ -28,14 +28,14 @@ enum EditListOption
    
    var characters: [GoalieCharacter] {
       switch self {
-      case .Characters: return [.Goalie, .BizeeBee, .Fox, .Checklistor]
+      case .Characters: return [.goalie, .bizeeBee, .fox, .checklistor]
       default: return []
       }
    }
    
    var accessoryPacks: [AccessoryPack] {
       switch self {
-      case .AccessoryPacks: return [.None, .Home, .Work, .Gym]
+      case .AccessoryPacks: return [.none, .home, .work, .gym]
       default: return []
       }
    }

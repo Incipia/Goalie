@@ -30,33 +30,33 @@ import CoreData
 extension TaskPriority
 {
    // The number of seconds that the priority is supposed to last for
-   var duration: NSTimeInterval? {
+   var duration: TimeInterval? {
       switch self {
-      case .ASAP: return nil
-      case .Soon: return (60 * 60 * 24 * 1)
-      case .Later: return (60 * 60 * 24 * 3)
-      case .Ages: return (60 * 60 * 24 * 5)
-      case .Unknown: return nil
+      case .asap: return nil
+      case .soon: return (60 * 60 * 24 * 1)
+      case .later: return (60 * 60 * 24 * 3)
+      case .ages: return (60 * 60 * 24 * 5)
+      case .unknown: return nil
       }
    }
    
-   var testDuration: NSTimeInterval? {
+   var testDuration: TimeInterval? {
       switch self {
-      case .ASAP: return nil
-      case .Soon: return 5
-      case .Later: return 10
-      case .Ages: return 15
-      case .Unknown: return nil
+      case .asap: return nil
+      case .soon: return 5
+      case .later: return 10
+      case .ages: return 15
+      case .unknown: return nil
       }
    }
    
    var nextPriority: TaskPriority? {
       switch self {
-      case .ASAP: return nil
-      case .Soon: return .ASAP
-      case .Later: return .Soon
-      case .Ages: return .Later
-      case .Unknown: return nil
+      case .asap: return nil
+      case .soon: return .asap
+      case .later: return .soon
+      case .ages: return .later
+      case .unknown: return nil
       }
    }
    
@@ -75,8 +75,8 @@ extension TaskPriority
 
 struct TaskPriorityUpdater
 {
-   private var _tasksDataProvider: TasksDataProvider
-   private var _moc: NSManagedObjectContext
+   fileprivate var _tasksDataProvider: TasksDataProvider
+   fileprivate var _moc: NSManagedObjectContext
    
    init(managedObjectContext: NSManagedObjectContext)
    {
@@ -89,19 +89,19 @@ struct TaskPriorityUpdater
       var updatedTaskPrioritesDictionary: [Task : TaskPriority] = [:]
       for task in self._tasksDataProvider.incompletedTasks()
       {
-         let currentDate = NSDate()
+         let currentDate = Date()
          var newPriority: TaskPriority? = task.priority
          
          var possibleNewPriorities = [task.priority]
-         possibleNewPriorities.appendContentsOf(task.priority.followingPriorities)
+         possibleNewPriorities.append(contentsOf: task.priority.followingPriorities)
          
-         var aggregatedDuration: NSTimeInterval = 0
+         var aggregatedDuration: TimeInterval = 0
          for priority in possibleNewPriorities
          {
             if let priorityDuration = priority.duration
             {
                aggregatedDuration += priorityDuration
-               let taskPriorityAdvanceDate = task.lastPriorityChangeDate.dateByAddingTimeInterval(aggregatedDuration)
+               let taskPriorityAdvanceDate = task.lastPriorityChangeDate.addingTimeInterval(aggregatedDuration)
                
 //               print("---------- TASK: \(task.title) --------------")
 //               print("LCD: \(task.lastPriorityChangeDate.prettyDateString())")
@@ -109,13 +109,13 @@ struct TaskPriorityUpdater
 //               print("current date: \(currentDate.prettyDateString())")
 //               print("")
                
-               if currentDate >= taskPriorityAdvanceDate {
+               if currentDate >= taskPriorityAdvanceDate as Date {
                   newPriority = priority.nextPriority
                }
             }
          }
          
-         if let updatedTaskPriority = newPriority where updatedTaskPriority != task.priority {
+         if let updatedTaskPriority = newPriority, updatedTaskPriority != task.priority {
             updatedTaskPrioritesDictionary[task] = updatedTaskPriority
          }
       }

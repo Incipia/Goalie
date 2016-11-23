@@ -10,29 +10,29 @@ import UIKit
 
 enum AccessoryPack: Int
 {
-   case Gym, Home, Work, None
+   case gym, home, work, none
    
    var next: AccessoryPack {
       switch self {
-      case .Gym: return .Home
-      case .Home: return .Work
-      case .Work: return .None
-      case .None: return .Gym
+      case .gym: return .home
+      case .home: return .work
+      case .work: return .none
+      case .none: return .gym
       }
    }
 }
 
 class AccessoriesViewController: UIViewController
 {
-   @IBOutlet private var _accessoryPacksViews: [AccessoryPackView]!
+   @IBOutlet fileprivate var _accessoryPacksViews: [AccessoryPackView]!
    
-   @IBOutlet private weak var _gymView: GymView!
-   @IBOutlet private weak var _homeView: HomeView!
-   @IBOutlet private weak var _workView: WorkView!
+   @IBOutlet fileprivate weak var _gymView: GymView!
+   @IBOutlet fileprivate weak var _homeView: HomeView!
+   @IBOutlet fileprivate weak var _workView: WorkView!
    
-   private var _viewTransformer: ViewTransformer!
+   fileprivate var _viewTransformer: ViewTransformer!
    
-   private(set) var currentAccessoryPack: AccessoryPack = .None
+   fileprivate(set) var currentAccessoryPack: AccessoryPack = .none
    
    override func viewDidLoad()
    {
@@ -58,51 +58,51 @@ class AccessoriesViewController: UIViewController
    }
    
    // MARK: - Public
-   func updateAccessoryPack(pack: AccessoryPack)
+   func updateAccessoryPack(_ pack: AccessoryPack)
    {
       currentAccessoryPack = pack
       _updateUIWithAccessoryPack(pack)
    }
    
-   func updateWithPriority(priority: TaskPriority)
+   func updateWithPriority(_ priority: TaskPriority)
    {
       for view in _accessoryPacksViews {
          view.updateWithPriority(priority)
       }
    }
    
-   func updateLayoutWithCharacter(c: GoalieCharacter) {
+   func updateLayoutWithCharacter(_ c: GoalieCharacter) {
       for view in _accessoryPacksViews {
          view.updateLayoutWithCharacter(c)
       }
    }
    
    // MARK: - Private
-   private func _updateUIWithAccessoryPack(pack: AccessoryPack)
+   fileprivate func _updateUIWithAccessoryPack(_ pack: AccessoryPack)
    {
       for view in _accessoryPacksViews {
-         view.hidden = true
+         view.isHidden = true
       }
       
       switch pack {
-      case .Gym: _gymView.hidden = false
-      case .Home: _homeView.hidden = false
-      case .Work: _workView.hidden = false
-      case .None: break
+      case .gym: _gymView.isHidden = false
+      case .home: _homeView.isHidden = false
+      case .work: _workView.isHidden = false
+      case .none: break
       }
    }
    
-   override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?)
+   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
    {
-      super.touchesBegan(touches, withEvent: event)
+      super.touchesBegan(touches, with: event)
       _viewTransformer.touchesBegan(touches)
    }
    
-   override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?)
+   override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?)
    {
-      super.touchesMoved(touches, withEvent: event)
+      super.touchesMoved(touches, with: event)
       
-      guard let point = touches.first?.locationInView(nil) where
+      guard let point = touches.first?.location(in: nil),
          view.bounds.contains(point) else {
             _viewTransformer.resetViewWithDuration(0.5)
             return
@@ -111,32 +111,32 @@ class AccessoriesViewController: UIViewController
       _viewTransformer.touchesMoved(touches)
    }
    
-   override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?)
+   override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?)
    {
-      super.touchesEnded(touches, withEvent: event)
+      super.touchesEnded(touches, with: event)
       _viewTransformer.resetViewWithDuration(0.5)
    }
    
-   override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?)
+   override func touchesCancelled(_ touches: Set<UITouch>?, with event: UIEvent?)
    {
-      super.touchesCancelled(touches!, withEvent: event)
+      super.touchesCancelled(touches!, with: event)
       _viewTransformer.resetViewWithDuration(0.5)
    }
 }
 
 class AccessoryPackView: UIView
 {
-   @IBOutlet private var _accessoryViews: [AccessoryView]!
+   @IBOutlet fileprivate var _accessoryViews: [AccessoryView]!
    @IBOutlet weak var characterView: CharacterView!
    
-   func updateWithPriority(priority: TaskPriority)
+   func updateWithPriority(_ priority: TaskPriority)
    {
       for view in _accessoryViews {
          view.updateWithPriority(priority)
       }
    }
    
-   func updateLayoutWithCharacter(c: GoalieCharacter)
+   func updateLayoutWithCharacter(_ c: GoalieCharacter)
    {
       characterView.updateCharacter(c)
    }

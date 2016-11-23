@@ -8,38 +8,51 @@
 
 import Foundation
 import CoreData
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
 
 private extension TaskPriority
 {
-   static func priorityForWeight(weight: Float) -> TaskPriority
+   static func priorityForWeight(_ weight: Float) -> TaskPriority
    {
       let roundedWeight = round(weight)
       switch roundedWeight
       {
-      case 1: return .Ages
-      case 2: return .Later
-      case 3: return .Soon
-      case 4: return .ASAP
-      default: return .Unknown
+      case 1: return .ages
+      case 2: return .later
+      case 3: return .soon
+      case 4: return .asap
+      default: return .unknown
       }
    }
    
    var weight: Float {
       switch self {
-      case .Unknown: return 0
-      case .Ages: return 1
-      case .Later: return 2
-      case .Soon: return 3
-      case .ASAP: return 4
+      case .unknown: return 0
+      case .ages: return 1
+      case .later: return 2
+      case .soon: return 3
+      case .asap: return 4
       }
    }
 }
 
-public class TasksDataProvider: NSObject, NSFetchedResultsControllerDelegate
+open class TasksDataProvider: NSObject, NSFetchedResultsControllerDelegate
 {
-   private var _moc: NSManagedObjectContext
-   public private(set) var tasksFRC: NSFetchedResultsController
-   public var contentDidChangeBlock: (() -> Void)?
+   fileprivate var _moc: NSManagedObjectContext
+   open fileprivate(set) var tasksFRC: NSFetchedResultsController<NSFetchRequestResult>
+   open var contentDidChangeBlock: (() -> Void)?
    
    init(managedObjectContext: NSManagedObjectContext)
    {
@@ -54,7 +67,7 @@ public class TasksDataProvider: NSObject, NSFetchedResultsControllerDelegate
    
    func updateFetchRequest()
    {
-      NSFetchedResultsController.deleteCacheWithName(tasksFRC.cacheName)
+      NSFetchedResultsController<NSFetchRequestResult>.deleteCache(withName: tasksFRC.cacheName)
       
       var predicate: NSPredicate? = nil
       if !GoalieSettingsManager.showCompletedTasks {
@@ -70,7 +83,7 @@ public class TasksDataProvider: NSObject, NSFetchedResultsControllerDelegate
       return tasksFRC.fetchedObjects as? [Task] ?? []
    }
    
-   func taskIsLast(task: Task) -> Bool
+   func taskIsLast(_ task: Task) -> Bool
    {
       var isLast = false
       if let tasks = tasksFRC.fetchedObjects as? [Task] {
@@ -80,7 +93,7 @@ public class TasksDataProvider: NSObject, NSFetchedResultsControllerDelegate
       return isLast || task.title == ""
    }
    
-   func taskIsOnlyTask(task: Task) -> Bool
+   func taskIsOnlyTask(_ task: Task) -> Bool
    {
       var isOnly = false
       if let tasks = tasksFRC.fetchedObjects as? [Task] {
@@ -90,7 +103,7 @@ public class TasksDataProvider: NSObject, NSFetchedResultsControllerDelegate
       return isOnly
    }
    
-   func taskIsFirst(task: Task) -> Bool
+   func taskIsFirst(_ task: Task) -> Bool
    {
       var isFirst = false
       if let tasks = tasksFRC.fetchedObjects as? [Task] {
@@ -112,7 +125,7 @@ public class TasksDataProvider: NSObject, NSFetchedResultsControllerDelegate
       return tasks
    }
    
-   func completedTasksWithPriority(priority: TaskPriority) -> [Task]
+   func completedTasksWithPriority(_ priority: TaskPriority) -> [Task]
    {
       var tasks: [Task] = []
       for task in completedTasks() {
@@ -136,7 +149,7 @@ public class TasksDataProvider: NSObject, NSFetchedResultsControllerDelegate
       return tasks
    }
    
-   func incompletedTasksForPriority(priority: TaskPriority) -> [Task]
+   func incompletedTasksForPriority(_ priority: TaskPriority) -> [Task]
    {
       var tasks: [Task] = []
       for task in incompletedTasks() {
@@ -149,16 +162,16 @@ public class TasksDataProvider: NSObject, NSFetchedResultsControllerDelegate
    
    func averagePriorityOLD() -> TaskPriority
    {
-      var priorityDict: [TaskPriority : Int] = [.Ages: 0, .Later : 0, .Soon : 0, .ASAP: 0]
+      var priorityDict: [TaskPriority : Int] = [.ages: 0, .later : 0, .soon : 0, .asap: 0]
       
       if let tasks = tasksFRC.fetchedObjects as? [Task] {
          for task in tasks {
             if task.title != "" && !task.completed {
                switch task.priority {
-               case .Ages: priorityDict[.Ages] = priorityDict[.Ages]! + 1
-               case .Later: priorityDict[.Later] = priorityDict[.Later]! + 1
-               case .Soon: priorityDict[.Soon] = priorityDict[.Soon]! + 1
-               case .ASAP: priorityDict[.ASAP] = priorityDict[.ASAP]! + 1
+               case .ages: priorityDict[.ages] = priorityDict[.ages]! + 1
+               case .later: priorityDict[.later] = priorityDict[.later]! + 1
+               case .soon: priorityDict[.soon] = priorityDict[.soon]! + 1
+               case .asap: priorityDict[.asap] = priorityDict[.asap]! + 1
                default: continue
                }
             }
@@ -192,19 +205,19 @@ public class TasksDataProvider: NSObject, NSFetchedResultsControllerDelegate
          }
       }
       
-      return avgPriority ?? .Unknown
+      return avgPriority ?? .unknown
    }
    
    func averagePriority() -> TaskPriority
    {
-      var avgPriority: TaskPriority = .Unknown
+      var avgPriority: TaskPriority = .unknown
       if let tasks = tasksFRC.fetchedObjects as? [Task] {
          var count: Float = 0
          var avgPriorityWeight: Float = 0
          for task in tasks {
-            if task.priority != .Unknown && !task.completed {
+            if task.priority != .unknown && !task.completed {
                avgPriorityWeight += task.priority.weight
-               ++count
+               count += 1
             }
          }
          
@@ -219,7 +232,7 @@ public class TasksDataProvider: NSObject, NSFetchedResultsControllerDelegate
 
 extension TasksDataProvider
 {
-   public func controllerDidChangeContent(controller: NSFetchedResultsController)
+   public func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>)
    {
       contentDidChangeBlock?()
    }

@@ -11,20 +11,20 @@ import Foundation
 import UIKit
 
 
-private let storeURL = NSURL.documentsURL.URLByAppendingPathComponent("Goalie.goalie")
+private let storeURL = URL.documentsURL.appendingPathComponent("Goalie.goalie")
 
 public func createGoalieMainContext() -> NSManagedObjectContext
 {
-   let path = NSBundle.mainBundle().pathForResource("Task", ofType: "momd")
-   let momURL = NSURL(fileURLWithPath: path!)
-   guard let model = NSManagedObjectModel(contentsOfURL: momURL) else {
+   let path = Bundle.main.path(forResource: "Task", ofType: "momd")
+   let momURL = URL(fileURLWithPath: path!)
+   guard let model = NSManagedObjectModel(contentsOf: momURL) else {
       fatalError("model not found")
    }
    
    let psc = NSPersistentStoreCoordinator(managedObjectModel: model)
-   try! psc.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: storeURL, options: nil)
+   try! psc.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: storeURL, options: nil)
    
-   let context = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
+   let context = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
    context.persistentStoreCoordinator = psc
    
    return context

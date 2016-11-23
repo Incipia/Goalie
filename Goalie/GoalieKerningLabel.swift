@@ -22,42 +22,42 @@ class GoalieKerningLabel: UILabel
          NSFontAttributeName : font,
          NSForegroundColorAttributeName : textColor,
          NSKernAttributeName : 2
-      ]
+      ] as [String : Any]
       
       let attributedString = NSAttributedString(string: textValue, attributes: attributes)
       
       attributedText = attributedString
    }
    
-   func updateText(text: String)
+   func updateText(_ text: String)
    {
       let attributes = [
          NSFontAttributeName : font,
          NSForegroundColorAttributeName : textColor,
          NSKernAttributeName : 3
-      ]
+      ] as [String : Any]
       
       attributedText = NSAttributedString(string: text, attributes: attributes)
    }
    
-   func updateTextColor(color: UIColor)
+   func updateTextColor(_ color: UIColor)
    {
       let attributes = [
          NSFontAttributeName : font,
          NSForegroundColorAttributeName : color,
          NSKernAttributeName : 3
-      ]
+      ] as [String : Any]
       
       attributedText = NSAttributedString(string: self.text!, attributes: attributes)
    }
    
-   func updateKerningValue(value: CGFloat)
+   func updateKerningValue(_ value: CGFloat)
    {
       let attributes = [
          NSFontAttributeName : font,
          NSForegroundColorAttributeName : textColor,
          NSKernAttributeName : value
-      ]
+      ] as [String : Any]
       
       attributedText = NSAttributedString(string: self.text!, attributes: attributes)
    }

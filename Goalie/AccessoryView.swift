@@ -10,20 +10,20 @@ import UIKit
 
 class AccessoryView: UIView
 {
-   @IBOutlet private weak var _widthConstraint: NSLayoutConstraint!
-   @IBOutlet private weak var _heightConstraint: NSLayoutConstraint!
+   @IBOutlet fileprivate weak var _widthConstraint: NSLayoutConstraint!
+   @IBOutlet fileprivate weak var _heightConstraint: NSLayoutConstraint!
    
-   private(set) var accessory: GoalieAccessory = .Unknown
-   internal var _currentPriority: TaskPriority = .Unknown
+   fileprivate(set) var accessory: GoalieAccessory = .unknown
+   internal var _currentPriority: TaskPriority = .unknown
    
    override func awakeFromNib()
    {
       super.awakeFromNib()
-      backgroundColor = UIColor.clearColor()
+      backgroundColor = UIColor.clear
    }
    
    // MARK: - Public
-   func updateAccessory(accessory: GoalieAccessory)
+   func updateAccessory(_ accessory: GoalieAccessory)
    {
       if self.accessory != accessory
       {
@@ -34,21 +34,21 @@ class AccessoryView: UIView
       }
    }
    
-   func updateWithPriority(priority: TaskPriority)
+   func updateWithPriority(_ priority: TaskPriority)
    {
       _currentPriority = priority
       setNeedsDisplay()
    }
    
    // MARK: - Private
-   private func _updateConstraintsWithAccessory(a: GoalieAccessory)
+   fileprivate func _updateConstraintsWithAccessory(_ a: GoalieAccessory)
    {
       let newSize = CGSize(accessory: a)
       _widthConstraint.constant = newSize.width
       _heightConstraint.constant = newSize.height
    }
    
-   override func drawRect(rect: CGRect)
+   override func draw(_ rect: CGRect)
    {
       accessory.drawRect(rect, priority: _currentPriority)
    }

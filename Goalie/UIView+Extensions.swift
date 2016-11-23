@@ -9,17 +9,17 @@
 import UIKit
 
 enum CornerRoundingMask {
-   case Top, Left, Bottom, Right, None, All
+   case top, left, bottom, right, none, all
 }
 
 extension UIView
 {
-   func roundCorners(mask: CornerRoundingMask)
+   func roundCorners(_ mask: CornerRoundingMask)
    {
       if let roundingCorners = roundingCornersForMask(mask) {
          let radius = min(bounds.width, bounds.height) * 0.5
          let maskLayer = CAShapeLayer()
-         maskLayer.path = UIBezierPath(roundedRect: bounds, byRoundingCorners: roundingCorners, cornerRadii: CGSizeMake(radius, radius)).CGPath
+         maskLayer.path = UIBezierPath(roundedRect: bounds, byRoundingCorners: roundingCorners, cornerRadii: CGSize(width: radius, height: radius)).cgPath
          layer.mask = maskLayer
       }
       else {
@@ -27,15 +27,15 @@ extension UIView
       }
    }
    
-   private func roundingCornersForMask(mask: CornerRoundingMask) -> UIRectCorner?
+   fileprivate func roundingCornersForMask(_ mask: CornerRoundingMask) -> UIRectCorner?
    {
       switch mask {
-      case .Top: return UIRectCorner.TopLeft.union(.TopRight)
-      case .Left: return UIRectCorner.TopLeft.union(.BottomLeft)
-      case.Bottom: return UIRectCorner.BottomLeft.union(.BottomRight)
-      case .Right: return UIRectCorner.TopRight.union(.BottomRight)
-      case .All: return UIRectCorner.AllCorners
-      case .None: return nil
+      case .top: return UIRectCorner.topLeft.union(.topRight)
+      case .left: return UIRectCorner.topLeft.union(.bottomLeft)
+      case.bottom: return UIRectCorner.bottomLeft.union(.bottomRight)
+      case .right: return UIRectCorner.topRight.union(.bottomRight)
+      case .all: return UIRectCorner.allCorners
+      case .none: return nil
       }
    }
 }

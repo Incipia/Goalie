@@ -11,28 +11,28 @@ import UIKit
 class OnboardingTransitionManager: NSObject, UIViewControllerAnimatedTransitioning, UIViewControllerTransitioningDelegate
 {
    // MARK: - UIViewControllerAnimatedTransitioning protocol methods
-   func animateTransition(transitionContext: UIViewControllerContextTransitioning)
+   func animateTransition(using transitionContext: UIViewControllerContextTransitioning)
    {
-      let container = transitionContext.containerView()
+      let container = transitionContext.containerView
       
-      let fromController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey) as! OnboardingViewController
-      let toController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey) as! MainTasksViewController
+      let fromController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from) as! OnboardingViewController
+      let toController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) as! MainTasksViewController
       
       container.addSubview(toController.view)
       
       let whiteView = UIView()
       whiteView.frame = toController.view.bounds
-      whiteView.backgroundColor = UIColor.whiteColor()
+      whiteView.backgroundColor = UIColor.white
       
       container.addSubview(whiteView)
       container.addSubview(fromController.view)
       
-      let duration = transitionDuration(transitionContext)
-      UIView.animateWithDuration(duration * 0.5, delay: 0, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
+      let duration = transitionDuration(using: transitionContext)
+      UIView.animate(withDuration: duration * 0.5, delay: 0, options: UIViewAnimationOptions.curveEaseIn, animations: { () -> Void in
          fromController.view.alpha = 0
-         fromController.view.transform = CGAffineTransformMakeScale(5, 5)
+         fromController.view.transform = CGAffineTransform(scaleX: 5, y: 5)
          }, completion: { finished in
-            UIView.animateWithDuration(duration * 0.5, delay: 0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
+            UIView.animate(withDuration: duration * 0.5, delay: 0, options: UIViewAnimationOptions.curveEaseOut, animations: { () -> Void in
                whiteView.alpha = 0
                }, completion: { (finished) -> Void in
                   transitionContext.completeTransition(true)
@@ -40,16 +40,16 @@ class OnboardingTransitionManager: NSObject, UIViewControllerAnimatedTransitioni
       })
    }
    
-   func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
+   func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
       return 0.6
    }
    
    // MARK: - UIViewControllerTransitioningDelegate protocol methods
-   func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+   func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
       return self
    }
    
-   func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+   func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
       return self
    }
 }

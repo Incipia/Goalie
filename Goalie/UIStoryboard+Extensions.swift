@@ -14,58 +14,58 @@ extension UIStoryboard
    static func editListViewController() -> EditListViewController
    {
       let storyboard = UIStoryboard(name: "Main", bundle: nil)
-      let controller = storyboard.instantiateViewControllerWithIdentifier("EditListViewControllerID") as! EditListViewController
+      let controller = storyboard.instantiateViewController(withIdentifier: "EditListViewControllerID") as! EditListViewController
       return controller
    }
    
    static func onboardingViewController() -> OnboardingViewController
    {
       let storyboard = UIStoryboard(name: "Main", bundle: nil)
-      let controller = storyboard.instantiateViewControllerWithIdentifier("OnboardingViewController") as! OnboardingViewController
+      let controller = storyboard.instantiateViewController(withIdentifier: "OnboardingViewController") as! OnboardingViewController
       return controller
    }
    
    static func congratulationsViewController() -> CongratulationsViewController
    {
       let storyboard = UIStoryboard(name: "Main", bundle: nil)
-      let controller = storyboard.instantiateViewControllerWithIdentifier("CongratulationsViewController") as! CongratulationsViewController
-      controller.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
+      let controller = storyboard.instantiateViewController(withIdentifier: "CongratulationsViewController") as! CongratulationsViewController
+      controller.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
       return controller
    }
    
    static func unlockedAccessoryPackViewController() -> UnlockedAccessoryPackViewController
    {
       let storyboard = UIStoryboard(name: "Main", bundle: nil)
-      let controller = storyboard.instantiateViewControllerWithIdentifier("UnlockedAccessoryPackViewControllerID") as! UnlockedAccessoryPackViewController
-      controller.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
+      let controller = storyboard.instantiateViewController(withIdentifier: "UnlockedAccessoryPackViewControllerID") as! UnlockedAccessoryPackViewController
+      controller.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
       return controller
    }
    
-   static func editTaskViewController(managedObjectContext: NSManagedObjectContext) -> EditTaskViewController
+   static func editTaskViewController(_ managedObjectContext: NSManagedObjectContext) -> EditTaskViewController
    {
       let storyboard = UIStoryboard(name: "Main", bundle: nil)
-      let editTaskController = storyboard.instantiateViewControllerWithIdentifier("EditTaskViewController") as! EditTaskViewController
+      let editTaskController = storyboard.instantiateViewController(withIdentifier: "EditTaskViewController") as! EditTaskViewController
       editTaskController.moc = managedObjectContext
-      editTaskController.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
+      editTaskController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
       
       return editTaskController
    }
    
-   static func settingsViewController(managedObjectContext: NSManagedObjectContext, delegate: SettingsViewControllerDelegate) -> SettingsViewController
+   static func settingsViewController(_ managedObjectContext: NSManagedObjectContext, delegate: SettingsViewControllerDelegate) -> SettingsViewController
    {
       let storyboard = UIStoryboard(name: "Main", bundle: nil)
-      let settingsController = storyboard.instantiateViewControllerWithIdentifier("SettingsViewController") as! SettingsViewController
+      let settingsController = storyboard.instantiateViewController(withIdentifier: "SettingsViewController") as! SettingsViewController
       settingsController.moc = managedObjectContext
       settingsController.delegate = delegate
-      settingsController.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
+      settingsController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
       
       return settingsController
    }
    
-   static func mainTasksViewController(moc: NSManagedObjectContext) -> MainTasksViewController
+   static func mainTasksViewController(_ moc: NSManagedObjectContext) -> MainTasksViewController
    {
       let storyboard = UIStoryboard(name: "Main", bundle: nil)
-      let controller = storyboard.instantiateViewControllerWithIdentifier("MainTasksViewController") as! MainTasksViewController
+      let controller = storyboard.instantiateViewController(withIdentifier: "MainTasksViewController") as! MainTasksViewController
       controller.moc = moc
       return controller
    }

@@ -27,13 +27,13 @@ class SettingsViewController: UIViewController, ManagedObjectContextSettable, Me
          _taskPriorityStateSnapshotter = TaskPriorityStateSnapshotter(moc: moc)
       }
    }
-   private var _taskPriorityStateSnapshotter: TaskPriorityStateSnapshotter!
+   fileprivate var _taskPriorityStateSnapshotter: TaskPriorityStateSnapshotter!
    weak var delegate: SettingsViewControllerDelegate?
    
    
-   @IBOutlet private weak var _containerView: UIVisualEffectView!
-   @IBOutlet private weak var _showCompletedTasksSwitch: UISwitch!
-   @IBOutlet private weak var _manuallySwitchPrioritySwitch: UISwitch!
+   @IBOutlet fileprivate weak var _containerView: UIVisualEffectView!
+   @IBOutlet fileprivate weak var _showCompletedTasksSwitch: UISwitch!
+   @IBOutlet fileprivate weak var _manuallySwitchPrioritySwitch: UISwitch!
    
    var dialogContainer: UIView {
       return _containerView
@@ -53,38 +53,38 @@ class SettingsViewController: UIViewController, ManagedObjectContextSettable, Me
 		super.viewDidLayoutSubviews()
 		
 		let shadowPath = UIBezierPath(rect: _containerView.bounds)
-		_containerView.layer.shadowPath = shadowPath.CGPath
+		_containerView.layer.shadowPath = shadowPath.cgPath
 	}
    
-   override func viewWillAppear(animated: Bool)
+   override func viewWillAppear(_ animated: Bool)
    {
       super.viewWillAppear(animated)
-      _showCompletedTasksSwitch.on = GoalieSettingsManager.showCompletedTasks
-      _manuallySwitchPrioritySwitch.on = GoalieSettingsManager.manuallySwitchPriority
+      _showCompletedTasksSwitch.isOn = GoalieSettingsManager.showCompletedTasks
+      _manuallySwitchPrioritySwitch.isOn = GoalieSettingsManager.manuallySwitchPriority
    }
    
-   override func preferredStatusBarStyle() -> UIStatusBarStyle
+   override var preferredStatusBarStyle : UIStatusBarStyle
    {
-      return .LightContent
+      return .lightContent
    }
    
    // Mark: - Private
-   private func _setupShadow()
+   fileprivate func _setupShadow()
 	{
-      _containerView.layer.shadowColor = UIColor.blackColor().CGColor
+      _containerView.layer.shadowColor = UIColor.black.cgColor
       _containerView.layer.shadowOpacity = 0.2
       _containerView.layer.shadowOffset = CGSize(width: 0, height: 4)
       _containerView.layer.shadowRadius = 4
    }
    
    // Mark: - IBActions
-   @IBAction private func _closeButtonPressed()
+   @IBAction fileprivate func _closeButtonPressed()
    {
-      dismissViewControllerAnimated(true) { () -> Void in
+      dismiss(animated: true) { () -> Void in
          
-         GoalieSettingsManager.setShowCompletedTasks(self._showCompletedTasksSwitch.on)
+         GoalieSettingsManager.setShowCompletedTasks(self._showCompletedTasksSwitch.isOn)
          
-         let autoSwitchPriorityChanged = GoalieSettingsManager.setManuallySwitchPriority(self._manuallySwitchPrioritySwitch.on)
+         let autoSwitchPriorityChanged = GoalieSettingsManager.setManuallySwitchPriority(self._manuallySwitchPrioritySwitch.isOn)
          if autoSwitchPriorityChanged {
             if GoalieSettingsManager.manuallySwitchPriority {
                self._taskPriorityStateSnapshotter.snapshotCurrentState()
@@ -98,9 +98,9 @@ class SettingsViewController: UIViewController, ManagedObjectContextSettable, Me
       }
    }
    
-   @IBAction private func _tapRecognized(gestureRecognizer: UIGestureRecognizer)
+   @IBAction fileprivate func _tapRecognized(_ gestureRecognizer: UIGestureRecognizer)
    {
-      let touchLocation = gestureRecognizer.locationInView(nil)
+      let touchLocation = gestureRecognizer.location(in: nil)
       guard !_containerView.frame.contains(touchLocation) else { return }
       
       _closeButtonPressed()

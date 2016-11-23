@@ -10,20 +10,20 @@ import UIKit
 
 protocol UnlockedAccessoryPackViewControllerDelegate: class
 {
-   func unlockedAccessoryPackViewControllerIgnoreButtonPressed(controller: UnlockedAccessoryPackViewController)
-   func unlockedAccessoryPackViewControllerUnlockButtonPressed(controller: UnlockedAccessoryPackViewController)
+   func unlockedAccessoryPackViewControllerIgnoreButtonPressed(_ controller: UnlockedAccessoryPackViewController)
+   func unlockedAccessoryPackViewControllerUnlockButtonPressed(_ controller: UnlockedAccessoryPackViewController)
 }
 
 class UnlockedAccessoryPackViewController: UIViewController, MenuController
 {
-   @IBOutlet private weak var _titleLabel: UILabel!
-   @IBOutlet private weak var _messageLabel: UILabel!
-   @IBOutlet private weak var _containerView: UIVisualEffectView!
+   @IBOutlet fileprivate weak var _titleLabel: UILabel!
+   @IBOutlet fileprivate weak var _messageLabel: UILabel!
+   @IBOutlet fileprivate weak var _containerView: UIVisualEffectView!
    
-   @IBOutlet private weak var _accessoryPackBackgroundView: CongratulatingUnlockedAccessoryPackBackgroundView!
-   @IBOutlet private weak var _accessoryPackBadgeView: AccessoryPackBadgeView!
+   @IBOutlet fileprivate weak var _accessoryPackBackgroundView: CongratulatingUnlockedAccessoryPackBackgroundView!
+   @IBOutlet fileprivate weak var _accessoryPackBadgeView: AccessoryPackBadgeView!
    
-   var accessoryPack: AccessoryPack = .None
+   var accessoryPack: AccessoryPack = .none
    
    var dialogContainer: UIView {
       return _containerView
@@ -39,45 +39,45 @@ class UnlockedAccessoryPackViewController: UIViewController, MenuController
       _updateLabelsWithAccessoryPack(accessoryPack)
    }
    
-   override func preferredStatusBarStyle() -> UIStatusBarStyle
+   override var preferredStatusBarStyle : UIStatusBarStyle
    {
-      return .LightContent
+      return .lightContent
    }
    
    // MARK: - IBActions
-   @IBAction private func _ignoreButtonPressed()
+   @IBAction fileprivate func _ignoreButtonPressed()
    {
       delegate?.unlockedAccessoryPackViewControllerIgnoreButtonPressed(self)
    }
    
-   @IBAction private func _unlockButtonPressed()
+   @IBAction fileprivate func _unlockButtonPressed()
    {
       delegate?.unlockedAccessoryPackViewControllerUnlockButtonPressed(self)
    }
    
-   @IBAction private func _viewTapped(recognizer: UITapGestureRecognizer)
+   @IBAction fileprivate func _viewTapped(_ recognizer: UITapGestureRecognizer)
    {
-      let touchLocation = recognizer.locationInView(nil)
+      let touchLocation = recognizer.location(in: nil)
       guard !_containerView.frame.contains(touchLocation) else { return }
       
       _ignoreButtonPressed()
    }
    
    // MARK: - Private
-   private func _updateLabelsWithAccessoryPack(pack: AccessoryPack)
+   fileprivate func _updateLabelsWithAccessoryPack(_ pack: AccessoryPack)
    {
       _titleLabel.text = pack.congratulationsTitleText
       _messageLabel.attributedText = NSAttributedString.unlockedAccessoryPackAttributedString(pack)
    }
    
-   private func _updateViewsWithAccessoryPack(pack: AccessoryPack)
+   fileprivate func _updateViewsWithAccessoryPack(_ pack: AccessoryPack)
    {
       _accessoryPackBadgeView.accessory = pack
       _accessoryPackBackgroundView.accessory = pack
    }
    
    // MARK: - Public
-   func updateAccessoryPack(pack: AccessoryPack)
+   func updateAccessoryPack(_ pack: AccessoryPack)
    {
       accessoryPack = pack
       _updateViewsWithAccessoryPack(pack)

@@ -10,41 +10,41 @@ import Foundation
 
 struct DateFormatter
 {
-   static private var sharedInstance = DateFormatter()
+   static fileprivate var sharedInstance = DateFormatter()
    
-   static var formatter: NSDateFormatter {
+   static var formatter: Foundation.DateFormatter {
       return sharedInstance.formatter
    }
    
-   private lazy var formatter: NSDateFormatter = {
-      let df = NSDateFormatter()
+   fileprivate lazy var formatter: Foundation.DateFormatter = {
+      let df = Foundation.DateFormatter()
       return df
    }()
 }
 
-extension NSDate
+extension Date
 {
    var hour: Int {
-   return NSCalendar.autoupdatingCurrentCalendar().components((.Hour), fromDate: self).hour
+   return (Calendar.autoupdatingCurrent as NSCalendar).components((.hour), from: self).hour!
    }
    
    var minute: Int {
-      return NSCalendar.autoupdatingCurrentCalendar().components((.Minute), fromDate: self).minute
+      return (Calendar.autoupdatingCurrent as NSCalendar).components((.minute), from: self).minute!
    }
    
    var day: Int {
-      return NSCalendar.autoupdatingCurrentCalendar().components((.Day), fromDate: self).day
+      return (Calendar.autoupdatingCurrent as NSCalendar).components((.day), from: self).day!
    }
    
    var month: Int {
-      return NSCalendar.autoupdatingCurrentCalendar().components((.Month), fromDate: self).month
+      return (Calendar.autoupdatingCurrent as NSCalendar).components((.month), from: self).month!
    }
    
-   func dateHalfwayBetweenDate(date: NSDate) -> NSDate
+   func dateHalfwayBetweenDate(_ date: Date) -> Date
    {
       let difference = max(timeIntervalSince1970, date.timeIntervalSince1970) - min(timeIntervalSince1970, date.timeIntervalSince1970)
       let newTimeInterval = max(timeIntervalSince1970, date.timeIntervalSince1970) - (difference * 0.5)
-      return NSDate(timeIntervalSince1970: newTimeInterval)
+      return Date(timeIntervalSince1970: newTimeInterval)
    }
    
    func logHourAndMinute()
@@ -55,38 +55,38 @@ extension NSDate
    func prettyDateString() -> String
    {
       let formatter = DateFormatter.formatter
-      formatter.dateStyle = NSDateFormatterStyle.LongStyle
-      formatter.timeStyle = .MediumStyle
+      formatter.dateStyle = Foundation.DateFormatter.Style.long
+      formatter.timeStyle = .medium
       
-      return formatter.stringFromDate(self)
+      return formatter.string(from: self)
    }
    
    func dayString() -> String
    {
       let formatter = DateFormatter.formatter
       formatter.dateFormat = "EEEE"
-      return formatter.stringFromDate(self)
+      return formatter.string(from: self)
    }
 }
 
-func <(l: NSDate, r: NSDate) -> Bool {
-   return l.compare(r) == .OrderedAscending
+func <(l: Date, r: Date) -> Bool {
+   return l.compare(r) == .orderedAscending
 }
 
-func >(l: NSDate, r: NSDate) -> Bool {
-   return l.compare(r) == .OrderedDescending
+func >(l: Date, r: Date) -> Bool {
+   return l.compare(r) == .orderedDescending
 }
 
-func ==(l: NSDate, r: NSDate) -> Bool {
-   return l.compare(r) == .OrderedSame
+func ==(l: Date, r: Date) -> Bool {
+   return l.compare(r) == .orderedSame
 }
 
-func <=(l: NSDate, r: NSDate) -> Bool {
+func <=(l: Date, r: Date) -> Bool {
    let result = l.compare(r)
-   return result == .OrderedAscending || result == .OrderedSame
+   return result == .orderedAscending || result == .orderedSame
 }
 
-func >=(l: NSDate, r: NSDate) -> Bool {
+func >=(l: Date, r: Date) -> Bool {
    let result = l.compare(r)
-   return result == .OrderedDescending || result == .OrderedSame
+   return result == .orderedDescending || result == .orderedSame
 }

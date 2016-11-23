@@ -13,54 +13,54 @@ protocol KonamiDelegate: class
    func konamiRecognized()
 }
 
-let _defaultHeaderHeight: CGFloat = floor(UIScreen.mainScreen().bounds.height / 3.0)
-let _minimumHeaderHeight: CGFloat = floor(UIScreen.mainScreen().bounds.height / 5.1)
+let _defaultHeaderHeight: CGFloat = floor(UIScreen.main.bounds.height / 3.0)
+let _minimumHeaderHeight: CGFloat = floor(UIScreen.main.bounds.height / 5.1)
 let _maximumHeaderHeight: CGFloat = _defaultHeaderHeight + 50
 
 private extension GoalieCharacter
 {
    var next: GoalieCharacter {
       switch self {
-      case .Goalie: return .BizeeBee
-      case .BizeeBee: return .Fox
-      case .Fox: return .Checklistor
-      case .Checklistor: return Goalie
-      case .Unknown: return .Goalie
+      case .goalie: return .bizeeBee
+      case .bizeeBee: return .fox
+      case .fox: return .checklistor
+      case .checklistor: return .goalie
+      case .unknown: return .goalie
       }
    }
 }
 
 class GoalieTableView: LPRTableView
 {
-   @IBOutlet private var _firstTaskFooterViewArrow: UIImageView!
-   @IBOutlet private var _firstTaskFooterView: UIView!
-   @IBOutlet private var _normalGoalieFooterView: UIView!
-   @IBOutlet private weak var _accessoryContainer: UIView!
-   @IBOutlet private var _goalieHeaderView: UIView!
+   @IBOutlet fileprivate var _firstTaskFooterViewArrow: UIImageView!
+   @IBOutlet fileprivate var _firstTaskFooterView: UIView!
+   @IBOutlet fileprivate var _normalGoalieFooterView: UIView!
+   @IBOutlet fileprivate weak var _accessoryContainer: UIView!
+   @IBOutlet fileprivate var _goalieHeaderView: UIView!
    
-   private var _speechBubbleTimer: NSTimer?
+   fileprivate var _speechBubbleTimer: Timer?
    
    
-   private var _goalieMovementAnimator: GoalieMovementAnimator!
+   fileprivate var _goalieMovementAnimator: GoalieMovementAnimator!
    
-   @IBOutlet private weak var _goalieFaceContainerView: UIView! {
+   @IBOutlet fileprivate weak var _goalieFaceContainerView: UIView! {
       didSet {
          _goalieMovementAnimator = GoalieMovementAnimator(view: _goalieFaceContainerView)
       }
    }
    
-   @IBOutlet private weak var _goalieFaceView: CharacterView!
-   @IBOutlet private weak var _rightSpeechBubble: GoalieSpeechBubble!
-   @IBOutlet private weak var _leftSpeechBubble: GoalieSpeechBubble! {
+   @IBOutlet fileprivate weak var _goalieFaceView: CharacterView!
+   @IBOutlet fileprivate weak var _rightSpeechBubble: GoalieSpeechBubble!
+   @IBOutlet fileprivate weak var _leftSpeechBubble: GoalieSpeechBubble! {
       didSet {
-         _leftSpeechBubble.tailDirection = .Right
+         _leftSpeechBubble.tailDirection = .right
       }
    }
    
-   @IBOutlet private weak var _settingsButton: UIButton!
+   @IBOutlet fileprivate weak var _settingsButton: UIButton!
    
    // For testing
-   @IBAction private func _swap()
+   @IBAction fileprivate func _swap()
    {
       let newCharacter = _goalieFaceView.character.next
       
@@ -68,16 +68,16 @@ class GoalieTableView: LPRTableView
       _goalieFaceView.animateFace()
    }
    
-   private var _shouldShowSpeechBubble = false
-   private var _currentPriority = TaskPriority.Unknown
+   fileprivate var _shouldShowSpeechBubble = false
+   fileprivate var _currentPriority = TaskPriority.unknown
    
    weak var konamiDelegate: KonamiDelegate?
    
-   private let _tapGestureRecognizer = UITapGestureRecognizer()
+   fileprivate let _tapGestureRecognizer = UITapGestureRecognizer()
    
    // MARK: - Lifecycle
    deinit {
-      NSNotificationCenter.defaultCenter().removeObserver(self)
+      NotificationCenter.default.removeObserver(self)
    }
    
    override func awakeFromNib()
@@ -90,19 +90,19 @@ class GoalieTableView: LPRTableView
       _setupKeyboardObserving()
       
       decelerationRate = UIScrollViewDecelerationRateFast
-      _tapGestureRecognizer.addTarget(self, action: "goalieTapped")
+      _tapGestureRecognizer.addTarget(self, action: #selector(GoalieTableView.goalieTapped))
       _goalieFaceView.addGestureRecognizer(_tapGestureRecognizer)
       
-      _goalieFaceView.updateCharacter(.Goalie)
+      _goalieFaceView.updateCharacter(.goalie)
       
-      let recognizer = PlopixKonamiGesture(target: self, action: "_konamiRecognized:")
+      let recognizer = PlopixKonamiGesture(target: self, action: #selector(GoalieTableView._konamiRecognized(_:)))
       recognizer.cancelsTouchesInView = false
       _accessoryContainer.addGestureRecognizer(recognizer)
    }
    
-   internal func _konamiRecognized(recognizer: UIGestureRecognizer)
+   internal func _konamiRecognized(_ recognizer: UIGestureRecognizer)
    {
-      if recognizer.state == .Ended {
+      if recognizer.state == .ended {
          konamiDelegate?.konamiRecognized()
       }
    }
@@ -116,35 +116,35 @@ class GoalieTableView: LPRTableView
       showSpeechBubble()
    }
    
-   func updateCharacter(character: GoalieCharacter)
+   func updateCharacter(_ character: GoalieCharacter)
    {
       _goalieFaceView.updateCharacter(character)
       _goalieFaceView.animateFace()
    }
    
    // MARK: - Setup
-   private func _setupKeyboardObserving()
+   fileprivate func _setupKeyboardObserving()
    {
-      NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillAppear"), name: UIKeyboardWillShowNotification, object: nil)
-      NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide"), name: UIKeyboardWillHideNotification, object: nil)
+      NotificationCenter.default.addObserver(self, selector: #selector(GoalieTableView.keyboardWillAppear), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+      NotificationCenter.default.addObserver(self, selector: #selector(GoalieTableView.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
    }
    
-   private func _setupHeaderView()
+   fileprivate func _setupHeaderView()
    {
       tableHeaderView = nil
       superview?.addSubview(_goalieHeaderView)
    }
    
-   private func _setupContentOffsetAndInset()
+   fileprivate func _setupContentOffsetAndInset()
    {
       contentInset = UIEdgeInsets(top: _defaultHeaderHeight, left: 0, bottom: 20, right: 0)
       contentOffset = CGPoint(x: 0, y: -_defaultHeaderHeight)
    }
    
-   private func _setupUIForFirstTime()
+   fileprivate func _setupUIForFirstTime()
    {
       // Needs refactor
-      let priority = TaskPriority.Unknown
+      let priority = TaskPriority.unknown
       let character = CharacterManager.currentCharacter
       
       let text = SpeechBubbleTextProvider.textForCharacter(character, priority: priority)
@@ -169,12 +169,12 @@ class GoalieTableView: LPRTableView
       tableFooterView = UIView()
    }
    
-   func taskCellForIndexPath(indexPath: NSIndexPath) -> TasksTableViewCell?
+   func taskCellForIndexPath(_ indexPath: IndexPath) -> TasksTableViewCell?
    {
-      return cellForRowAtIndexPath(indexPath) as? TasksTableViewCell
+      return cellForRow(at: indexPath) as? TasksTableViewCell
    }
    
-   func updateWithPriority(priority: TaskPriority)
+   func updateWithPriority(_ priority: TaskPriority)
    {
       guard _currentPriority != priority else {return}
       
@@ -228,9 +228,9 @@ class GoalieTableView: LPRTableView
       _goalieMovementAnimator.stopAnimating()
    }
    
-   func updateFooterViewForKeyboardVisibility(visible: Bool)
+   func updateFooterViewForKeyboardVisibility(_ visible: Bool)
    {
-      _firstTaskFooterViewArrow.hidden = visible
+      _firstTaskFooterViewArrow.isHidden = visible
    }
    
    // MARK: - Keyboard Observing
@@ -248,53 +248,53 @@ class GoalieTableView: LPRTableView
 extension GoalieTableView
 {
    // MARK: - Private
-   private func _showOnlyLeftOrRightSpeechBubble()
+   fileprivate func _showOnlyLeftOrRightSpeechBubble()
    {
       let oneOrZero = Int.randRange(0, upper: 1)
       if oneOrZero == 0 {
-         if _leftSpeechBubble.hidden == true {
+         if _leftSpeechBubble.isHidden == true {
             _animateViewIn(_leftSpeechBubble, completion: nil)
-            _rightSpeechBubble.hidden = true
+            _rightSpeechBubble.isHidden = true
          }
       }
       else {
-         if _rightSpeechBubble.hidden == true {
+         if _rightSpeechBubble.isHidden == true {
             _animateViewIn(_rightSpeechBubble, completion: nil)
-            _leftSpeechBubble.hidden = true
+            _leftSpeechBubble.isHidden = true
          }
       }
    }
    
-   private func _animateViewIn(viewToAnimate: UIView, completion: (() -> Void)?)
+   fileprivate func _animateViewIn(_ viewToAnimate: UIView, completion: (() -> Void)?)
    {
-      viewToAnimate.hidden = false
-      viewToAnimate.transform = CGAffineTransformMakeScale(0, 0)
-      UIView.animateWithDuration(0.5, delay: 0.25, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.8, options: [], animations: { () -> Void in
-         viewToAnimate.transform = CGAffineTransformMakeScale(1, 1)
+      viewToAnimate.isHidden = false
+      viewToAnimate.transform = CGAffineTransform(scaleX: 0, y: 0)
+      UIView.animate(withDuration: 0.5, delay: 0.25, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.8, options: [], animations: { () -> Void in
+         viewToAnimate.transform = CGAffineTransform(scaleX: 1, y: 1)
          }) { (finished) -> Void in
             completion?()
       }
    }
    
-   private func _animateViewOut(viewToAnimate: UIView)
+   fileprivate func _animateViewOut(_ viewToAnimate: UIView)
    {
-      UIView.animateWithDuration(0.3, animations: { () -> Void in
-         viewToAnimate.transform = CGAffineTransformMakeScale(0.01, 0.01)
-         }) { (finished) -> Void in
-            viewToAnimate.hidden = true
-      }
+      UIView.animate(withDuration: 0.3, animations: { () -> Void in
+         viewToAnimate.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)
+         }, completion: { (finished) -> Void in
+            viewToAnimate.isHidden = true
+      }) 
    }
    
-   private func _updateHeaderViewColor(color: UIColor, animationDuration: Double)
+   fileprivate func _updateHeaderViewColor(_ color: UIColor, animationDuration: Double)
    {
-      UIView.animateWithDuration(animationDuration) { () -> Void in
+      UIView.animate(withDuration: animationDuration, animations: { () -> Void in
          self._goalieHeaderView.backgroundColor = color
-      }
+      }) 
    }
    
    func updateHeaderViewFrameAnimated()
    {
-      UIView.animateWithDuration(0.25, delay: 0, options: .CurveEaseOut, animations: { () -> Void in
+      UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseOut, animations: { () -> Void in
          self._updateHeaderViewFrame()
          }, completion: nil)
    }
@@ -313,7 +313,7 @@ extension GoalieTableView
       }
    }
    
-   private func _updateAccessoryViewAlpha()
+   fileprivate func _updateAccessoryViewAlpha()
    {
       let currentHeaderHeight = _goalieHeaderView.frame.height
       let difference = _defaultHeaderHeight - currentHeaderHeight
@@ -331,15 +331,15 @@ extension GoalieTableView
       _accessoryContainer.alpha = alpha
    }
    
-   private func _updateAccessoryViewScale()
+   fileprivate func _updateAccessoryViewScale()
    {
       if contentOffset.y >= -_maximumHeaderHeight && contentOffset.y <= -_defaultHeaderHeight {
          let alphaPercentage = (contentOffset.y + _defaultHeaderHeight) / (_maximumHeaderHeight - _defaultHeaderHeight) * -0.4
-         _accessoryContainer.transform = CGAffineTransformMakeScale(1 + alphaPercentage * 0.5, 1 + alphaPercentage)
+         _accessoryContainer.transform = CGAffineTransform(scaleX: 1 + alphaPercentage * 0.5, y: 1 + alphaPercentage)
       }
    }
    
-   private func _updateHeaderViewFrame()
+   fileprivate func _updateHeaderViewFrame()
    {
       let headerHeight = _headerHeightForContentOffset(contentOffset)
       let size = CGSize(width: bounds.width, height: headerHeight)
@@ -347,7 +347,7 @@ extension GoalieTableView
       _goalieHeaderView.layoutIfNeeded()
    }
    
-   private func _headerHeightForContentOffset(offset: CGPoint) -> CGFloat
+   fileprivate func _headerHeightForContentOffset(_ offset: CGPoint) -> CGFloat
    {
       var height = _defaultHeaderHeight
       if offset.y < -_defaultHeaderHeight {
@@ -371,22 +371,22 @@ extension GoalieTableView
 
 extension GoalieTableView
 {
-   private func _startTimerForSpeechBubble()
+   fileprivate func _startTimerForSpeechBubble()
    {
       guard _speechBubbleTimer == nil else {return}
       
-      _speechBubbleTimer = NSTimer(fireDate: NSDate().dateByAddingTimeInterval(10), interval: 0, target: self, selector: "_hideSpeechBubble:", userInfo: nil, repeats: false)
-      NSRunLoop.mainRunLoop().addTimer(_speechBubbleTimer!, forMode: NSDefaultRunLoopMode)
+      _speechBubbleTimer = Timer(fireAt: Date().addingTimeInterval(10), interval: 0, target: self, selector: #selector(GoalieTableView._hideSpeechBubble(_:)), userInfo: nil, repeats: false)
+      RunLoop.main.add(_speechBubbleTimer!, forMode: RunLoopMode.defaultRunLoopMode)
    }
    
-   private func _killSpeechBubbleTimer()
+   fileprivate func _killSpeechBubbleTimer()
    {
       _speechBubbleTimer?.invalidate()
       _speechBubbleTimer = nil
    }
    
    
-   internal func _hideSpeechBubble(timer: NSTimer)
+   internal func _hideSpeechBubble(_ timer: Timer)
    {
       _killSpeechBubbleTimer()
       hideSpeechBubble()

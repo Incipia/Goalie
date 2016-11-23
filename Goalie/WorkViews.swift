@@ -13,7 +13,7 @@ class WorkClockView: AccessoryView
    override func awakeFromNib()
    {
       super.awakeFromNib()
-      updateAccessory(.WorkClock)
+      updateAccessory(.workClock)
    }
 }
 
@@ -22,7 +22,7 @@ class LampView: AccessoryView
    override func awakeFromNib()
    {
       super.awakeFromNib()
-      updateAccessory(.Lamp)
+      updateAccessory(.lamp)
    }
 }
 
@@ -31,7 +31,7 @@ class ComputerView: AccessoryView
    override func awakeFromNib()
    {
       super.awakeFromNib()
-      updateAccessory(.Computer)
+      updateAccessory(.computer)
    }
 }
 
@@ -40,6 +40,6 @@ class WorkWindowView: AccessoryView
    override func awakeFromNib()
    {
       super.awakeFromNib()
-      updateAccessory(.WorkWindow)
+      updateAccessory(.workWindow)
    }
 }

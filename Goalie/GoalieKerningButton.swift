@@ -18,83 +18,83 @@ class GoalieKerningButton: UIButton
       super.init(coder: aDecoder)
       guard let label = titleLabel else { return }
       
-      let paragraphStyle: NSMutableParagraphStyle = NSParagraphStyle.defaultParagraphStyle().mutableCopy() as! NSMutableParagraphStyle
-      paragraphStyle.alignment = NSTextAlignment.Center
+      let paragraphStyle: NSMutableParagraphStyle = NSParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
+      paragraphStyle.alignment = NSTextAlignment.center
       
       let attributes = [
          NSFontAttributeName : label.font,
          NSForegroundColorAttributeName : label.textColor,
          NSKernAttributeName : 3,
          NSParagraphStyleAttributeName : paragraphStyle
-      ]
+      ] as [String : Any]
       
       let highlightedAttributes = [
          NSFontAttributeName : label.font,
-         NSForegroundColorAttributeName : label.textColor.colorWithAlphaComponent(0.5),
+         NSForegroundColorAttributeName : label.textColor.withAlphaComponent(0.5),
          NSKernAttributeName : 3,
          NSParagraphStyleAttributeName : paragraphStyle
-      ]
+      ] as [String : Any]
       
       let attributedString = NSAttributedString(string: label.text ?? "", attributes: attributes)
       let highlightedAttributedString = NSAttributedString(string: label.text ?? "", attributes: highlightedAttributes)
       
       UIView.performWithoutAnimation { () -> Void in
-         self.setAttributedTitle(attributedString, forState: .Normal)
-         self.setAttributedTitle(highlightedAttributedString, forState: .Highlighted)
+         self.setAttributedTitle(attributedString, for: UIControlState())
+         self.setAttributedTitle(highlightedAttributedString, for: .highlighted)
       }
    }
    
-   func updateText(text: String, color: UIColor)
+   func updateText(_ text: String, color: UIColor)
    {
       guard let label = titleLabel else { return }
       let attributes = [
          NSFontAttributeName : label.font,
          NSForegroundColorAttributeName : color,
          NSKernAttributeName : 3,
-      ]
+      ] as [String : Any]
       
       let highlightedAttributes = [
          NSFontAttributeName : label.font,
-         NSForegroundColorAttributeName : label.textColor.colorWithAlphaComponent(0.5),
+         NSForegroundColorAttributeName : label.textColor.withAlphaComponent(0.5),
          NSKernAttributeName : 3,
-      ]
+      ] as [String : Any]
       
       let attributedString = NSAttributedString(string: text, attributes: attributes)
       let highlightedAttributedString = NSAttributedString(string: text, attributes: highlightedAttributes)
       
       UIView.performWithoutAnimation { () -> Void in
-         self.setAttributedTitle(attributedString, forState: .Normal)
-         self.setAttributedTitle(highlightedAttributedString, forState: .Highlighted)
+         self.setAttributedTitle(attributedString, for: UIControlState())
+         self.setAttributedTitle(highlightedAttributedString, for: .highlighted)
          self.layoutIfNeeded()
       }
    }
    
-   func updateText(text: String)
+   func updateText(_ text: String)
    {
       guard let label = titleLabel else { return }
       let attributes = [
          NSFontAttributeName : label.font,
          NSForegroundColorAttributeName : label.textColor,
          NSKernAttributeName : 1.5,
-      ]
+      ] as [String : Any]
       
       let highlightedAttributes = [
          NSFontAttributeName : label.font,
-         NSForegroundColorAttributeName : label.textColor.colorWithAlphaComponent(0.5),
+         NSForegroundColorAttributeName : label.textColor.withAlphaComponent(0.5),
          NSKernAttributeName : 1.5,
-      ]
+      ] as [String : Any]
       
       let attributedString = NSAttributedString(string: text, attributes: attributes)
       let highlightedAttributedString = NSAttributedString(string: text, attributes: highlightedAttributes)
       
       UIView.performWithoutAnimation { () -> Void in
-         self.setAttributedTitle(attributedString, forState: .Normal)
-         self.setAttributedTitle(highlightedAttributedString, forState: .Highlighted)
+         self.setAttributedTitle(attributedString, for: UIControlState())
+         self.setAttributedTitle(highlightedAttributedString, for: .highlighted)
          self.layoutIfNeeded()
       }
    }
    
-   func updateTextColor(color: UIColor)
+   func updateTextColor(_ color: UIColor)
    {
       guard let label = titleLabel else { return }
       guard let text = label.text else { return }
@@ -103,25 +103,25 @@ class GoalieKerningButton: UIButton
          NSFontAttributeName : label.font,
          NSForegroundColorAttributeName : color,
          NSKernAttributeName : 3
-      ]
+      ] as [String : Any]
       
       let highlightedAttributes = [
          NSFontAttributeName : label.font,
-         NSForegroundColorAttributeName : label.textColor.colorWithAlphaComponent(0.5),
+         NSForegroundColorAttributeName : label.textColor.withAlphaComponent(0.5),
          NSKernAttributeName : 3
-      ]
+      ] as [String : Any]
       
       let attributedString = NSAttributedString(string: text, attributes: attributes)
       let highlightedAttributedString = NSAttributedString(string: text, attributes: highlightedAttributes)
       
       UIView.performWithoutAnimation { () -> Void in
-         self.setAttributedTitle(attributedString, forState: .Normal)
-         self.setAttributedTitle(highlightedAttributedString, forState: .Highlighted)
+         self.setAttributedTitle(attributedString, for: UIControlState())
+         self.setAttributedTitle(highlightedAttributedString, for: .highlighted)
          self.layoutIfNeeded()
       }
    }
    
-   func updateKerningValue(value: CGFloat)
+   func updateKerningValue(_ value: CGFloat)
    {
       guard let label = titleLabel else { return }
       guard let text = label.text else { return }
@@ -130,20 +130,20 @@ class GoalieKerningButton: UIButton
          NSFontAttributeName : label.font,
          NSForegroundColorAttributeName : label.textColor,
          NSKernAttributeName : value
-      ]
+      ] as [String : Any]
       
       let highlightedAttributes = [
          NSFontAttributeName : label.font,
-         NSForegroundColorAttributeName : label.textColor.colorWithAlphaComponent(0.5),
+         NSForegroundColorAttributeName : label.textColor.withAlphaComponent(0.5),
          NSKernAttributeName : value
-      ]
+      ] as [String : Any]
       
       let attributedString = NSAttributedString(string: text, attributes: attributes)
       let highlightedAttributedString = NSAttributedString(string: text, attributes: highlightedAttributes)
       
       UIView.performWithoutAnimation { () -> Void in
-         self.setAttributedTitle(attributedString, forState: .Normal)
-         self.setAttributedTitle(highlightedAttributedString, forState: .Highlighted)
+         self.setAttributedTitle(attributedString, for: UIControlState())
+         self.setAttributedTitle(highlightedAttributedString, for: .highlighted)
          self.layoutIfNeeded()
       }
    }

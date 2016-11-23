@@ -10,76 +10,76 @@ import Foundation
 
 struct FacePathProviderFactory
 {
-   static func providerForCharacter(character: GoalieCharacter) -> CharacterFacePathProvider
+   static func providerForCharacter(_ character: GoalieCharacter) -> CharacterFacePathProvider
    {
       switch character {
-      case .Unknown: return GoalieFacePathProvider()
-      case .Goalie: return GoalieFacePathProvider()
-      case .BizeeBee: return BizeeBeeFacePathProvider()
-      case .Fox: return FoxFacePathProvider()
-      case .Checklistor: return ChecklistorFacePathProvider()
+      case .unknown: return GoalieFacePathProvider()
+      case .goalie: return GoalieFacePathProvider()
+      case .bizeeBee: return BizeeBeeFacePathProvider()
+      case .fox: return FoxFacePathProvider()
+      case .checklistor: return ChecklistorFacePathProvider()
       }
    }
 }
 
 protocol CharacterFacePathProvider
 {
-   var normalLeftEyePath: CGPathRef { get }
-   var normalRightEyePath: CGPathRef { get }
+   var normalLeftEyePath: CGPath { get }
+   var normalRightEyePath: CGPath { get }
    
-   var happyLeftEyePath: CGPathRef { get }
-   var happyRightEyePath: CGPathRef { get }
+   var happyLeftEyePath: CGPath { get }
+   var happyRightEyePath: CGPath { get }
    
-   var angryLeftEyePath: CGPathRef { get }
-   var angryRightEyePath: CGPathRef { get }
+   var angryLeftEyePath: CGPath { get }
+   var angryRightEyePath: CGPath { get }
    
-   var happyWinkingRightEyePath: CGPathRef { get }
-   var happyWinkingLeftEyePath: CGPathRef { get }
+   var happyWinkingRightEyePath: CGPath { get }
+   var happyWinkingLeftEyePath: CGPath { get }
    
-   var angrySquintingLeftEyePath: CGPathRef { get }
-   var angrySquintingRightEyePath: CGPathRef { get }
+   var angrySquintingLeftEyePath: CGPath { get }
+   var angrySquintingRightEyePath: CGPath { get }
    
-   var happyMouthPath: CGPathRef { get }
-   var smallHappyMouthPath: CGPathRef { get }
-   var bigHappyMouthPath: CGPathRef { get }
-   var scaredMouthPath: CGPathRef { get }
-   var flatScaredMouthPath: CGPathRef { get }
-   var yellingMouthPath: CGPathRef { get }
-   var angryTeethPath: CGPathRef { get }
-   var leftSurprisedEyePath: CGPathRef { get }
-   var rightSurprisedEyePath: CGPathRef { get }
+   var happyMouthPath: CGPath { get }
+   var smallHappyMouthPath: CGPath { get }
+   var bigHappyMouthPath: CGPath { get }
+   var scaredMouthPath: CGPath { get }
+   var flatScaredMouthPath: CGPath { get }
+   var yellingMouthPath: CGPath { get }
+   var angryTeethPath: CGPath { get }
+   var leftSurprisedEyePath: CGPath { get }
+   var rightSurprisedEyePath: CGPath { get }
    
-   func mouthPathForPriority(priority: TaskPriority) -> CGPathRef?
-   func teethPathForPriority(priority: TaskPriority) -> CGPathRef?
+   func mouthPathForPriority(_ priority: TaskPriority) -> CGPath?
+   func teethPathForPriority(_ priority: TaskPriority) -> CGPath?
 }
 
 extension CharacterFacePathProvider
 {
-   func mouthPathForPriority(priority: TaskPriority) -> CGPathRef?
+   func mouthPathForPriority(_ priority: TaskPriority) -> CGPath?
    {
       switch priority
       {
-      case .Ages, .Later: return happyMouthPath
-      case .Soon: return scaredMouthPath
-      case .ASAP: return yellingMouthPath
+      case .ages, .later: return happyMouthPath
+      case .soon: return scaredMouthPath
+      case .asap: return yellingMouthPath
       default: return nil
       }
    }
    
-   func teethPathForPriority(priority: TaskPriority) -> CGPathRef?
+   func teethPathForPriority(_ priority: TaskPriority) -> CGPath?
    {
       switch priority
       {
-      case .ASAP: return angryTeethPath
+      case .asap: return angryTeethPath
       default: return nil
       }
    }
    
-   var angryLeftEyePath: CGPathRef {
+   var angryLeftEyePath: CGPath {
       return self.normalLeftEyePath
    }
    
-   var angryRightEyePath: CGPathRef {
+   var angryRightEyePath: CGPath {
       return self.normalRightEyePath
    }
 }

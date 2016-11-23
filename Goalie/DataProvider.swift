@@ -11,42 +11,42 @@ import UIKit
 
 protocol DataProviderProtocol: class
 {
-   typealias Object
-   func objectAtIndexPath(indexPath: NSIndexPath) -> Object
-   func numberOfItemsInSection(section: Int) -> Int
+   associatedtype Object
+   func objectAtIndexPath(_ indexPath: IndexPath) -> Object
+   func numberOfItemsInSection(_ section: Int) -> Int
 }
 
 protocol DataProviderDelegate: class
 {
-   typealias Object
-   func dataProviderDidUpdate(updates: [DataProviderUpdate<Object>]?)
+   associatedtype Object
+   func dataProviderDidUpdate(_ updates: [DataProviderUpdate<Object>]?)
 }
 
 enum DataProviderUpdate<Object>
 {
-   case Insert(NSIndexPath)
-   case Update(NSIndexPath, Object)
-   case Move(NSIndexPath, NSIndexPath)
-   case Delete(NSIndexPath)
+   case insert(IndexPath)
+   case update(IndexPath, Object)
+   case move(IndexPath, IndexPath)
+   case delete(IndexPath)
 }
 
 // PUT THIS IN IT'S OWN FILE
 protocol DataSourceDelegate: class
 {
-   typealias Object
-   func cellIdentifierForObject(object: Object) -> String
-   func configureCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath)
+   associatedtype Object
+   func cellIdentifierForObject(_ object: Object) -> String
+   func configureCell(_ cell: UITableViewCell, atIndexPath indexPath: IndexPath)
 }
 
 protocol ConfigurableCell
 {
-   typealias DataSource
-   func configureForObject(object: DataSource, atIndexPath indexPath: NSIndexPath)
+   associatedtype DataSource
+   func configureForObject(_ object: DataSource, atIndexPath indexPath: IndexPath)
 }
 
 protocol TableViewDelegateProtocol
 {
-   typealias Object
-   func objectSelected(object: Object)
-   func heightForRowAtIndexPath(indexPath: NSIndexPath) -> CGFloat
+   associatedtype Object
+   func objectSelected(_ object: Object)
+   func heightForRowAtIndexPath(_ indexPath: IndexPath) -> CGFloat
 }

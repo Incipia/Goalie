@@ -11,7 +11,7 @@ import UIKit
 class ChecklistorFaceLayer: CharacterFaceLayer
 {
    internal var _eyeLayer = CAShapeLayer()
-   private var _eyePathProvider = ChecklistorEyePathProvider()
+   fileprivate var _eyePathProvider = ChecklistorEyePathProvider()
    
    // MARK: - Init
    override func commonInit()
@@ -28,49 +28,49 @@ class ChecklistorFaceLayer: CharacterFaceLayer
       
       _shapeLayers.append(_eyeLayer)
       
-      updateWithPriority(.Unknown)
+      updateWithPriority(.unknown)
    }
    
    // MARK: - Public
-   override func updateWithPriority(priority: TaskPriority)
+   override func updateWithPriority(_ priority: TaskPriority)
    {
       super.updateWithPriority(priority)
       
       performBlockWithoutAnimations { () -> Void in
-         self._eyeLayer.hidden = priority == .Unknown
-         self._eyeLayer.fillColor = UIColor.eyeColorForPriority(priority).CGColor
+         self._eyeLayer.isHidden = priority == .unknown
+         self._eyeLayer.fillColor = UIColor.eyeColorForPriority(priority).cgColor
       }
    }
    
-   override func animateForPriority(priority: TaskPriority)
+   override func animateForPriority(_ priority: TaskPriority)
    {
       if _currentlyAnimating == false {
          _currentlyAnimating = true
          switch priority
          {
-         case .Ages: _animateEyeWithPath(_eyePathProvider.bigEyePath)
-         case .Later:
+         case .ages: _animateEyeWithPath(_eyePathProvider.bigEyePath)
+         case .later:
             if Int.randRange(0, upper: 1) == 1 {
                _animateEyeWithPath(_eyePathProvider.gushyEyePath)
             }
             else {
                _animateEyeWithPath(_eyePathProvider.bigEyePath)
             }
-         case .Soon:
+         case .soon:
             if Int.randRange(0, upper: 1) == 1 {
                _animateEyeWithPath(_eyePathProvider.bigVerticalEyePath)
             }
             else {
                _animateEyeWithPath(_eyePathProvider.lookingDownEyePath)
             }
-         case .ASAP: _animateEyeWithPath(_eyePathProvider.thinHorizontalEyePath)
-         case .Unknown:
+         case .asap: _animateEyeWithPath(_eyePathProvider.thinHorizontalEyePath)
+         case .unknown:
             _currentlyAnimating = false
          }
       }
    }
    
-   private func _animateEyeWithPath(path: CGPathRef)
+   fileprivate func _animateEyeWithPath(_ path: CGPath)
    {
       let startingPath = _eyePathProvider.normalEyePath
       
@@ -80,23 +80,23 @@ class ChecklistorFaceLayer: CharacterFaceLayer
       let closeEyeAnimation = CABasicAnimation(keyPath: "path")
       closeEyeAnimation.duration = 0.2
       closeEyeAnimation.fillMode = kCAFillModeForwards
-      closeEyeAnimation.removedOnCompletion = false
+      closeEyeAnimation.isRemovedOnCompletion = false
       closeEyeAnimation.toValue = path
       
       let openEyeAnimation = CABasicAnimation(keyPath: "path")
       openEyeAnimation.beginTime = 0.9
       openEyeAnimation.duration = 0.1
       openEyeAnimation.fillMode = kCAFillModeForwards
-      openEyeAnimation.removedOnCompletion = false
+      openEyeAnimation.isRemovedOnCompletion = false
       openEyeAnimation.toValue = startingPath
       
       animationGroup.animations = [closeEyeAnimation, openEyeAnimation]
       
       animationGroup.delegate = self
-      _eyeLayer.addAnimation(animationGroup, forKey: "eyeAnimation")
+      _eyeLayer.add(animationGroup, forKey: "eyeAnimation")
    }
    
-   internal override func animationDidStop(anim: CAAnimation, finished flag: Bool)
+   internal override func animationDidStop(_ anim: CAAnimation, finished flag: Bool)
    {
       self._currentlyAnimating = false
    }

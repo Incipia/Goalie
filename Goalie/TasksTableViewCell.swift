@@ -10,33 +10,33 @@ import UIKit
 
 protocol TasksTableViewCellDelegate: class
 {
-   func taskCellBeganEditing(cell: TasksTableViewCell, plusButtonPressed: Bool)
-   func textFieldShouldEndEditing(cell: TasksTableViewCell, forTask task: Task?) -> Bool
-   func taskCellFinishedEditing(cell: TasksTableViewCell, forTask task: Task?)
-   func titleTextFieldShouldReturnForCell(cell: TasksTableViewCell) -> Bool
-   func returnKeyTypeForCell(cell: TasksTableViewCell) -> UIReturnKeyType
+   func taskCellBeganEditing(_ cell: TasksTableViewCell, plusButtonPressed: Bool)
+   func textFieldShouldEndEditing(_ cell: TasksTableViewCell, forTask task: Task?) -> Bool
+   func taskCellFinishedEditing(_ cell: TasksTableViewCell, forTask task: Task?)
+   func titleTextFieldShouldReturnForCell(_ cell: TasksTableViewCell) -> Bool
+   func returnKeyTypeForCell(_ cell: TasksTableViewCell) -> UIReturnKeyType
    
-   func disclosureButtonPressedForTask(task: Task)
-   func completeButtonPressedForCell(cell: TasksTableViewCell, task: Task)
+   func disclosureButtonPressedForTask(_ task: Task)
+   func completeButtonPressedForCell(_ cell: TasksTableViewCell, task: Task)
 }
 
 class TasksTableViewCell: UITableViewCell
 {
-   private let _incompletedButtonTitle = "○"
-   private let _completedButtonTitle = "◉"
-   private let _plusButtonTitle = "+"
-   private var _plusButtonWasPressed = false
+   fileprivate let _incompletedButtonTitle = "○"
+   fileprivate let _completedButtonTitle = "◉"
+   fileprivate let _plusButtonTitle = "+"
+   fileprivate var _plusButtonWasPressed = false
    
-   private weak var _task: Task?
+   fileprivate weak var _task: Task?
    
-   @IBOutlet weak private var _textField: UITextField!
-   @IBOutlet weak private var _leftButton: UIButton!
-   @IBOutlet weak private var _leftBar: UIView!
-   @IBOutlet weak private var _disclosureButton: UIButton!
-   @IBOutlet weak private var _topSeparator: UIView!
-   @IBOutlet weak private var _bottomSeparator: UIView!
+   @IBOutlet weak fileprivate var _textField: UITextField!
+   @IBOutlet weak fileprivate var _leftButton: UIButton!
+   @IBOutlet weak fileprivate var _leftBar: UIView!
+   @IBOutlet weak fileprivate var _disclosureButton: UIButton!
+   @IBOutlet weak fileprivate var _topSeparator: UIView!
+   @IBOutlet weak fileprivate var _bottomSeparator: UIView!
    
-   private var _appearanceUpdater: TaskCellAppearanceUpdater!
+   fileprivate var _appearanceUpdater: TaskCellAppearanceUpdater!
    weak var delegate: TasksTableViewCellDelegate?
    
    var titleText: String {
@@ -54,13 +54,13 @@ class TasksTableViewCell: UITableViewCell
       
       _appearanceUpdater = TaskCellAppearanceUpdater(delegate: self)
       _textField.delegate = self
-      _textField.userInteractionEnabled = false
-      _disclosureButton.setImage(nil, forState: .Normal)
+      _textField.isUserInteractionEnabled = false
+      _disclosureButton.setImage(nil, for: UIControlState())
    }
    
    func startEditing()
    {
-      _textField.userInteractionEnabled = true
+      _textField.isUserInteractionEnabled = true
       _textField.becomeFirstResponder()
    }
    
@@ -69,28 +69,28 @@ class TasksTableViewCell: UITableViewCell
       _textField.resignFirstResponder()
    }
    
-   func updateSeparatorsAndLeftBarLayerMaskWithTask(task: Task, dataProvider: TasksDataProvider)
+   func updateSeparatorsAndLeftBarLayerMaskWithTask(_ task: Task, dataProvider: TasksDataProvider)
    {
       var shouldShowTopSeparator = true
       var shouldShowBottomSeparator = true
       
-      var roundedCornerMask: CornerRoundingMask = .None
+      var roundedCornerMask: CornerRoundingMask = .none
       if dataProvider.taskIsFirst(task) {
          shouldShowTopSeparator = false
-         roundedCornerMask = .Top
+         roundedCornerMask = .top
       }
       if dataProvider.taskIsLast(task) {
          shouldShowBottomSeparator = false
-         roundedCornerMask = .Bottom
+         roundedCornerMask = .bottom
       }
       if dataProvider.taskIsOnlyTask(task) {
          shouldShowTopSeparator = false
          shouldShowBottomSeparator = false
-         roundedCornerMask = .All
+         roundedCornerMask = .all
       }
       
-      _topSeparator.hidden = !shouldShowTopSeparator
-      _bottomSeparator.hidden = !shouldShowBottomSeparator
+      _topSeparator.isHidden = !shouldShowTopSeparator
+      _bottomSeparator.isHidden = !shouldShowBottomSeparator
       
       _leftBar.roundCorners(roundedCornerMask)
    }
@@ -103,19 +103,19 @@ class TasksTableViewCell: UITableViewCell
    
    internal func _completeButtonPressed()
    {
-      if let task = _task where !editing {
+      if let task = _task, !isEditing {
          delegate?.completeButtonPressedForCell(self, task: task)
       }
    }
    
-   @IBAction private func _disclosureButtonPressed()
+   @IBAction fileprivate func _disclosureButtonPressed()
    {
-      if let task = _task where !editing {
-         if task.priority != .Unknown {
+      if let task = _task, !isEditing {
+         if task.priority != .unknown {
             delegate?.disclosureButtonPressedForTask(task)
          }
-         else if _textField.editing {
-            task.priority = .Ages
+         else if _textField.isEditing {
+            task.priority = .ages
             delegate?.disclosureButtonPressedForTask(task)
          }
       }
@@ -124,28 +124,28 @@ class TasksTableViewCell: UITableViewCell
 
 extension TasksTableViewCell: UITextFieldDelegate
 {
-   func textFieldShouldBeginEditing(textField: UITextField) -> Bool
+   func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool
    {
       return true
    }
    
-   func textFieldDidBeginEditing(textField: UITextField)
+   func textFieldDidBeginEditing(_ textField: UITextField)
    {
       _updateDisclosureButtonTitle()
       delegate?.taskCellBeganEditing(self, plusButtonPressed: _plusButtonWasPressed)
-      _textField.returnKeyType = delegate?.returnKeyTypeForCell(self) ?? .Next
+      _textField.returnKeyType = delegate?.returnKeyTypeForCell(self) ?? .next
       _updateLeftButtonTitle()
    }
    
-   func textFieldDidEndEditing(textField: UITextField)
+   func textFieldDidEndEditing(_ textField: UITextField)
    {
       _updateDisclosureButtonTitle()
       _task?.title = _textField.text ?? "This shouldn't happen!"
-      _disclosureButton.hidden = false
+      _disclosureButton.isHidden = false
       delegate?.taskCellFinishedEditing(self, forTask: _task)
    }
    
-   func textFieldShouldReturn(textField: UITextField) -> Bool
+   func textFieldShouldReturn(_ textField: UITextField) -> Bool
    {
       _updateLeftButtonTitle()
       
@@ -153,16 +153,16 @@ extension TasksTableViewCell: UITextFieldDelegate
       return delegate?.titleTextFieldShouldReturnForCell(self) ?? true
    }
 
-   func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool
+   func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
    {
-      _disclosureButton.hidden = textField.text == ""
+      _disclosureButton.isHidden = textField.text == ""
       if string != "" {
-         _disclosureButton.hidden = false
+         _disclosureButton.isHidden = false
       }
       return true
    }
    
-   func  textFieldShouldEndEditing(textField: UITextField) -> Bool
+   func  textFieldShouldEndEditing(_ textField: UITextField) -> Bool
    {
       return delegate?.textFieldShouldEndEditing(self, forTask: _task) ?? true
    }
@@ -170,7 +170,7 @@ extension TasksTableViewCell: UITextFieldDelegate
 
 extension TasksTableViewCell: ConfigurableCell
 {
-   func configureForObject(task: Task, atIndexPath indexPath: NSIndexPath)
+   func configureForObject(_ task: Task, atIndexPath indexPath: IndexPath)
    {
       _task = task
       
@@ -179,9 +179,9 @@ extension TasksTableViewCell: ConfigurableCell
       _updateLeftButtonSelector()
       
       _appearanceUpdater.updateTask(task)
-      _appearanceUpdater.updateProperty(.Alpha, forComponents: [.LeftBar, .LeftButton, .TextField, .DisclosureButton])
-      _appearanceUpdater.updateProperty(.Color, forComponents: [.LeftBar, .LeftButton])
-      _appearanceUpdater.updateProperty(.Hidden, forComponents: [.DisclosureButton])
+      _appearanceUpdater.updateProperty(.alpha, forComponents: [.leftBar, .leftButton, .textField, .disclosureButton])
+      _appearanceUpdater.updateProperty(.color, forComponents: [.leftBar, .leftButton])
+      _appearanceUpdater.updateProperty(.hidden, forComponents: [.disclosureButton])
       
       _plusButtonWasPressed = false
    }
@@ -189,40 +189,40 @@ extension TasksTableViewCell: ConfigurableCell
 
 extension TasksTableViewCell
 {
-   private func _updateTextFieldForTask(task: Task)
+   fileprivate func _updateTextFieldForTask(_ task: Task)
    {
       _textField.text = task.title
-      _textField.userInteractionEnabled = task.title != ""
+      _textField.isUserInteractionEnabled = task.title != ""
    }
    
-   private func _updateLeftButtonTitle()
+   fileprivate func _updateLeftButtonTitle()
    {
       if let task = _task {
          var buttonTitle = task.completed ? _completedButtonTitle : _incompletedButtonTitle
          buttonTitle = task.title == "" ? _plusButtonTitle : buttonTitle
          
          let buttonFontSize: CGFloat = task.title == "" ? 30 : 20
-         let newFont = UIFont.systemFontOfSize(buttonFontSize)
+         let newFont = UIFont.systemFont(ofSize: buttonFontSize)
          let attributedTitle = NSAttributedString(string: buttonTitle,
             attributes: [NSFontAttributeName : newFont])
          
          UIView.setAnimationsEnabled(false)
 //         _leftButton.setTitle(buttonTitle, forState: .Normal)
-         _leftButton.setAttributedTitle(attributedTitle, forState: .Normal)
+         _leftButton.setAttributedTitle(attributedTitle, for: UIControlState())
          _leftButton.layoutIfNeeded()
          UIView.setAnimationsEnabled(true);
       }
    }
    
-   private func _updateDisclosureButtonTitle()
+   fileprivate func _updateDisclosureButtonTitle()
    {
-      let disclosureButtonImage: UIImage? = _textField.editing ? UIImage(named: "arrow")! : nil
+      let disclosureButtonImage: UIImage? = _textField.isEditing ? UIImage(named: "arrow")! : nil
       UIView.setAnimationsEnabled(false)
-      _disclosureButton.setImage(disclosureButtonImage, forState: .Normal)
+      _disclosureButton.setImage(disclosureButtonImage, for: UIControlState())
       UIView.setAnimationsEnabled(true);
    }
    
-   private func _updateLeftButtonSelector()
+   fileprivate func _updateLeftButtonSelector()
    {
       if let task = _task {
          let selector = task.title == "" ? "_plusButtonPressed" : "_completeButtonPressed"
@@ -233,21 +233,21 @@ extension TasksTableViewCell
 
 extension TasksTableViewCell: TaskCellAppearanceDelegate
 {
-   func viewForComponent(component: TaskCellComponent) -> UIView?
+   func viewForComponent(_ component: TaskCellComponent) -> UIView?
    {
       var control: UIView?
       switch component
       {
-      case .LeftBar:
+      case .leftBar:
          control = _leftBar
          break
-      case .LeftButton:
+      case .leftButton:
          control = _leftButton as UIView
          break
-      case .TextField:
+      case .textField:
          control = _textField as UIView
          break
-      case .DisclosureButton:
+      case .disclosureButton:
          control = _disclosureButton as UIView
          break
       }

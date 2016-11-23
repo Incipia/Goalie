@@ -15,20 +15,20 @@ class CharacterView: UIView
    @IBOutlet internal var centerYConstraint: NSLayoutConstraint!
    @IBOutlet internal var containerView: UIView!
    
-   private(set) var character: GoalieCharacter = .Unknown
-   internal var _currentPriority: TaskPriority = .Unknown
+   fileprivate(set) var character: GoalieCharacter = .unknown
+   internal var _currentPriority: TaskPriority = .unknown
    internal var _faceLayer = CharacterFaceLayer()
    
    override func awakeFromNib()
    {
       super.awakeFromNib()
       
-      backgroundColor = UIColor.clearColor()
-      containerView.backgroundColor = UIColor.clearColor()
+      backgroundColor = UIColor.clear
+      containerView.backgroundColor = UIColor.clear
    }
    
    // MARK: - Public
-   func updateCharacter(character: GoalieCharacter)
+   func updateCharacter(_ character: GoalieCharacter)
    {
       if self.character != character
       {
@@ -40,7 +40,7 @@ class CharacterView: UIView
       }
    }
    
-   func updateWithPriority(priority: TaskPriority)
+   func updateWithPriority(_ priority: TaskPriority)
    {
       _currentPriority = priority
       
@@ -53,18 +53,18 @@ class CharacterView: UIView
       _faceLayer.animateForPriority(_currentPriority)
    }
    
-   func adjustAnchorPoint(point: CGPoint)
+   func adjustAnchorPoint(_ point: CGPoint)
    {
       let oldOrigin = containerView.frame.origin
       containerView.layer.anchorPoint = point
       let newOrigin = containerView.frame.origin
       
-      let transition = CGPointMake (newOrigin.x - oldOrigin.x, newOrigin.y - oldOrigin.y)
+      let transition = CGPoint (x: newOrigin.x - oldOrigin.x, y: newOrigin.y - oldOrigin.y)
       centerYConstraint.constant -= transition.y
    }
    
    // MARK: - Private
-   private func _updateFaceLayerWithCharacter(c: GoalieCharacter)
+   fileprivate func _updateFaceLayerWithCharacter(_ c: GoalieCharacter)
    {
       _faceLayer.reset()
       _faceLayer = FaceLayerFactory.layerForCharacter(c)
@@ -73,7 +73,7 @@ class CharacterView: UIView
       layer.addSublayer(_faceLayer)
    }
    
-   private func _updateConstraintsWithCharacter(c: GoalieCharacter)
+   fileprivate func _updateConstraintsWithCharacter(_ c: GoalieCharacter)
    {
       let newSize = CGSize(character: c)
       widthConstraint.constant = newSize.width
@@ -81,7 +81,7 @@ class CharacterView: UIView
    }
    
    // MARK: - Overridden
-   override func drawRect(rect: CGRect)
+   override func draw(_ rect: CGRect)
    {
       character.drawRect(rect, withPriority: _currentPriority)
    }
