@@ -65,6 +65,13 @@ open class TasksDataProvider: NSObject, NSFetchedResultsControllerDelegate
       try! tasksFRC.performFetch()
    }
    
+   var tasksASAP: [Task] {
+      let allIncTasks = incompletedTasks()
+      return allIncTasks.filter {
+         $0.priority == .asap
+      }
+   }
+   
    func updateFetchRequest()
    {
       NSFetchedResultsController<NSFetchRequestResult>.deleteCache(withName: tasksFRC.cacheName)
@@ -228,6 +235,7 @@ open class TasksDataProvider: NSObject, NSFetchedResultsControllerDelegate
       }
       return avgPriority
    }
+   
 }
 
 extension TasksDataProvider

@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
    fileprivate var _mainTasksViewController: MainTasksViewController!
    fileprivate var _onboardingViewController: OnboardingViewController!
    fileprivate let _onboardingTransitionManager = OnboardingTransitionManager()
-
+   
    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool
    {
       Fabric.with([Crashlytics.self])
@@ -38,12 +38,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate
       
       GoalieSettingsManager.setFirstTimeAppOpenedIfNecessary(Date())
       
-//      CharacterManager.lockAllCharactersExceptForGoalie()
-//      CharacterManager.updateCurrentCharacter(.Goalie)
-//      AccessoryPackManager.lockAllAccessoryPacks()
+      //      CharacterManager.lockAllCharactersExceptForGoalie()
+      //      CharacterManager.updateCurrentCharacter(.Goalie)
+      //      AccessoryPackManager.lockAllAccessoryPacks()
       
-//      CharacterManager.unlockAllCharacters()
-//      AccessoryPackManager.unlockAllAccessoryPacks()
+      //      CharacterManager.unlockAllCharacters()
+      //      AccessoryPackManager.unlockAllAccessoryPacks()
       
       _moc = createGoalieMainContext()
       _setupMainTasksViewControllerWithMOC(_moc)
@@ -65,12 +65,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate
          }
          _setupMainWindowWithViewController(_onboardingViewController)
       }
-   
-//      do {
-//         try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryMultiRoute, withOptions: .MixWithOthers)
-//      }
-//      catch _ as NSError {
-//      }
+      
+      //      do {
+      //         try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryMultiRoute, withOptions: .MixWithOthers)
+      //      }
+      //      catch _ as NSError {
+      //      }
       
       return true
    }
@@ -82,6 +82,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate
          _mainTasksViewController.showSpeechBubble()
          _mainTasksViewController.startGoalieMovement()
       }
+      
+      let provider = TasksDataProvider(managedObjectContext: _moc)
+      let asapTasks = provider.tasksASAP
+      let count = asapTasks.count
+      print("Num ASAP Tasks: \(count)")
    }
    
    func applicationWillResignActive(_ application: UIApplication)
@@ -96,29 +101,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate
    
    fileprivate func _setupStoreKit()
    {
-      MKStoreKit.shared().startProductRequest()      
+      MKStoreKit.shared().startProductRequest()
       NotificationCenter.default.addObserver(forName: NSNotification.Name.mkStoreKitProductsAvailable,
-         object: nil, queue: OperationQueue.main) { (note) -> Void in
-            
-            for product in MKStoreKit.shared().availableProducts {
-               if let item = product as? SKProduct {
-                  print("Available: \(item.productIdentifier) - purchased: \(MKStoreKit.shared().isProductPurchased(item.productIdentifier))")
-               }
-            }
-            
-//            MKStoreKit.sharedKit().refreshAppStoreReceipt()
+                                             object: nil, queue: OperationQueue.main) { (note) -> Void in
+                                                
+                                                for product in MKStoreKit.shared().availableProducts {
+                                                   if let item = product as? SKProduct {
+                                                      print("Available: \(item.productIdentifier) - purchased: \(MKStoreKit.shared().isProductPurchased(item.productIdentifier))")
+                                                   }
+                                                }
+                                                
+                                                //            MKStoreKit.sharedKit().refreshAppStoreReceipt()
       }
       
       let notificationName = NSNotification.Name.mkStoreKitProductPurchased
       NotificationCenter.default.addObserver(forName: notificationName,
-         object: nil, queue: OperationQueue.main) { (note) -> Void in
-            
-            guard let id = note.object as? String else { return }
-            
-            if let character = GoalieCharacter.characterForPurchaseID(id) {
-               CharacterManager.unlockCharacter(character)
-               CharacterManager.updateCurrentCharacter(character)
-            }
+                                             object: nil, queue: OperationQueue.main) { (note) -> Void in
+                                                
+                                                guard let id = note.object as? String else { return }
+                                                
+                                                if let character = GoalieCharacter.characterForPurchaseID(id) {
+                                                   CharacterManager.unlockCharacter(character)
+                                                   CharacterManager.updateCurrentCharacter(character)
+                                                }
       }
    }
    
@@ -165,7 +170,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
       window?.rootViewController = controller
       window?.makeKeyAndVisible()
    }
-
+   
    fileprivate func _startTimerForAutoIncrementingTasksPriorities()
    {
       guard _updateTaskPrioritiesTimer == nil else {return}
@@ -204,8 +209,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate
       _mainTasksViewController.hideSpeechBubble()
    }
    
-   internal func _updateTaskPriorities(_ timer: Timer)
-   {
+   internal func _updateTaskPriorities(_ timer: Timer) {
+      _updateTaskPrioritiesIfNecessary()
+   }
+   
+   fileprivate func _updateTaskPrioritiesIfNecessary() {
       if GoalieSettingsManager.manuallySwitchPriority == false {
          _taskPriorityUpdater.updateTaskPriorities()
       }
