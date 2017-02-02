@@ -18,9 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 {
    var window: UIWindow?
    fileprivate var _moc: NSManagedObjectContext! {
-      didSet {
-         _taskPriorityUpdater = TaskPriorityUpdater(managedObjectContext: _moc)
-      }
+      didSet { _taskPriorityUpdater = TaskPriorityUpdater(managedObjectContext: _moc) }
    }
    
    fileprivate var _taskPriorityUpdater: TaskPriorityUpdater!

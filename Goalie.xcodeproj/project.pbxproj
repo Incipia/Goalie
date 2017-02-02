@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D0E55A51E43C5E500739DA3 /* LocalNotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0E55A41E43C5E500739DA3 /* LocalNotificationsManager.swift */; };
 		CE0100721CA9C41200DFE513 /* WorkClockAccessoryKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0100711CA9C41200DFE513 /* WorkClockAccessoryKit.swift */; };
 		CE0100761CA9C46200DFE513 /* LampAccessoryKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0100751CA9C46200DFE513 /* LampAccessoryKit.swift */; };
 		CE0100781CA9C47F00DFE513 /* ComputerAccessoryKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0100771CA9C47F00DFE513 /* ComputerAccessoryKit.swift */; };
@@ -136,6 +137,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4D0E55A41E43C5E500739DA3 /* LocalNotificationsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocalNotificationsManager.swift; path = Goalie/LocalNotificationsManager.swift; sourceTree = "<group>"; };
 		CE0100711CA9C41200DFE513 /* WorkClockAccessoryKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WorkClockAccessoryKit.swift; path = PaintCode/WorkClockAccessoryKit.swift; sourceTree = "<group>"; };
 		CE0100751CA9C46200DFE513 /* LampAccessoryKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LampAccessoryKit.swift; path = PaintCode/LampAccessoryKit.swift; sourceTree = "<group>"; };
 		CE0100771CA9C47F00DFE513 /* ComputerAccessoryKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ComputerAccessoryKit.swift; path = PaintCode/ComputerAccessoryKit.swift; sourceTree = "<group>"; };
@@ -423,6 +425,7 @@
 				F342D1D41C473679006D758A /* OnboardingTransitionManager.swift */,
 				CEA3730A1CAB1A6E00697BBD /* CharacterManager.swift */,
 				CEB0BE791CAB5C2E005CF72A /* AccessoryPackManager.swift */,
+				4D0E55A41E43C5E500739DA3 /* LocalNotificationsManager.swift */,
 			);
 			name = "Managers and Updaters";
 			sourceTree = "<group>";
@@ -855,6 +858,7 @@
 				CE86B8671CA9AB65004B2895 /* ClockAccessoryKit.swift in Sources */,
 				CEA5A6FD1CADD68E007E8580 /* AccessoryPackUtils.swift in Sources */,
 				CEA373091CAA3EFD00697BBD /* PlopixKonamiGesture.swift in Sources */,
+				4D0E55A51E43C5E500739DA3 /* LocalNotificationsManager.swift in Sources */,
 				F38B551A1C3859050022453F /* GoalieKerningButton.swift in Sources */,
 				F38B551C1C3863000022453F /* TaskPriorityUpdater.swift in Sources */,
 				F3CEAC6F1C4063810047DD78 /* GoalieSpeechBubbleKit.swift in Sources */,

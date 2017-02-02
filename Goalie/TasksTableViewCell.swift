@@ -1,5 +1,5 @@
 //
-//  GoalsTableViewCell.swift
+//  TasksTableViewCell.swift
 //  Goalie
 //
 //  Created by Gregory Klein on 12/28/15.
