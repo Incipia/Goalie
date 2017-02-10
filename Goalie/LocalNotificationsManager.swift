@@ -36,21 +36,40 @@ class LocalNotificationsManager {
             UNUserNotificationCenter.current().add(request, withCompletionHandler: { (error) in
                if error != nil
                   { print("Successfully added a UNNotificationRequest for task: \(task.title)") } })
-            
-         } else {
-            // Non-iOS 10.0 Implementation
-         }
+         } else { print("No iOS 10.0!") }
       }
-      
-      
    }
    
-   func updateNotification(for task: Task) {
-      
+   // Called whenever the user modifies the Task's Priority
+   // 1) remove the scheduled UNNotification request
+   // 2) createNotification(task)
+   func updateNotification(for updateTask: Task) {
+      if #available(iOS 10.0, *) {
+         
+         let curr = UNUserNotificationCenter.current()
+         
+         curr.getPendingNotificationRequests(completionHandler: { (requests) in
+            for r in requests {
+               if r.identifier == updateTask.uuid {
+                  if let taskDurationToASAP = updateTask.priority.durationToASAP {
+                     let newTrigger = UNTimeIntervalNotificationTrigger(timeInterval: taskDurationToASAP, repeats: false)
+                     let newRequest = UNNotificationRequest(identifier: r.identifier, content: r.content, trigger: newTrigger)
+                     curr.removePendingNotificationRequests(withIdentifiers: [updateTask.uuid])
+                     curr.add(newRequest, withCompletionHandler: { (error) in
+                        if error != nil { print("Successfully added a UNNotificationRequest for task: \(updateTask.title)")}
+                     })
+                  }
+               }
+               else { print("Updated Task has an incorrect priority") }
+            }
+         })
+      } else { print("No iOS 10.0!") }
    }
    
-   func deleteNotification(for task: Task) {
    
-   }
+   // Remove the Notification associated with the supplied task
+//   func deleteNotification(for task: Task) {
+//   
+//   }
    
 }
