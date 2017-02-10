@@ -83,7 +83,7 @@ extension AccessoryPack
    var unlockedMessageText: String {
       switch self {
       case .home: return "You've created five tasks! Now furnish your pad with the Home accessory pack. You can change and add furniture in the edit menu."
-      case .work: return "Way to keep at it. Stay energized with the Work accessory pack. You can change an add furniture in the edit menu."
+      case .work: return "Way to keep at it. Stay energized with the Work accessory pack. You can change and add furniture in the edit menu."
       case .gym: return "Breaking a sweat getting things done? Refuel with the Gym accessory pack. You can change an add furniture in the edit menu."
       case .none: return "Fuck this shit."
       }

@@ -38,6 +38,8 @@ class MainTasksViewController: UIViewController, ManagedObjectContextSettable
    fileprivate var _tableViewDataProvider: DataProvider!
    fileprivate var _tableViewDelegate: TableViewDelegate<DataProvider, MainTasksViewController>!
    
+   fileprivate var _notificationsManager = LocalNotificationsManager() // 
+   
    fileprivate var _tableViewTasksFRC: NSFetchedResultsController<NSFetchRequestResult> {
       
       let fr = DefaultTasksFetchRequestProvider.fetchRequest

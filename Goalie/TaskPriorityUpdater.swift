@@ -40,6 +40,16 @@ extension TaskPriority
       }
    }
    
+   var durationToASAP: TimeInterval? {
+      guard self != .unknown else { return nil }
+      guard let duration = duration else { return 0 }
+      return followingPriorities.reduce(duration, { (sum, taskPriority) -> TimeInterval in
+         let dur = taskPriority.duration ?? 0
+         return sum + dur
+      })
+      
+   }
+   
    var testDuration: TimeInterval? {
       switch self {
       case .asap: return nil
